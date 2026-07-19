@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="description" content="faham —— 一个非营利、非政党的马来西亚公民事实档案。在时间里穿行，看政策如何发生。">
+<title>faham · 在时间里看见政策</title>
+<style>
+  /* ══════ 主题：明亮＝档案馆　暗色＝观测台 ══════ */
+  :root, :root[data-theme="light"] {
+    --bg:        #f7f5f0;      /* 暖白纸 */
+    --bg-2:      #efece4;
+    --surface:   #fffdf9;
+    --ink:       #1e1c18;
+    --ink-2:     #55514a;
+    --ink-3:     #8b857a;
+    --line:      rgba(30,28,24,.13);
+    --hair:      rgba(30,28,24,.07);
+    --axis:      rgba(30,28,24,.20);
+    --t-subsidy: #b8770a;
+    --t-tax:     #0f8073;
+    --t-cost:    #bb3d58;
+    --t-vote:    #5b4bc4;
+    --t-graft:   #2b6fb0;
+    --halo-op:   .16;
+    --dot-glow:  0 0 0 1px rgba(255,255,255,.7), 0 1px 6px rgba(30,28,24,.18);
+    --card-sh:   0 18px 50px -12px rgba(30,28,24,.26), 0 2px 10px rgba(30,28,24,.08);
+    --glass:     rgba(255,253,249,.82);
+    --amb-1:     rgba(184,119,10,.05);
+    --amb-2:     rgba(43,111,176,.05);
+  }
+  :root[data-theme="dark"] {
+    --bg:        #07080a;      /* 深空 */
+    --bg-2:      #0d0f12;
+    --surface:   rgba(18,20,25,.9);
+    --ink:       #f2f4f6;
+    --ink-2:     #a8b0ba;
+    --ink-3:     #6b7480;
+    --line:      rgba(255,255,255,.10);
+    --hair:      rgba(255,255,255,.06);
+    --axis:      rgba(255,255,255,.17);
+    --t-subsidy: #f0a830;
+    --t-tax:     #35d0c0;
+    --t-cost:    #f2637f;
+    --t-vote:    #9b8cf5;
+    --t-graft:   #6cb6ff;
+    --halo-op:   .34;
+    --dot-glow:  0 0 10px var(--c), 0 0 22px color-mix(in srgb, var(--c) 55%, transparent);
+    --card-sh:   0 24px 60px -14px rgba(0,0,0,.7);
+    --glass:     rgba(16,18,22,.86);
+    --amb-1:     rgba(60,90,140,.15);
+    --amb-2:     rgba(120,70,130,.11);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; height:100%; overflow:hidden; background: var(--bg); color: var(--ink);
+    font-family: -apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+    -webkit-font-smoothing: antialiased; transition: background .5s ease, color .5s ease; }
+  body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background: radial-gradient(1000px 620px at 26% 40%, var(--amb-1), transparent 64%),
+                radial-gradient(820px 520px at 82% 64%, var(--amb-2), transparent 64%); }
+  :root { --serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",Georgia,serif;
+          --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+
+  /* 画布上的文字禁止选中：否则点击标题会变成「划词选中」，导致被判为拖拽而不展开卡片。
+     卡片内部单独恢复可选，以便复制引文与来源。 */
+  #stage, #layer, #bar, #mini, #ruler, #hint { user-select:none; -webkit-user-select:none; }
+  #card, #card * { user-select:text; -webkit-user-select:text; }
+  #stage { position:fixed; inset:0; z-index:1; cursor:grab; touch-action:none; overscroll-behavior:none; }
+  #stage.dragging { cursor:grabbing; }
+  #layer { position:absolute; left:0; top:0; will-change:transform; z-index:3; }
+
+  #axisLine { position:fixed; left:0; right:0; height:1px; z-index:2; pointer-events:none;
+    background: linear-gradient(to right, transparent, var(--axis) 7%, var(--axis) 93%, transparent); }
+  .edge { position:fixed; top:0; bottom:0; width:120px; z-index:6; pointer-events:none; }
+  .edge.l { left:0;  background: linear-gradient(to right, var(--bg) 6%, transparent); }
+  .edge.r { right:0; background: linear-gradient(to left,  var(--bg) 6%, transparent); }
+
+  /* ══════ 刻度 ══════ */
+  .tk { position:absolute; width:1px; background: linear-gradient(to bottom, transparent, var(--hair) 20%, var(--hair) 80%, transparent); }
+  .tk.era { background: linear-gradient(to bottom, transparent, var(--line) 16%, var(--line) 84%, transparent); }
+  .eraCap { position:absolute; font-family:var(--mono); font-weight:300; white-space:nowrap;
+    transform:translateX(-50%); color:var(--ink); opacity:.07; letter-spacing:.2em; }
+  #ruler { position:fixed; left:0; right:0; bottom:46px; height:16px; z-index:12; pointer-events:none; overflow:hidden; }
+  #ruler span { position:absolute; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
+    color:var(--ink-3); transform:translateX(-50%); white-space:nowrap; }
+
+  /* ══════ 光点 ══════ */
+  .node { position:absolute; transform:translate(-50%,-50%); transition:opacity .45s ease; }
+  .halo { position:absolute; left:50%; top:50%; border-radius:50%; transform:translate(-50%,-50%);
+    pointer-events:none; background:radial-gradient(circle, var(--c) 0%, transparent 68%);
+    opacity:var(--halo-op); filter:blur(7px);
+    animation:breathe var(--dur) ease-in-out infinite alternate; animation-delay:var(--delay); }
+  @keyframes breathe { from{transform:translate(-50%,-50%) scale(.85)} to{transform:translate(-50%,-50%) scale(1.15)} }
+  .dot { position:absolute; left:50%; top:50%; border-radius:50%; transform:translate(-50%,-50%);
+    background:var(--c); box-shadow:var(--dot-glow); pointer-events:none;
+    transition:transform .34s cubic-bezier(.22,.9,.28,1); }
+  /* 透明热区：光点本身太小，点击判定放大到 38px */
+  .hit { position:absolute; left:50%; top:50%; width:38px; height:38px; margin:-19px 0 0 -19px;
+    border-radius:50%; cursor:pointer; }
+  .ring { position:absolute; left:50%; top:50%; border-radius:50%; transform:translate(-50%,-50%) scale(.55);
+    border:1px solid var(--c); opacity:0; pointer-events:none;
+    transition:transform .44s cubic-bezier(.22,.9,.28,1), opacity .44s ease; }
+  .node:hover .dot, .node.sel .dot { transform:translate(-50%,-50%) scale(1.5); }
+  .node:hover .ring, .node.sel .ring { opacity:.6; transform:translate(-50%,-50%) scale(1); }
+  .node.sel .ring { opacity:.9; }
+  .node.dim { opacity:.2; }
+
+  .lab { position:absolute; left:50%; width:190px; margin-left:-95px; pointer-events:none;
+    opacity:0; transition:opacity .4s ease; text-align:center; }
+  .lab.show { pointer-events:auto; cursor:pointer; }   /* 标题也可点开卡片 */
+  .lab.show, .node:hover .lab { opacity:1; }
+  .lab .stem { position:absolute; left:50%; width:1px; opacity:.4; }
+  .lab .d { display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.1em; color:var(--ink-3); margin-bottom:2px; }
+  .lab .t { font-family:var(--serif); font-size:14px; font-weight:600; color:var(--ink-2); line-height:1.34;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; transition:color .3s ease; }
+  .node:hover .lab .t, .node.sel .lab .t { color:var(--ink); }
+  .lab .meta { display:block; font-size:9.5px; color:var(--ink-3); margin-top:3px; letter-spacing:.06em; }
+
+  /* ══════ 详情卡：从光点向下展开 ══════ */
+  #card { position:absolute; width:430px; margin-left:-215px; z-index:30;
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--card-sh);
+    backdrop-filter:blur(20px); overflow:hidden; display:none;
+    transform-origin:top center; }
+  #card.on { display:block; animation:bloom .5s cubic-bezier(.19,1,.22,1); }
+  @keyframes bloom { from{opacity:0; transform:translateY(-10px) scaleY(.94)} to{opacity:1; transform:none} }
+  #card .stemUp { position:absolute; left:50%; top:-22px; width:1px; height:22px;
+    background:linear-gradient(transparent, var(--c)); opacity:.6; }
+  #cardScroll { max-height:min(60vh,560px); overflow-y:auto; overscroll-behavior:contain;
+    padding:20px 22px 22px; touch-action:pan-y; }
+  #cardScroll::-webkit-scrollbar { width:6px; }
+  #cardScroll::-webkit-scrollbar-thumb { background:var(--line); border-radius:3px; }
+  .cClose { position:absolute; right:10px; top:10px; width:26px; height:26px; border-radius:50%;
+    border:1px solid var(--line); background:var(--bg-2); color:var(--ink-3); cursor:pointer; font-size:12px; z-index:2; }
+  .cClose:hover { color:var(--ink); }
+  .c-date { font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; color:var(--c); margin-bottom:7px; }
+  .c-title { font-family:var(--serif); font-size:21px; font-weight:700; line-height:1.38; margin:0 0 12px; padding-right:26px; }
+  .c-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:18px; }
+  .c-tags span { font-size:10px; color:var(--ink-2); border:1px solid var(--line); border-radius:99px; padding:3px 9px; }
+  .c-tags span.st { border-color:color-mix(in srgb, var(--c) 45%, transparent); color:var(--c); }
+  /* 每节以细分隔线断开，节奏统一 */
+  .sec { margin:0; padding:15px 0 0; border-top:1px solid var(--hair); margin-top:15px; }
+  .sec:first-of-type { border-top:none; margin-top:0; padding-top:0; }
+  .sec h4 { font-size:9.5px; font-weight:700; letter-spacing:.18em; color:var(--ink-3); margin:0 0 9px; }
+  .sec p { margin:0; font-size:13px; line-height:1.75; color:var(--ink-2); }
+  .step { display:flex; gap:12px; font-size:12px; color:var(--ink-2); padding:3px 0; position:relative; align-items:flex-start; }
+  .step .sd { font-family:var(--mono); font-size:10px; color:var(--ink-3); min-width:72px; padding-top:2px; flex:none; }
+  .step .sb { position:relative; padding-left:15px; line-height:1.6; }
+  .step .sb::before { content:""; position:absolute; left:0; top:6px; width:5px; height:5px; border-radius:50%;
+    background:var(--ink-3); opacity:.55; }
+  .step:last-child .sb::before { background:var(--c); opacity:1; }
+  .step:last-child .sb { color:var(--ink); font-weight:500; }
+  .claim { border-left:2px solid; padding:2px 0 2px 12px; margin-bottom:12px; }
+  .claim:last-child { margin-bottom:0; }
+  .claim.for{border-color:color-mix(in srgb,var(--t-tax) 65%,transparent)}
+  .claim.against{border-color:color-mix(in srgb,var(--t-cost) 65%,transparent)}
+  .claim.neutral{border-color:var(--line)}
+  .claim .who { font-size:9.5px; letter-spacing:.1em; margin-bottom:4px; }
+  .claim.for .who{color:var(--t-tax)} .claim.against .who{color:var(--t-cost)} .claim.neutral .who{color:var(--ink-3)}
+  .claim .tx { font-size:12.5px; line-height:1.7; color:var(--ink-2); }
+  .claim .sr { font-size:10.5px; margin-top:5px; }
+  a { color:var(--ink-3); text-decoration:none; border-bottom:1px solid var(--line); transition:color .25s,border-color .25s; }
+  a:hover { color:var(--c); border-color:var(--c); }
+  .imp { display:flex; gap:10px; font-size:12px; padding:6px 0; border-bottom:1px solid var(--hair); }
+  .imp:last-of-type{border-bottom:none}
+  .imp .k { color:var(--ink-3); min-width:58px; }
+  .imp .v { color:var(--ink-2); }
+  .imp .v em { display:block; font-style:normal; font-size:10px; color:var(--ink-3); margin-top:2px; }
+  .note { font-size:11px; line-height:1.66; color:var(--t-subsidy); background:color-mix(in srgb,var(--t-subsidy) 9%,transparent);
+    border-radius:7px; padding:8px 10px; margin-top:8px; }
+  .srcs { list-style:none; margin:0; padding:0; }
+  .srcs li { font-size:11.5px; padding:3px 0; }
+
+  /* 图片位 */
+  .figs { display:flex; flex-direction:column; gap:9px; }
+  .fig { border:1px solid var(--line); border-radius:9px; overflow:hidden; background:var(--bg-2); }
+  .fig .ph { height:126px; display:flex; align-items:center; justify-content:center; gap:7px;
+    color:var(--ink-3); font-size:11px; letter-spacing:.05em;
+    background:repeating-linear-gradient(135deg, transparent 0 9px, var(--hair) 9px 10px); }
+  .fig img { width:100%; display:block; }
+  .fig .cap { font-size:10.5px; color:var(--ink-3); padding:7px 10px; line-height:1.55; border-top:1px solid var(--hair); }
+
+  /* 讨论位 */
+  .disc { border-top:1px solid var(--line); margin-top:4px; padding-top:15px; }
+  .disc .dh { display:flex; align-items:baseline; gap:8px; margin-bottom:10px; }
+  .disc .dh b { font-size:12px; font-weight:600; }
+  .disc .dh em { font-style:normal; font-size:9.5px; color:var(--ink-3); letter-spacing:.06em; }
+  .cm { padding:9px 0; border-bottom:1px solid var(--hair); }
+  .cm:last-of-type{border-bottom:none}
+  .cm .top { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+  .badge { font-size:9px; font-weight:700; border-radius:4px; padding:1px 6px; letter-spacing:.03em; }
+  .badge.guest   { background:var(--bg-2); color:var(--ink-3); border:1px solid var(--line); }
+  .badge.verified{ background:color-mix(in srgb,var(--t-graft) 15%,transparent); color:var(--t-graft); }
+  .badge.trusted { background:color-mix(in srgb,var(--t-tax) 15%,transparent); color:var(--t-tax); }
+  .cm .who2 { font-size:10.5px; color:var(--ink-3); }
+  .cm .body { font-size:12px; line-height:1.68; color:var(--ink-2); }
+  .composer { margin-top:11px; border:1px dashed var(--line); border-radius:9px; padding:10px 12px;
+    font-size:11px; color:var(--ink-3); line-height:1.6; }
+  .composer b { color:var(--ink-2); font-weight:600; }
+
+  /* ══════ 界面外壳 ══════ */
+  #bar { position:fixed; top:0; left:0; right:0; z-index:20; display:flex; align-items:flex-start; gap:14px;
+    padding:16px 20px; pointer-events:none; }
+  #bar > * { pointer-events:auto; }
+  .mark { font-family:var(--serif); font-size:19px; font-weight:700; line-height:1.1; }
+  .mark i { font-style:normal; color:var(--t-tax); }
+  .mark small { display:block; font-family:inherit; font-size:9.5px; font-weight:400; color:var(--ink-3);
+    letter-spacing:.16em; margin-top:2px; font-family:-apple-system,system-ui,sans-serif; }
+  #legend { display:flex; gap:11px; flex-wrap:wrap; margin-top:9px; }
+  #legend .lg { display:flex; align-items:center; gap:6px; font-size:10.5px; color:var(--ink-3); cursor:pointer; transition:color .25s; }
+  #legend .lg:hover { color:var(--ink-2); }
+  #legend .lg.off { opacity:.32; }
+  #legend .sw { width:7px; height:7px; border-radius:50%; background:var(--c); }
+  .spacer { flex:1; }
+  .pill { display:flex; gap:2px; padding:3px; border:1px solid var(--line); border-radius:999px;
+    background:var(--glass); backdrop-filter:blur(12px); }
+  .pill button { font:inherit; font-size:12px; color:var(--ink-2); background:none; border:none;
+    border-radius:999px; padding:5px 12px; cursor:pointer; transition:background .25s,color .25s; }
+  .pill button:hover { color:var(--ink); background:var(--hair); }
+  .pill button.on { background:var(--line); color:var(--ink); }
+  .pill.z button { width:30px; padding:5px 0; font-size:15px; line-height:1; }
+  #scaleTag { font-family:var(--mono); font-size:10px; color:var(--ink-3); letter-spacing:.1em;
+    border:1px solid var(--line); border-radius:999px; padding:6px 11px; background:var(--glass); backdrop-filter:blur(12px); }
+
+  #mini { position:fixed; left:20px; right:20px; bottom:14px; height:22px; z-index:20; cursor:pointer; }
+  #mini .track { position:absolute; left:0; right:0; top:11px; height:1px; background:var(--line); }
+  #mini .mdot { position:absolute; top:11px; width:3px; height:3px; border-radius:50%; transform:translate(-50%,-50%);
+    background:var(--c); opacity:.6; }
+  #mini .view { position:absolute; top:3px; height:16px; border-radius:8px; border:1px solid var(--ink-3); background:var(--hair); }
+
+  #hint { position:fixed; left:50%; bottom:74px; transform:translateX(-50%); z-index:20; font-size:10.5px;
+    color:var(--ink-3); background:var(--glass); backdrop-filter:blur(10px); border:1px solid var(--line);
+    border-radius:999px; padding:6px 14px; transition:opacity .7s ease; pointer-events:none; }
+  #hint.gone { opacity:0; }
+  #hint b { color:var(--ink-2); font-weight:500; }
+
+  @media (max-width:760px) {
+    .mark small, #scaleTag { display:none; }
+    #bar { padding:12px 13px; gap:8px; }
+    .pill button { padding:5px 9px; font-size:11px; }
+    #legend { gap:8px; margin-top:7px; }
+    .lab .t { font-size:12.5px; }
+    #card { width:min(94vw,430px); margin-left:calc(min(94vw,430px) / -2); }
+    #hint { display:none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .halo { animation:none; } #card.on { animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="stage"><div id="layer"></div></div>
+<div id="axisLine"></div>
+<div class="edge l"></div><div class="edge r"></div>
+<div id="ruler"></div>
+
+<div id="bar">
+  <div>
+    <div class="mark">faham<i>.</i><small>在时间里看见政策</small></div>
+    <div id="legend"></div>
+  </div>
+  <div class="spacer"></div>
+  <div id="scaleTag">年</div>
+  <div class="pill" id="ranges">
+    <button data-r="0.08">近1月</button><button data-r="0.5">近半年</button><button data-r="2">近2年</button><button data-r="0">全部</button>
+  </div>
+  <div class="pill z"><button id="zout" aria-label="缩小">−</button><button id="zin" aria-label="放大">＋</button></div>
+  <div class="pill"><button id="theme" aria-label="切换主题">◐</button></div>
+</div>
+
+<div id="mini"><div class="track"></div><div class="view"></div></div>
+<div id="hint"><b>任意方向拖拽</b>移动 · <b>⌘/Ctrl+滚轮</b> 或双指捏合缩放 · <b>点击光点</b>展开</div>
+
+<script>
+/* ═══════════ 事件数据 ═══════════
+   img:     [{cap:"图注", src:"可选。留空则显示占位框"}]  ← 建议自托管，别外链（外链会让读者浏览器请求第三方）
+   discuss: 讨论条数（阶段2接后端后才真实）
+   ═══════════════════════════ */
+const TOPICS = {
+  subsidy:{name:"补贴改革",c:"var(--t-subsidy)"}, tax:{name:"税务",c:"var(--t-tax)"},
+  cost:{name:"生活成本",c:"var(--t-cost)"}, vote:{name:"选举",c:"var(--t-vote)"}, graft:{name:"反贪问责",c:"var(--t-graft)"}
+};
+
+const EVENTS = [
+  { date:"2015-04-01", label:"2015年4月1日", title:"消费税GST 6%实施", topic:"tax", w:2, discuss:34,
+    who:"纳吉政府 / 财政部", why:"扩大税基、改善财政结构，取代原有的销售与服务税。",
+    hist:[{d:"2015-04-01",t:"GST 6%正式上路"},{d:"2015-12-01",t:"趁低油价完成燃油补贴浮动化"}],
+    claims:[{side:"for",who:"支持方",tx:"160多国采用的现代税制，抗逃税能力远强于SST，年收入约RM440亿。",sr:"学术回顾",url:"https://direct.mit.edu/asep/article/23/1/1/118973/The-Untimely-Demise-of-the-Goods-and-Services-Tax"},
+      {side:"against",who:"批评方",tx:"累退性冲击B40群体；实施仓促、中小企业合规阵痛、退税拖欠，生活成本怨气与1MDB叠加，成为2018变天的头号催化剂。",sr:"同上",url:"https://direct.mit.edu/asep/article/23/1/1/118973/The-Untimely-Demise-of-the-Goods-and-Services-Tax"}],
+    impact:[], note:"历史押韵：GST（2015）与电子发票（2024–26）是同一个故事讲了两遍——财政上有理的税基改革，撞上生活成本敏感期与信任赤字。",
+    srcs:[{l:"MIT Press：马来西亚GST之死",u:"https://direct.mit.edu/asep/article/23/1/1/118973/The-Untimely-Demise-of-the-Goods-and-Services-Tax"}] },
+
+  { date:"2015-07-03", label:"2015年7月", title:"1MDB丑闻爆发", topic:"graft", w:3, discuss:128,
+    img:[{cap:"示意：可放置当时的报道版面截图或官方文件影本（建议自托管，并标注出处与授权）"}],
+    who:"1MDB / 时任首相纳吉", why:"《华尔街日报》揭露约US$6.81亿流入纳吉私人账户。",
+    hist:[{d:"2009–2015",t:"美国司法部后认定逾US$45亿被挪走"},{d:"2015-07",t:"丑闻见报"},{d:"2015",t:"撤换副首相与总检察长，调查中止"}],
+    claims:[{side:"neutral",who:"事实",tx:"美国司法部认定2009–2015年间逾US$45亿被从1MDB挪走，其中约US$6.81亿流入纳吉私人账户。相关债务由政府承担，偿还期排至2039年。",sr:"Britannica",url:"https://www.britannica.com/event/1Malaysia-Development-Berhad-scandal"}],
+    impact:[{k:"追讨",v:"累计追回约RM290亿",s:"财政部披露"},{k:"代价",v:"债务由国民背到2039年",s:"—"}],
+    note:"1MDB是2018年华人票近乎百分百投向希盟的情感引擎；也因此，后来的减刑争议在华社的被背叛感格外强烈。",
+    srcs:[{l:"Britannica：1MDB丑闻",u:"https://www.britannica.com/event/1Malaysia-Development-Berhad-scandal"}] },
+
+  { date:"2018-05-09", label:"2018年5月9日", title:"GE14变天：国阵61年执政终结", topic:"vote", w:3, discuss:96,
+    who:"选民 / 希盟", why:"GST＋生活成本＋1MDB的三重怨气。",
+    hist:[{d:"2018-05-09",t:"希盟胜选，首次政党轮替"},{d:"2018-05",t:"纳吉被禁出境，住所搜出巨额现金"}],
+    claims:[{side:"for",who:"成效",tx:"民主里程碑；1MDB调查全面重启；媒体空间、国会改革、18岁投票权都源于这一窗口。",sr:"—",url:""},
+      {side:"against",who:"代价",tx:"联盟的粘合剂只有「反纳吉」，缺乏马来腹地的社会基础——这个结构缺陷两年后爆雷。",sr:"—",url:""}],
+    impact:[], note:"", srcs:[] },
+
+  { date:"2018-06-01", label:"2018年6月", title:"GST归零、SST恢复", topic:"tax", w:2, discuss:41,
+    who:"希盟政府", why:"竞选头号承诺，火速兑现。",
+    hist:[{d:"2018-06-01",t:"GST税率归零"},{d:"2018-09-01",t:"SST恢复"}],
+    claims:[{side:"for",who:"支持方",tx:"政治承诺的黄金兑现；短期物价感受确有缓解，当年华社几乎一致叫好。",sr:"—",url:""},
+      {side:"against",who:"财政代价",tx:"国库每年少收约RM200亿的稳定税源。今天团结政府被迫用SST扩围＋电子发票挤税收，部分正是在填这个缺口。",sr:"—",url:""}],
+    impact:[], note:"当年的掌声与今天的怨气，来自同一个决定的两端。", srcs:[] },
+
+  { date:"2020-02-24", label:"2020年2月", title:"喜来登政变", topic:"vote", w:3, discuss:73,
+    who:"土团党 / 阿兹敏派 / 慕尤丁", why:"希盟内部权力斗争，土团党退盟。",
+    hist:[{d:"2020-02-24",t:"希盟政府未经选举垮台"},{d:"2020-03",t:"慕尤丁组国盟政府"}],
+    claims:[{side:"neutral",who:"学术调查",tx:"约60.6%受访者认为此举背叛民意。",sr:"Cogent Social Sciences",url:"https://www.tandfonline.com/doi/full/10.1080/23311886.2023.2222572"},
+      {side:"for",who:"意外收获",tx:"催生了反跳槽法（2022年通过）——用最坏的方式换来一件好制度。",sr:"—",url:""}],
+    impact:[], note:"「我的一票随时可以被交易作废」的无力感深植选民心中——这是后来投票率低迷、政治倦怠的源头之一。",
+    srcs:[{l:"喜来登政变研究",u:"https://www.tandfonline.com/doi/full/10.1080/23311886.2023.2222572"}] },
+
+  { date:"2021-01-15", label:"2020–2022年", title:"EPF提款RM1,450亿", topic:"cost", w:2, discuss:58,
+    who:"国盟政府 / 雇员公积金局", why:"疫情封锁下的应急纾困。",
+    hist:[{d:"2020",t:"i-Lestari"},{d:"2021",t:"i-Sinar、i-Citra"},{d:"2022",t:"特别提款，累计约RM1,450亿"}],
+    claims:[{side:"for",who:"当时",tx:"封锁期的救命钱，避免大规模断炊——对当时的底层是真实的及时雨。",sr:"—",url:""},
+      {side:"against",who:"代价",tx:"数百万会员退休存款近乎清零，超过600万人存款不足RM1万——马来西亚未来20年最严重的定时炸弹之一。",sr:"—",url:""}],
+    impact:[], note:"政治上无人敢提强制回补。", srcs:[] },
+
+  { date:"2022-08-23", label:"2022年8月", title:"纳吉SRC案终审入狱", topic:"graft", w:3, discuss:112,
+    who:"联邦法院", why:"SRC国际公司案，2020年7月罪成判12年、罚款RM2.1亿。",
+    hist:[{d:"2020-07",t:"罪成，判12年、罚RM2.1亿"},{d:"2022-08-23",t:"终审驳回上诉，入狱"}],
+    claims:[{side:"neutral",who:"事实",tx:"马来西亚史上首位入狱的前首相，被视为司法独立与反贪的里程碑。",sr:"—",url:""}],
+    impact:[], note:"", srcs:[] },
+
+  { date:"2022-11-19", label:"2022年11月", title:"GE15：悬峙国会，安华拜相", topic:"vote", w:3, discuss:87,
+    who:"选民 / 各政党联盟", why:"史上首次悬峙国会。",
+    hist:[{d:"2022-11-19",t:"希盟82席、国盟74席（伊党43席成国会最大单一政党）、国阵仅30席"},{d:"2022-11-24",t:"王宫斡旋下组成团结政府，安华拜相"}],
+    claims:[{side:"for",who:"成效",tx:"政治僵局的宪政解法；反跳槽法首次实战生效，政府稳定度远超前两届。",sr:"—",url:""},
+      {side:"against",who:"代价",tx:"「希盟＋国阵」的组合抹平了两大阵营的区隔，改革派与旧建制同桌，反贪叙事从此自带利益冲突。",sr:"—",url:""}],
+    impact:[{k:"对华社",v:"华社为挡绿潮把票全数押给希盟，换来的却是希盟与国阵共治",s:"—"}],
+    note:"这个组合悄悄改写了博弈规则：从此投马华不再等于帮绿潮开门——2026年柔佛的「安全惩罚」通道就是这时打开的。", srcs:[] },
+
+  { date:"2023-09-04", label:"2023年9月", title:"扎希47项控罪DNAA", topic:"graft", w:2, discuss:104,
+    who:"总检察署 / 副首相扎希", why:"检方称需进一步调查，法院准「不代表无罪释放」。",
+    hist:[{d:"2023-09-04",t:"47项贪污失信控罪获DNAA"}],
+    claims:[{side:"for",who:"政府说法",tx:"检察权独立行使、案件技术性问题；扎希是团结政府稳定的关键支柱。",sr:"—",url:""},
+      {side:"against",who:"批评方",tx:"「反贪立国」的政府让最大盟友脱身，无论法律细节如何，政治观感已经定格。",sr:"—",url:""}],
+    impact:[], note:"改革派支持者（华社为主力）的信任从这里开始折旧。", srcs:[] },
+
+  { date:"2023-10-13", label:"2023年10月13日", title:"预算案揭示补贴RM810亿", topic:"subsidy", w:2, discuss:29,
+    who:"首相兼财长安华", why:"披露补贴规模，为后续补贴重定向铺路。",
+    hist:[{d:"2023-10-13",t:"预算案披露2023年补贴与援助总额超RM810亿"},{d:"2024起",t:"补贴重定向分阶段实施"}],
+    claims:[{side:"neutral",who:"关键数字",tx:"2023年补贴总额超RM810亿（其中燃油约RM500亿），相当于每年联邦运营开支的约四分之一。2009年这个数字仅RM245亿。",sr:"Malay Mail",url:"https://www.malaymail.com/news/malaysia/2023/10/04/pm-anwar-malaysias-subsidies-expected-to-surpass-rm81b-this-year/94440"}],
+    impact:[{k:"税收背景",v:"马来西亚税收仅占GDP约12%",s:"低于亚太19.3%、OECD 34%（世界银行）"}],
+    note:"这是理解此后所有补贴改革的起点：不改革，就只剩借债一条路。",
+    srcs:[{l:"Malay Mail：补贴将超RM810亿",u:"https://www.malaymail.com/news/malaysia/2023/10/04/pm-anwar-malaysias-subsidies-expected-to-surpass-rm81b-this-year/94440"}] },
+
+  { date:"2024-02-02", label:"2024年2月", title:"纳吉刑期减半：12年减至6年", topic:"graft", w:3, discuss:156,
+    who:"联邦特赦局", why:"纳吉入狱后向特赦局申请减刑获批。",
+    hist:[{d:"2022-08",t:"终审入狱"},{d:"2024-02",t:"减刑至6年、罚款RM2.1亿减至RM5,000万"}],
+    claims:[{side:"neutral",who:"程序说明",tx:"特赦是国家元首的宪法特权，非内阁决定；政府称依既定程序办事。",sr:"Al Jazeera",url:"https://www.aljazeera.com/news/2024/2/2/malaysia-reduces-sentence-of-former-pm-najib-razak"},
+      {side:"against",who:"批评方",tx:"以反贪为道德根基的团结政府时期，1MDB主角获减刑——程序解释救不了观感。",sr:"—",url:""}],
+    impact:[], note:"此事的政治利息在2026年由「玛丽娜事件」引爆，最终记在行动党头上。",
+    srcs:[{l:"Al Jazeera：纳吉减刑",u:"https://www.aljazeera.com/news/2024/2/2/malaysia-reduces-sentence-of-former-pm-najib-razak"}] },
+
+  { date:"2024-06-10", label:"2024年6月10日", title:"柴油补贴改革：RM2.15→RM3.35", topic:"subsidy", w:3, discuss:203,
+    img:[{cap:"示意：可放置油站价格牌照片、财政部新闻稿截图（自托管＋注明来源）"}],
+    who:"财政部（Budi Madani）", why:"遏止柴油走私与跨境套利，把补贴从一刀切改为针对性发放。",
+    hist:[{d:"2024-06-10",t:"西马柴油 RM2.15 → RM3.35（+55.8%）"},{d:"2024-06-10",t:"沙巴、砂拉越、纳闽及渔民保留补贴"}],
+    claims:[{side:"for",who:"政府立场",tx:"柴油销量跌约30%（走私被挤出），每年节省约RM75亿，其中约RM50亿转入社会保障网；合格家庭与小园主获Budi Madani每月RM200援助。",sr:"财政部",url:"https://www.mof.gov.my/portal/en/news/press-release/government-implements-targeted-diesel-subsidy-for-peninsular-malaysia-effective-10-june-2024"},
+      {side:"against",who:"批评方",tx:"油价上涨传导至物流与货运成本；改革后三周团结政府在双溪巴甲补选落败，官方事后检讨承认柴油因素。",sr:"ISEAS",url:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}],
+    impact:[{k:"地域",v:"沙巴、砂拉越、纳闽保留补贴；西马受影响",s:"财政部"}],
+    note:"网传柴油涨至RM3.55为讹传，官方定价为RM3.35。ISEAS：「现金援助的感激，在心理上永远补偿不了油价上涨的怨气。」",
+    srcs:[{l:"财政部：针对性柴油补贴新闻稿",u:"https://www.mof.gov.my/portal/en/news/press-release/government-implements-targeted-diesel-subsidy-for-peninsular-malaysia-effective-10-june-2024"},{l:"ISEAS：油价补贴改革的经济与政治",u:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}] },
+
+  { date:"2024-08-01", label:"2024年8月1日", title:"电子发票第一阶段上路", topic:"tax", w:2, discuss:147,
+    who:"内陆税收局（LHDN）", why:"交易数字化申报，打击逃税、扩大税基。",
+    hist:[{d:"2024-08-01",t:"逾RM1亿组别强制"},{d:"2025-01-01",t:"RM2,500万–1亿组别"},{d:"2025-07-01",t:"RM500万–2,500万组别"}],
+    claims:[{side:"for",who:"政策依据",tx:"影子经济约占GDP的21%（约RM3,300亿），每年税收流失估计超RM700亿。160多国在推行类似制度。",sr:"Bernama",url:"https://www.bernama.com/en/news.php?id=1806340"},
+      {side:"against",who:"中小企业",tx:"合规成本是真金白银：软件购置、系统对接、员工培训、外聘顾问，对净利率只有几个百分点的小生意负担沉重。",sr:"The Edge",url:"https://theedgemalaysia.com/node/721028"}],
+    impact:[], note:"每阶段均设6个月宽限期（可用合并发票、不开罚）。",
+    srcs:[{l:"LHDN 官方实施时间表",u:"https://www.hasil.gov.my/en/e-invoice/implementation-of-e-invoicing-in-malaysia/e-invoice-implementation-timeline/"}] },
+
+  { date:"2025-01-06", label:"2025年1月", title:"柔新经济特区（JS-SEZ）签署", topic:"cost", w:1, discuss:22,
+    who:"马来西亚与新加坡政府", why:"推动柔佛—新加坡跨境经济整合。",
+    hist:[{d:"2025-01",t:"两国正式签署协议"}],
+    claims:[{side:"for",who:"成效",tx:"配合数据中心与半导体投资潮，柔佛成最大受益州；批准投资2023年RM3,295亿、2024年RM3,785亿连创纪录。",sr:"—",url:""},
+      {side:"against",who:"局限",tx:"批准投资≠落地就业；数据中心创造的岗位少、耗电耗水多；工资中位数的爬升远慢于生活成本的体感。",sr:"—",url:""}],
+    impact:[], note:"宏观政绩没有转化为微观获得感——这是2026年柔佛败选的经济底色。", srcs:[] },
+
+  { date:"2025-02-01", label:"2025年2月", title:"最低薪金上调至RM1,700", topic:"cost", w:2, discuss:64,
+    who:"人力资源部", why:"回应生活成本上涨压力。",
+    hist:[{d:"2024-12",t:"公务员薪金改革（SSPA）加薪逾13%分阶段落地"},{d:"2025-02-01",t:"最低薪金 RM1,500 → RM1,700"}],
+    claims:[{side:"for",who:"成效",tx:"对160万公务员与最低薪劳工是实打实的进账；财政上仍守住赤字收窄轨道。",sr:"—",url:""},
+      {side:"against",who:"局限",tx:"私人领域中产（城市华人高度集中）两头落空：拿不到公务员加薪，够不上现金援助门槛，却承担SST、电费、电子发票的全部增量。",sr:"—",url:""}],
+    impact:[], note:"改革成本的分布与补偿的分布错位，是华社怨气的精确坐标。", srcs:[] },
+
+  { date:"2025-07-01", label:"2025年7月1日", title:"SST扩围 ＋ 电费结构重组", topic:"tax", w:3, discuss:189,
+    who:"财政部 / 国能（TNB）", why:"扩大税基、公用事业收费结构透明化。",
+    hist:[{d:"2025-07-01",t:"SST扩围：销售税5–10%扩至非必需品；服务税扩至租赁、非住宅工程、金融服务"},{d:"2025-07-01",t:"电费重组：账单拆分为能源费＋容量费＋网络费＋零售费"}],
+    claims:[{side:"for",who:"政府立场",tx:"基本必需品（米、肉、鱼、菜、药、书）维持豁免；电费重组下大用户多付、结构更透明。",sr:"Sinar Daily",url:"https://www.sinardaily.my/article/728415/focus/national/major-changes-coming-to-malaysia-on-july-1-sst-expansion-electricity-tariff-overhaul"},
+      {side:"against",who:"批评方",tx:"两项同日生效放大生活成本痛感；店租、建筑工程被课税会层层传导至物价；「智能手机算半奢侈品」引发城市中产反感。",sr:"—",url:""}],
+    impact:[{k:"电费明细",v:"能源费：月用电≤1500kWh每度27.03仙、超出37.03仙；月用电600kWh以上征8% SST",s:"Sinar Daily"}],
+    note:"财政上高效，政治上自杀——这是2024–2026两年五连击里最受争议的一击。",
+    srcs:[{l:"Sinar Daily：7月1日两大改革",u:"https://www.sinardaily.my/article/728415/focus/national/major-changes-coming-to-malaysia-on-july-1-sst-expansion-electricity-tariff-overhaul"}] },
+
+  { date:"2025-09-30", label:"2025年9月30日", title:"BUDI95：RON95降至RM1.99", topic:"subsidy", w:3, discuss:167,
+    who:"财政部 / 首相安华", why:"针对性汽油补贴，集中给公民、排除外国人与企业车辆。",
+    hist:[{d:"2021-02",t:"RON95顶价固定在RM2.05"},{d:"2025-07",t:"安华宣布BUDI95"},{d:"2025-09-30",t:"公民价RM1.99；非公民/企业付市价RM2.60"}],
+    claims:[{side:"for",who:"政府立场",tx:"一刀切补贴是累退的：估算RM200亿的RON95补贴中约40%（RM80亿）流向外国人与最富裕群体。",sr:"ISEAS Perspective 2025/68",url:"https://www.iseas.edu.sg/wp-content/uploads/2025/08/ISEAS_Perspective_2025_68.pdf"},
+      {side:"neutral",who:"国际比价",tx:"2025年8月，马来西亚汽油价格为全球第10低（约US$0.48/升，全球均值US$1.30）。",sr:"GlobalPetrolPrices",url:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}],
+    impact:[{k:"受惠范围",v:"约1,655万名合格公民",s:"财政部"}],
+    note:"", srcs:[{l:"ISEAS/FULCRUM 分析",u:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}] },
+
+  { date:"2025-11-29", label:"2025年11月29日", title:"沙巴州选：行动党全军覆没", topic:"vote", w:2, discuss:91,
+    who:"沙巴选民", why:"州议会改选。",
+    hist:[{d:"2025-11-29",t:"行动党在沙巴州议会全军覆没"}],
+    claims:[{side:"neutral",who:"分析",tx:"「华人票不再是定存」第一次以清盘的方式呈现，政圈震动——这是柔佛的完整彩排。",sr:"—",url:""}],
+    impact:[], note:"七个月的预警期内，联邦层面没有拿出足以扭转华社体感的动作。", srcs:[] },
+
+  { date:"2026-01-01", label:"2026年1月1日", title:"电子发票豁免门槛升至RM100万", topic:"tax", w:2, discuss:212,
+    who:"内陆税收局 / 财政部", why:"中小企业与商会持续反映合规成本过高、微型企业准备不足。",
+    hist:[{d:"—",t:"最初豁免线约RM15万"},{d:"2025-06",t:"上调至RM50万，RM100万–500万组别展延"},{d:"2026-01-01",t:"豁免门槛上调至RM100万"},{d:"2027-01-01",t:"（计划）RM100万–500万组别纳入"}],
+    claims:[{side:"for",who:"政府 / 支持方",tx:"按营业额分层、族群中立；影子经济约占GDP 21%，每年税收流失超RM700亿——不扩税基就只能借债。",sr:"Bernama",url:"https://www.bernama.com/en/news.php?id=1806340"},
+      {side:"against",who:"中小企业 / 商会",tx:"合规成本真实存在；政策门槛三改（RM15万→50万→100万）也放大了规划成本与焦虑。",sr:"The Edge",url:"https://theedgemalaysia.com/node/721028"}],
+    impact:[{k:"企业规模",v:"RM100万以下豁免；RM100万–500万展延至2027",s:"LHDN官方时间表"},{k:"税收背景",v:"税收占GDP约12%，低于亚太19.3%、OECD 34%",s:"世界银行"}],
+    note:"「电子发票专砍华人钱包」的说法不成立——政策按营业额分层、族群中立；但城市华人中小商家密度高、感受强烈是事实。若要呈现按族群/行业的差异化影响，必须填入有可靠来源的数据——本平台不发布未经核实的数字。",
+    srcs:[{l:"LHDN 实施时间表",u:"https://www.hasil.gov.my/en/e-invoice/implementation-of-e-invoicing-in-malaysia/e-invoice-implementation-timeline/"},{l:"Malay Mail：RM50万以下豁免",u:"https://www.malaymail.com/news/malaysia/2025/06/06/irb-malaysia-exempts-businesses-below-rm500000-from-e-invoicing-delays-mandate-for-rm1m-to-rm5m-group-to-2026/179391"}] },
+
+  { date:"2026-04-01", label:"2026年4月1日", title:"BUDI95配额300升→200升", topic:"subsidy", w:2, discuss:143,
+    who:"财政部 / 首相署", why:"官方称私人用户月均用量约98升、仅0.6%用满配额；加上油价上涨的财政压力。",
+    hist:[{d:"2025-09-30",t:"BUDI95启动，配额300升/月"},{d:"2026-03-26",t:"宣布削减"},{d:"2026-04-01",t:"200升/月生效"}],
+    claims:[{side:"for",who:"政府立场",tx:"绝大多数用户用不满原配额，削减对普通车主几乎无影响，同时进一步减轻财政负担。",sr:"—",url:""},
+      {side:"against",who:"批评方",tx:"补贴框架启动仅半年即收紧配额，政策反复削弱公众对「针对性补贴」长期稳定性的信任。",sr:"—",url:""}],
+    impact:[], note:"高里程用户（跨州通勤、网约车）受影响明显大于一般用户。这是柔佛开选前三个月的舆论背景。",
+    srcs:[{l:"BUDI95时间轴梳理",u:"https://mahersaham.com/blogs/budi95-chronology-ron95-subsidy-timeline-malaysia"}] },
+
+  { date:"2026-05-31", label:"2026年5月31日", title:"玛丽娜事件", topic:"graft", w:2, discuss:178,
+    who:"行动党 / 士姑来原任州议员", why:"党内提名安排争议，并牵出对纳吉居家服刑议题的分歧。",
+    hist:[{d:"2026-05-31",t:"宣布退出政坛，并指党内高层曾私下支持纳吉居家服刑"}],
+    claims:[{side:"against",who:"影响",tx:"把华社对特赦案的旧怨直接引爆到行动党自己身上，重创其改革形象；选战期间持续发酵。",sr:"—",url:""},
+      {side:"neutral",who:"结果层面",tx:"士姑来本身以15,280张多数票守住——核心堡垒的忠诚未崩；杀伤在外围：它给了本就想弃投的中间选民一个「道德许可」。",sr:"—",url:""}],
+    impact:[], note:"", srcs:[] },
+
+  { date:"2026-07-11", label:"2026年7月11日", title:"柔佛州选：国阵48席，希盟退守8席", topic:"vote", w:3, discuss:341,
+    img:[{cap:"示意：可放置选举夜成绩图表、投票率对比图（自制图表最安全——无版权、无第三方请求）"}],
+    who:"选举委员会（SPR）/ 柔佛选民", why:"看守大臣翁哈菲兹于6月1日宣布解散州议会。",
+    hist:[{d:"2026-06-01",t:"州议会解散"},{d:"2026-07-11",t:"投票日，投票率约69.6%"},{d:"2026-07-11",t:"官方成绩：国阵48 / 希盟8 / 国盟0"}],
+    claims:[{side:"neutral",who:"官方成绩",tx:"国阵48席（巫统36、马华8、国大党4）、希盟8席（行动党6、公正党1、诚信党1）、国盟0席。",sr:"选委会/Bernama",url:"https://prn.bernama.com/johor/keputusan/official/index-en.php"},
+      {side:"neutral",who:"关键的反直觉数据",tx:"得票率：国阵59.7%、希盟32.6%、国盟5.4%。希盟得票率较2022年（26.4%）不减反增、票数多了24万张；崩塌的是版图——国盟的23万票几乎整体并入国阵。",sr:"electiondata.my",url:"https://electiondata.my/elections/jhr/SE-16/"}],
+    impact:[{k:"选民结构",v:"巫裔约56.7%、华裔约35.3%、印裔约6.5%",s:"选委会数据（媒体转述）"},
+      {k:"华裔选区",v:"行动党上阵的多个堡垒选区投票率仅56–60%，低于全州均值",s:"The Edge 2026-07-11"}],
+    note:"「华人票流失」只是柔佛故事的一小半，「马来反对票消失」才是大半。族群层面的精确票流需等选后学术测算。",
+    srcs:[{l:"维基百科：2026年柔佛州选举",u:"https://en.wikipedia.org/wiki/2026_Johor_state_election"},{l:"electiondata.my 逐席数据",u:"https://electiondata.my/elections/jhr/SE-16/"}] }
+];
+
+/* ═══════════ 引擎 ═══════════ */
+(function () {
+  const DAY = 864e5, $ = id => document.getElementById(id);
+  const stage=$('stage'), layer=$('layer'), axisLine=$('axisLine'), ruler=$('ruler'),
+        mini=$('mini'), miniView=mini.querySelector('.view'), hint=$('hint'), scaleTag=$('scaleTag');
+
+  const evs = EVENTS.slice().sort((a,b)=>new Date(a.date)-new Date(b.date));
+  evs.forEach((e,i)=>{ e._i=i; e._t=new Date(e.date).getTime(); });
+  const PAD=120*DAY, T0=evs[0]._t-PAD, T1=evs[evs.length-1]._t+PAD, SPAN=(T1-T0)/DAY;
+
+  let vw=1200, vh=700;
+  const sync=()=>{ vw=innerWidth||document.documentElement.clientWidth||1200;
+                   vh=innerHeight||document.documentElement.clientHeight||700; };
+  sync();
+  const AY = () => Math.round(vh*0.46);          // 轴线基准屏幕位置
+  const LEFT = 120;
+  const fitScale = () => (vw-LEFT*2)/SPAN;
+  const maxScale = () => Math.max(420, vw*0.92);   // 最深可放大到「一天≈占满屏宽」
+  let MIN_S=.2, MAX_S=maxScale();
+
+  let s=1,sT=1, ox=0,oxT=0, oy=0,oyT=0;          // 缩放 + 二维偏移
+  let hidden={}, selected=null;
+  const dayOf=t=>(t-T0)/DAY;
+
+  function clampX(v,sc){ const W=SPAN*sc, lo=LEFT-140, hi=LEFT+W-vw+140;
+    return hi<lo ? LEFT+W/2-vw/2 : Math.max(lo,Math.min(hi,v)); }
+  function clampY(v){
+    let lo = -(vh-AY()-120), hi = AY()-90;        // 保证轴线不被拖出视野
+    if (selected && cardH) hi = Math.max(hi, cardTop + cardH - (vh-AY()) + 40);
+    return Math.max(lo, Math.min(hi, v));
+  }
+
+  /* ── 光点 ── */
+  evs.forEach(e=>{
+    const tp=TOPICS[e.topic], n=document.createElement('div');
+    n.className='node'; n.style.setProperty('--c',tp.c);
+    const marks = (e.img?.length?'🖼 ':'') + (e.discuss?`💬 ${e.discuss}`:'');
+    n.innerHTML=`<div class="halo"></div><div class="ring"></div><div class="dot"></div><div class="hit"></div>
+      <div class="lab"><span class="stem"></span><span class="d">${e.label}</span>
+      <span class="t">${e.title}</span>${marks?`<span class="meta">${marks}</span>`:''}</div>`;
+    const sz=7+e.w*2.2;
+    n.querySelector('.dot').style.cssText+=`width:${sz}px;height:${sz}px`;
+    n.querySelector('.halo').style.cssText+=`width:${sz*5}px;height:${sz*5}px;--dur:${5+(e._i%5)*.9}s;--delay:${(e._i%7)*.55}s`;
+    n.querySelector('.ring').style.cssText+=`width:${sz*2.6}px;height:${sz*2.6}px`;
+    layer.appendChild(n); n._ev=e;      // 反查：pointerup 时从 DOM 找回对应事件
+    e._el=n; e._lab=n.querySelector('.lab'); e._stem=n.querySelector('.stem');
+  });
+
+  /* ── 详情卡 ── */
+  const card=document.createElement('div'); card.id='card';
+  card.innerHTML='<button class="cClose" id="cClose">✕</button><span class="stemUp"></span><div id="cardScroll"></div>';
+  layer.appendChild(card);
+  const cardScroll=$('cardScroll');
+  let cardTop=0, cardH=0;
+  card.addEventListener('pointerdown',e=>e.stopPropagation());   // 卡内不触发画布拖拽
+  // 卡内滚轮必须截断，否则会冒泡到画布被 preventDefault 吃掉，导致卡片滚不动
+  card.addEventListener('wheel',e=>e.stopPropagation(),{passive:true});
+  $('cClose').onclick=()=>close();
+
+  /* ── 图例 ── */
+  const lgBox=$('legend');
+  Object.entries(TOPICS).forEach(([k,v])=>{
+    const d=document.createElement('div'); d.className='lg';
+    d.innerHTML=`<span class="sw" style="--c:${v.c}"></span>${v.name}`;
+    d.onclick=()=>{ hidden[k]=!hidden[k]; d.classList.toggle('off',!!hidden[k]); layout(); };
+    lgBox.appendChild(d);
+  });
+
+  /* ── 底部导览 ── */
+  evs.forEach(e=>{ const d=document.createElement('div'); d.className='mdot';
+    d.style.setProperty('--c',TOPICS[e.topic].c);
+    d.style.left=(dayOf(e._t)/SPAN*100)+'%'; mini.appendChild(d); });
+
+  /* ── 刻度粒度 ── */
+  const LEVELS=[{u:'day',n:1,d:1},{u:'day',n:7,d:7},{u:'month',n:1,d:30.44},
+                {u:'month',n:3,d:91.3},{u:'year',n:1,d:365},{u:'year',n:5,d:1826}];
+  const NAME={day:'日',month:'月',year:'年'};
+  const pickLevel=sc=>LEVELS.find(L=>L.d*sc>=78)||LEVELS[LEVELS.length-1];
+  function* steps(L,from,to){
+    const d=new Date(from);
+    if(L.u==='year'){ d.setMonth(0,1); d.setHours(0,0,0,0); d.setFullYear(Math.floor(d.getFullYear()/L.n)*L.n);
+      while(d<=to){ yield new Date(d); d.setFullYear(d.getFullYear()+L.n);} }
+    else if(L.u==='month'){ d.setDate(1); d.setHours(0,0,0,0); d.setMonth(Math.floor(d.getMonth()/L.n)*L.n);
+      while(d<=to){ yield new Date(d); d.setMonth(d.getMonth()+L.n);} }
+    else { d.setHours(0,0,0,0); while(d<=to){ yield new Date(d); d.setDate(d.getDate()+L.n);} }
+  }
+  const fmt=(dt,u)=> u==='year'?dt.getFullYear()+''
+    : u==='month'?(dt.getMonth()===0?dt.getFullYear()+'年':(dt.getMonth()+1)+'月')
+    : (dt.getMonth()+1)+'月'+dt.getDate()+'日';
+  const rulePool=[], capPool=[], eraPool=[];
+  function px(el,parent){ if(!el.parentNode) parent.appendChild(el); }
+
+  function drawTicks(L){
+    const t0=T0+((ox-LEFT)/s)*DAY-60*DAY, t1=T0+((ox-LEFT+vw)/s)*DAY+60*DAY;
+    const rules=[], caps=[], eras=[];
+    const yearPx=365*s;
+    if(yearPx>=46 && L.u!=='year'){
+      const st=yearPx>150?1:yearPx>74?2:5;
+      for(const dt of steps({u:'year',n:st},t0,t1)) eras.push({t:dt.getTime(),cap:dt.getFullYear()+''});
+    }
+    for(const dt of steps(L,t0,t1)){
+      rules.push({t:dt.getTime(),era:L.u==='year'});
+      caps.push({t:dt.getTime(),cap:fmt(dt,L.u)});
+      if(L.u==='year') eras.push({t:dt.getTime(),cap:dt.getFullYear()+''});
+    }
+    // 竖线（在 layer 内，随二维平移）
+    while(rulePool.length<rules.length){ const d=document.createElement('div'); layer.appendChild(d); rulePool.push(d); }
+    rulePool.forEach((el,i)=>{ const it=rules[i];
+      if(!it){ el.style.display='none'; return; }
+      el.style.display=''; el.className='tk'+(it.era?' era':'');
+      el.style.cssText+=`left:${dayOf(it.t)*s+LEFT}px;top:${-vh*1.5}px;height:${vh*3}px`; });
+    // 年份大字（layer 内，作背景层）
+    while(eraPool.length<eras.length){ const d=document.createElement('div'); d.className='eraCap'; layer.appendChild(d); eraPool.push(d); }
+    eraPool.forEach((el,i)=>{ const it=eras[i];
+      if(!it){ el.style.display='none'; return; }
+      el.style.display=''; el.textContent=it.cap;
+      el.style.cssText+=`left:${dayOf(it.t)*s+LEFT}px;top:${-vh*0.30}px;font-size:${Math.min(52,Math.max(22,yearPx*.13))}px`; });
+    // 底部时间尺（固定，只跟横向）
+    while(capPool.length<caps.length){ const sp=document.createElement('span'); ruler.appendChild(sp); capPool.push(sp); }
+    capPool.forEach((el,i)=>{ const it=caps[i];
+      if(!it){ el.style.display='none'; return; }
+      el.style.display=''; el.textContent=it.cap; el.style.left=(dayOf(it.t)*s+LEFT-ox)+'px'; });
+  }
+
+  /* ── 布局 ── */
+  function layout(){
+    sync();
+    const ay=AY();
+    axisLine.style.top=(ay-oy)+'px';
+    layer.style.transform=`translate3d(${-ox}px,${ay-oy}px,0)`;
+
+    const L=pickLevel(s);
+    scaleTag.textContent=(L.n>1?L.n:'')+NAME[L.u];
+    drawTicks(L);
+
+    evs.forEach(e=>{
+      const x=dayOf(e._t)*s+LEFT, el=e._el, off=!!hidden[e.topic];
+      el.style.left=x+'px'; el.style.top='0px';
+      el.style.display=off?'none':'';
+      el.classList.toggle('dim',!!selected&&selected!==e&&!off);
+      e._x=x;
+    });
+
+    // 标签：上下交替分层，横向不重叠且光点在屏内才显示
+    const LW=190, LH=64, rows=[-1,1,-2,2,-3,3];
+    const occ=new Map(rows.map(r=>[r,-1e9]));
+    const vis=evs.filter(e=>!hidden[e.topic]).sort((a,b)=>a._x-b._x);
+    vis.forEach(e=>{
+      const lab=e._lab, sx=e._x-ox;
+      if(sx<-10||sx>vw+10||(selected&&selected===e)){ lab.classList.remove('show'); return; }
+      let r=null;
+      for(const cand of rows) if(e._x-LW/2>occ.get(cand)+16){ occ.set(cand,e._x+LW/2); r=cand; break; }
+      if(r===null){ lab.classList.remove('show'); return; }
+      const up=r<0, dist=30+(Math.abs(r)-1)*(LH+12);
+      lab.style.top = up ? -(dist+LH)+'px' : dist+'px';
+      // 靠近屏幕边缘时把标签吸附回视野内，连接线仍指向光点
+      const want=Math.max(LW/2+10, Math.min(vw-LW/2-10, sx)), shift=want-sx;
+      lab.style.marginLeft=(-LW/2+shift)+'px';
+      e._stem.style.cssText = (up
+        ? `top:${LH}px;height:${dist-8}px;background:linear-gradient(var(--c),transparent)`
+        : `bottom:100%;height:${dist-8}px;background:linear-gradient(transparent,var(--c))`)
+        + `;left:calc(50% - ${shift}px)`;
+      lab.classList.add('show');
+    });
+
+    if(selected){ card.style.left=selected._x+'px'; card.style.top=cardTop+'px'; }
+
+    const W=SPAN*s;
+    miniView.style.left=(Math.max(0,(ox-LEFT)/W)*100)+'%';
+    miniView.style.width=Math.max(2,Math.min(100,vw/W*100))+'%';
+  }
+
+  /* ── 平滑循环 ── */
+  let raf=null, still=0;
+  function frame(){
+    const ds=sT-s, dx=oxT-ox, dy=oyT-oy;
+    if(Math.abs(ds)<1e-5&&Math.abs(dx)<.06&&Math.abs(dy)<.06){
+      s=sT; ox=oxT; oy=oyT; layout();
+      if(++still>4){ raf=null; return; }
+    } else still=0;
+    s+=ds*.16; ox+=dx*.19; oy+=dy*.19;
+    layout(); raf=requestAnimationFrame(frame);
+  }
+  const kick=()=>{ still=0; if(!raf) raf=requestAnimationFrame(frame); };
+
+  /* ── 交互：二维自由拖拽 ── */
+  function zoomAt(f,ax){
+    sync(); MAX_S=maxScale(); MIN_S=Math.min(fitScale(),MAX_S);
+    const ns=Math.max(MIN_S,Math.min(MAX_S,sT*f)); if(ns===sT) return;
+    const at=(ax+oxT-LEFT)/sT; sT=ns; oxT=clampX(at*sT-ax+LEFT,sT); kick();
+  }
+  stage.addEventListener('wheel',e=>{
+    e.preventDefault();
+    if(e.ctrlKey||e.metaKey) zoomAt(Math.exp(-e.deltaY*.0125),e.clientX);
+    else if(e.shiftKey) { oxT=clampX(oxT+e.deltaY*1.1,sT); kick(); }
+    else { oxT=clampX(oxT+e.deltaX*1.1,sT); oyT=clampY(oyT+e.deltaY*1.1); kick(); }
+    dismiss();
+  },{passive:false});
+
+  let drag=null,moved=0,downEl=null;
+  stage.addEventListener('pointerdown',e=>{
+    moved=0; downEl=e.target;      // 记下按下的元素，松手时据此判定
+    drag={x:e.clientX,y:e.clientY,ox:oxT,oy:oyT,m:0};
+    stage.classList.add('dragging'); stage.setPointerCapture(e.pointerId);
+  });
+  stage.addEventListener('pointermove',e=>{
+    if(!drag) return;
+    const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+    drag.m=Math.max(drag.m,Math.abs(dx)+Math.abs(dy));
+    oxT=ox=clampX(drag.ox-dx,sT); oyT=oy=clampY(drag.oy-dy);
+    layout(); dismiss();
+  });
+  const endDrag=()=>{ moved=drag?drag.m:0; drag=null; stage.classList.remove('dragging'); };
+  // 关键：setPointerCapture 会把 pointerup 锁到画布上，浏览器算出的 click 目标随之变成画布，
+  // 元素自身的 click 处理器永远不触发。所以点击判定必须放在 pointerup，而不是依赖 click 事件。
+  stage.addEventListener('pointerup',e=>{
+    const m=drag?drag.m:0;
+    endDrag();
+    if(m>8) return;                                   // 位移够大＝拖拽，不是点击
+    if(downEl&&downEl.closest('#card')) return;        // 卡内交互由卡片自己处理
+    const nodeEl=downEl&&downEl.closest('.node');
+    if(nodeEl&&nodeEl._ev){ open(nodeEl._ev); return; }
+    close();
+  });
+  stage.addEventListener('pointercancel',endDrag);
+
+  let pinch=null;
+  stage.addEventListener('touchstart',e=>{ if(e.touches.length===2){
+    const[a,b]=e.touches; pinch={d:Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),s:sT};
+    drag=null; stage.classList.remove('dragging'); } },{passive:true});
+  stage.addEventListener('touchmove',e=>{
+    if(pinch&&e.touches.length===2){ e.preventDefault();
+      const[a,b]=e.touches, d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY), mid=(a.clientX+b.clientX)/2;
+      const ns=Math.max(MIN_S,Math.min(MAX_S,pinch.s*(d/pinch.d)));
+      const at=(mid+oxT-LEFT)/sT; sT=ns; oxT=clampX(at*sT-mid+LEFT,sT); kick(); dismiss(); }
+  },{passive:false});
+  stage.addEventListener('touchend',e=>{ if(e.touches.length<2) pinch=null; },{passive:true});
+
+  $('zin').onclick=()=>zoomAt(1.6,vw/2);
+  $('zout').onclick=()=>zoomAt(1/1.6,vw/2);
+
+  /* ── 范围预设 ── */
+  const rbs=[...document.querySelectorAll('#ranges button')];
+  function setRange(y,mark){
+    sync(); MAX_S=maxScale(); MIN_S=Math.min(fitScale(),MAX_S);
+    if(y===0){ sT=MIN_S; oxT=clampX(LEFT+SPAN*sT/2-vw/2,sT); }
+    else { sT=Math.max(MIN_S,Math.min(MAX_S,(vw-260)/(y*365)));
+           oxT=clampX(dayOf(evs[evs.length-1]._t)*sT+LEFT-vw*.72,sT); }
+    oyT=clampY(0);
+    rbs.forEach(b=>b.classList.toggle('on',b===mark)); kick(); dismiss();
+  }
+  rbs.forEach(b=>b.onclick=()=>setRange(+b.dataset.r,b));
+  mini.addEventListener('pointerdown',e=>{
+    const r=mini.getBoundingClientRect(), p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+    oxT=clampX(p*SPAN*sT+LEFT-vw/2,sT); kick(); dismiss();
+  });
+
+  /* ── 详情：从光点向下展开 ── */
+  function open(e){
+    selected=e; evs.forEach(x=>x._el.classList.toggle('sel',x===e));
+    const tp=TOPICS[e.topic], S=[];
+    S.push(`<div class="c-date">${e.label}</div><h3 class="c-title">${e.title}</h3>`);
+    S.push(`<div class="c-tags"><span class="st">${tp.name}</span>${e.who?`<span>${e.who}</span>`:''}</div>`);
+    if(e.why) S.push(`<div class="sec"><h4>起因</h4><p>${e.why}</p></div>`);
+    if(e.img?.length) S.push(`<div class="sec"><h4>图像资料</h4><div class="figs">${
+      e.img.map(g=>`<div class="fig">${g.src?`<img src="${g.src}" alt="">`:`<div class="ph">🖼 图片位</div>`}<div class="cap">${g.cap}</div></div>`).join('')}</div></div>`);
+    if(e.hist?.length) S.push(`<div class="sec"><h4>状态历程 · 留痕不删</h4>${
+      e.hist.map(h=>`<div class="step"><span class="sd">${h.d}</span><span class="sb">${h.t}</span></div>`).join('')}</div>`);
+    if(e.claims?.length) S.push(`<div class="sec"><h4>各方主张 · 并列呈现</h4>${
+      e.claims.map(c=>`<div class="claim ${c.side}"><div class="who">${c.who}</div><div class="tx">${c.tx}</div>${
+        c.sr&&c.sr!=='—'?`<div class="sr">依据：${c.url?`<a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.sr}</a>`:c.sr}</div>`:''}</div>`).join('')}</div>`);
+    if(e.impact?.length||e.note) S.push(`<div class="sec"><h4>差异化影响 · 用数据说话</h4>${
+      (e.impact||[]).map(i=>`<div class="imp"><span class="k">${i.k}</span><span class="v">${i.v}${i.s&&i.s!=='—'?`<em>来源：${i.s}</em>`:''}</span></div>`).join('')
+      }${e.note?`<div class="note">${e.note}</div>`:''}</div>`);
+    if(e.srcs?.length) S.push(`<div class="sec"><h4>主要来源</h4><ul class="srcs">${
+      e.srcs.map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener noreferrer">${x.l}</a></li>`).join('')}</ul></div>`);
+    S.push(`<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 以下为版式示意</em></div>
+      <div class="cm"><div class="top"><span class="badge trusted">受信任</span><span class="who2">账号存在 8 个月 · 12 条主张被标记「来源可靠」</span></div>
+        <div class="body">补充一条来源：LHDN 官网的分阶段表格在 2025 年 6 月改过一次，旧链接已失效，建议改引存档版。</div></div>
+      <div class="cm"><div class="top"><span class="badge verified">已验证</span><span class="who2">已验证邮箱</span></div>
+        <div class="body">想问差异化影响那一栏——按行业细分的数据有没有公开来源？没有的话是不是不该放上来。</div></div>
+      <div class="composer"><b>说明：</b>此帖每人每 24 小时最多 2 条，计数绑定账号而非 IP；提交前需通过人机验证。评论功能须待后端与审核流程就绪后开放——这是平台法律风险最集中的一环。</div></div>`);
+    cardScroll.innerHTML=S.join('');
+    card.style.setProperty('--c',tp.c);
+    cardTop=34;
+    card.classList.remove('on'); void card.offsetWidth; card.classList.add('on');
+    requestAnimationFrame(()=>{ cardH=card.offsetHeight||420;
+      oxT=clampX(dayOf(e._t)*sT+LEFT-vw*.42,sT);
+      oyT=clampY(AY()-vh*.30);
+      kick(); });
+    // rAF 被节流时的兜底
+    cardH=card.offsetHeight||420;
+    oxT=clampX(dayOf(e._t)*sT+LEFT-vw*.42,sT); oyT=clampY(AY()-vh*.30);
+    kick(); layout(); dismiss();
+  }
+  function close(){ selected=null; card.classList.remove('on');
+    evs.forEach(x=>x._el.classList.remove('sel')); layout(); }
+  /* 开关卡片统一由上面的 pointerup 处理，这里不再监听 click */
+  addEventListener('keydown',e=>{
+    if(e.key==='Escape') close();
+    if(e.key==='+'||e.key==='=') zoomAt(1.4,vw/2);
+    if(e.key==='-'||e.key==='_') zoomAt(1/1.4,vw/2);
+    if(e.key==='ArrowRight'){ oxT=clampX(oxT+120,sT); kick(); }
+    if(e.key==='ArrowLeft'){ oxT=clampX(oxT-120,sT); kick(); }
+    if(e.key==='ArrowDown'){ oyT=clampY(oyT+100); kick(); }
+    if(e.key==='ArrowUp'){ oyT=clampY(oyT-100); kick(); }
+  });
+
+  /* ── 主题 ── */
+  const root=document.documentElement;
+  const getT=()=>{ try{return localStorage.getItem('faham-theme')}catch(_){return null} };
+  const setT=v=>{ try{localStorage.setItem('faham-theme',v)}catch(_){} };
+  root.setAttribute('data-theme', getT() || 'light');   // 默认「档案馆」明亮
+  $('theme').onclick=()=>{ const n=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',n); setT(n); };
+
+  let gone=false; const dismiss=()=>{ if(!gone){gone=true; hint.classList.add('gone');} };
+  setTimeout(dismiss,9000);
+
+  function resize(){ sync(); MAX_S=maxScale(); MIN_S=Math.min(fitScale(),MAX_S);
+    sT=Math.max(MIN_S,Math.min(MAX_S,sT)); oxT=clampX(oxT,sT); oyT=clampY(oyT); layout(); }
+  addEventListener('resize',()=>{resize();kick();});
+  if(window.visualViewport) visualViewport.addEventListener('resize',()=>{resize();kick();});
+
+  function boot(){ setRange(2,rbs[2]); s=sT; ox=oxT; oy=oyT; layout(); }
+  sync(); MAX_S=maxScale(); MIN_S=Math.min(fitScale(),MAX_S); boot();
+  requestAnimationFrame(boot); addEventListener('load',boot);
+})();
+</script>
+</body>
+</html>
