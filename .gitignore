@@ -1,3 +1,17 @@
+# 机密：绝不可进入公开仓库
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+
+# 系统与临时
 .DS_Store
 *.log
 _*.html
+node_modules/
+
+# 工具产物
+.agents/
+skills-lock.json
