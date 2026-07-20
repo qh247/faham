@@ -65,6 +65,13 @@
      卡片内部单独恢复可选，以便复制引文与来源。 */
   #stage, #layer, #bar, #mini, #ruler, #hint { user-select:none; -webkit-user-select:none; }
   #card, #card * { user-select:text; -webkit-user-select:text; }
+  #empty[hidden] { display:none !important; }   /* hidden 必须压过下面的 flex */
+  #empty { position:fixed; inset:0; z-index:50; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; gap:6px; background:var(--bg); }
+  #empty h1 { font-family:var(--serif); font-size:34px; margin:0 0 6px; letter-spacing:.02em; }
+  #empty p { margin:0; color:var(--ink-2); font-size:14px; }
+  #empty .sub { color:var(--ink-3); font-size:12px; margin-top:10px; }
+  #empty code { background:var(--bg-2); padding:1px 6px; border-radius:4px; font-size:11.5px; }
   #stage { position:fixed; inset:0; z-index:1; cursor:grab; touch-action:none; overscroll-behavior:none; }
   #stage.dragging { cursor:grabbing; }
   #layer { position:absolute; left:0; top:0; will-change:transform; z-index:3; }
@@ -250,6 +257,11 @@
 <body>
 
 <div id="stage"><div id="layer"></div></div>
+<div id="empty" hidden>
+  <h1>faham</h1>
+  <p>档案尚未收录数据。</p>
+  <p class="sub">收录准则见 <code>docs/governance.md</code>；数据结构见 <code>db/schema.sql</code>。</p>
+</div>
 <div id="axisLine"></div>
 <div class="edge l"></div><div class="edge r"></div>
 <div id="ruler"></div>
@@ -281,183 +293,15 @@ const TOPICS = {
   cost:{name:"生活成本",c:"var(--t-cost)"}, vote:{name:"选举",c:"var(--t-vote)"}, graft:{name:"反贪问责",c:"var(--t-graft)"}
 };
 
-const EVENTS = [
-  { date:"2015-04-01", label:"2015年4月1日", title:"消费税GST 6%实施", topic:"tax", w:2, discuss:34,
-    who:"纳吉政府 / 财政部", why:"扩大税基、改善财政结构，取代原有的销售与服务税。",
-    hist:[{d:"2015-04-01",t:"GST 6%正式上路"},{d:"2015-12-01",t:"趁低油价完成燃油补贴浮动化"}],
-    claims:[{side:"for",who:"支持方",tx:"160多国采用的现代税制，抗逃税能力远强于SST，年收入约RM440亿。",sr:"学术回顾",url:"https://direct.mit.edu/asep/article/23/1/1/118973/The-Untimely-Demise-of-the-Goods-and-Services-Tax"},
-      {side:"against",who:"批评方",tx:"累退性冲击B40群体；实施仓促、中小企业合规阵痛、退税拖欠，生活成本怨气与1MDB叠加，成为2018变天的头号催化剂。",sr:"同上",url:"https://direct.mit.edu/asep/article/23/1/1/118973/The-Untimely-Demise-of-the-Goods-and-Services-Tax"}],
-    impact:[], note:"历史押韵：GST（2015）与电子发票（2024–26）是同一个故事讲了两遍——财政上有理的税基改革，撞上生活成本敏感期与信任赤字。",
-    srcs:[{l:"MIT Press：马来西亚GST之死",u:"https://direct.mit.edu/asep/article/23/1/1/118973/The-Untimely-Demise-of-the-Goods-and-Services-Tax"}] },
-
-  { date:"2015-07-03", label:"2015年7月", title:"1MDB丑闻爆发", topic:"graft", w:3, discuss:128,
-    img:[{cap:"示意：可放置当时的报道版面截图或官方文件影本（建议自托管，并标注出处与授权）"}],
-    who:"1MDB / 时任首相纳吉", why:"《华尔街日报》揭露约US$6.81亿流入纳吉私人账户。",
-    hist:[{d:"2009–2015",t:"美国司法部后认定逾US$45亿被挪走"},{d:"2015-07",t:"丑闻见报"},{d:"2015",t:"撤换副首相与总检察长，调查中止"}],
-    claims:[{side:"neutral",who:"事实",tx:"美国司法部认定2009–2015年间逾US$45亿被从1MDB挪走，其中约US$6.81亿流入纳吉私人账户。相关债务由政府承担，偿还期排至2039年。",sr:"Britannica",url:"https://www.britannica.com/event/1Malaysia-Development-Berhad-scandal"}],
-    impact:[{k:"追讨",v:"累计追回约RM290亿",s:"财政部披露"},{k:"代价",v:"债务由国民背到2039年",s:"—"}],
-    note:"1MDB是2018年华人票近乎百分百投向希盟的情感引擎；也因此，后来的减刑争议在华社的被背叛感格外强烈。",
-    srcs:[{l:"Britannica：1MDB丑闻",u:"https://www.britannica.com/event/1Malaysia-Development-Berhad-scandal"}] },
-
-  { date:"2018-05-09", label:"2018年5月9日", title:"GE14变天：国阵61年执政终结", topic:"vote", w:3, discuss:96,
-    who:"选民 / 希盟", why:"GST＋生活成本＋1MDB的三重怨气。",
-    hist:[{d:"2018-05-09",t:"希盟胜选，首次政党轮替"},{d:"2018-05",t:"纳吉被禁出境，住所搜出巨额现金"}],
-    claims:[{side:"for",who:"成效",tx:"民主里程碑；1MDB调查全面重启；媒体空间、国会改革、18岁投票权都源于这一窗口。",sr:"—",url:""},
-      {side:"against",who:"代价",tx:"联盟的粘合剂只有「反纳吉」，缺乏马来腹地的社会基础——这个结构缺陷两年后爆雷。",sr:"—",url:""}],
-    impact:[], note:"", srcs:[] },
-
-  { date:"2018-06-01", label:"2018年6月", title:"GST归零、SST恢复", topic:"tax", w:2, discuss:41,
-    who:"希盟政府", why:"竞选头号承诺，火速兑现。",
-    hist:[{d:"2018-06-01",t:"GST税率归零"},{d:"2018-09-01",t:"SST恢复"}],
-    claims:[{side:"for",who:"支持方",tx:"政治承诺的黄金兑现；短期物价感受确有缓解，当年华社几乎一致叫好。",sr:"—",url:""},
-      {side:"against",who:"财政代价",tx:"国库每年少收约RM200亿的稳定税源。今天团结政府被迫用SST扩围＋电子发票挤税收，部分正是在填这个缺口。",sr:"—",url:""}],
-    impact:[], note:"当年的掌声与今天的怨气，来自同一个决定的两端。", srcs:[] },
-
-  { date:"2020-02-24", label:"2020年2月", title:"喜来登政变", topic:"vote", w:3, discuss:73,
-    who:"土团党 / 阿兹敏派 / 慕尤丁", why:"希盟内部权力斗争，土团党退盟。",
-    hist:[{d:"2020-02-24",t:"希盟政府未经选举垮台"},{d:"2020-03",t:"慕尤丁组国盟政府"}],
-    claims:[{side:"neutral",who:"学术调查",tx:"约60.6%受访者认为此举背叛民意。",sr:"Cogent Social Sciences",url:"https://www.tandfonline.com/doi/full/10.1080/23311886.2023.2222572"},
-      {side:"for",who:"意外收获",tx:"催生了反跳槽法（2022年通过）——用最坏的方式换来一件好制度。",sr:"—",url:""}],
-    impact:[], note:"「我的一票随时可以被交易作废」的无力感深植选民心中——这是后来投票率低迷、政治倦怠的源头之一。",
-    srcs:[{l:"喜来登政变研究",u:"https://www.tandfonline.com/doi/full/10.1080/23311886.2023.2222572"}] },
-
-  { date:"2021-01-15", label:"2020–2022年", title:"EPF提款RM1,450亿", topic:"cost", w:2, discuss:58,
-    who:"国盟政府 / 雇员公积金局", why:"疫情封锁下的应急纾困。",
-    hist:[{d:"2020",t:"i-Lestari"},{d:"2021",t:"i-Sinar、i-Citra"},{d:"2022",t:"特别提款，累计约RM1,450亿"}],
-    claims:[{side:"for",who:"当时",tx:"封锁期的救命钱，避免大规模断炊——对当时的底层是真实的及时雨。",sr:"—",url:""},
-      {side:"against",who:"代价",tx:"数百万会员退休存款近乎清零，超过600万人存款不足RM1万——马来西亚未来20年最严重的定时炸弹之一。",sr:"—",url:""}],
-    impact:[], note:"政治上无人敢提强制回补。", srcs:[] },
-
-  { date:"2022-08-23", label:"2022年8月", title:"纳吉SRC案终审入狱", topic:"graft", w:3, discuss:112,
-    who:"联邦法院", why:"SRC国际公司案，2020年7月罪成判12年、罚款RM2.1亿。",
-    hist:[{d:"2020-07",t:"罪成，判12年、罚RM2.1亿"},{d:"2022-08-23",t:"终审驳回上诉，入狱"}],
-    claims:[{side:"neutral",who:"事实",tx:"马来西亚史上首位入狱的前首相，被视为司法独立与反贪的里程碑。",sr:"—",url:""}],
-    impact:[], note:"", srcs:[] },
-
-  { date:"2022-11-19", label:"2022年11月", title:"GE15：悬峙国会，安华拜相", topic:"vote", w:3, discuss:87,
-    who:"选民 / 各政党联盟", why:"史上首次悬峙国会。",
-    hist:[{d:"2022-11-19",t:"希盟82席、国盟74席（伊党43席成国会最大单一政党）、国阵仅30席"},{d:"2022-11-24",t:"王宫斡旋下组成团结政府，安华拜相"}],
-    claims:[{side:"for",who:"成效",tx:"政治僵局的宪政解法；反跳槽法首次实战生效，政府稳定度远超前两届。",sr:"—",url:""},
-      {side:"against",who:"代价",tx:"「希盟＋国阵」的组合抹平了两大阵营的区隔，改革派与旧建制同桌，反贪叙事从此自带利益冲突。",sr:"—",url:""}],
-    impact:[{k:"对华社",v:"华社为挡绿潮把票全数押给希盟，换来的却是希盟与国阵共治",s:"—"}],
-    note:"这个组合悄悄改写了博弈规则：从此投马华不再等于帮绿潮开门——2026年柔佛的「安全惩罚」通道就是这时打开的。", srcs:[] },
-
-  { date:"2023-09-04", label:"2023年9月", title:"扎希47项控罪DNAA", topic:"graft", w:2, discuss:104,
-    who:"总检察署 / 副首相扎希", why:"检方称需进一步调查，法院准「不代表无罪释放」。",
-    hist:[{d:"2023-09-04",t:"47项贪污失信控罪获DNAA"}],
-    claims:[{side:"for",who:"政府说法",tx:"检察权独立行使、案件技术性问题；扎希是团结政府稳定的关键支柱。",sr:"—",url:""},
-      {side:"against",who:"批评方",tx:"「反贪立国」的政府让最大盟友脱身，无论法律细节如何，政治观感已经定格。",sr:"—",url:""}],
-    impact:[], note:"改革派支持者（华社为主力）的信任从这里开始折旧。", srcs:[] },
-
-  { date:"2023-10-13", label:"2023年10月13日", title:"预算案揭示补贴RM810亿", topic:"subsidy", w:2, discuss:29,
-    who:"首相兼财长安华", why:"披露补贴规模，为后续补贴重定向铺路。",
-    hist:[{d:"2023-10-13",t:"预算案披露2023年补贴与援助总额超RM810亿"},{d:"2024起",t:"补贴重定向分阶段实施"}],
-    claims:[{side:"neutral",who:"关键数字",tx:"2023年补贴总额超RM810亿（其中燃油约RM500亿），相当于每年联邦运营开支的约四分之一。2009年这个数字仅RM245亿。",sr:"Malay Mail",url:"https://www.malaymail.com/news/malaysia/2023/10/04/pm-anwar-malaysias-subsidies-expected-to-surpass-rm81b-this-year/94440"}],
-    impact:[{k:"税收背景",v:"马来西亚税收仅占GDP约12%",s:"低于亚太19.3%、OECD 34%（世界银行）"}],
-    note:"这是理解此后所有补贴改革的起点：不改革，就只剩借债一条路。",
-    srcs:[{l:"Malay Mail：补贴将超RM810亿",u:"https://www.malaymail.com/news/malaysia/2023/10/04/pm-anwar-malaysias-subsidies-expected-to-surpass-rm81b-this-year/94440"}] },
-
-  { date:"2024-02-02", label:"2024年2月", title:"纳吉刑期减半：12年减至6年", topic:"graft", w:3, discuss:156,
-    who:"联邦特赦局", why:"纳吉入狱后向特赦局申请减刑获批。",
-    hist:[{d:"2022-08",t:"终审入狱"},{d:"2024-02",t:"减刑至6年、罚款RM2.1亿减至RM5,000万"}],
-    claims:[{side:"neutral",who:"程序说明",tx:"特赦是国家元首的宪法特权，非内阁决定；政府称依既定程序办事。",sr:"Al Jazeera",url:"https://www.aljazeera.com/news/2024/2/2/malaysia-reduces-sentence-of-former-pm-najib-razak"},
-      {side:"against",who:"批评方",tx:"以反贪为道德根基的团结政府时期，1MDB主角获减刑——程序解释救不了观感。",sr:"—",url:""}],
-    impact:[], note:"此事的政治利息在2026年由「玛丽娜事件」引爆，最终记在行动党头上。",
-    srcs:[{l:"Al Jazeera：纳吉减刑",u:"https://www.aljazeera.com/news/2024/2/2/malaysia-reduces-sentence-of-former-pm-najib-razak"}] },
-
-  { date:"2024-06-10", label:"2024年6月10日", title:"柴油补贴改革：RM2.15→RM3.35", topic:"subsidy", w:3, discuss:203,
-    img:[{cap:"示意：可放置油站价格牌照片、财政部新闻稿截图（自托管＋注明来源）"}],
-    who:"财政部（Budi Madani）", why:"遏止柴油走私与跨境套利，把补贴从一刀切改为针对性发放。",
-    hist:[{d:"2024-06-10",t:"西马柴油 RM2.15 → RM3.35（+55.8%）"},{d:"2024-06-10",t:"沙巴、砂拉越、纳闽及渔民保留补贴"}],
-    claims:[{side:"for",who:"政府立场",tx:"柴油销量跌约30%（走私被挤出），每年节省约RM75亿，其中约RM50亿转入社会保障网；合格家庭与小园主获Budi Madani每月RM200援助。",sr:"财政部",url:"https://www.mof.gov.my/portal/en/news/press-release/government-implements-targeted-diesel-subsidy-for-peninsular-malaysia-effective-10-june-2024"},
-      {side:"against",who:"批评方",tx:"油价上涨传导至物流与货运成本；改革后三周团结政府在双溪巴甲补选落败，官方事后检讨承认柴油因素。",sr:"ISEAS",url:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}],
-    impact:[{k:"地域",v:"沙巴、砂拉越、纳闽保留补贴；西马受影响",s:"财政部"}],
-    note:"网传柴油涨至RM3.55为讹传，官方定价为RM3.35。ISEAS：「现金援助的感激，在心理上永远补偿不了油价上涨的怨气。」",
-    srcs:[{l:"财政部：针对性柴油补贴新闻稿",u:"https://www.mof.gov.my/portal/en/news/press-release/government-implements-targeted-diesel-subsidy-for-peninsular-malaysia-effective-10-june-2024"},{l:"ISEAS：油价补贴改革的经济与政治",u:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}] },
-
-  { date:"2024-08-01", label:"2024年8月1日", title:"电子发票第一阶段上路", topic:"tax", w:2, discuss:147,
-    who:"内陆税收局（LHDN）", why:"交易数字化申报，打击逃税、扩大税基。",
-    hist:[{d:"2024-08-01",t:"逾RM1亿组别强制"},{d:"2025-01-01",t:"RM2,500万–1亿组别"},{d:"2025-07-01",t:"RM500万–2,500万组别"}],
-    claims:[{side:"for",who:"政策依据",tx:"影子经济约占GDP的21%（约RM3,300亿），每年税收流失估计超RM700亿。160多国在推行类似制度。",sr:"Bernama",url:"https://www.bernama.com/en/news.php?id=1806340"},
-      {side:"against",who:"中小企业",tx:"合规成本是真金白银：软件购置、系统对接、员工培训、外聘顾问，对净利率只有几个百分点的小生意负担沉重。",sr:"The Edge",url:"https://theedgemalaysia.com/node/721028"}],
-    impact:[], note:"每阶段均设6个月宽限期（可用合并发票、不开罚）。",
-    srcs:[{l:"LHDN 官方实施时间表",u:"https://www.hasil.gov.my/en/e-invoice/implementation-of-e-invoicing-in-malaysia/e-invoice-implementation-timeline/"}] },
-
-  { date:"2025-01-06", label:"2025年1月", title:"柔新经济特区（JS-SEZ）签署", topic:"cost", w:1, discuss:22,
-    who:"马来西亚与新加坡政府", why:"推动柔佛—新加坡跨境经济整合。",
-    hist:[{d:"2025-01",t:"两国正式签署协议"}],
-    claims:[{side:"for",who:"成效",tx:"配合数据中心与半导体投资潮，柔佛成最大受益州；批准投资2023年RM3,295亿、2024年RM3,785亿连创纪录。",sr:"—",url:""},
-      {side:"against",who:"局限",tx:"批准投资≠落地就业；数据中心创造的岗位少、耗电耗水多；工资中位数的爬升远慢于生活成本的体感。",sr:"—",url:""}],
-    impact:[], note:"宏观政绩没有转化为微观获得感——这是2026年柔佛败选的经济底色。", srcs:[] },
-
-  { date:"2025-02-01", label:"2025年2月", title:"最低薪金上调至RM1,700", topic:"cost", w:2, discuss:64,
-    who:"人力资源部", why:"回应生活成本上涨压力。",
-    hist:[{d:"2024-12",t:"公务员薪金改革（SSPA）加薪逾13%分阶段落地"},{d:"2025-02-01",t:"最低薪金 RM1,500 → RM1,700"}],
-    claims:[{side:"for",who:"成效",tx:"对160万公务员与最低薪劳工是实打实的进账；财政上仍守住赤字收窄轨道。",sr:"—",url:""},
-      {side:"against",who:"局限",tx:"私人领域中产（城市华人高度集中）两头落空：拿不到公务员加薪，够不上现金援助门槛，却承担SST、电费、电子发票的全部增量。",sr:"—",url:""}],
-    impact:[], note:"改革成本的分布与补偿的分布错位，是华社怨气的精确坐标。", srcs:[] },
-
-  { date:"2025-07-01", label:"2025年7月1日", title:"SST扩围 ＋ 电费结构重组", topic:"tax", w:3, discuss:189,
-    who:"财政部 / 国能（TNB）", why:"扩大税基、公用事业收费结构透明化。",
-    hist:[{d:"2025-07-01",t:"SST扩围：销售税5–10%扩至非必需品；服务税扩至租赁、非住宅工程、金融服务"},{d:"2025-07-01",t:"电费重组：账单拆分为能源费＋容量费＋网络费＋零售费"}],
-    claims:[{side:"for",who:"政府立场",tx:"基本必需品（米、肉、鱼、菜、药、书）维持豁免；电费重组下大用户多付、结构更透明。",sr:"Sinar Daily",url:"https://www.sinardaily.my/article/728415/focus/national/major-changes-coming-to-malaysia-on-july-1-sst-expansion-electricity-tariff-overhaul"},
-      {side:"against",who:"批评方",tx:"两项同日生效放大生活成本痛感；店租、建筑工程被课税会层层传导至物价；「智能手机算半奢侈品」引发城市中产反感。",sr:"—",url:""}],
-    impact:[{k:"电费明细",v:"能源费：月用电≤1500kWh每度27.03仙、超出37.03仙；月用电600kWh以上征8% SST",s:"Sinar Daily"}],
-    note:"财政上高效，政治上自杀——这是2024–2026两年五连击里最受争议的一击。",
-    srcs:[{l:"Sinar Daily：7月1日两大改革",u:"https://www.sinardaily.my/article/728415/focus/national/major-changes-coming-to-malaysia-on-july-1-sst-expansion-electricity-tariff-overhaul"}] },
-
-  { date:"2025-09-30", label:"2025年9月30日", title:"BUDI95：RON95降至RM1.99", topic:"subsidy", w:3, discuss:167,
-    who:"财政部 / 首相安华", why:"针对性汽油补贴，集中给公民、排除外国人与企业车辆。",
-    hist:[{d:"2021-02",t:"RON95顶价固定在RM2.05"},{d:"2025-07",t:"安华宣布BUDI95"},{d:"2025-09-30",t:"公民价RM1.99；非公民/企业付市价RM2.60"}],
-    claims:[{side:"for",who:"政府立场",tx:"一刀切补贴是累退的：估算RM200亿的RON95补贴中约40%（RM80亿）流向外国人与最富裕群体。",sr:"ISEAS Perspective 2025/68",url:"https://www.iseas.edu.sg/wp-content/uploads/2025/08/ISEAS_Perspective_2025_68.pdf"},
-      {side:"neutral",who:"国际比价",tx:"2025年8月，马来西亚汽油价格为全球第10低（约US$0.48/升，全球均值US$1.30）。",sr:"GlobalPetrolPrices",url:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}],
-    impact:[{k:"受惠范围",v:"约1,655万名合格公民",s:"财政部"}],
-    note:"", srcs:[{l:"ISEAS/FULCRUM 分析",u:"https://fulcrum.sg/floating-prices-fearing-backlash-economics-and-politics-of-malaysias-petrol-subsidy-reform/"}] },
-
-  { date:"2025-11-29", label:"2025年11月29日", title:"沙巴州选：行动党全军覆没", topic:"vote", w:2, discuss:91,
-    who:"沙巴选民", why:"州议会改选。",
-    hist:[{d:"2025-11-29",t:"行动党在沙巴州议会全军覆没"}],
-    claims:[{side:"neutral",who:"分析",tx:"「华人票不再是定存」第一次以清盘的方式呈现，政圈震动——这是柔佛的完整彩排。",sr:"—",url:""}],
-    impact:[], note:"七个月的预警期内，联邦层面没有拿出足以扭转华社体感的动作。", srcs:[] },
-
-  { date:"2026-01-01", label:"2026年1月1日", title:"电子发票豁免门槛升至RM100万", topic:"tax", w:2, discuss:212,
-    who:"内陆税收局 / 财政部", why:"中小企业与商会持续反映合规成本过高、微型企业准备不足。",
-    hist:[{d:"—",t:"最初豁免线约RM15万"},{d:"2025-06",t:"上调至RM50万，RM100万–500万组别展延"},{d:"2026-01-01",t:"豁免门槛上调至RM100万"},{d:"2027-01-01",t:"（计划）RM100万–500万组别纳入"}],
-    claims:[{side:"for",who:"政府 / 支持方",tx:"按营业额分层、族群中立；影子经济约占GDP 21%，每年税收流失超RM700亿——不扩税基就只能借债。",sr:"Bernama",url:"https://www.bernama.com/en/news.php?id=1806340"},
-      {side:"against",who:"中小企业 / 商会",tx:"合规成本真实存在；政策门槛三改（RM15万→50万→100万）也放大了规划成本与焦虑。",sr:"The Edge",url:"https://theedgemalaysia.com/node/721028"}],
-    impact:[{k:"企业规模",v:"RM100万以下豁免；RM100万–500万展延至2027",s:"LHDN官方时间表"},{k:"税收背景",v:"税收占GDP约12%，低于亚太19.3%、OECD 34%",s:"世界银行"}],
-    note:"「电子发票专砍华人钱包」的说法不成立——政策按营业额分层、族群中立；但城市华人中小商家密度高、感受强烈是事实。若要呈现按族群/行业的差异化影响，必须填入有可靠来源的数据——本平台不发布未经核实的数字。",
-    srcs:[{l:"LHDN 实施时间表",u:"https://www.hasil.gov.my/en/e-invoice/implementation-of-e-invoicing-in-malaysia/e-invoice-implementation-timeline/"},{l:"Malay Mail：RM50万以下豁免",u:"https://www.malaymail.com/news/malaysia/2025/06/06/irb-malaysia-exempts-businesses-below-rm500000-from-e-invoicing-delays-mandate-for-rm1m-to-rm5m-group-to-2026/179391"}] },
-
-  { date:"2026-04-01", label:"2026年4月1日", title:"BUDI95配额300升→200升", topic:"subsidy", w:2, discuss:143,
-    who:"财政部 / 首相署", why:"官方称私人用户月均用量约98升、仅0.6%用满配额；加上油价上涨的财政压力。",
-    hist:[{d:"2025-09-30",t:"BUDI95启动，配额300升/月"},{d:"2026-03-26",t:"宣布削减"},{d:"2026-04-01",t:"200升/月生效"}],
-    claims:[{side:"for",who:"政府立场",tx:"绝大多数用户用不满原配额，削减对普通车主几乎无影响，同时进一步减轻财政负担。",sr:"—",url:""},
-      {side:"against",who:"批评方",tx:"补贴框架启动仅半年即收紧配额，政策反复削弱公众对「针对性补贴」长期稳定性的信任。",sr:"—",url:""}],
-    impact:[], note:"高里程用户（跨州通勤、网约车）受影响明显大于一般用户。这是柔佛开选前三个月的舆论背景。",
-    srcs:[{l:"BUDI95时间轴梳理",u:"https://mahersaham.com/blogs/budi95-chronology-ron95-subsidy-timeline-malaysia"}] },
-
-  { date:"2026-05-31", label:"2026年5月31日", title:"玛丽娜事件", topic:"graft", w:2, discuss:178,
-    who:"行动党 / 士姑来原任州议员", why:"党内提名安排争议，并牵出对纳吉居家服刑议题的分歧。",
-    hist:[{d:"2026-05-31",t:"宣布退出政坛，并指党内高层曾私下支持纳吉居家服刑"}],
-    claims:[{side:"against",who:"影响",tx:"把华社对特赦案的旧怨直接引爆到行动党自己身上，重创其改革形象；选战期间持续发酵。",sr:"—",url:""},
-      {side:"neutral",who:"结果层面",tx:"士姑来本身以15,280张多数票守住——核心堡垒的忠诚未崩；杀伤在外围：它给了本就想弃投的中间选民一个「道德许可」。",sr:"—",url:""}],
-    impact:[], note:"", srcs:[] },
-
-  { date:"2026-07-11", label:"2026年7月11日", title:"柔佛州选：国阵48席，希盟退守8席", topic:"vote", w:3, discuss:341,
-    img:[{cap:"示意：可放置选举夜成绩图表、投票率对比图（自制图表最安全——无版权、无第三方请求）"}],
-    who:"选举委员会（SPR）/ 柔佛选民", why:"看守大臣翁哈菲兹于6月1日宣布解散州议会。",
-    hist:[{d:"2026-06-01",t:"州议会解散"},{d:"2026-07-11",t:"投票日，投票率约69.6%"},{d:"2026-07-11",t:"官方成绩：国阵48 / 希盟8 / 国盟0"}],
-    claims:[{side:"neutral",who:"官方成绩",tx:"国阵48席（巫统36、马华8、国大党4）、希盟8席（行动党6、公正党1、诚信党1）、国盟0席。",sr:"选委会/Bernama",url:"https://prn.bernama.com/johor/keputusan/official/index-en.php"},
-      {side:"neutral",who:"关键的反直觉数据",tx:"得票率：国阵59.7%、希盟32.6%、国盟5.4%。希盟得票率较2022年（26.4%）不减反增、票数多了24万张；崩塌的是版图——国盟的23万票几乎整体并入国阵。",sr:"electiondata.my",url:"https://electiondata.my/elections/jhr/SE-16/"}],
-    impact:[{k:"选民结构",v:"巫裔约56.7%、华裔约35.3%、印裔约6.5%",s:"选委会数据（媒体转述）"},
-      {k:"华裔选区",v:"行动党上阵的多个堡垒选区投票率仅56–60%，低于全州均值",s:"The Edge 2026-07-11"}],
-    note:"「华人票流失」只是柔佛故事的一小半，「马来反对票消失」才是大半。族群层面的精确票流需等选后学术测算。",
-    srcs:[{l:"维基百科：2026年柔佛州选举",u:"https://en.wikipedia.org/wiki/2026_Johor_state_election"},{l:"electiondata.my 逐席数据",u:"https://electiondata.my/elections/jhr/SE-16/"}] }
-];
+/* ═══════════ 事件数据 ═══════════
+   数据不写死在代码里：运行时从 data/events.json 载入。
+   该文件由数据库导出（见 db/schema.sql 的 export_events 视图），
+   或在无后端时手工维护。空数组即为「纯架构」状态。
+   ═══════════════════════════ */
+let EVENTS = [];
 
 /* ═══════════ 引擎 ═══════════ */
-(function () {
+function boot() {
   const DAY = 864e5, $ = id => document.getElementById(id);
   const stage=$('stage'), layer=$('layer'), axisLine=$('axisLine'), ruler=$('ruler'),
         mini=$('mini'), miniView=mini.querySelector('.view'), hint=$('hint'), scaleTag=$('scaleTag');
@@ -780,10 +624,26 @@ const EVENTS = [
   addEventListener('resize',()=>{resize();kick();});
   if(window.visualViewport) visualViewport.addEventListener('resize',()=>{resize();kick();});
 
-  function boot(){ setRange(2,rbs[2]); s=sT; ox=oxT; oy=oyT; layout(); }
-  sync(); MAX_S=maxScale(); MIN_S=Math.min(fitScale(),MAX_S); boot();
-  requestAnimationFrame(boot); addEventListener('load',boot);
-})();
+  function start(){ setRange(2,rbs[2]); s=sT; ox=oxT; oy=oyT; layout(); }
+  sync(); MAX_S=maxScale(); MIN_S=Math.min(fitScale(),MAX_S); start();
+  requestAnimationFrame(start); addEventListener('load',start);
+}
+
+/* 载入数据后启动；无数据时显示空状态而非白屏 */
+fetch('./data/events.json')
+  .then(r => r.ok ? r.json() : [])
+  .catch(() => [])            // file:// 直开会失败，视为空数据
+  .then(rows => {
+    EVENTS = Array.isArray(rows) ? rows : [];
+    const emptyEl = document.getElementById('empty');
+    if (!EVENTS.length) {
+      emptyEl.hidden = false;
+      document.getElementById('bar').style.opacity = '.45';
+      return;
+    }
+    emptyEl.hidden = true;      // 有数据：务必收起空状态遮罩
+    boot();
+  });
 </script>
 </body>
 </html>
