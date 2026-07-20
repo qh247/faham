@@ -1,122 +1,143 @@
-# faham · 收录准则与治理规程
+# faham · Inclusion Criteria and Governance
 
-> **本文件先于任何数据存在。**
-> 若规则在数据之后才补上，任何人都可以说规则是照着既有立场量身定做的。
-> 因此：先公布准则，再收录第一条事件。本文件的修改历史同样公开可查。
+**English** · [Bahasa Malaysia](governance.ms.md) · [中文](governance.zh.md)
 
----
-
-## 一、这个档案收什么
-
-一条事件要进入档案，必须**同时**满足：
-
-1. **公共性** —— 涉及公共政策、公共资金、选举或公职人员的职务行为。私人生活不收。
-2. **可核查** —— 至少 **2 个独立来源**，其中至少 1 个为官方文件、法院记录、议会记录或统计数据。
-   「独立」指不同机构；同一集团旗下的多家媒体转载同一通稿，算 1 个。
-3. **有实际影响** —— 改变了法规、预算、价格、权利或选举结果。仅有口头表态不单独立项，
-   但可作为既有事件的一条「主张」。
-4. **时间明确** —— 能定位到日、月或明确的时间区间。
-
-### 明确不收
-
-- 未经证实的传闻、匿名爆料、"据知情人士"
-- 个人隐私、家庭成员、健康状况（除非与职务行为直接相关且已进入公开司法程序）
-- 对动机的推测（"他其实是想……"）—— 只记录行为与后果
-- 任何**没有来源的数字**。宁可留空并标注「待补充来源」，也不填一个看起来合理的数
+> **This document exists before any data does.**
+> If the rules were written after the data, anyone could argue they were tailored to fit an
+> existing position. So: publish the criteria first, then collect the first entry.
+> The edit history of this document is equally public.
 
 ---
 
-## 二、争议性事件的额外要求
+## 1. What this archive collects
 
-标记为 `contested` 的事件（涉及族群、宗教、王室、正在审理的案件、党争），
-发布前必须通过 `check_publishable()` 检查：
+An event must satisfy **all** of the following:
 
-- 支持方与反对方的主张**都必须存在**，各自附来源
-- 独立来源 ≥ 2
-- 任何一条主张缺来源 → 整个事件不得发布
+1. **Public relevance** — it concerns public policy, public funds, elections, or the official
+   conduct of public officeholders. Private life is out of scope.
+2. **Verifiable** — at least **2 independent sources**, of which at least 1 is an official
+   document, court record, parliamentary record, or statistical dataset.
+   "Independent" means different organisations; several outlets under one group republishing
+   the same wire copy counts as 1.
+3. **Actual effect** — it changed a regulation, budget, price, right, or election outcome.
+   A verbal statement alone does not become its own entry, but may be recorded as a *claim*
+   attached to an existing event.
+4. **Clear timing** — locatable to a day, month, or a defined date range.
 
-> 这不是编辑自觉，是数据库函数。任何人都可以自己跑这个查询验证。
+### Explicitly not collected
+
+- Unverified rumour, anonymous tip-offs, "according to sources"
+- Personal privacy, family members, health status (unless directly tied to official conduct
+  and already part of public judicial proceedings)
+- Speculation about motive ("what he really wanted was…") — record conduct and consequences only
+- Any **figure without a source**. Better to leave it blank and mark "source pending" than to
+  fill in a number that merely looks plausible
 
 ---
 
-## 三、第一波资料怎么定（避免"生下来就有立场"）
+## 2. Additional requirements for contested events
 
-最大的风险：如果最初 30 条事件全是现任政府的失误，这个档案从诞生那刻起就是党派工具，
-之后再怎么补救都洗不掉。
+Events flagged `contested` (touching ethnicity, religion, royalty, cases under trial, or
+inter-party conflict) must pass `check_publishable()` before release:
 
-### 配额规则（硬性）
+- Claims from **both supporting and opposing sides must exist**, each with sources
+- At least 2 independent sources
+- If any claim lacks a source, the entire event cannot be published
 
-第一批收录 **不少于 24 条**，且按执政时期**均衡分布**：
+> This is not editorial self-discipline; it is a database function.
+> Anyone can run the query themselves to verify it.
 
-| 时期 | 最少条数 |
+---
+
+## 3. How the first batch is decided (avoiding a built-in slant)
+
+The biggest risk: if the first 30 events are all failures of the current government, the archive
+is a partisan instrument from the moment it is born, and no amount of later correction washes
+that off.
+
+### Quota rules (mandatory)
+
+The first batch is **no fewer than 24 entries**, distributed across governing periods:
+
+| Period | Minimum |
 |---|---|
-| 国阵时代（2015 年前后：GST、1MDB 等） | 5 |
-| 希盟 1.0（2018–2020） | 4 |
-| 国盟／过渡期（2020–2022） | 4 |
-| 团结政府（2022 至今） | 5 |
-| 跨时期结构性议题（补贴、税基、债务、选制） | 6 |
+| Barisan Nasional era (around 2015: GST, 1MDB, etc.) | 5 |
+| Pakatan Harapan 1.0 (2018–2020) | 4 |
+| Perikatan Nasional / transition (2020–2022) | 4 |
+| Unity Government (2022–present) | 5 |
+| Cross-period structural issues (subsidies, tax base, debt, electoral system) | 6 |
 
-并且每个时期内部，**「政策成效」与「政策代价」类事件各不少于 2 条**——
-不能只记录某一届的成绩、另一届的失误。
+Within each period, entries about **policy achievements** and about **policy costs** must each
+number at least 2 — the record cannot show only one administration's wins and another's failures.
 
-### 选取流程
+### Selection process
 
-1. 候选池由公开征集 + 编辑初拟，**候选名单先公开**（含未入选者及理由）
-2. 每条按第一节准则逐项打勾，勾不满不进
-3. 至少 2 名复核者独立通过（见第四节）
-4. 首批全部发布后，**同时公布一份"我们知道自己缺什么"清单** ——
-   例如东马议题、原住民议题、劳工与移工议题的覆盖不足，明列为待补
+1. The candidate pool comes from open solicitation plus an editorial draft;
+   **the candidate list is published first**, including entries not selected and the reasons why
+2. Each entry is checked against Section 1 item by item; unmet criteria mean exclusion
+3. At least 2 reviewers approve independently (see Section 4)
+4. When the first batch is published, a **"what we know we're missing" list** is published
+   alongside it — for example, insufficient coverage of East Malaysian, Orang Asli, labour and
+   migrant-worker issues, listed explicitly as outstanding
 
-### 首批种子内容的来源
+### Source of the first seed entries
 
-首批事件取自已完成的多来源交叉核查（选委会官方成绩、财政部新闻稿、LHDN 官方时间表、
-ISEAS、世界银行、Bernama、主流媒体等），但**仍须逐条走一遍投稿—复核流程**：
-不给自己开后门，流程要从第一条数据就开始运转并留痕。
+The first entries draw on completed multi-source cross-checking (Election Commission official
+results, Ministry of Finance press releases, LHDN official timelines, ISEAS, World Bank, Bernama,
+mainstream media, etc.), but **each must still go through the submission–review process**:
+no back door for ourselves; the process runs and leaves a record from the very first entry.
 
 ---
 
-## 四、谁来复核
+## 4. Who reviews
 
-| 层级 | 获得方式 | 权限 |
+| Tier | How it is obtained | Permissions |
 |---|---|---|
-| 访客 | 无需注册 | 只读；每帖每 24 小时最多 2 条评论（需人机验证） |
-| 已验证 | 验证邮箱 | 评论无冷却；可提交纠错 |
-| 受信任 | 账号 ≥30 天 + 行为记录良好 + ≥1 条主张被标记「来源可靠」 | 可提交事件与主张 |
-| 复核者 | 由现有复核者或编辑**邀请** | 可对投稿投票（须写理由） |
-| 编辑 | 同上，人数极少 | 可发布、可处理举报 |
+| Guest | No registration | Read-only; at most 2 comments per post per 24 hours (human verification required) |
+| Verified | Email verified | No comment cooldown; may submit corrections |
+| Trusted | Account ≥30 days + good conduct record + ≥1 claim marked "source reliable" | May submit events and claims |
+| Reviewer | **By invitation** from an existing reviewer or editor | May vote on submissions (reasons required) |
+| Editor | As above; very few people | May publish; may handle reports |
 
-**复核组多元性**：同一份投稿的 2 名复核者，不得来自同一自我声明的政治倾向
-（`users.alignment_note` 为自愿填写，仅用于组队，不用于限制权限）。
-复核者的判定记录全部公开——复核者本身也可被质疑。
-
----
-
-## 五、可被外部验证的保证
-
-不要求任何人相信运营者。以下都可独立核对：
-
-1. **每日公开导出** —— 完整数据集（`export_events` 视图）导出为 JSON，推送至公开仓库。
-   不认同这个平台的人，可以整包带走、自行分析、甚至另建一个。**退出成本为零。**
-2. **修订快照** —— `revisions` 表记录每次变更前后状态；页面上看到的任何一句话，
-   都能查到是谁、何时、依据什么改的。
-3. **中立性自检** —— `event_balance` 视图与 `check_publishable()` 函数公开，
-   任何人可自己跑一遍，验证是否真的做到了正反并列。
-4. **纠错台账** —— `corrections` 表公开，包括**尚未解决**的纠错请求。
-   一个只展示"已修正"的平台是在挑好看的说。
+**Review panel diversity**: the 2 reviewers on any one submission must not share the same
+self-declared political leaning (`users.alignment_note` is voluntary and used only for pairing,
+never to restrict permissions).
+Reviewers' decisions are all public — reviewers themselves can be challenged.
 
 ---
 
-## 六、这份准则怎么改
+## 5. Guarantees that can be verified externally
 
-修改本文件须：提出 → 公示不少于 14 天 → 至少 2 名编辑与 2 名复核者同意 → 记录修改理由。
-所有历史版本保留在 git 中。
+Nobody is asked to trust the operator. All of the following can be checked independently:
+
+1. **Daily public export** — the full dataset (`export_events` view) is exported as JSON and
+   pushed to a public repository. Anyone who disagrees with this platform can take the whole
+   thing, analyse it themselves, or build a rival. **Exit cost is zero.**
+2. **Revision snapshots** — the `revisions` table records state at every change; any sentence on
+   the page can be traced to who changed it, when, and on what basis.
+3. **Neutrality self-check** — the `event_balance` view and `check_publishable()` function are
+   public; anyone can run them to verify that both sides really are presented.
+4. **Corrections ledger** — the `corrections` table is public, including **unresolved** requests.
+   A platform that displays only "already fixed" is cherry-picking.
 
 ---
 
-## 七、已知局限（诚实声明）
+## 6. How these rules change
 
-- 编辑与复核者目前人数极少，多元性不足。这是当前最大的弱点，不掩饰。
-- 中文语境的覆盖强于马来语、淡米尔语。这会让档案在结构上偏向华社视角——
-  多语言支持已内建于数据结构，但内容补齐需要更多贡献者。
-- 「可核查」标准偏向有文字记录的事件，会系统性低估口述、乡区与非正式经济领域的议题。
-- 本平台不做事实仲裁。呈现各方主张与来源，不宣布谁对谁错。
+Amending this document requires: proposal → public notice of no less than 14 days → agreement
+from at least 2 editors and 2 reviewers → recorded reasons.
+All historical versions are retained in git.
+
+---
+
+## 7. Known limitations (stated honestly)
+
+- Editors and reviewers are currently very few, and not diverse enough. This is the single
+  biggest present weakness; it is not concealed.
+- Coverage in Chinese is stronger than in Malay or Tamil. This structurally tilts the archive
+  towards a Chinese-community perspective — multilingual support is built into the data
+  structure, but filling in the content needs more contributors.
+- The "verifiable" standard favours events with written records, and will systematically
+  under-count oral, rural, and informal-economy matters.
+- This platform does not arbitrate facts. It presents each side's claims and sources; it does
+  not declare who is right.

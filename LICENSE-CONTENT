@@ -1,11 +1,58 @@
-内容与数据授权 / Content & Data License
-==========================================
+Content & Data Licence · Lesen Kandungan & Data · 内容与数据授权
+================================================================
+
+--- English ---
+
+The **content and data** in this repository — including event records, summaries,
+annotations, image captions, and the data files under data/ — are licensed under:
+
+    Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+Full text: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+Summary:   https://creativecommons.org/licenses/by-sa/4.0/
+
+In short:
+  · Free to copy, distribute and adapt, including commercially
+  · Attribution and indication of source required
+  · Derivative works must carry the same licence (they cannot be made closed)
+
+The **code** (index.html, db/, scripts, etc.) is separately licensed under AGPL-3.0.
+See the LICENSE file.
+
+Original sources cited (news reports, official documents, academic papers, etc.) remain
+the copyright of their respective rights holders; this repository indexes and links to
+them only, and asserts no rights over their content.
+
+
+--- Bahasa Malaysia ---
+
+**Kandungan dan data** dalam repositori ini — termasuk rekod peristiwa, ringkasan,
+anotasi, kapsyen imej, dan fail data di bawah data/ — dilesenkan di bawah:
+
+    Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+Teks penuh: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+Ringkasan:  https://creativecommons.org/licenses/by-sa/4.0/
+
+Ringkasnya:
+  · Bebas disalin, diedarkan dan diadaptasi, termasuk untuk tujuan komersial
+  · Pengiktirafan dan penyataan sumber diwajibkan
+  · Karya terbitan mesti membawa lesen yang sama (tidak boleh dijadikan tertutup)
+
+**Kod** (index.html, db/, skrip, dan lain-lain) dilesenkan secara berasingan di bawah
+AGPL-3.0. Sila rujuk fail LICENSE.
+
+Sumber asal yang dipetik (laporan berita, dokumen rasmi, kertas akademik, dan lain-lain)
+kekal hak cipta pemegang hak masing-masing; repositori ini hanya mengindeks dan memaut
+kepadanya, dan tidak menuntut sebarang hak ke atas kandungannya.
+
+
+--- 中文 ---
 
 本仓库中的**内容与数据** —— 包括事件记录、摘要、注释、图注，
 以及 data/ 目录下的数据文件 —— 采用：
 
-    Creative Commons Attribution-ShareAlike 4.0 International
-    (CC BY-SA 4.0)
+    Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 全文：https://creativecommons.org/licenses/by-sa/4.0/legalcode
 摘要：https://creativecommons.org/licenses/by-sa/4.0/deed.zh
@@ -15,7 +62,7 @@
   · 须署名并注明出处
   · 衍生作品须沿用相同授权（不得转为封闭）
 
-**代码**（index.html、db/、脚本等）另行采用 AGPL-3.0，见 LICENSE。
+**代码**（index.html、db/、脚本等）另行采用 AGPL-3.0，见 LICENSE 文件。
 
 引用的原始来源（新闻报道、官方文件、学术论文等）版权归各自权利人所有；
 本仓库仅作事实索引与链接，不主张对其内容的任何权利。

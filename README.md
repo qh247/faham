@@ -1,42 +1,43 @@
 # faham
 
-马来西亚公共政策时间轴。
+**English** · [Bahasa Malaysia](README.ms.md) · [中文](README.zh.md)
 
-## 现状
+A timeline of Malaysian public policy.
 
-架构阶段，尚未收录数据。`data/events.json` 为空数组。
+## Status
 
-## 想做的事
+Scaffolding stage. No data collected yet — `data/events.json` is an empty array.
 
-- 每日抓取可公开抓取的马来西亚新闻源，自动生成候选条目
-- 用户可提交新增与更正
-- 每条主张须附来源；争议事件正反并列 —— 由数据库约束强制，不靠自觉
-- 更公平的收录与复核方式仍在探讨中
+## What we intend to build
 
-## 结构
+- Daily crawling of publicly accessible Malaysian news sources to generate candidate entries
+- Users can submit additions and corrections
+- Every claim must carry a source; contested events must show both sides — enforced by database constraints, not by good intentions
+- Fairer methods of inclusion and review are still being worked out
+
+## Structure
 
 ```
-index.html          前端（单文件，无框架无构建）
-data/events.json    事件数据（由数据库导出或手工维护）
-db/schema.sql       数据库结构 · PostgreSQL
-docs/erd.md         结构图
-docs/governance.md  收录准则与复核规程
+index.html          Frontend (single file, no framework, no build step)
+data/events.json    Event data (exported from the database, or maintained by hand)
+db/schema.sql       Database schema · PostgreSQL
+docs/erd.md         Entity-relationship diagrams
+docs/governance.md  Inclusion criteria and review process
 ```
 
-本地预览需经 HTTP 服务（直接双击打开会因浏览器限制读不到 JSON）：
+Local preview requires an HTTP server (opening the file directly won't load the JSON):
 
 ```bash
 python3 -m http.server 8000
 ```
 
-## 授权
+## Licence
 
-- **代码**：AGPL-3.0 —— 可自由使用与修改；若以网络服务形式提供，须一并公开源码
-- **内容与数据**：CC BY-SA 4.0 —— 须署名，衍生作品沿用相同授权
+- **Code**: AGPL-3.0 — free to use and modify; if you run it as a network service, you must publish your source too
+- **Content and data**: CC BY-SA 4.0 — attribution required, derivatives keep the same licence
 
-各事件引用的原始来源，版权归原权利人所有；本仓库仅作索引与链接。
+Original sources cited in each event remain the property of their respective rights holders; this repository only indexes and links to them.
 
-## 说明
+## Note
 
-本项目目前无营收。若日后需覆盖服务器与运维成本，可能引入某种形式的收入来源；
-届时会在此说明。
+This project currently generates no revenue. If server and maintenance costs need covering later, some form of income may be introduced; that will be stated here when it happens.
