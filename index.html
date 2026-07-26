@@ -252,6 +252,67 @@
   @media (prefers-reduced-motion: reduce) {
     .halo { animation:none; } #card.on { animation:none; }
   }
+
+  /* ══════════ 竖向模式（窄屏）══════════ */
+  body.vmode { overflow:auto; -webkit-overflow-scrolling:touch; }
+  body.vmode #stage, body.vmode #axisLine, body.vmode .edge,
+  body.vmode #ruler, body.vmode #mini, body.vmode #hint,
+  body.vmode #bar, body.vmode #empty { display:none !important; }
+  #vwrap { display:none; }
+  body.vmode #vwrap { display:block; position:relative; z-index:3;
+    max-width:640px; margin:0 auto; padding:0 0 80px; }
+
+  .vhead { position:sticky; top:0; z-index:20; background:var(--glass);
+    backdrop-filter:blur(12px); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:10px; padding:12px 16px; }
+  .vhead .mark { font-family:var(--serif); font-size:18px; font-weight:700; line-height:1.05; }
+  .vhead .mark i { font-style:normal; color:var(--t-tax); }
+  .vhead .mark small { display:block; font-family:inherit; font-size:9px; font-weight:400;
+    color:var(--ink-3); letter-spacing:.14em; margin-top:1px;
+    font-family:-apple-system,system-ui,sans-serif; }
+  .vhead .sp { flex:1; }
+  .vhead button { font:inherit; font-size:16px; color:var(--ink-2); background:none;
+    border:1px solid var(--line); border-radius:999px; width:34px; height:34px; cursor:pointer; }
+
+  /* 议题过滤条：横向滚动 */
+  .vfilter { display:flex; gap:6px; overflow-x:auto; padding:10px 16px; scrollbar-width:none;
+    border-bottom:1px solid var(--hair); position:sticky; top:59px; z-index:19; background:var(--bg); }
+  .vfilter::-webkit-scrollbar { display:none; }
+  .vfilter .chip { flex:none; font-size:12px; color:var(--ink-2); background:var(--surface);
+    border:1px solid var(--line); border-radius:999px; padding:5px 12px; display:flex;
+    align-items:center; gap:6px; cursor:pointer; user-select:none; }
+  .vfilter .chip .sw { width:7px; height:7px; border-radius:50%; background:var(--c); }
+  .vfilter .chip.off { opacity:.35; }
+
+  /* 时间轴主体 */
+  .vtl { position:relative; padding:8px 0 0; }
+  .vtl::before { content:""; position:absolute; left:32px; top:0; bottom:0; width:2px;
+    background:linear-gradient(var(--axis), var(--axis)); opacity:.5; }
+  .vyear { position:relative; font-family:var(--mono); font-size:12px; letter-spacing:.14em;
+    color:var(--ink-3); padding:18px 0 8px 56px; font-weight:600; }
+  .vitem { position:relative; padding:0 16px 4px 56px; }
+  .vitem .vdot { position:absolute; left:25px; top:16px; width:16px; height:16px; border-radius:50%;
+    background:var(--c); box-shadow:0 0 0 4px var(--bg), 0 0 12px var(--c);
+    border:2px solid var(--bg); }
+  .vrow { width:100%; text-align:left; background:var(--surface); border:1px solid var(--line);
+    border-left:3px solid var(--c); border-radius:10px; padding:12px 14px; cursor:pointer;
+    display:block; font:inherit; color:inherit; -webkit-tap-highlight-color:transparent; }
+  .vrow:active { background:var(--bg-2); }
+  .vrow .vd { font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; color:var(--ink-3); }
+  .vrow .vt { font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.4;
+    margin:3px 0 0; color:var(--ink); }
+  .vrow .vmeta { display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; margin-top:7px;
+    font-size:11px; color:var(--ink-3); }
+  .vrow .vtag { border:1px solid color-mix(in srgb, var(--c) 40%, transparent);
+    color:var(--c); border-radius:999px; padding:1px 8px; }
+  /* 内联展开卡：复用 .sec/.claim/.imp/.disc 等既有样式 */
+  .vcard { display:none; padding:4px 2px 6px; }
+  .vitem.open .vcard { display:block; animation:vbloom .4s cubic-bezier(.19,1,.22,1); }
+  @keyframes vbloom { from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:none;} }
+  .vitem.open .vrow { border-radius:10px 10px 0 0; background:var(--bg-2); }
+  .vcard .sec:first-child { border-top:none; margin-top:0; padding-top:12px; }
+  .vcard-inner { background:var(--surface); border:1px solid var(--line); border-top:none;
+    border-left:3px solid var(--c); border-radius:0 0 10px 10px; padding:2px 14px 14px; }
 </style>
 </head>
 <body>
@@ -283,6 +344,17 @@
 <div id="mini"><div class="track"></div><div class="view"></div></div>
 <div id="hint"><b>任意方向拖拽</b>移动 · <b>⌘/Ctrl+滚轮</b> 或双指捏合缩放 · <b>点击光点</b>展开</div>
 
+<!-- 竖向模式（窄屏）：原生滚动的时间线 -->
+<div id="vwrap">
+  <div class="vhead">
+    <div class="mark">faham<i>.</i><small>在时间里看见政策</small></div>
+    <div class="sp"></div>
+    <button id="vtheme" aria-label="切换主题">◐</button>
+  </div>
+  <div class="vfilter" id="vfilter"></div>
+  <div class="vtl" id="vtl"></div>
+</div>
+
 <script>
 /* ═══════════ 事件数据 ═══════════
    img:     [{cap:"图注", src:"可选。留空则显示占位框"}]  ← 建议自托管，别外链（外链会让读者浏览器请求第三方）
@@ -300,7 +372,34 @@ const TOPICS = {
    ═══════════════════════════ */
 let EVENTS = [];
 
-/* ═══════════ 引擎 ═══════════ */
+/* ═══════════ 详情卡内容（横竖两种布局共用）═══════════ */
+function buildCardHTML(e){
+  const tp=TOPICS[e.topic], S=[];
+  S.push(`<div class="c-date">${e.label}</div><h3 class="c-title">${e.title}</h3>`);
+  S.push(`<div class="c-tags"><span class="st">${tp.name}</span>${e.who?`<span>${e.who}</span>`:''}</div>`);
+  if(e.why) S.push(`<div class="sec"><h4>起因</h4><p>${e.why}</p></div>`);
+  if(e.img?.length) S.push(`<div class="sec"><h4>图像资料</h4><div class="figs">${
+    e.img.map(g=>`<div class="fig">${g.src?`<img src="${g.src}" alt="">`:`<div class="ph">🖼 图片位</div>`}<div class="cap">${g.cap}</div></div>`).join('')}</div></div>`);
+  if(e.hist?.length) S.push(`<div class="sec"><h4>状态历程 · 留痕不删</h4>${
+    e.hist.map(h=>`<div class="step"><span class="sd">${h.d}</span><span class="sb">${h.t}</span></div>`).join('')}</div>`);
+  if(e.claims?.length) S.push(`<div class="sec"><h4>各方主张 · 并列呈现</h4>${
+    e.claims.map(c=>`<div class="claim ${c.side}"><div class="who">${c.who}</div><div class="tx">${c.tx}</div>${
+      c.sr&&c.sr!=='—'?`<div class="sr">依据：${c.url?`<a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.sr}</a>`:c.sr}</div>`:''}</div>`).join('')}</div>`);
+  if(e.impact?.length||e.note) S.push(`<div class="sec"><h4>差异化影响 · 用数据说话</h4>${
+    (e.impact||[]).map(i=>`<div class="imp"><span class="k">${i.k}</span><span class="v">${i.v}${i.s&&i.s!=='—'?`<em>来源：${i.s}</em>`:''}</span></div>`).join('')
+    }${e.note?`<div class="note">${e.note}</div>`:''}</div>`);
+  if(e.srcs?.length) S.push(`<div class="sec"><h4>主要来源</h4><ul class="srcs">${
+    e.srcs.map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener noreferrer">${x.l}</a></li>`).join('')}</ul></div>`);
+  S.push(`<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 以下为版式示意</em></div>
+    <div class="cm"><div class="top"><span class="badge trusted">受信任</span><span class="who2">账号存在 8 个月 · 12 条主张被标记「来源可靠」</span></div>
+      <div class="body">补充一条来源：LHDN 官网的分阶段表格在 2025 年 6 月改过一次，旧链接已失效，建议改引存档版。</div></div>
+    <div class="cm"><div class="top"><span class="badge verified">已验证</span><span class="who2">已验证邮箱</span></div>
+      <div class="body">想问差异化影响那一栏——按行业细分的数据有没有公开来源？没有的话是不是不该放上来。</div></div>
+    <div class="composer"><b>说明：</b>此帖每人每 24 小时最多 2 条，计数绑定账号而非 IP；提交前需通过人机验证。评论功能须待后端与审核流程就绪后开放——这是平台法律风险最集中的一环。</div></div>`);
+  return S.join('');
+}
+
+/* ═══════════ 横向引擎（桌面）═══════════ */
 function boot() {
   const DAY = 864e5, $ = id => document.getElementById(id);
   const stage=$('stage'), layer=$('layer'), axisLine=$('axisLine'), ruler=$('ruler'),
@@ -560,29 +659,8 @@ function boot() {
   /* ── 详情：从光点向下展开 ── */
   function open(e){
     selected=e; evs.forEach(x=>x._el.classList.toggle('sel',x===e));
-    const tp=TOPICS[e.topic], S=[];
-    S.push(`<div class="c-date">${e.label}</div><h3 class="c-title">${e.title}</h3>`);
-    S.push(`<div class="c-tags"><span class="st">${tp.name}</span>${e.who?`<span>${e.who}</span>`:''}</div>`);
-    if(e.why) S.push(`<div class="sec"><h4>起因</h4><p>${e.why}</p></div>`);
-    if(e.img?.length) S.push(`<div class="sec"><h4>图像资料</h4><div class="figs">${
-      e.img.map(g=>`<div class="fig">${g.src?`<img src="${g.src}" alt="">`:`<div class="ph">🖼 图片位</div>`}<div class="cap">${g.cap}</div></div>`).join('')}</div></div>`);
-    if(e.hist?.length) S.push(`<div class="sec"><h4>状态历程 · 留痕不删</h4>${
-      e.hist.map(h=>`<div class="step"><span class="sd">${h.d}</span><span class="sb">${h.t}</span></div>`).join('')}</div>`);
-    if(e.claims?.length) S.push(`<div class="sec"><h4>各方主张 · 并列呈现</h4>${
-      e.claims.map(c=>`<div class="claim ${c.side}"><div class="who">${c.who}</div><div class="tx">${c.tx}</div>${
-        c.sr&&c.sr!=='—'?`<div class="sr">依据：${c.url?`<a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.sr}</a>`:c.sr}</div>`:''}</div>`).join('')}</div>`);
-    if(e.impact?.length||e.note) S.push(`<div class="sec"><h4>差异化影响 · 用数据说话</h4>${
-      (e.impact||[]).map(i=>`<div class="imp"><span class="k">${i.k}</span><span class="v">${i.v}${i.s&&i.s!=='—'?`<em>来源：${i.s}</em>`:''}</span></div>`).join('')
-      }${e.note?`<div class="note">${e.note}</div>`:''}</div>`);
-    if(e.srcs?.length) S.push(`<div class="sec"><h4>主要来源</h4><ul class="srcs">${
-      e.srcs.map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener noreferrer">${x.l}</a></li>`).join('')}</ul></div>`);
-    S.push(`<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 以下为版式示意</em></div>
-      <div class="cm"><div class="top"><span class="badge trusted">受信任</span><span class="who2">账号存在 8 个月 · 12 条主张被标记「来源可靠」</span></div>
-        <div class="body">补充一条来源：LHDN 官网的分阶段表格在 2025 年 6 月改过一次，旧链接已失效，建议改引存档版。</div></div>
-      <div class="cm"><div class="top"><span class="badge verified">已验证</span><span class="who2">已验证邮箱</span></div>
-        <div class="body">想问差异化影响那一栏——按行业细分的数据有没有公开来源？没有的话是不是不该放上来。</div></div>
-      <div class="composer"><b>说明：</b>此帖每人每 24 小时最多 2 条，计数绑定账号而非 IP；提交前需通过人机验证。评论功能须待后端与审核流程就绪后开放——这是平台法律风险最集中的一环。</div></div>`);
-    cardScroll.innerHTML=S.join('');
+    const tp=TOPICS[e.topic];
+    cardScroll.innerHTML=buildCardHTML(e);
     card.style.setProperty('--c',tp.c);
     cardTop=34;
     card.classList.remove('on'); void card.offsetWidth; card.classList.add('on');
@@ -629,21 +707,102 @@ function boot() {
   requestAnimationFrame(start); addEventListener('load',start);
 }
 
-/* 载入数据后启动；无数据时显示空状态而非白屏 */
-fetch('./data/events.json')
-  .then(r => r.ok ? r.json() : [])
-  .catch(() => [])            // file:// 直开会失败，视为空数据
-  .then(rows => {
-    EVENTS = Array.isArray(rows) ? rows : [];
-    const emptyEl = document.getElementById('empty');
-    if (!EVENTS.length) {
-      emptyEl.hidden = false;
-      document.getElementById('bar').style.opacity = '.45';
-      return;
-    }
-    emptyEl.hidden = true;      // 有数据：务必收起空状态遮罩
-    boot();
+/* ═══════════ 竖向引擎（手机）═══════════
+   原生滚动的时间线，从上到下按时间排列 —— 顺着手机的方向，不做自定义缩放/拖拽。 */
+function bootVertical() {
+  document.body.classList.add('vmode');
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  const evs = EVENTS.slice().sort((a,b)=> new Date(b.date) - new Date(a.date)); // 新→旧
+  const hidden = {};
+
+  // 议题过滤条
+  const vf = $('vfilter');
+  vf.innerHTML = Object.entries(TOPICS).map(([k,v])=>
+    `<div class="chip" data-k="${k}" style="--c:${v.c}"><span class="sw"></span>${v.name}</div>`).join('');
+  vf.querySelectorAll('.chip').forEach(c=>{
+    c.addEventListener('click',()=>{ const k=c.dataset.k; hidden[k]=!hidden[k];
+      c.classList.toggle('off',!!hidden[k]); render(); });
   });
+
+  const tl = $('vtl');
+  function render(){
+    const list = evs.filter(e=>!hidden[e.topic]);
+    let html='', lastYear=null;
+    list.forEach((e,i)=>{
+      const yr = e.date.slice(0,4);
+      if(yr!==lastYear){ html+=`<div class="vyear">${yr}</div>`; lastYear=yr; }
+      const tp = TOPICS[e.topic];
+      const marks = (e.img?.length?'🖼 ':'') + (e.discuss?`💬 ${e.discuss}`:'');
+      html += `<div class="vitem" data-i="${e._vi}" style="--c:${tp.c}">
+        <div class="vdot"></div>
+        <button class="vrow" type="button">
+          <span class="vd">${esc(e.label)}</span>
+          <span class="vt">${esc(e.title)}</span>
+          <span class="vmeta"><span class="vtag">${esc(tp.name)}</span>${e.who?`<span>${esc(e.who)}</span>`:''}${marks?`<span>${marks}</span>`:''}</span>
+        </button>
+        <div class="vcard"><div class="vcard-inner"></div></div>
+      </div>`;
+    });
+    tl.innerHTML = html || '<div class="vyear" style="padding-left:16px">无符合条件的事件</div>';
+    tl.querySelectorAll('.vitem').forEach(it=>{
+      const e = EVENTS[+it.dataset.i];
+      it.querySelector('.vrow').addEventListener('click',()=>{
+        const open = it.classList.contains('open');
+        if(!open){
+          const inner = it.querySelector('.vcard-inner');
+          if(!inner.dataset.built){ inner.innerHTML = buildCardHTML(e); inner.dataset.built='1'; }
+        }
+        it.classList.toggle('open');
+      });
+    });
+  }
+  EVENTS.forEach((e,i)=>{ const t=evs.indexOf(e); }); // no-op guard
+  evs.forEach(e=>{ e._vi = EVENTS.indexOf(e); });
+  render();
+
+  // 主题切换（与桌面共用同一存储键）
+  const root=document.documentElement;
+  $('vtheme').addEventListener('click',()=>{
+    const n = root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',n);
+    try{ localStorage.setItem('faham-theme',n); }catch(_){}
+  });
+}
+
+/* 载入数据后启动；无数据时显示空状态而非白屏。
+   优先尝试本地测试数据 events.local.json（被 .gitignore 忽略，永不进仓库）；
+   不存在时回退到 events.json（仓库中为空数组）。 */
+async function loadEvents() {
+  for (const url of ['./data/events.local.json', './data/events.json']) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) { const rows = await r.json(); if (Array.isArray(rows)) return rows; }
+    } catch (_) { /* 本地文件不存在或 file:// 限制，继续 */ }
+  }
+  return [];
+}
+const NARROW = () => matchMedia('(max-width: 700px)').matches;
+
+loadEvents().then(rows => {
+  EVENTS = Array.isArray(rows) ? rows : [];
+  const emptyEl = document.getElementById('empty');
+  if (!EVENTS.length) {
+    emptyEl.hidden = false;
+    document.getElementById('bar').style.opacity = '.45';
+    return;
+  }
+  emptyEl.hidden = true;      // 有数据：务必收起空状态遮罩
+  if (NARROW()) bootVertical(); else boot();
+});
+
+// 跨越窄/宽阈值时（如横竖屏切换）重载，让布局引擎重新选择——比双引擎共存更稳
+let _wasNarrow = NARROW();
+addEventListener('resize', () => {
+  const now = NARROW();
+  if (now !== _wasNarrow) { _wasNarrow = now; location.reload(); }
+});
 </script>
 </body>
 </html>

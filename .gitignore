@@ -15,3 +15,7 @@ node_modules/
 # 工具产物
 .agents/
 skills-lock.json
+
+# 本地测试数据 —— 绝不进仓库
+data/events.local.json
+data/*.local.json
