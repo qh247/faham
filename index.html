@@ -218,7 +218,9 @@
   .cm { padding:9px 0; border-bottom:1px solid var(--hair); }
   .cm:last-of-type{border-bottom:none}
   .cm .top { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
-  .badge { font-size:9px; font-weight:700; border-radius:4px; padding:1px 6px; letter-spacing:.03em; }
+  /* 图标徽章：圆形定宽，释义走 title（长按/悬停） */
+  .badge { font-size:11px; font-weight:700; line-height:1; width:20px; height:20px; flex:none;
+    border-radius:50%; display:inline-flex; align-items:center; justify-content:center; cursor:help; }
   .badge.guest   { background:var(--bg-2); color:var(--ink-3); border:1px solid var(--line); }
   .badge.verified{ background:color-mix(in srgb,var(--t-graft) 15%,transparent); color:var(--t-graft); }
   .badge.trusted { background:color-mix(in srgb,var(--t-tax) 15%,transparent); color:var(--t-tax); }
@@ -439,10 +441,12 @@ const TOPICS = {
 function sourceLevel(e){
   const hasUrl  = (e.claims||[]).some(c=>c.url) || (e.srcs||[]).some(s=>s.u);
   const hasName = (e.claims||[]).some(c=>c.sr && c.sr!=='—') || (e.srcs||[]).length;
-  if (hasUrl)  return { k:'ok',      t:'有来源' };
-  if (hasName) return { k:'partial', t:'来源待补链接' };
-  return          { k:'none',    t:'待补来源' };
+  // 图标承担辨识，文字只留最短的限定词；title 供长按/悬停查看完整说明
+  if (hasUrl)  return { k:'ok',      i:'🔗', t:'来源', full:'附有可点击来源，读者可自行核对' };
+  if (hasName) return { k:'partial', i:'◐',  t:'无链接', full:'已注明出处，但尚未附上可点击链接' };
+  return          { k:'none',    i:'○',  t:'无来源', full:'尚未附上可核查来源，不应视为已核实的档案条目' };
 }
+const srcBadge = sl => `<span class="srcbadge ${sl.k}" title="${sl.full}">${sl.i} ${sl.t}</span>`;
 
 /* ═══════════ 事件数据 ═══════════
    数据不写死在代码里：运行时从 data/events.json 载入。
@@ -475,26 +479,30 @@ const CARD_SECTIONS = {
   srcs: e => e.srcs?.length ? `<div class="sec"><h4>主要来源</h4><ul class="srcs">${
     e.srcs.map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener noreferrer">${x.l}</a></li>`).join('')}</ul></div>` : '',
 
-  disc: e => `<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 以下为版式示意</em></div>
-    <div class="cm"><div class="top"><span class="badge trusted">受信任</span><span class="who2">账号存在 8 个月 · 12 条主张被标记「来源可靠」</span></div>
-      <div class="body">补充一条来源：LHDN 官网的分阶段表格在 2025 年 6 月改过一次，旧链接已失效，建议改引存档版。</div></div>
-    <div class="cm"><div class="top"><span class="badge verified">已验证</span><span class="who2">已验证邮箱</span></div>
-      <div class="body">想问差异化影响那一栏——按行业细分的数据有没有公开来源？没有的话是不是不该放上来。</div></div>
-    <div class="composer"><b>说明：</b>此帖每人每 24 小时最多 2 条，计数绑定账号而非 IP；提交前需通过人机验证。评论功能须待后端与审核流程就绪后开放——这是平台法律风险最集中的一环。</div></div>`
+  /* 讨论：徽章用图标（长按/悬停看释义），评论限 30–50 字以逼出重点 */
+  disc: e => `<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 版式示意</em></div>
+    <div class="cm"><div class="top"><span class="badge trusted" title="受信任：账号 ≥30 天，行为记录良好">★</span><span class="who2">8 个月 · 12 条来源被采纳</span></div>
+      <div class="body">LHDN 那张表 2025 年 6 月改过，旧链接已失效，建议改引存档版。</div></div>
+    <div class="cm"><div class="top"><span class="badge verified" title="已验证：完成邮箱验证">✓</span><span class="who2">已验证</span></div>
+      <div class="body">差异化影响里按行业细分那一栏，有公开来源吗？没有的话是不是不该放上来。</div></div>
+    <div class="composer"><b>规则：</b>每则 30–50 字，逼出重点、避免长篇宣泄；每人每帖每 24 小时 2 条，计数绑账号而非 IP，提交前需人机验证。评论须待后端与审核流程就绪后开放——这是法律风险最集中的一环。</div></div>`
 };
 
+/* 来源提示：仅在证据不足时出现，措辞尽量短 */
+function srcNote(e){
+  const sl = sourceLevel(e);
+  if (sl.k==='ok') return '';
+  return sl.k==='none'
+    ? `<div class="srcnote"><b>尚无可核查来源</b>，不应视为已核实条目。</div>`
+    : `<div class="srcnote">已注明出处，<b>但无可点击链接</b>。</div>`;
+}
+
+/* 完整卡头（桌面用；手机的行卡已显示这些信息，不重复） */
 function cardHead(e){
-  const tp=TOPICS[e.topic], sl=sourceLevel(e);
-  const note = sl.k==='none'
-    ? `<div class="srcnote"><b>此条目尚未附上可核查来源。</b>依收录准则，
-        每条事件须有至少 2 个独立来源方可正式收录；此处保留以供溯源与复核，
-        不应视为已核实的档案条目。</div>`
-    : sl.k==='partial'
-      ? `<div class="srcnote">来源已注明出处，但<b>尚未附上可点击链接</b>，读者暂时无法自行核对。</div>`
-      : '';
+  const tp=TOPICS[e.topic];
   return `<div class="c-date">${e.label}</div><h3 class="c-title">${e.title}</h3>
     <div class="c-tags"><span class="st">${tp.name}</span>${e.who?`<span>${e.who}</span>`:''}
-      <span class="srcbadge ${sl.k}">${sl.t}</span></div>${note}`;
+      ${srcBadge(sourceLevel(e))}</div>${srcNote(e)}`;
 }
 
 /* 桌面：全部平铺 */
@@ -515,7 +523,8 @@ function buildCardTabsHTML(e, uid){
   const built = TABS
     .map(t => ({ ...t, html: t.parts.map(p => CARD_SECTIONS[p](e)).join('') }))
     .filter(t => t.html.trim());
-  if (!built.length) return cardHead(e);
+  // 不重复标题／日期／议题／责任方 —— 上方的行卡已经显示过了
+  if (!built.length) return srcNote(e);
 
   const radios = built.map((t,i)=>
     `<input type="radio" name="tab-${uid}" id="tab-${uid}-${t.key}"${i===0?' checked':''}>`).join('');
@@ -524,7 +533,7 @@ function buildCardTabsHTML(e, uid){
   const panes = built.map(t =>
     `<div class="vpane" data-k="${t.key}">${t.html}</div>`).join('');
 
-  return `${cardHead(e)}<div class="vtabs" data-uid="${uid}">${radios}
+  return `${srcNote(e)}<div class="vtabs" data-uid="${uid}">${radios}
     <div class="vtabbar">${labels}</div><div class="vpanes">${panes}</div></div>`;
 }
 
@@ -880,7 +889,7 @@ function bootVertical() {
         <button class="vrow" type="button">
           <span class="vd">${esc(dayLabel(e))}</span>
           <span class="vt">${esc(e.title)}</span>
-          <span class="vmeta"><span class="vtag">${esc(tp.name)}</span><span class="srcbadge ${sl.k}">${sl.t}</span>${e.who?`<span>${esc(e.who)}</span>`:''}${marks?`<span>${marks}</span>`:''}</span>
+          <span class="vmeta"><span class="vtag">${esc(tp.name)}</span>${srcBadge(sl)}${e.who?`<span>${esc(e.who)}</span>`:''}${marks?`<span>${marks}</span>`:''}</span>
         </button>
         <div class="vcard"><div class="vcard-inner"></div></div>
       </div>`;
