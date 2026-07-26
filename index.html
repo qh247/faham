@@ -44,6 +44,7 @@
     --t-cost:    #bb3d58;
     --t-vote:    #5b4bc4;
     --t-graft:   #2b6fb0;
+    --t-rights:  #5b7f3f;
     --halo-op:   .16;
     --dot-glow:  0 0 0 1px rgba(255,255,255,.7), 0 1px 6px rgba(30,28,24,.18);
     --card-sh:   0 18px 50px -12px rgba(30,28,24,.26), 0 2px 10px rgba(30,28,24,.08);
@@ -66,6 +67,7 @@
     --t-cost:    #f2637f;
     --t-vote:    #9b8cf5;
     --t-graft:   #6cb6ff;
+    --t-rights:  #8fbc6a;
     --halo-op:   .34;
     --dot-glow:  0 0 10px var(--c), 0 0 22px color-mix(in srgb, var(--c) 55%, transparent);
     --card-sh:   0 24px 60px -14px rgba(0,0,0,.7);
@@ -335,6 +337,50 @@
   .vcard .sec:first-child { border-top:none; margin-top:0; padding-top:12px; }
   .vcard-inner { background:var(--surface); border:1px solid var(--line); border-top:none;
     border-left:3px solid var(--c); border-radius:0 0 10px 10px; padding:2px 14px 14px; }
+
+  /* 详情页签（手机）——纯 CSS，靠 :checked 切换 */
+  .vtabs > input { position:absolute; opacity:0; pointer-events:none; }
+  .vtabbar { display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;
+    margin:14px -14px 0; padding:0 14px 8px; border-bottom:1px solid var(--line); }
+  .vtabbar::-webkit-scrollbar { display:none; }
+  .vtabbar label { flex:none; font-size:12.5px; color:var(--ink-3); background:var(--bg-2);
+    border:1px solid var(--line); border-radius:999px; padding:5px 13px; cursor:pointer;
+    user-select:none; white-space:nowrap; }
+  .vpane { display:none; }
+  .vpane .sec:first-child { border-top:none; margin-top:0; padding-top:12px; }
+  /* 页签键名取自固定集合，故可用后缀匹配静态写出 */
+  .vtabs input[id$="-overview"]:checked ~ .vtabbar label[data-k="overview"],
+  .vtabs input[id$="-claims"]:checked   ~ .vtabbar label[data-k="claims"],
+  .vtabs input[id$="-hist"]:checked     ~ .vtabbar label[data-k="hist"],
+  .vtabs input[id$="-srcs"]:checked     ~ .vtabbar label[data-k="srcs"],
+  .vtabs input[id$="-disc"]:checked     ~ .vtabbar label[data-k="disc"] {
+    background:var(--c); border-color:var(--c); color:#fff; }
+  .vtabs input[id$="-overview"]:checked ~ .vpanes .vpane[data-k="overview"],
+  .vtabs input[id$="-claims"]:checked   ~ .vpanes .vpane[data-k="claims"],
+  .vtabs input[id$="-hist"]:checked     ~ .vpanes .vpane[data-k="hist"],
+  .vtabs input[id$="-srcs"]:checked     ~ .vpanes .vpane[data-k="srcs"],
+  .vtabs input[id$="-disc"]:checked     ~ .vpanes .vpane[data-k="disc"] { display:block; }
+
+  /* 证据强度指示 —— 让来源状态对读者可见 */
+  .srcbadge { display:inline-flex; align-items:center; gap:4px; font-size:10.5px;
+    border-radius:999px; padding:1px 8px; border:1px solid; white-space:nowrap; }
+  .srcbadge.ok      { color:#0f8073; border-color:color-mix(in srgb,#0f8073 40%,transparent);
+                      background:color-mix(in srgb,#0f8073 8%,transparent); }
+  .srcbadge.partial { color:#b8770a; border-color:color-mix(in srgb,#b8770a 40%,transparent);
+                      background:color-mix(in srgb,#b8770a 8%,transparent); }
+  .srcbadge.none    { color:var(--ink-3); border-color:var(--line); background:var(--bg-2); }
+  :root[data-theme="dark"] .srcbadge.ok      { color:#35d0c0; }
+  :root[data-theme="dark"] .srcbadge.partial { color:#f0a830; }
+  /* 卡片顶部的醒目提示（仅在无来源时出现） */
+  .srcnote { font-size:11.5px; line-height:1.6; border-radius:7px; padding:8px 10px; margin:10px 0 2px;
+    color:var(--ink-2); background:var(--bg-2); border-left:3px solid var(--ink-3); }
+  .srcnote b { color:var(--ink); }
+
+  /* 月份小标题（年份之下的次级分组） */
+  .vmonth { position:relative; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
+    color:var(--ink-3); padding:14px 0 6px 56px; opacity:.8; }
+  .vmonth::before { content:""; position:absolute; left:26px; top:50%; width:14px; height:1px;
+    background:var(--line); }
 </style>
 </head>
 <body>
@@ -384,8 +430,19 @@
    ═══════════════════════════ */
 const TOPICS = {
   subsidy:{name:"补贴改革",c:"var(--t-subsidy)"}, tax:{name:"税务",c:"var(--t-tax)"},
-  cost:{name:"生活成本",c:"var(--t-cost)"}, vote:{name:"选举",c:"var(--t-vote)"}, graft:{name:"反贪问责",c:"var(--t-graft)"}
+  cost:{name:"生活成本",c:"var(--t-cost)"}, vote:{name:"选举",c:"var(--t-vote)"},
+  graft:{name:"反贪问责",c:"var(--t-graft)"}, rights:{name:"公民与制度",c:"var(--t-rights)"}
 };
+
+/* 证据强度 —— 平台的核心承诺是「每条主张附来源」，
+   因此来源状态必须对读者可见，而不是藏在数据里。 */
+function sourceLevel(e){
+  const hasUrl  = (e.claims||[]).some(c=>c.url) || (e.srcs||[]).some(s=>s.u);
+  const hasName = (e.claims||[]).some(c=>c.sr && c.sr!=='—') || (e.srcs||[]).length;
+  if (hasUrl)  return { k:'ok',      t:'有来源' };
+  if (hasName) return { k:'partial', t:'来源待补链接' };
+  return          { k:'none',    t:'待补来源' };
+}
 
 /* ═══════════ 事件数据 ═══════════
    数据不写死在代码里：运行时从 data/events.json 载入。
@@ -394,31 +451,81 @@ const TOPICS = {
    ═══════════════════════════ */
 let EVENTS = [];
 
-/* ═══════════ 详情卡内容（横竖两种布局共用）═══════════ */
-function buildCardHTML(e){
-  const tp=TOPICS[e.topic], S=[];
-  S.push(`<div class="c-date">${e.label}</div><h3 class="c-title">${e.title}</h3>`);
-  S.push(`<div class="c-tags"><span class="st">${tp.name}</span>${e.who?`<span>${e.who}</span>`:''}</div>`);
-  if(e.why) S.push(`<div class="sec"><h4>起因</h4><p>${e.why}</p></div>`);
-  if(e.img?.length) S.push(`<div class="sec"><h4>图像资料</h4><div class="figs">${
-    e.img.map(g=>`<div class="fig">${g.src?`<img src="${g.src}" alt="">`:`<div class="ph">🖼 图片位</div>`}<div class="cap">${g.cap}</div></div>`).join('')}</div></div>`);
-  if(e.hist?.length) S.push(`<div class="sec"><h4>状态历程 · 留痕不删</h4>${
-    e.hist.map(h=>`<div class="step"><span class="sd">${h.d}</span><span class="sb">${h.t}</span></div>`).join('')}</div>`);
-  if(e.claims?.length) S.push(`<div class="sec"><h4>各方主张 · 并列呈现</h4>${
+/* ═══════════ 详情卡内容 ═══════════
+   拆成命名分段，供两种装配方式共用：
+     buildCardHTML(e)      桌面：全部平铺
+     buildCardTabsHTML(e)  手机：分页签，避免一次铺开太长 */
+const CARD_SECTIONS = {
+  why: e => e.why ? `<div class="sec"><h4>起因</h4><p>${e.why}</p></div>` : '',
+
+  img: e => e.img?.length ? `<div class="sec"><h4>图像资料</h4><div class="figs">${
+    e.img.map(g=>`<div class="fig">${g.src?`<img src="${g.src}" alt="" loading="lazy">`:`<div class="ph">🖼 图片位</div>`}<div class="cap">${g.cap}</div></div>`).join('')}</div></div>` : '',
+
+  hist: e => e.hist?.length ? `<div class="sec"><h4>状态历程 · 留痕不删</h4>${
+    e.hist.map(h=>`<div class="step"><span class="sd">${h.d}</span><span class="sb">${h.t}</span></div>`).join('')}</div>` : '',
+
+  claims: e => e.claims?.length ? `<div class="sec"><h4>各方主张 · 并列呈现</h4>${
     e.claims.map(c=>`<div class="claim ${c.side}"><div class="who">${c.who}</div><div class="tx">${c.tx}</div>${
-      c.sr&&c.sr!=='—'?`<div class="sr">依据：${c.url?`<a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.sr}</a>`:c.sr}</div>`:''}</div>`).join('')}</div>`);
-  if(e.impact?.length||e.note) S.push(`<div class="sec"><h4>差异化影响 · 用数据说话</h4>${
+      c.sr&&c.sr!=='—'?`<div class="sr">依据：${c.url?`<a href="${c.url}" target="_blank" rel="noopener noreferrer">${c.sr}</a>`:c.sr}</div>`:''}</div>`).join('')}</div>` : '',
+
+  impact: e => (e.impact?.length||e.note) ? `<div class="sec"><h4>差异化影响 · 用数据说话</h4>${
     (e.impact||[]).map(i=>`<div class="imp"><span class="k">${i.k}</span><span class="v">${i.v}${i.s&&i.s!=='—'?`<em>来源：${i.s}</em>`:''}</span></div>`).join('')
-    }${e.note?`<div class="note">${e.note}</div>`:''}</div>`);
-  if(e.srcs?.length) S.push(`<div class="sec"><h4>主要来源</h4><ul class="srcs">${
-    e.srcs.map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener noreferrer">${x.l}</a></li>`).join('')}</ul></div>`);
-  S.push(`<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 以下为版式示意</em></div>
+    }${e.note?`<div class="note">${e.note}</div>`:''}</div>` : '',
+
+  srcs: e => e.srcs?.length ? `<div class="sec"><h4>主要来源</h4><ul class="srcs">${
+    e.srcs.map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener noreferrer">${x.l}</a></li>`).join('')}</ul></div>` : '',
+
+  disc: e => `<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 以下为版式示意</em></div>
     <div class="cm"><div class="top"><span class="badge trusted">受信任</span><span class="who2">账号存在 8 个月 · 12 条主张被标记「来源可靠」</span></div>
       <div class="body">补充一条来源：LHDN 官网的分阶段表格在 2025 年 6 月改过一次，旧链接已失效，建议改引存档版。</div></div>
     <div class="cm"><div class="top"><span class="badge verified">已验证</span><span class="who2">已验证邮箱</span></div>
       <div class="body">想问差异化影响那一栏——按行业细分的数据有没有公开来源？没有的话是不是不该放上来。</div></div>
-    <div class="composer"><b>说明：</b>此帖每人每 24 小时最多 2 条，计数绑定账号而非 IP；提交前需通过人机验证。评论功能须待后端与审核流程就绪后开放——这是平台法律风险最集中的一环。</div></div>`);
-  return S.join('');
+    <div class="composer"><b>说明：</b>此帖每人每 24 小时最多 2 条，计数绑定账号而非 IP；提交前需通过人机验证。评论功能须待后端与审核流程就绪后开放——这是平台法律风险最集中的一环。</div></div>`
+};
+
+function cardHead(e){
+  const tp=TOPICS[e.topic], sl=sourceLevel(e);
+  const note = sl.k==='none'
+    ? `<div class="srcnote"><b>此条目尚未附上可核查来源。</b>依收录准则，
+        每条事件须有至少 2 个独立来源方可正式收录；此处保留以供溯源与复核，
+        不应视为已核实的档案条目。</div>`
+    : sl.k==='partial'
+      ? `<div class="srcnote">来源已注明出处，但<b>尚未附上可点击链接</b>，读者暂时无法自行核对。</div>`
+      : '';
+  return `<div class="c-date">${e.label}</div><h3 class="c-title">${e.title}</h3>
+    <div class="c-tags"><span class="st">${tp.name}</span>${e.who?`<span>${e.who}</span>`:''}
+      <span class="srcbadge ${sl.k}">${sl.t}</span></div>${note}`;
+}
+
+/* 桌面：全部平铺 */
+function buildCardHTML(e){
+  return cardHead(e) + ['why','img','hist','claims','impact','srcs','disc']
+    .map(k => CARD_SECTIONS[k](e)).join('');
+}
+
+/* 手机：分页签。只保留有内容的页签，避免出现空白页 */
+function buildCardTabsHTML(e, uid){
+  const TABS = [
+    { key:'overview', label:'概览', parts:['why','impact','img'] },
+    { key:'claims',   label:'主张', parts:['claims'] },
+    { key:'hist',     label:'历程', parts:['hist'] },
+    { key:'srcs',     label:'来源', parts:['srcs'] },
+    { key:'disc',     label:'讨论', parts:['disc'] }
+  ];
+  const built = TABS
+    .map(t => ({ ...t, html: t.parts.map(p => CARD_SECTIONS[p](e)).join('') }))
+    .filter(t => t.html.trim());
+  if (!built.length) return cardHead(e);
+
+  const radios = built.map((t,i)=>
+    `<input type="radio" name="tab-${uid}" id="tab-${uid}-${t.key}"${i===0?' checked':''}>`).join('');
+  const labels = built.map(t =>
+    `<label for="tab-${uid}-${t.key}" data-k="${t.key}">${t.label}</label>`).join('');
+  const panes = built.map(t =>
+    `<div class="vpane" data-k="${t.key}">${t.html}</div>`).join('');
+
+  return `${cardHead(e)}<div class="vtabs" data-uid="${uid}">${radios}
+    <div class="vtabbar">${labels}</div><div class="vpanes">${panes}</div></div>`;
 }
 
 /* ═══════════ 横向引擎（桌面）═══════════ */
@@ -749,20 +856,31 @@ function bootVertical() {
   });
 
   const tl = $('vtl');
+  const MON = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  // 精确到日的显示；数据只到年/月时按精度回退，不假装知道具体哪天
+  function dayLabel(e){
+    const [y,m,d] = e.date.split('-');
+    if (e.label && /日/.test(e.label)) return e.label;         // 原始标签已到日，直接用
+    if (e.label && /[–—~]/.test(e.label)) return e.label;      // 跨期事件（如 2020–2022年）
+    if (d && d !== '01') return `${+m}月${+d}日`;
+    if (e.label && /月/.test(e.label)) return e.label;
+    return e.label || `${y}年`;
+  }
   function render(){
     const list = evs.filter(e=>!hidden[e.topic]);
-    let html='', lastYear=null;
-    list.forEach((e,i)=>{
-      const yr = e.date.slice(0,4);
-      if(yr!==lastYear){ html+=`<div class="vyear">${yr}</div>`; lastYear=yr; }
-      const tp = TOPICS[e.topic];
+    let html='', lastYear=null, lastMon=null;
+    list.forEach(e=>{
+      const yr = e.date.slice(0,4), mo = e.date.slice(5,7);
+      if(yr!==lastYear){ html+=`<div class="vyear">${yr}</div>`; lastYear=yr; lastMon=null; }
+      if(mo!==lastMon){ html+=`<div class="vmonth">${MON[+mo-1]}</div>`; lastMon=mo; }
+      const tp = TOPICS[e.topic], sl = sourceLevel(e);
       const marks = (e.img?.length?'🖼 ':'') + (e.discuss?`💬 ${e.discuss}`:'');
       html += `<div class="vitem" data-i="${e._vi}" style="--c:${tp.c}">
         <div class="vdot"></div>
         <button class="vrow" type="button">
-          <span class="vd">${esc(e.label)}</span>
+          <span class="vd">${esc(dayLabel(e))}</span>
           <span class="vt">${esc(e.title)}</span>
-          <span class="vmeta"><span class="vtag">${esc(tp.name)}</span>${e.who?`<span>${esc(e.who)}</span>`:''}${marks?`<span>${marks}</span>`:''}</span>
+          <span class="vmeta"><span class="vtag">${esc(tp.name)}</span><span class="srcbadge ${sl.k}">${sl.t}</span>${e.who?`<span>${esc(e.who)}</span>`:''}${marks?`<span>${marks}</span>`:''}</span>
         </button>
         <div class="vcard"><div class="vcard-inner"></div></div>
       </div>`;
@@ -774,7 +892,10 @@ function bootVertical() {
         const open = it.classList.contains('open');
         if(!open){
           const inner = it.querySelector('.vcard-inner');
-          if(!inner.dataset.built){ inner.innerHTML = buildCardHTML(e); inner.dataset.built='1'; }
+          if(!inner.dataset.built){
+            inner.innerHTML = buildCardTabsHTML(e, it.dataset.i);   // 手机用页签版
+            inner.dataset.built='1';
+          }
         }
         it.classList.toggle('open');
       });

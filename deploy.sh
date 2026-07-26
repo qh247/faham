@@ -27,6 +27,20 @@ cp "$ROOT/assets/og.png"             "$OUT/assets/"        # 社交分享预览�
 cp "$ROOT"/README*.md                "$OUT/" 2>/dev/null || true
 cp "$ROOT/LICENSE" "$ROOT/LICENSE-CONTENT" "$OUT/" 2>/dev/null || true
 
+# 非生产分支：注入 noindex，避免预览版（含未溯源的样品数据）被搜索引擎收录
+if [ "$BRANCH" != "main" ]; then
+  python3 - "$OUT/index.html" <<'PY'
+import sys, re
+p = sys.argv[1]; s = open(p, encoding='utf-8').read()
+tag = '<meta name="robots" content="noindex, nofollow">\n'
+if 'name="robots"' not in s:
+    s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + tag, 1)
+    open(p, 'w', encoding='utf-8').write(s)
+PY
+  printf 'User-agent: *\nDisallow: /\n' > "$OUT/robots.txt"
+  echo "  ✓ 预览分支：已注入 noindex + robots.txt"
+fi
+
 echo "▸ 部署前安全检查"
 if find "$OUT" \( -name '.env*' -o -name '*.local.*' -o -name '.git*' -o -name 'skills-lock*' \) | grep -q .; then
   echo "  ✗ public/ 内发现敏感文件，已中止"; exit 1
