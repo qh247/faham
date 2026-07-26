@@ -112,19 +112,22 @@ Keputusan penyemak semuanya terbuka — penyemak sendiri juga boleh dipersoalkan
 
 ## 5. Jaminan yang boleh disahkan dari luar
 
-Tiada sesiapa diminta mempercayai pengendali. Kesemua yang berikut boleh disemak secara bebas:
+Tiada sesiapa diminta mempercayai pengendali. Berikut ialah jaminan yang dihasratkan.
 
-1. **Eksport awam harian** — set data penuh (paparan `export_events`) dieksport sebagai JSON dan
-   ditolak ke repositori awam. Sesiapa yang tidak bersetuju dengan platform ini boleh mengambil
-   keseluruhannya, menganalisisnya sendiri, atau membina pesaing. **Kos keluar ialah sifar.**
-2. **Petikan semakan (snapshot)** — jadual `revisions` merekodkan keadaan pada setiap perubahan;
-   mana-mana ayat di halaman boleh dijejaki kepada siapa yang mengubahnya, bila, dan atas dasar apa.
-3. **Semakan kendiri kenetralan** — paparan `event_balance` dan fungsi `check_publishable()`
-   adalah terbuka; sesiapa boleh menjalankannya untuk mengesahkan bahawa kedua-dua pihak memang
-   dipaparkan.
-4. **Lejar pembetulan** — jadual `corrections` adalah terbuka, termasuk permintaan yang **belum
-   diselesaikan**. Platform yang hanya memaparkan "telah dibetulkan" sedang memilih yang cantik
-   sahaja.
+> **Peringkat semasa: rangka.** Kebanyakannya telah direka tetapi belum beroperasi.
+> Setiap satu ditandakan dengan status sebenarnya. Kami lebih rela menerbitkan pelan jalan
+> yang jujur daripada mendakwa keupayaan yang tidak wujud — platform yang membesar-besarkan
+> apa yang dilakukannya telah pun gagal memenuhi piawai yang dituntutnya daripada orang lain.
+
+| # | Jaminan | Status |
+|---|---|---|
+| 1 | **Eksport awam harian** — set data penuh (paparan `export_events`) dieksport sebagai JSON ke repositori awam, sesiapa boleh mengambil keseluruhannya, menganalisisnya, atau membina pesaing. **Kos keluar ialah sifar.** | ⬜ Dirancang — memerlukan pangkalan data dan tugasan eksport |
+| 2 | **Petikan semakan** — jadual `revisions` merekodkan keadaan pada setiap perubahan; mana-mana ayat boleh dijejaki kepada siapa, bila, dan atas dasar apa. | 🟨 Skema ditakrifkan ([`db/schema.sql`](../db/schema.sql), dengan pencetus), belum membawa data |
+| 3 | **Semakan kendiri kenetralan** — paparan `event_balance` dan fungsi `check_publishable()` membolehkan sesiapa mengesahkan kedua-dua pihak memang dipaparkan. | 🟨 Telah ditulis dan boleh dibaca umum; boleh dijalankan setelah data wujud |
+| 4 | **Lejar pembetulan** — jadual `corrections` terbuka, termasuk permintaan yang **belum diselesaikan**. Platform yang hanya memaparkan "telah dibetulkan" sedang memilih yang cantik sahaja. | ⬜ Dirancang — memerlukan antara muka penyerahan |
+| 5 | **Sumber terbuka** — keseluruhan bahagian hadapan, skema dan peraturan ini adalah terbuka dan boleh diperiksa baris demi baris. | ✅ Berkuat kuasa sekarang |
+
+⬜ Dirancang　🟨 Sebahagian tersedia　✅ Berkuat kuasa
 
 ---
 

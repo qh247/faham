@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<!-- 社交分享预览图的来源文件。渲染方式（1200×630）：
+     chrome --headless --screenshot=assets/og.png --window-size=1200,630 assets/og-source.html -->
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1200px; height:630px; overflow:hidden; position:relative;
+    background:#f7f5f0; color:#1e1c18;
+    font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:0 96px;
+  }
+  body::before {
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(900px 520px at 22% 30%, rgba(184,119,10,.07), transparent 62%),
+      radial-gradient(760px 460px at 84% 72%, rgba(43,111,176,.07), transparent 62%);
+  }
+  .wm { font-family:"Songti SC","Noto Serif CJK SC",Georgia,serif;
+        font-size:118px; font-weight:700; letter-spacing:-.02em; line-height:1; position:relative; }
+  .wm i { font-style:normal; color:#0f8073; }
+  .tag { font-size:31px; color:#55514a; margin-top:22px; letter-spacing:.02em; position:relative; }
+  .sub { font-size:20px; color:#8b857a; margin-top:14px; letter-spacing:.06em; position:relative; }
+
+  /* 时间轴意象：一条线 + 议题色光点 */
+  .axis { position:relative; margin-top:62px; height:22px; }
+  .axis .line { position:absolute; left:0; right:0; top:10px; height:2px;
+                background:linear-gradient(to right, rgba(30,28,24,.22), rgba(30,28,24,.10) 78%, transparent); }
+  .axis .d { position:absolute; top:2px; width:18px; height:18px; border-radius:50%;
+             border:3px solid #f7f5f0; }
+</style>
+</head>
+<body>
+  <div class="wm">faham<i>.</i></div>
+  <div class="tag">马来西亚公共政策时间轴</div>
+  <div class="sub">Garis masa dasar awam Malaysia · Malaysian public policy timeline</div>
+  <div class="axis">
+    <div class="line"></div>
+    <div class="d" style="left:2%;   background:#b8770a"></div>
+    <div class="d" style="left:14%;  background:#0f8073"></div>
+    <div class="d" style="left:23%;  background:#bb3d58"></div>
+    <div class="d" style="left:38%;  background:#5b4bc4"></div>
+    <div class="d" style="left:47%;  background:#2b6fb0"></div>
+    <div class="d" style="left:61%;  background:#b8770a"></div>
+    <div class="d" style="left:72%;  background:#0f8073"></div>
+    <div class="d" style="left:83%;  background:#5b4bc4"></div>
+  </div>
+</body>
+</html>

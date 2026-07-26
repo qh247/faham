@@ -108,17 +108,22 @@ Reviewers' decisions are all public — reviewers themselves can be challenged.
 
 ## 5. Guarantees that can be verified externally
 
-Nobody is asked to trust the operator. All of the following can be checked independently:
+Nobody is asked to trust the operator. The following are the intended guarantees.
 
-1. **Daily public export** — the full dataset (`export_events` view) is exported as JSON and
-   pushed to a public repository. Anyone who disagrees with this platform can take the whole
-   thing, analyse it themselves, or build a rival. **Exit cost is zero.**
-2. **Revision snapshots** — the `revisions` table records state at every change; any sentence on
-   the page can be traced to who changed it, when, and on what basis.
-3. **Neutrality self-check** — the `event_balance` view and `check_publishable()` function are
-   public; anyone can run them to verify that both sides really are presented.
-4. **Corrections ledger** — the `corrections` table is public, including **unresolved** requests.
-   A platform that displays only "already fixed" is cherry-picking.
+> **Current stage: scaffolding.** Most of these are designed but not yet running.
+> Each is marked with its real status. We would rather publish an honest roadmap than
+> claim capabilities that do not exist — a platform that overstates what it does has already
+> failed the standard it asks of others.
+
+| # | Guarantee | Status |
+|---|---|---|
+| 1 | **Daily public export** — the full dataset (`export_events` view) exported as JSON and pushed to a public repository, so anyone can take the whole thing, analyse it, or build a rival. **Exit cost is zero.** | ⬜ Planned — needs the database and an export job |
+| 2 | **Revision snapshots** — the `revisions` table records state at every change; any sentence on the page traceable to who changed it, when, and on what basis. | 🟨 Schema defined ([`db/schema.sql`](../db/schema.sql), with triggers), not yet carrying data |
+| 3 | **Neutrality self-check** — the `event_balance` view and `check_publishable()` function let anyone verify that both sides really are presented. | 🟨 Written and publicly readable; runnable once data exists |
+| 4 | **Corrections ledger** — the `corrections` table public, including **unresolved** requests. A platform that displays only "already fixed" is cherry-picking. | ⬜ Planned — needs a submission interface |
+| 5 | **Open source** — the entire frontend, schema and these rules are public and can be inspected line by line. | ✅ In effect now |
+
+⬜ Planned　🟨 Partially in place　✅ In effect
 
 ---
 
