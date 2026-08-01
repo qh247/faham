@@ -1,0 +1,209 @@
+{
+  "threads": [
+    {
+      "key": "uec",
+      "name": "承认统考与华文教育",
+      "name_en": "UEC recognition & Chinese-medium education",
+      "name_ms": "Pengiktirafan UEC dan pendidikan Cina",
+      "desc": "华文教育的地位与统考承认，自1961年教育法令起在历届政府之间被反复提出、搁置与再提出。",
+      "events": [
+        1,
+        6,
+        9,
+        23,
+        39
+      ]
+    },
+    {
+      "key": "article153",
+      "name": "族群固打与宪法第153条",
+      "name_en": "Bumiputera quotas & Article 153",
+      "name_ms": "Kuota bumiputera dan Perkara 153",
+      "desc": "宪法第153条与土著固打的适用范围，在建国、五一三、新经济政策与ICERD各节点被反复重新界定。",
+      "events": [
+        0,
+        3,
+        4,
+        23
+      ]
+    },
+    {
+      "key": "chinese-vote",
+      "name": "华人选票的摆动",
+      "name_en": "Swings in the Chinese vote",
+      "name_ms": "Ayunan undi pengundi Cina",
+      "desc": "华裔选票在求变与求稳之间摆动，反复成为大选结果与政党败选检讨的核心变量。",
+      "events": [
+        3,
+        8,
+        12,
+        15,
+        18,
+        27,
+        39,
+        42,
+        43
+      ]
+    },
+    {
+      "key": "fuel-subsidy",
+      "name": "燃油补贴改革",
+      "name_en": "Fuel subsidy reform",
+      "name_ms": "Reformasi subsidi bahan api",
+      "desc": "燃油补贴的调涨、浮动化与定向化在四届政府手上反复推进，每次都紧接着一场补选或大选。",
+      "events": [
+        16,
+        19,
+        28,
+        32,
+        38,
+        41
+      ]
+    },
+    {
+      "key": "consumption-tax",
+      "name": "消费税的开与关",
+      "name_en": "GST on, GST off",
+      "name_ms": "GST dan SST",
+      "desc": "消费税在GST与SST之间来回切换，税率与课征范围随政权更替被重新设定。",
+      "events": [
+        19,
+        22,
+        37
+      ]
+    },
+    {
+      "key": "einvoice",
+      "name": "税基数字化与合规成本",
+      "name_en": "Tax digitalisation & compliance cost",
+      "name_ms": "Pendigitalan cukai dan kos pematuhan",
+      "desc": "以数字化手段扩大税基的推进，与中小企业合规成本的反弹交替出现，门槛与期限多次调整。",
+      "events": [
+        19,
+        33,
+        40
+      ]
+    },
+    {
+      "key": "fiscal-debt",
+      "name": "财政赤字与公共债务",
+      "name_en": "Deficit & public debt",
+      "name_ms": "Defisit fiskal dan hutang awam",
+      "desc": "赤字、债务上限与税收占GDP比重反复被援引为政策转向的理由，跨越四届政府。",
+      "events": [
+        16,
+        20,
+        22,
+        25,
+        28,
+        33
+      ]
+    },
+    {
+      "key": "cost-of-living",
+      "name": "生活成本与工资",
+      "name_en": "Cost of living & wages",
+      "name_ms": "Kos sara hidup dan gaji",
+      "desc": "物价、税负与工资增速之间的落差在多轮改革中反复被提出，也反复出现在选后检讨里。",
+      "events": [
+        16,
+        19,
+        22,
+        29,
+        34,
+        35,
+        36,
+        37
+      ]
+    },
+    {
+      "key": "cash-aid",
+      "name": "现金援助与纾困",
+      "name_en": "Cash transfers & relief packages",
+      "name_ms": "Bantuan tunai dan pakej rangsangan",
+      "desc": "以现金转移、工资补贴或提前提取储蓄缓冲危机与改革冲击的做法，自2008年起在历届政府延续。",
+      "events": [
+        16,
+        17,
+        25,
+        26,
+        28,
+        32,
+        34
+      ]
+    },
+    {
+      "key": "graft",
+      "name": "朋党、贪腐与问责",
+      "name_en": "Cronyism, graft & accountability",
+      "name_ms": "Kroni, rasuah dan akauntabiliti",
+      "desc": "国家资本、特许合约与政治献金引发的贪腐争议及其问责结果，跨越六十年反复出现。",
+      "events": [
+        7,
+        8,
+        11,
+        13,
+        14,
+        20,
+        30,
+        31,
+        42
+      ]
+    },
+    {
+      "key": "judiciary",
+      "name": "司法独立与检控裁量",
+      "name_en": "Judicial independence & prosecutorial discretion",
+      "name_ms": "Kebebasan kehakiman dan budi bicara pendakwaan",
+      "desc": "法官任免、检控裁量与特赦决定的争议自1988年起反复出现，并被后来的事件反复援引。",
+      "events": [
+        10,
+        12,
+        20,
+        30,
+        31
+      ]
+    },
+    {
+      "key": "emergency-powers",
+      "name": "紧急权力与国会中止",
+      "name_en": "Emergency powers & suspension of Parliament",
+      "name_ms": "Kuasa darurat dan penggantungan Parlimen",
+      "desc": "在危机名义下中止国会、动用紧急状态或内安法令的做法，分别出现于1969、1987与2021年。",
+      "events": [
+        3,
+        9,
+        25
+      ]
+    },
+    {
+      "key": "electoral-system",
+      "name": "选制、跳槽与政权更替",
+      "name_en": "Electoral system, defections & changes of government",
+      "name_ms": "Sistem pilihan raya, lompat parti dan peralihan kuasa",
+      "desc": "选区划分、议员跳槽与联盟重组反复改变执政组合，反跳槽法是其中一次制度回应。",
+      "events": [
+        5,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27
+      ]
+    },
+    {
+      "key": "east-malaysia",
+      "name": "东马在联邦政治中的位置",
+      "name_en": "Sabah & Sarawak in federal politics",
+      "name_ms": "Kedudukan Sabah & Sarawak dalam politik persekutuan",
+      "desc": "沙巴与砂拉越自1963年加入后，在议席分配、补贴例外与组阁谈判中反复成为关键变量。",
+      "events": [
+        2,
+        27,
+        32,
+        39
+      ]
+    }
+  ]
+}

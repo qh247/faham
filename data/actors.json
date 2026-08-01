@@ -1,0 +1,777 @@
+{
+  "actors": [
+    {
+      "key": "alliance",
+      "name": "联盟",
+      "name_en": "Alliance Party",
+      "kind": "coalition",
+      "active": "1957–1974",
+      "events": [
+        {
+          "i": 0,
+          "role": "office"
+        },
+        {
+          "i": 1,
+          "role": "proposer"
+        },
+        {
+          "i": 2,
+          "role": "office"
+        },
+        {
+          "i": 3,
+          "role": "office"
+        },
+        {
+          "i": 4,
+          "role": "office"
+        },
+        {
+          "i": 5,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "bn",
+      "name": "国阵",
+      "name_en": "Barisan Nasional",
+      "kind": "coalition",
+      "active": "1974–2026",
+      "events": [
+        {
+          "i": 5,
+          "role": "office"
+        },
+        {
+          "i": 7,
+          "role": "office"
+        },
+        {
+          "i": 8,
+          "role": "office"
+        },
+        {
+          "i": 9,
+          "role": "office"
+        },
+        {
+          "i": 10,
+          "role": "office"
+        },
+        {
+          "i": 11,
+          "role": "office"
+        },
+        {
+          "i": 12,
+          "role": "office"
+        },
+        {
+          "i": 13,
+          "role": "office"
+        },
+        {
+          "i": 14,
+          "role": "affected"
+        },
+        {
+          "i": 15,
+          "role": "affected"
+        },
+        {
+          "i": 16,
+          "role": "proposer"
+        },
+        {
+          "i": 17,
+          "role": "office"
+        },
+        {
+          "i": 18,
+          "role": "affected"
+        },
+        {
+          "i": 19,
+          "role": "proposer"
+        },
+        {
+          "i": 20,
+          "role": "office"
+        },
+        {
+          "i": 21,
+          "role": "affected"
+        },
+        {
+          "i": 27,
+          "role": "affected"
+        },
+        {
+          "i": 43,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "pr",
+      "name": "人民联盟",
+      "name_en": "Pakatan Rakyat",
+      "kind": "coalition",
+      "active": "2007–2013",
+      "events": [
+        {
+          "i": 15,
+          "role": "affected"
+        },
+        {
+          "i": 18,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "ph",
+      "name": "希盟",
+      "name_en": "Pakatan Harapan",
+      "kind": "coalition",
+      "active": "2018–2026",
+      "events": [
+        {
+          "i": 21,
+          "role": "office"
+        },
+        {
+          "i": 22,
+          "role": "proposer"
+        },
+        {
+          "i": 23,
+          "role": "office"
+        },
+        {
+          "i": 24,
+          "role": "affected"
+        },
+        {
+          "i": 27,
+          "role": "office"
+        },
+        {
+          "i": 43,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "pn",
+      "name": "国盟",
+      "name_en": "Perikatan Nasional",
+      "kind": "coalition",
+      "active": "2020–2026",
+      "events": [
+        {
+          "i": 24,
+          "role": "office"
+        },
+        {
+          "i": 27,
+          "role": "affected"
+        },
+        {
+          "i": 43,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "unity",
+      "name": "团结政府",
+      "name_en": "Unity Government",
+      "kind": "coalition",
+      "active": "2022–2026",
+      "events": [
+        {
+          "i": 27,
+          "role": "office"
+        },
+        {
+          "i": 28,
+          "role": "office"
+        },
+        {
+          "i": 29,
+          "role": "office"
+        },
+        {
+          "i": 30,
+          "role": "office"
+        },
+        {
+          "i": 32,
+          "role": "proposer"
+        },
+        {
+          "i": 33,
+          "role": "proposer"
+        },
+        {
+          "i": 34,
+          "role": "proposer"
+        },
+        {
+          "i": 35,
+          "role": "proposer"
+        },
+        {
+          "i": 36,
+          "role": "proposer"
+        },
+        {
+          "i": 37,
+          "role": "proposer"
+        },
+        {
+          "i": 38,
+          "role": "proposer"
+        },
+        {
+          "i": 39,
+          "role": "affected"
+        },
+        {
+          "i": 40,
+          "role": "proposer"
+        },
+        {
+          "i": 41,
+          "role": "proposer"
+        },
+        {
+          "i": 43,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "borneo-bloc",
+      "name": "砂沙政党集团",
+      "name_en": "Sarawak & Sabah parties",
+      "kind": "coalition",
+      "active": "1963–2022",
+      "events": [
+        {
+          "i": 2,
+          "role": "affected"
+        },
+        {
+          "i": 27,
+          "role": "proposer"
+        }
+      ]
+    },
+    {
+      "key": "umno",
+      "name": "巫统",
+      "name_en": "UMNO",
+      "kind": "party",
+      "parent": "bn",
+      "active": "1987–2026",
+      "events": [
+        {
+          "i": 9,
+          "role": "office"
+        },
+        {
+          "i": 13,
+          "role": "affected"
+        },
+        {
+          "i": 23,
+          "role": "opponent"
+        },
+        {
+          "i": 43,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "mca",
+      "name": "马华公会",
+      "name_en": "MCA",
+      "kind": "party",
+      "parent": "bn",
+      "active": "1957–2026",
+      "events": [
+        {
+          "i": 0,
+          "role": "proposer"
+        },
+        {
+          "i": 5,
+          "role": "affected"
+        },
+        {
+          "i": 15,
+          "role": "affected"
+        },
+        {
+          "i": 18,
+          "role": "affected"
+        },
+        {
+          "i": 27,
+          "role": "affected"
+        },
+        {
+          "i": 43,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "pas",
+      "name": "伊斯兰党",
+      "name_en": "PAS",
+      "kind": "party",
+      "active": "1974–2022",
+      "events": [
+        {
+          "i": 5,
+          "role": "office"
+        },
+        {
+          "i": 12,
+          "role": "affected"
+        },
+        {
+          "i": 23,
+          "role": "opponent"
+        },
+        {
+          "i": 27,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "dap",
+      "name": "行动党",
+      "name_en": "DAP",
+      "kind": "party",
+      "parent": "ph",
+      "active": "2018–2026",
+      "events": [
+        {
+          "i": 23,
+          "role": "office"
+        },
+        {
+          "i": 31,
+          "role": "affected"
+        },
+        {
+          "i": 39,
+          "role": "affected"
+        },
+        {
+          "i": 42,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "pkr",
+      "name": "公正党",
+      "name_en": "PKR",
+      "kind": "party",
+      "parent": "ph",
+      "active": "1998–2020",
+      "events": [
+        {
+          "i": 12,
+          "role": "affected"
+        },
+        {
+          "i": 24,
+          "role": "proposer"
+        }
+      ]
+    },
+    {
+      "key": "tunku-abdul-rahman",
+      "name": "东姑阿都拉曼",
+      "name_en": "Tunku Abdul Rahman",
+      "kind": "person",
+      "party": "alliance",
+      "active": "1957–1969",
+      "events": [
+        {
+          "i": 0,
+          "role": "office"
+        },
+        {
+          "i": 1,
+          "role": "office"
+        },
+        {
+          "i": 2,
+          "role": "office"
+        },
+        {
+          "i": 3,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "abdul-razak",
+      "name": "阿都拉萨",
+      "name_en": "Abdul Razak",
+      "kind": "person",
+      "party": "alliance",
+      "active": "1971–1974",
+      "events": [
+        {
+          "i": 4,
+          "role": "proposer"
+        },
+        {
+          "i": 5,
+          "role": "proposer"
+        }
+      ]
+    },
+    {
+      "key": "mahathir-mohamad",
+      "name": "马哈迪",
+      "name_en": "Mahathir Mohamad",
+      "kind": "person",
+      "active": "1983–2019",
+      "events": [
+        {
+          "i": 7,
+          "role": "proposer"
+        },
+        {
+          "i": 8,
+          "role": "proposer"
+        },
+        {
+          "i": 9,
+          "role": "office"
+        },
+        {
+          "i": 10,
+          "role": "office"
+        },
+        {
+          "i": 11,
+          "role": "proposer"
+        },
+        {
+          "i": 12,
+          "role": "office"
+        },
+        {
+          "i": 13,
+          "role": "office"
+        },
+        {
+          "i": 21,
+          "role": "office"
+        },
+        {
+          "i": 22,
+          "role": "office"
+        },
+        {
+          "i": 23,
+          "role": "office"
+        }
+      ]
+    },
+    {
+      "key": "abdullah-badawi",
+      "name": "阿都拉·巴达威",
+      "name_en": "Abdullah Ahmad Badawi",
+      "kind": "person",
+      "party": "bn",
+      "active": "2004–2008",
+      "events": [
+        {
+          "i": 14,
+          "role": "office"
+        },
+        {
+          "i": 15,
+          "role": "office"
+        },
+        {
+          "i": 16,
+          "role": "proposer"
+        }
+      ]
+    },
+    {
+      "key": "najib-razak",
+      "name": "纳吉·拉萨",
+      "name_en": "Najib Razak",
+      "kind": "person",
+      "party": "bn",
+      "active": "2010–2024",
+      "events": [
+        {
+          "i": 17,
+          "role": "proposer"
+        },
+        {
+          "i": 18,
+          "role": "office"
+        },
+        {
+          "i": 19,
+          "role": "proposer"
+        },
+        {
+          "i": 20,
+          "role": "office"
+        },
+        {
+          "i": 21,
+          "role": "affected"
+        },
+        {
+          "i": 31,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "muhyiddin-yassin",
+      "name": "慕尤丁",
+      "name_en": "Muhyiddin Yassin",
+      "kind": "person",
+      "party": "pn",
+      "active": "2020–2022",
+      "events": [
+        {
+          "i": 24,
+          "role": "proposer"
+        },
+        {
+          "i": 25,
+          "role": "office"
+        },
+        {
+          "i": 26,
+          "role": "office"
+        }
+      ]
+    },
+    {
+      "key": "ismail-sabri",
+      "name": "依斯迈沙比里",
+      "name_en": "Ismail Sabri Yaakob",
+      "kind": "person",
+      "active": "2020–2022",
+      "events": [
+        {
+          "i": 25,
+          "role": "office"
+        },
+        {
+          "i": 26,
+          "role": "office"
+        }
+      ]
+    },
+    {
+      "key": "anwar-ibrahim",
+      "name": "安华",
+      "name_en": "Anwar Ibrahim",
+      "kind": "person",
+      "party": "ph",
+      "active": "1998–2026",
+      "events": [
+        {
+          "i": 12,
+          "role": "affected"
+        },
+        {
+          "i": 27,
+          "role": "office"
+        },
+        {
+          "i": 28,
+          "role": "office"
+        },
+        {
+          "i": 29,
+          "role": "office"
+        },
+        {
+          "i": 30,
+          "role": "office"
+        },
+        {
+          "i": 32,
+          "role": "office"
+        },
+        {
+          "i": 33,
+          "role": "office"
+        },
+        {
+          "i": 34,
+          "role": "office"
+        },
+        {
+          "i": 35,
+          "role": "office"
+        },
+        {
+          "i": 36,
+          "role": "office"
+        },
+        {
+          "i": 37,
+          "role": "office"
+        },
+        {
+          "i": 38,
+          "role": "office"
+        },
+        {
+          "i": 39,
+          "role": "office"
+        },
+        {
+          "i": 40,
+          "role": "proposer"
+        },
+        {
+          "i": 41,
+          "role": "office"
+        },
+        {
+          "i": 43,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "ahmad-zahid",
+      "name": "扎希",
+      "name_en": "Ahmad Zahid Hamidi",
+      "kind": "person",
+      "active": "2022–2023",
+      "events": [
+        {
+          "i": 27,
+          "role": "office"
+        },
+        {
+          "i": 30,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "noc",
+      "name": "国家行动理事会",
+      "name_en": "National Operations Council",
+      "kind": "govt_body",
+      "active": "1969",
+      "events": [
+        {
+          "i": 3,
+          "role": "office"
+        }
+      ]
+    },
+    {
+      "key": "agong",
+      "name": "国家元首",
+      "name_en": "Yang di-Pertuan Agong",
+      "kind": "govt_body",
+      "active": "2022–2024",
+      "events": [
+        {
+          "i": 27,
+          "role": "office"
+        },
+        {
+          "i": 31,
+          "role": "office"
+        }
+      ]
+    },
+    {
+      "key": "pardons-board",
+      "name": "特赦局",
+      "name_en": "Pardons Board",
+      "kind": "govt_body",
+      "active": "2024",
+      "events": [
+        {
+          "i": 31,
+          "role": "proposer"
+        }
+      ]
+    },
+    {
+      "key": "lhdn",
+      "name": "内陆税收局",
+      "name_en": "LHDN (Inland Revenue Board)",
+      "kind": "govt_body",
+      "active": "2024–2026",
+      "events": [
+        {
+          "i": 33,
+          "role": "proposer"
+        },
+        {
+          "i": 40,
+          "role": "proposer"
+        }
+      ]
+    },
+    {
+      "key": "dongjiaozong",
+      "name": "董教总",
+      "name_en": "Dong Jiao Zong",
+      "kind": "govt_body",
+      "active": "1975–1987",
+      "events": [
+        {
+          "i": 6,
+          "role": "proposer"
+        },
+        {
+          "i": 9,
+          "role": "affected"
+        }
+      ]
+    },
+    {
+      "key": "acccim",
+      "name": "中华总商会",
+      "name_en": "ACCCIM",
+      "kind": "govt_body",
+      "active": "2024–2026",
+      "events": [
+        {
+          "i": 33,
+          "role": "affected"
+        },
+        {
+          "i": 40,
+          "role": "affected"
+        }
+      ]
+    }
+  ]
+}

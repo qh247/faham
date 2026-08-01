@@ -352,12 +352,14 @@
   .vpane .sec:first-child { border-top:none; margin-top:0; padding-top:12px; }
   /* 页签键名取自固定集合，故可用后缀匹配静态写出 */
   .vtabs input[id$="-overview"]:checked ~ .vtabbar label[data-k="overview"],
+  .vtabs input[id$="-chain"]:checked    ~ .vtabbar label[data-k="chain"],
   .vtabs input[id$="-claims"]:checked   ~ .vtabbar label[data-k="claims"],
   .vtabs input[id$="-hist"]:checked     ~ .vtabbar label[data-k="hist"],
   .vtabs input[id$="-srcs"]:checked     ~ .vtabbar label[data-k="srcs"],
   .vtabs input[id$="-disc"]:checked     ~ .vtabbar label[data-k="disc"] {
     background:var(--c); border-color:var(--c); color:#fff; }
   .vtabs input[id$="-overview"]:checked ~ .vpanes .vpane[data-k="overview"],
+  .vtabs input[id$="-chain"]:checked    ~ .vpanes .vpane[data-k="chain"],
   .vtabs input[id$="-claims"]:checked   ~ .vpanes .vpane[data-k="claims"],
   .vtabs input[id$="-hist"]:checked     ~ .vpanes .vpane[data-k="hist"],
   .vtabs input[id$="-srcs"]:checked     ~ .vpanes .vpane[data-k="srcs"],
@@ -383,6 +385,106 @@
     color:var(--ink-3); padding:14px 0 6px 56px; opacity:.8; }
   .vmonth::before { content:""; position:absolute; left:26px; top:50%; width:14px; height:1px;
     background:var(--line); }
+
+  /* ══════ 讨论（已接后端）══════ */
+  .disc .dh .cnt { font-size:9.5px; color:var(--ink-3); }
+  .cm .when { font-size:10px; color:var(--ink-3); font-family:var(--mono); }
+  .cm .flag { margin-left:auto; font-size:11px; color:var(--ink-3); background:none; border:none;
+    cursor:pointer; padding:2px 5px; border-radius:5px; line-height:1; }
+  .cm .flag:hover { color:var(--t-cost); background:var(--hair); }
+  .cm.folded .body { opacity:.42; }
+  .cm.folded .body::after { content:" · 已被折叠"; font-size:10px; color:var(--t-cost); }
+  .cbox { margin-top:11px; border:1px solid var(--line); border-radius:9px; padding:9px 11px;
+    background:var(--bg-2); }
+  .cbox textarea { width:100%; box-sizing:border-box; resize:none; font:inherit; font-size:12.5px;
+    line-height:1.65; color:var(--ink); background:transparent; border:none; outline:none; min-height:44px; }
+  .cbox textarea::placeholder { color:var(--ink-3); }
+  .cbar { display:flex; align-items:center; gap:9px; margin-top:6px; }
+  /* 字数计数器就是规则本身：不合规时它是红的，按钮是灰的，不需要额外解释 */
+  .cnum { font-family:var(--mono); font-size:10.5px; color:var(--ink-3); }
+  .cnum.bad { color:var(--t-cost); }
+  .cnum.ok  { color:var(--t-graft); }
+  .cbar .sp { flex:1; }
+  .btn { font:inherit; font-size:12px; padding:6px 15px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--c); background:var(--c); color:#fff; transition:opacity .2s; }
+  .btn:disabled { opacity:.3; cursor:not-allowed; }
+  .btn.ghost { background:none; color:var(--ink-2); border-color:var(--line); }
+  .btn.ghost:hover { border-color:var(--ink-3); color:var(--ink); }
+  .cmsg { font-size:11px; line-height:1.55; margin-top:7px; }
+  .cmsg.err { color:var(--t-cost); }
+  .cmsg.ok  { color:var(--t-graft); }
+  .crule { font-size:10.5px; color:var(--ink-3); line-height:1.6; margin-top:8px; }
+  .cempty { font-size:11.5px; color:var(--ink-3); padding:8px 0; }
+
+  /* ══════ 议题脉络 ══════ */
+  .chain { margin-top:2px; }
+  .chain .ct { display:flex; align-items:baseline; gap:8px; margin-bottom:9px; }
+  .chain .ct b { font-size:12px; }
+  .chain .ct em { font-style:normal; font-size:10px; color:var(--ink-3); }
+  .chain .cdesc { font-size:11px; color:var(--ink-3); line-height:1.6; margin-bottom:9px; }
+  /* 脉络本身是一条缩微时间轴：同一议题反复出现，形状比文字更有说服力 */
+  .chain ol { list-style:none; margin:0; padding:0 0 0 15px; position:relative; }
+  .chain ol::before { content:""; position:absolute; left:3px; top:5px; bottom:5px;
+    width:1px; background:var(--line); }
+  .chain li { position:relative; padding:5px 0; font-size:12px; line-height:1.6; }
+  .chain li::before { content:""; position:absolute; left:-15px; top:12px; width:7px; height:7px;
+    border-radius:50%; background:var(--ink-3); transform:translateX(-1px); }
+  .chain li.here::before { background:var(--c); box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent); }
+  .chain li.here { font-weight:600; }
+  .chain li .cy { font-family:var(--mono); font-size:10.5px; color:var(--ink-3); margin-right:7px; }
+  .chain li .cwho { font-size:10.5px; color:var(--ink-3); margin-top:2px; line-height:1.5; }
+  #infoWrap { position:fixed; inset:0; z-index:80; display:none; }
+  #infoWrap.on { display:block; }
+  #infoWrap .veil { position:absolute; inset:0; background:rgba(0,0,0,.42); backdrop-filter:blur(3px); }
+  #infoCard { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:min(92vw,520px); max-height:82vh; overflow-y:auto; background:var(--surface);
+    border:1px solid var(--line); border-radius:14px; padding:22px 24px 20px;
+    box-shadow:0 24px 70px rgba(0,0,0,.28); }
+  #infoCard h3 { font-family:var(--serif); font-size:21px; margin:0 0 3px; }
+  #infoCard .kind { font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); margin-bottom:14px; }
+  .chain li button { font:inherit; font-size:12px; text-align:left; color:var(--ink-2);
+    background:none; border:none; padding:0; cursor:pointer; border-bottom:1px solid transparent; }
+  .chain li button:hover { color:var(--c); border-bottom-color:var(--c); }
+  .chain li.here button { color:var(--ink); cursor:default; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip2 { font-size:11px; color:var(--ink-2); background:var(--bg-2); border:1px solid var(--line);
+    border-radius:999px; padding:3px 10px; cursor:pointer; font-family:inherit; }
+  .chip2:hover { border-color:var(--c); color:var(--c); }
+  .chip2 .r { color:var(--ink-3); font-size:9.5px; margin-left:4px; }
+
+  /* ══════ 投稿浮层 ══════ */
+  #subBtn { font:inherit; font-size:12px; color:var(--ink-2); background:var(--glass);
+    backdrop-filter:blur(12px); border:1px solid var(--line); border-radius:999px;
+    padding:6px 14px; cursor:pointer; }
+  #subBtn:hover { color:var(--ink); border-color:var(--ink-3); }
+  #subWrap { position:fixed; inset:0; z-index:80; display:none; }
+  #subWrap.on { display:block; }
+  #subWrap .veil { position:absolute; inset:0; background:rgba(0,0,0,.42); backdrop-filter:blur(3px); }
+  #subCard { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:min(92vw,560px); max-height:86vh; overflow-y:auto; background:var(--surface);
+    border:1px solid var(--line); border-radius:14px; padding:22px 24px 20px;
+    box-shadow:0 24px 70px rgba(0,0,0,.28); }
+  #subCard h3 { font-family:var(--serif); font-size:20px; margin:0 0 4px; }
+  #subCard .lead { font-size:11.5px; color:var(--ink-3); line-height:1.65; margin:0 0 16px; }
+  #subCard label.f { display:block; font-size:10.5px; letter-spacing:.08em; color:var(--ink-3);
+    margin:13px 0 5px; }
+  #subCard input[type=text], #subCard input[type=date], #subCard input[type=url], #subCard textarea {
+    width:100%; box-sizing:border-box; font:inherit; font-size:12.5px; color:var(--ink);
+    background:var(--bg-2); border:1px solid var(--line); border-radius:7px;
+    padding:8px 10px; outline:none; }
+  #subCard input:focus, #subCard textarea:focus { border-color:var(--ink-3); }
+  #subCard textarea { min-height:88px; resize:vertical; line-height:1.65; }
+  #subKind { display:flex; gap:6px; flex-wrap:wrap; }
+  #subKind label { font-size:12px; padding:5px 13px; border:1px solid var(--line); border-radius:999px;
+    cursor:pointer; color:var(--ink-2); }
+  #subKind input { position:absolute; opacity:0; pointer-events:none; }
+  #subKind label:has(input:checked) { background:var(--t-tax); border-color:var(--t-tax); color:#fff; }
+  #srcList { display:flex; flex-direction:column; gap:6px; }
+  .srcHint { font-size:10.5px; color:var(--ink-3); line-height:1.6; margin-top:6px; }
+  #subFoot { display:flex; align-items:center; gap:10px; margin-top:18px; }
+  #subMsg { font-size:11.5px; line-height:1.55; }
+  #subMsg.err { color:var(--t-cost); } #subMsg.ok { color:var(--t-graft); }
+  @media (max-width:760px){ #subCard{ padding:18px 16px; border-radius:12px; } }
 </style>
 </head>
 <body>
@@ -392,6 +494,10 @@
   <h1>faham</h1>
   <p>档案尚未收录数据。</p>
   <p class="sub">收录准则见 <code>docs/governance.md</code>；数据结构见 <code>db/schema.sql</code>。</p>
+  <!-- 空档案不是占位符，是这个站点的起点：规则先立，数据后收。
+       所以投稿入口在没有数据时反而是页面上最重要的一个按钮。 -->
+  <p class="sub" style="margin-top:22px">第一条记录可以由你写。</p>
+  <button class="btn" data-open-sub style="--c:var(--t-tax);margin-top:10px">投稿一条事件</button>
 </div>
 <div id="axisLine"></div>
 <div class="edge l"></div><div class="edge r"></div>
@@ -404,6 +510,7 @@
   </div>
   <div class="spacer"></div>
   <div id="scaleTag">年</div>
+  <button id="subBtn" data-open-sub>投稿 · 纠错</button>
   <div class="pill" id="ranges">
     <button data-r="0.08">近1月</button><button data-r="0.5">近半年</button><button data-r="2">近2年</button><button data-r="0">全部</button>
   </div>
@@ -419,10 +526,59 @@
   <div class="vhead">
     <div class="mark">faham<i>.</i><small>在时间里看见政策</small></div>
     <div class="sp"></div>
+    <button id="vsub" data-open-sub aria-label="投稿" title="投稿 · 纠错">✎</button>
     <button id="vtheme" aria-label="切换主题">◐</button>
   </div>
   <div class="vfilter" id="vfilter"></div>
   <div class="vtl" id="vtl"></div>
+</div>
+
+<!-- 投稿浮层。表单本身就是收录准则的复述：不填来源就提交不了，
+     不是因为前端拦，是因为数据库的 CHECK 约束会拒绝（见 db/live.sql）。 -->
+<div id="subWrap" role="dialog" aria-modal="true" aria-labelledby="subTitle">
+  <div class="veil" data-close-sub></div>
+  <div id="subCard" role="document">
+    <h3 id="subTitle">投稿 · 纠错</h3>
+    <p class="lead">这里不比谁说得响，比谁给得出来源。投稿会进入复核队列，不会直接上线；
+      被拒也会记录理由。你不需要注册，也不会被要求填真名。</p>
+
+    <label class="f">类型</label>
+    <div id="subKind">
+      <label><input type="radio" name="kind" value="new_event" checked>新事件</label>
+      <label><input type="radio" name="kind" value="correction">纠错</label>
+      <label><input type="radio" name="kind" value="source">补来源</label>
+    </div>
+
+    <label class="f" for="subT">标题（一句话说清发生了什么）</label>
+    <input type="text" id="subT" maxlength="120" placeholder="例：内阁通过 RON95 补贴改为定向发放">
+
+    <label class="f" for="subD">发生日期（不确定可留空）</label>
+    <input type="date" id="subD">
+
+    <label class="f" for="subB">说明</label>
+    <textarea id="subB" maxlength="1200" placeholder="发生了什么、改变了什么、影响到谁。只写事实与后果，不写动机推测。"></textarea>
+
+    <label class="f">来源链接<span id="srcNeed"> · 新事件需 ≥2 个独立来源</span></label>
+    <div id="srcList"></div>
+    <button class="btn ghost" id="addSrc" type="button" style="margin-top:7px;font-size:11px;padding:4px 11px">+ 再加一个</button>
+    <p class="srcHint">「独立」指不同机构。同一集团旗下多家媒体转载同一通稿，算 1 个。
+      官方文件、法院记录、议会记录、统计数据优先。</p>
+
+    <label class="f" for="subC">联系方式（选填，仅在需要向你确认时使用）</label>
+    <input type="text" id="subC" maxlength="120" placeholder="邮箱或任何你愿意留的方式；留空也能投稿">
+
+    <div id="subFoot">
+      <button class="btn" id="subGo" style="--c:var(--t-tax)">提交</button>
+      <button class="btn ghost" data-close-sub type="button">取消</button>
+      <span id="subMsg"></span>
+    </div>
+  </div>
+</div>
+
+<!-- 人物／组织档案：只是「该主体在本档案中的事件索引」，没有评分也没有结论 -->
+<div id="infoWrap" role="dialog" aria-modal="true">
+  <div class="veil" data-close-info></div>
+  <div id="infoCard"></div>
 </div>
 
 <script>
@@ -447,6 +603,56 @@ function sourceLevel(e){
   return          { k:'none',    i:'○',  t:'无来源', full:'尚未附上可核查来源，不应视为已核实的档案条目' };
 }
 const srcBadge = sl => `<span class="srcbadge ${sl.k}" title="${sl.full}">${sl.i} ${sl.t}</span>`;
+
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ═══════════ 事件标识 ═══════════
+   评论要挂在事件上，就需要一个稳定标识。优先用数据里的 slug；
+   缺失时按「日期 + 标题短哈希」推导——代价是标题一旦改动，旧评论就会与事件脱钩。
+   数据补齐 slug 之后不应再依赖这个推导值。 */
+function hash4(s){
+  let h=2166136261;
+  for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); }
+  return (h>>>0).toString(36);
+}
+const evSlug = e => e.slug || `${e.date}-${hash4(e.title||'')}`;
+
+/* ═══════════ 后端 ═══════════
+   静态站 + Pages Functions。读事件仍走静态 JSON（每个分支各自一份），
+   只有用户写入的内容才碰数据库。后端不可用时全部优雅降级，不让卡片崩掉。 */
+const API = {
+  async get(p){
+    const r = await fetch(p, { headers:{ accept:'application/json' } });
+    return r.json();
+  },
+  async post(p, body){
+    const r = await fetch(p, { method:'POST',
+      headers:{ 'content-type':'application/json' }, body: JSON.stringify(body) });
+    const d = await r.json().catch(()=>({}));
+    return { status:r.status, ...d };
+  }
+};
+
+let THREADS = [], ACTORS = [];
+const ROLE = { office:'在任', proposer:'提出', opponent:'反对', affected:'受影响' };
+
+const threadsOf = e => THREADS.filter(t => t.events.includes(EVENTS.indexOf(e)));
+function actorsOf(e){
+  const i = EVENTS.indexOf(e);
+  return ACTORS.map(a => {
+    const hit = (a.events||[]).find(x => x.i === i);
+    return hit ? { ...a, role: hit.role } : null;
+  }).filter(Boolean);
+}
+
+function ago(iso){
+  const d = new Date(iso), m = (Date.now() - d) / 60000;
+  if (m < 1) return '刚刚';
+  if (m < 60) return `${Math.floor(m)} 分钟前`;
+  if (m < 1440) return `${Math.floor(m/60)} 小时前`;
+  if (m < 10080) return `${Math.floor(m/1440)} 天前`;
+  return iso.slice(0,10);
+}
 
 /* ═══════════ 事件数据 ═══════════
    数据不写死在代码里：运行时从 data/events.json 载入。
@@ -479,13 +685,51 @@ const CARD_SECTIONS = {
   srcs: e => e.srcs?.length ? `<div class="sec"><h4>主要来源</h4><ul class="srcs">${
     e.srcs.map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener noreferrer">${x.l}</a></li>`).join('')}</ul></div>` : '',
 
-  /* 讨论：徽章用图标（长按/悬停看释义），评论限 30–50 字以逼出重点 */
-  disc: e => `<div class="disc"><div class="dh"><b>讨论 · ${e.discuss||0} 条</b><em>阶段2开放 · 版式示意</em></div>
-    <div class="cm"><div class="top"><span class="badge trusted" title="受信任：账号 ≥30 天，行为记录良好">★</span><span class="who2">8 个月 · 12 条来源被采纳</span></div>
-      <div class="body">LHDN 那张表 2025 年 6 月改过，旧链接已失效，建议改引存档版。</div></div>
-    <div class="cm"><div class="top"><span class="badge verified" title="已验证：完成邮箱验证">✓</span><span class="who2">已验证</span></div>
-      <div class="body">差异化影响里按行业细分那一栏，有公开来源吗？没有的话是不是不该放上来。</div></div>
-    <div class="composer"><b>规则：</b>每则 30–50 字，逼出重点、避免长篇宣泄；每人每帖每 24 小时 2 条，计数绑账号而非 IP，提交前需人机验证。评论须待后端与审核流程就绪后开放——这是法律风险最集中的一环。</div></div>`
+  /* 议题脉络：同一件事在几十年里反复出现。
+     一条缩微时间轴比任何文字都更能说明「这不是新问题」。 */
+  chain: e => {
+    const ts = threadsOf(e);
+    if (!ts.length) return '';
+    return `<div class="sec"><h4>议题脉络 · 同一件事反复出现</h4>${ts.map(th=>`
+      <div class="chain">
+        <div class="ct"><b>${esc(th.name)}</b><em>档案内 ${th.events.length} 次</em></div>
+        ${th.desc?`<div class="cdesc">${esc(th.desc)}</div>`:''}
+        <ol>${th.events.map(i=>{
+          const x = EVENTS[i]; if (!x) return '';
+          const here = x === e;
+          return `<li class="${here?'here':''}">
+            <span class="cy">${esc(x.label || x.date.slice(0,4))}</span>
+            <button type="button" data-goto="${i}"${here?' disabled':''}>${esc(x.title)}</button>
+            ${x.who?`<div class="cwho">${esc(x.who)}</div>`:''}</li>`;
+        }).join('')}</ol>
+      </div>`).join('')}</div>`;
+  },
+
+  /* 人物与组织：只索引已收录的事件，不评分、不characterise。
+     在马来西亚做人物页，越少形容词越安全，也越诚实。 */
+  actors: e => {
+    const list = actorsOf(e);
+    if (!list.length) return '';
+    // 徽章上只留名字和条数；角色放 title，避免一排「受影响·18」把卡片塞满
+    return `<div class="sec"><h4>相关人物与组织</h4><div class="chips">${
+      list.map(a=>`<button class="chip2" data-actor="${esc(a.key)}"
+        title="本事件中的角色：${esc(ROLE[a.role]||a.role)} · 档案内共 ${(a.events||[]).length} 条记录"
+        >${esc(a.name)}<span class="r">${(a.events||[]).length}</span></button>`).join('')
+    }</div><div class="srcHint">点击查看该人物／组织在本档案中的全部记录。只列事件，不作评价、不打分。</div></div>`;
+  },
+
+  /* 讨论：已接后端。规则由数据库执行（db/live.sql），前端只是把规则说清楚。 */
+  disc: e => `<div class="disc" data-ev="${esc(evSlug(e))}">
+    <div class="dh"><b>讨论</b><em class="cnt">载入中…</em></div>
+    <div class="clist"></div>
+    <div class="cbox">
+      <textarea rows="2" maxlength="80" placeholder="30–50 字。写你查到的、能被核对的东西。"></textarea>
+      <div class="cbar"><span class="cnum">0 / 30–50</span><span class="sp"></span>
+        <button class="btn send" type="button" disabled>发表</button></div>
+      <div class="cmsg"></div>
+    </div>
+    <div class="crule">每人每帖每 24 小时 2 条 · 计数绑一次性匿名标识，不存 IP ·
+      被 3 个不同网络举报自动折叠（折叠不是删除，仍可展开）</div></div>`
 };
 
 /* 来源提示：仅在证据不足时出现，措辞尽量短 */
@@ -507,7 +751,7 @@ function cardHead(e){
 
 /* 桌面：全部平铺 */
 function buildCardHTML(e){
-  return cardHead(e) + ['why','img','hist','claims','impact','srcs','disc']
+  return cardHead(e) + ['why','img','hist','chain','claims','impact','actors','srcs','disc']
     .map(k => CARD_SECTIONS[k](e)).join('');
 }
 
@@ -515,6 +759,7 @@ function buildCardHTML(e){
 function buildCardTabsHTML(e, uid){
   const TABS = [
     { key:'overview', label:'概览', parts:['why','impact','img'] },
+    { key:'chain',    label:'脉络', parts:['chain','actors'] },
     { key:'claims',   label:'主张', parts:['claims'] },
     { key:'hist',     label:'历程', parts:['hist'] },
     { key:'srcs',     label:'来源', parts:['srcs'] },
@@ -535,6 +780,188 @@ function buildCardTabsHTML(e, uid){
 
   return `${srcNote(e)}<div class="vtabs" data-uid="${uid}">${radios}
     <div class="vtabbar">${labels}</div><div class="vpanes">${panes}</div></div>`;
+}
+
+/* ═══════════ 卡片内的交互装配 ═══════════
+   两种布局都把 HTML 直接塞进容器，装配统一走这里，避免各写一份。 */
+function hydrate(root){
+  root.querySelectorAll('.disc[data-ev]').forEach(d => {
+    if (d.dataset.hy) return;
+    d.dataset.hy = '1';
+    wireDiscussion(d);
+  });
+}
+
+function wireDiscussion(d){
+  const slug = d.dataset.ev;
+  const list = d.querySelector('.clist'), cnt = d.querySelector('.cnt');
+  const ta = d.querySelector('textarea'), num = d.querySelector('.cnum');
+  const send = d.querySelector('.send'), msg = d.querySelector('.cmsg');
+
+  const row = c => `<div class="cm ${c.status==='folded'?'folded':''}" data-id="${esc(c.id)}">
+      <div class="top"><span class="badge guest" title="访客：未注册，未验证身份">·</span>
+        <span class="who2">访客</span><span class="when">${esc(ago(c.created_at))}</span>
+        <button class="flag" type="button" title="举报">⚑</button></div>
+      <div class="body">${esc(c.body)}</div></div>`;
+
+  function paint(rows){
+    cnt.textContent = `${rows.length} 条`;
+    list.innerHTML = rows.length ? rows.map(row).join('')
+      : `<div class="cempty">还没有人发言。第一条由你来写。</div>`;
+  }
+
+  API.get(`/api/comments?event=${encodeURIComponent(slug)}`).then(r => {
+    if (r.offline || r.ok === false) {
+      cnt.textContent = '后端未接通';
+      list.innerHTML = `<div class="cempty">讨论功能在本环境不可用（静态预览无后端）。</div>`;
+      ta.disabled = true; send.disabled = true;
+      return;
+    }
+    paint(r.comments || []);
+  }).catch(()=>{ cnt.textContent = '—'; });
+
+  // 计数器就是规则：不合规时它变红、按钮变灰，不必再写一段说明
+  const count = () => {
+    const n = [...ta.value.trim()].length;
+    num.textContent = `${n} / 30–50`;
+    const ok = n >= 30 && n <= 50;
+    num.className = 'cnum ' + (n === 0 ? '' : ok ? 'ok' : 'bad');
+    send.disabled = !ok;
+    return n;
+  };
+  ta.addEventListener('input', count);
+
+  send.addEventListener('click', async () => {
+    send.disabled = true; msg.className = 'cmsg'; msg.textContent = '提交中…';
+    const r = await API.post('/api/comments', { event: slug, body: ta.value.trim() });
+    if (r.ok) {
+      ta.value = ''; count();
+      msg.className = 'cmsg ok'; msg.textContent = '已发表。';
+      const fresh = await API.get(`/api/comments?event=${encodeURIComponent(slug)}`);
+      paint(fresh.comments || []);
+    } else {
+      msg.className = 'cmsg err'; msg.textContent = r.error || '提交失败。';
+      count();
+    }
+  });
+
+  list.addEventListener('click', async ev => {
+    const b = ev.target.closest('.flag'); if (!b) return;
+    const id = b.closest('.cm').dataset.id;
+    const reason = prompt('举报理由（会记录，不公开显示）：');
+    if (!reason || !reason.trim()) return;
+    const r = await API.post('/api/reports', { id, reason: reason.trim() });
+    msg.className = 'cmsg ' + (r.ok ? 'ok' : 'err');
+    msg.textContent = r.ok ? '已收到举报。累计 3 个不同网络才会折叠。' : (r.error || '举报失败。');
+  });
+}
+
+/* ═══════════ 跨事件跳转与永久链接 ═══════════
+   两个布局引擎各自注册自己的跳转方式；脉络与人物档案都调这一个入口。
+   同时把当前事件写进 URL：一个档案如果不能把某一条单独指给别人看，
+   它就只是一个网站，不是可被引用的档案。 */
+window.gotoEvent = null;
+
+const setHash = e => { try { history.replaceState(null,'', e ? '#e='+encodeURIComponent(evSlug(e)) : location.pathname); } catch(_){} };
+
+function applyHash(){
+  const m = /^#e=(.+)$/.exec(location.hash || '');
+  if (!m || !window.gotoEvent) return;
+  const slug = decodeURIComponent(m[1]);
+  const e = EVENTS.find(x => evSlug(x) === slug);
+  if (e) setTimeout(()=>window.gotoEvent(e), 60);
+}
+
+document.addEventListener('click', ev => {
+  const g = ev.target.closest('[data-goto]');
+  if (g && window.gotoEvent) {
+    const e = EVENTS[+g.dataset.goto];
+    if (e) { closeInfo(); window.gotoEvent(e); }
+    return;
+  }
+  const a = ev.target.closest('[data-actor]');
+  if (a) { openActor(a.dataset.actor); }
+});
+
+/* ── 人物／组织档案 ── */
+const infoWrap = () => document.getElementById('infoWrap');
+const closeInfo = () => infoWrap().classList.remove('on');
+
+function openActor(key){
+  const a = ACTORS.find(x => x.key === key);
+  if (!a) return;
+  const KIND = { person:'人物', party:'政党', coalition:'阵线', govt_body:'机构' };
+  const rows = (a.events||[])
+    .map(x => ({ ...x, e: EVENTS[x.i] })).filter(x => x.e)
+    .sort((p,q) => p.e.date.localeCompare(q.e.date));
+
+  document.getElementById('infoCard').innerHTML = `
+    <h3>${esc(a.name)}${a.name_en?` <span style="font-size:13px;color:var(--ink-3)">${esc(a.name_en)}</span>`:''}</h3>
+    <div class="kind">${KIND[a.kind]||''}${a.active?` · ${esc(a.active)}`:''} · 档案内 ${rows.length} 条记录</div>
+    <div class="chain"><ol>${rows.map(x=>`<li>
+      <span class="cy">${esc(x.e.label || x.e.date.slice(0,4))}</span>
+      <button type="button" data-goto="${x.i}">${esc(x.e.title)}</button>
+      <div class="cwho">${esc(ROLE[x.role]||x.role)}</div></li>`).join('')}</ol></div>
+    <p class="srcHint" style="margin-top:16px">本页只是索引：列出该主体在本档案中出现过的事件与其角色。
+      不做评分、不下结论、不收录与公职行为无关的私人事项。
+      每条记录的依据与来源，请点进该事件查看。</p>
+    <div id="subFoot"><button class="btn ghost" data-close-info type="button">关闭</button></div>`;
+  infoWrap().classList.add('on');
+}
+
+/* ═══════════ 投稿浮层 ═══════════ */
+function wireSubmit(){
+  const wrap = document.getElementById('subWrap');
+  const srcList = document.getElementById('srcList');
+  const msg = document.getElementById('subMsg');
+  const need = document.getElementById('srcNeed');
+
+  const addSrcInput = () => {
+    const i = document.createElement('input');
+    i.type = 'url'; i.placeholder = 'https://…';
+    srcList.appendChild(i);
+  };
+  addSrcInput(); addSrcInput();
+  document.getElementById('addSrc').addEventListener('click', addSrcInput);
+
+  const kindOf = () => document.querySelector('#subKind input:checked').value;
+  document.getElementById('subKind').addEventListener('change', () => {
+    need.textContent = kindOf() === 'new_event'
+      ? ' · 新事件需 ≥2 个独立来源' : ' · 至少 1 个来源';
+  });
+
+  // #submit 可直接打开投稿表单，方便把「欢迎投稿」做成一个能发出去的链接
+  const open = () => { msg.textContent=''; wrap.classList.add('on'); };
+  if (location.hash === '#submit') open();
+  const close = () => wrap.classList.remove('on');
+  document.querySelectorAll('[data-open-sub]').forEach(b => b.addEventListener('click', open));
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-close-sub]')) close();
+    if (e.target.closest('[data-close-info]')) closeInfo();
+  });
+  addEventListener('keydown', e => { if (e.key === 'Escape') { close(); closeInfo(); } });
+
+  document.getElementById('subGo').addEventListener('click', async () => {
+    const sources = [...srcList.querySelectorAll('input')].map(i=>i.value.trim()).filter(Boolean);
+    msg.className = ''; msg.textContent = '提交中…';
+    const r = await API.post('/api/submissions', {
+      kind: kindOf(),
+      title: document.getElementById('subT').value,
+      occurred_on: document.getElementById('subD').value || null,
+      body: document.getElementById('subB').value,
+      sources,
+      contact: document.getElementById('subC').value
+    });
+    if (r.ok) {
+      msg.className = 'ok';
+      msg.textContent = '已进入复核队列。通过与否都会记录理由。';
+      ['subT','subD','subB','subC'].forEach(id => document.getElementById(id).value = '');
+      srcList.querySelectorAll('input').forEach(i => i.value = '');
+    } else {
+      msg.className = 'err';
+      msg.textContent = r.error || '提交失败：后端可能尚未接通。';
+    }
+  });
 }
 
 /* ═══════════ 横向引擎（桌面）═══════════ */
@@ -799,6 +1226,7 @@ function boot() {
     selected=e; evs.forEach(x=>x._el.classList.toggle('sel',x===e));
     const tp=TOPICS[e.topic];
     cardScroll.innerHTML=buildCardHTML(e);
+    hydrate(cardScroll); setHash(e);
     card.style.setProperty('--c',tp.c);
     cardTop=34;
     card.classList.remove('on'); void card.offsetWidth; card.classList.add('on');
@@ -812,7 +1240,8 @@ function boot() {
     kick(); layout(); dismiss();
   }
   function close(){ selected=null; card.classList.remove('on');
-    evs.forEach(x=>x._el.classList.remove('sel')); layout(); }
+    evs.forEach(x=>x._el.classList.remove('sel')); layout(); setHash(null); }
+  window.gotoEvent = e => { if (e && e._el) open(e); };   // 供议题脉络／人物档案跳转
   /* 开关卡片统一由上面的 pointerup 处理，这里不再监听 click */
   addEventListener('keydown',e=>{
     if(e.key==='Escape') close();
@@ -843,6 +1272,7 @@ function boot() {
   function start(){ setRange(2,rbs[2]); s=sT; ox=oxT; oy=oyT; layout(); }
   sync(); MAX_S=maxScale(); MIN_S=Math.min(fitScale(),MAX_S); start();
   requestAnimationFrame(start); addEventListener('load',start);
+  applyHash();
 }
 
 /* ═══════════ 竖向引擎（手机）═══════════
@@ -904,15 +1334,32 @@ function bootVertical() {
           if(!inner.dataset.built){
             inner.innerHTML = buildCardTabsHTML(e, it.dataset.i);   // 手机用页签版
             inner.dataset.built='1';
+            hydrate(inner);
           }
         }
         it.classList.toggle('open');
+        setHash(it.classList.contains('open') ? e : null);
       });
     });
   }
+
+  // 跨事件跳转：目标可能被议题过滤挡住，先取消过滤再展开
+  window.gotoEvent = e => {
+    const i = EVENTS.indexOf(e);
+    if (hidden[e.topic]) {
+      hidden[e.topic] = false;
+      vf.querySelector(`.chip[data-k="${e.topic}"]`)?.classList.remove('off');
+      render();
+    }
+    const it = tl.querySelector(`.vitem[data-i="${i}"]`);
+    if (!it) return;
+    if (!it.classList.contains('open')) it.querySelector('.vrow').click();
+    it.scrollIntoView({ behavior:'smooth', block:'start' });
+  };
   EVENTS.forEach((e,i)=>{ const t=evs.indexOf(e); }); // no-op guard
   evs.forEach(e=>{ e._vi = EVENTS.indexOf(e); });
   render();
+  applyHash();
 
   // 主题切换（与桌面共用同一存储键）
   const root=document.documentElement;
@@ -935,10 +1382,30 @@ async function loadEvents() {
   }
   return [];
 }
+/* 议题脉络与人物索引是可选的旁挂数据：文件不存在时相关分段自动不渲染，
+   不影响其余功能。 */
+async function loadSide(url, pick){
+  try {
+    const r = await fetch(url);
+    if (!r.ok) return [];
+    const d = await r.json();
+    return pick(d) || [];
+  } catch (_) { return []; }
+}
+
 const NARROW = () => matchMedia('(max-width: 700px)').matches;
 
-loadEvents().then(rows => {
-  EVENTS = Array.isArray(rows) ? rows : [];
+Promise.all([
+  loadEvents(),
+  loadSide('./data/threads.json', d => d.threads),
+  loadSide('./data/actors.json',  d => d.actors)
+]).then(([rows, threads, actors]) => {
+  EVENTS  = Array.isArray(rows) ? rows : [];
+  THREADS = (threads||[]).filter(t => Array.isArray(t.events) && t.events.length > 1);
+  ACTORS  = actors || [];
+
+  wireSubmit();      // 投稿入口与数据无关：空档案时它反而是唯一的入口
+
   const emptyEl = document.getElementById('empty');
   if (!EVENTS.length) {
     emptyEl.hidden = false;
