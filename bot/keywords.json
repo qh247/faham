@@ -1,0 +1,20 @@
+{
+  "_comment": "Policy relevance keyword list used by bot/collect.mjs. Kept separate from code so it can be edited without touching the script. Each theme lists terms across English, Bahasa Malaysia, and Chinese (plus Tamil where practical). Matching is case-insensitive substring matching against title (+ any description text if present); a hit records the theme name in the candidate's `matched` array.",
+  "themes": {
+    "subsidy": ["subsidy", "subsidies", "subsidi", "补贴", "津贴"],
+    "tax": ["tax", "taxes", "taxation", "cukai", "税", "税收", "SST", "GST", "e-invoice", "e-invois", "电子发票", "电子发票制度"],
+    "cost_of_living": ["cost of living", "kos sara hidup", "kos sara", "生活成本", "生活费"],
+    "election": ["election", "elections", "by-election", "pilihan raya", "PRU", "选举", "大选", "补选", "EC", "SPR", "redelineation", "persempadanan", "划分选区"],
+    "corruption": ["corruption", "corrupt", "rasuah", "贪污", "贪腐", "MACC", "SPRM"],
+    "education": ["UEC", "统考", "vernacular school", "vernacular schools", "sekolah jenis kebangsaan", "SJK", "华小", "独中", "国民型中学"],
+    "citizenship": ["citizenship", "kerakyatan", "公民权", "公民资格"],
+    "constitution": ["constitution", "constitutional", "perlembagaan", "宪法"],
+    "parliament": ["parliament", "parliamentary", "parlimen", "国会", "dewan rakyat", "dewan negara", "下议院", "上议院"],
+    "budget": ["budget", "belanjawan", "财政预算", "预算案"],
+    "fuel": ["fuel", "petrol", "RON95", "RON97", "diesel", "汽油", "柴油", "燃油"],
+    "electricity_tariff": ["electricity tariff", "tarif elektrik", "电费", "电力关税", "TNB"],
+    "healthcare": ["healthcare", "health care", "kesihatan", "医疗", "医药", "公共卫生"],
+    "minimum_wage": ["minimum wage", "gaji minimum", "最低薪金", "最低工资"],
+    "civil_service": ["civil service", "penjawat awam", "公务员", "文官"]
+  }
+}

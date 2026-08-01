@@ -1,0 +1,1268 @@
+{
+  "collected_at": "2026-08-01T16:45:30.379Z",
+  "feeds_ok": 5,
+  "feeds_failed": [
+    {
+      "outlet": "macaranga",
+      "error": "HTTP 403"
+    }
+  ],
+  "feeds_skipped": 19,
+  "candidates": [
+    {
+      "id": "18ecb59e5fbc4d16",
+      "cluster": "aminuddin candidates dark ec s voter verification system",
+      "headline": "Aminuddin says candidates in the dark over EC's new voter verification system",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaysiakini.com/news/781127",
+      "outlet": "malaysiakini",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T04:13:02.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaysiakini",
+          "tier": 2,
+          "url": "https://www.malaysiakini.com/news/781127",
+          "title": "Aminuddin says candidates in the dark over EC's new voter verification system"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "f6495971fdc1fa68",
+      "cluster": "vindicated tabung haji rci rafizi wants tougher law negligent decision makers",
+      "headline": "Vindicated by Tabung Haji RCI, Rafizi wants tougher law on negligent decision-makers",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaysiakini.com/news/781071",
+      "outlet": "malaysiakini",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T06:45:54.000Z",
+      "matched": [
+        "parliament"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaysiakini",
+          "tier": 2,
+          "url": "https://www.malaysiakini.com/news/781071",
+          "title": "Vindicated by Tabung Haji RCI, Rafizi wants tougher law on negligent decision-makers"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "7ee763a0805004f7",
+      "cluster": "snapshot s gor weighs election bankrupt rep claim rci gaps free pass syed saddiq",
+      "headline": "SNAPSHOT | S'gor weighs by-election over bankrupt rep claim; RCI gaps not a free pass: Syed Saddiq",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaysiakini.com/news/781042",
+      "outlet": "malaysiakini",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T01:23:15.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaysiakini",
+          "tier": 2,
+          "url": "https://www.malaysiakini.com/news/781042",
+          "title": "SNAPSHOT | S'gor weighs by-election over bankrupt rep claim; RCI gaps not a free pass: Syed Saddiq"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "bc558ae0cedaa4c0",
+      "cluster": "how crypto miners stealing power southeast asia",
+      "headline": "How crypto miners are stealing power in Southeast Asia",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaysiakini.com/news/781040",
+      "outlet": "malaysiakini",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T00:38:51.000Z",
+      "matched": [
+        "fuel"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaysiakini",
+          "tier": 2,
+          "url": "https://www.malaysiakini.com/news/781040",
+          "title": "How crypto miners are stealing power in Southeast Asia"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "0c4857d26bc20950",
+      "cluster": "live nga stands loke despite negeri sembilan defeat",
+      "headline": "LIVE: Nga stands by Loke despite Negeri Sembilan defeat",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.freemalaysiatoday.com/category/nation/2026/08/01/live-polling-ends-vote-counting-for-negeri-sembilan-polls-begins",
+      "outlet": "freemalaysiatoday",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T15:48:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "freemalaysiatoday",
+          "tier": 2,
+          "url": "https://www.freemalaysiatoday.com/category/nation/2026/08/01/live-polling-ends-vote-counting-for-negeri-sembilan-polls-begins",
+          "title": "LIVE: Nga stands by Loke despite Negeri Sembilan defeat"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "9669a873eccbb0cb",
+      "cluster": "langsung nga sokong loke walau kalah n sembilan",
+      "headline": "LANGSUNG: Nga sokong Loke walau kalah di N Sembilan",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/08/01/langsung-pengiraan-undi-bermula-parti-mana-bakal-dapat-mandat-tadbir-n-sembilan",
+      "outlet": "freemalaysiatoday",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T14:58:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "freemalaysiatoday",
+          "tier": 2,
+          "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/08/01/langsung-pengiraan-undi-bermula-parti-mana-bakal-dapat-mandat-tadbir-n-sembilan",
+          "title": "LANGSUNG: Nga sokong Loke walau kalah di N Sembilan"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "99813574c40ced84",
+      "cluster": "prn ns perlihatkan kempen perkauman luar biasa dakwa ph",
+      "headline": "PRN NS perlihatkan kempen perkauman luar biasa, dakwa PH",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/08/01/prn-ns-perlihatkan-kempen-perkauman-luar-biasa-dakwa-ph",
+      "outlet": "freemalaysiatoday",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T14:40:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "freemalaysiatoday",
+          "tier": 2,
+          "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/08/01/prn-ns-perlihatkan-kempen-perkauman-luar-biasa-dakwa-ph",
+          "title": "PRN NS perlihatkan kempen perkauman luar biasa, dakwa PH"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "25fa2519553d0db9",
+      "cluster": "ph blames election defeat racial rhetoric",
+      "headline": "PH blames election defeat on racial rhetoric",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.freemalaysiatoday.com/category/nation/2026/08/01/ph-blames-election-defeat-on-racial-rhetoric",
+      "outlet": "freemalaysiatoday",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T14:36:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "freemalaysiatoday",
+          "tier": 2,
+          "url": "https://www.freemalaysiatoday.com/category/nation/2026/08/01/ph-blames-election-defeat-on-racial-rhetoric",
+          "title": "PH blames election defeat on racial rhetoric"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "604949f5f4f09a68",
+      "cluster": "bn pn pact carry coming melaka election",
+      "headline": "BN-PN pact to carry on at coming Melaka election",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.freemalaysiatoday.com/category/nation/2026/08/01/bn-pn-pact-to-carry-on-at-coming-melaka-election",
+      "outlet": "freemalaysiatoday",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T13:48:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "freemalaysiatoday",
+          "tier": 2,
+          "url": "https://www.freemalaysiatoday.com/category/nation/2026/08/01/bn-pn-pact-to-carry-on-at-coming-melaka-election",
+          "title": "BN-PN pact to carry on at coming Melaka election"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "19e99a888c9713ca",
+      "cluster": "counting begins nearly 12 000 postal ballots negeri sembilan polls enter final stretch",
+      "headline": "Counting begins for nearly 12,000 postal ballots as Negeri Sembilan polls enter final stretch",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/counting-begins-for-nearly-12000-postal-ballots-as-negeri-sembilan-polls-enter-final-stretch/229882",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T09:56:06.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/counting-begins-for-nearly-12000-postal-ballots-as-negeri-sembilan-polls-enter-final-stretch/229882",
+          "title": "Counting begins for nearly 12,000 postal ballots as Negeri Sembilan polls enter final stretch"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "db4964e5b3a8ac8f",
+      "cluster": "negeri sembilan voter turnout climbs 65 38pc 4pm",
+      "headline": "Negeri Sembilan voter turnout climbs to 65.38pc by 4pm",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-voter-turnout-climbs-to-6538pc-by-4pm/229879",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T09:32:37.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-voter-turnout-climbs-to-6538pc-by-4pm/229879",
+          "title": "Negeri Sembilan voter turnout climbs to 65.38pc by 4pm"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "9de9a7cd25983f77",
+      "cluster": "ec half negeri sembilan voters turn 2pm",
+      "headline": "EC: Over half of Negeri Sembilan voters turn out by 2pm",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/ec-over-half-of-negeri-sembilan-voters-turn-out-by-2pm/229862",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T07:42:46.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/ec-over-half-of-negeri-sembilan-voters-turn-out-by-2pm/229862",
+          "title": "EC: Over half of Negeri Sembilan voters turn out by 2pm"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "7d5bb83f6e268f36",
+      "cluster": "negeri sembilan election sees 37pc voter turnout noon",
+      "headline": "Negeri Sembilan election sees 37pc voter turnout by noon",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-election-sees-37pc-voter-turnout-by-noon/229848",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T05:45:35.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-election-sees-37pc-voter-turnout-by-noon/229848",
+          "title": "Negeri Sembilan election sees 37pc voter turnout by noon"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "557a1df2067dd8ef",
+      "cluster": "negeri sembilan polls see 28 11pc turnout 11am ec",
+      "headline": "Negeri Sembilan polls see 28.11pc turnout by 11am, says EC",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-polls-see-2811pc-turnout-by-11am-says-ec/229837",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T03:55:20.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-polls-see-2811pc-turnout-by-11am-says-ec/229837",
+          "title": "Negeri Sembilan polls see 28.11pc turnout by 11am, says EC"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "6e739a5654d6c2c8",
+      "cluster": "election commission chief ramlan harun inspects negeri sembilan polls",
+      "headline": "Election Commission chief Ramlan Harun inspects Negeri Sembilan polls",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/election-commission-chief-ramlan-harun-inspects-negeri-sembilan-polls/229832",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T03:29:56.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/election-commission-chief-ramlan-harun-inspects-negeri-sembilan-polls/229832",
+          "title": "Election Commission chief Ramlan Harun inspects Negeri Sembilan polls"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "a4695b96bc814ab2",
+      "cluster": "negeri sembilan caretaker mb aminuddin casts ballot pakatan confident despite predictions",
+      "headline": "Negeri Sembilan caretaker MB Aminuddin casts ballot, says Pakatan confident despite predictions",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-caretaker-mb-aminuddin-casts-ballot-says-pakatan-confident-despite-predictions/229824",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T02:32:42.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-caretaker-mb-aminuddin-casts-ballot-says-pakatan-confident-despite-predictions/229824",
+          "title": "Negeri Sembilan caretaker MB Aminuddin casts ballot, says Pakatan confident despite predictions"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "0a9ab41fe7c39c91",
+      "cluster": "negeri sembilan state election early voter turnout 8 29pc 9am",
+      "headline": "Negeri Sembilan state election: Early voter turnout at 8.29pc by 9am",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-state-election-early-voter-turnout-at-829pc-by-9am/229820",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T02:26:16.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-state-election-early-voter-turnout-at-829pc-by-9am/229820",
+          "title": "Negeri Sembilan state election: Early voter turnout at 8.29pc by 9am"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "0ca6e205be986795",
+      "cluster": "malaysia s fuel supply stable till september energy crisis law minister",
+      "headline": "Malaysia’s fuel supply stable till September amid energy crisis, says law minister",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/malaysias-fuel-supply-stable-till-september-amid-energy-crisis-says-law-minister/229800",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T01:12:03.000Z",
+      "matched": [
+        "fuel"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/malaysias-fuel-supply-stable-till-september-amid-energy-crisis-says-law-minister/229800",
+          "title": "Malaysia’s fuel supply stable till September amid energy crisis, says law minister"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "880e06dfef3a824c",
+      "cluster": "negeri sembilan votes today 10 seats watch pivotal state election",
+      "headline": "Negeri Sembilan votes today: 10 seats to watch in pivotal state election",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-votes-today-10-seats-to-watch-in-pivotal-state-election/229606",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T23:00:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/08/01/negeri-sembilan-votes-today-10-seats-to-watch-in-pivotal-state-election/229606",
+          "title": "Negeri Sembilan votes today: 10 seats to watch in pivotal state election"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "3134eba6dfebc545",
+      "cluster": "ec reminds negeri sembilan voters follow recommended times phones barred during voting",
+      "headline": "EC reminds Negeri Sembilan voters to follow recommended times, phones barred during voting",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.malaymail.com/news/malaysia/2026/07/31/ec-reminds-negeri-sembilan-voters-to-follow-recommended-times-phones-barred-during-voting/229792",
+      "outlet": "malaymail",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T12:19:43.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "malaymail",
+          "tier": 2,
+          "url": "https://www.malaymail.com/news/malaysia/2026/07/31/ec-reminds-negeri-sembilan-voters-to-follow-recommended-times-phones-barred-during-voting/229792",
+          "title": "EC reminds Negeri Sembilan voters to follow recommended times, phones barred during voting"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "2e38050c9aa4f2c5",
+      "cluster": "prnns bn leads 18 seats ph wins 11 seats",
+      "headline": "PRNNS: BN leads in 18 seats, PH wins 11 seats",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125708/prnns-bn-leads-with-18-seats-ph-with-11-seats",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T11:57:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125727/prnns-unofficial-bn-wins-18-seats-ph-11-pn-7",
+          "title": "PRNNS: BN wins 18 seats, PH 11, PN 7 (official)"
+        },
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125708/prnns-bn-leads-with-18-seats-ph-with-11-seats",
+          "title": "PRNNS: BN leads in 18 seats, PH wins 11 seats"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "23be6cdad1016418",
+      "cluster": "prnns ph takes collective responsibility negeri sembilan defeat",
+      "headline": "PRNNS: PH takes collective responsibility after Negeri Sembilan defeat",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125726/prnns-ph-takes-collective-responsibility-after-negeri-sembilan-defeat",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T15:02:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125726/prnns-ph-takes-collective-responsibility-after-negeri-sembilan-defeat",
+          "title": "PRNNS: PH takes collective responsibility after Negeri Sembilan defeat"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "7edaac553ea8c981",
+      "cluster": "prnns amanah bersatu draw blanks negeri sembilan incumbents fall",
+      "headline": "PRNNS: Amanah, Bersatu draw blanks in Negeri Sembilan as incumbents fall",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125725/prnns-amanah-bersatu-draw-blanks-in-negeri-sembilan-as-incumbents-fall",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T14:41:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125725/prnns-amanah-bersatu-draw-blanks-in-negeri-sembilan-as-incumbents-fall",
+          "title": "PRNNS: Amanah, Bersatu draw blanks in Negeri Sembilan as incumbents fall"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "ec10dd238a5a2e50",
+      "cluster": "prnns wawasan makes historic breakthrough three wins under pn banner negeri",
+      "headline": "PRNNS: Wawasan makes historic breakthrough with three wins under PN banner in Negeri",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125721/prnns-wawasan-makes-historic-breakthrough-with-three-wins-under-pn-banner-in-negeri",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T14:00:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125721/prnns-wawasan-makes-historic-breakthrough-with-three-wins-under-pn-banner-in-negeri",
+          "title": "PRNNS: Wawasan makes historic breakthrough with three wins under PN banner in Negeri"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "43fb64160e714966",
+      "cluster": "prnns loke takes responsibility mulls stepping down negeri dap chief defeat",
+      "headline": "PRNNS: Loke takes responsibility, mulls stepping down as Negeri DAP chief after defeat",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125718/prnns-loke-takes-responsibility-mulls-stepping-down-as-negeri-sembilan-dap-chief-after-defeat",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T13:18:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125718/prnns-loke-takes-responsibility-mulls-stepping-down-as-negeri-sembilan-dap-chief-after-defeat",
+          "title": "PRNNS: Loke takes responsibility, mulls stepping down as Negeri DAP chief after defeat"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "1913a4925875f1bb",
+      "cluster": "prnns bn wrests chennah dap anthony loke defeated unofficial",
+      "headline": "PRNNS: BN wrests Chennah from DAP, Anthony Loke defeated (unofficial)",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125714/prnns-bn-wrests-chennah-from-dap-anthony-loke-defeated",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T12:40:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125714/prnns-bn-wrests-chennah-from-dap-anthony-loke-defeated",
+          "title": "PRNNS: BN wrests Chennah from DAP, Anthony Loke defeated (unofficial)"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "a91b0bebd222c1b1",
+      "cluster": "robo ai inc appoints dr jasem ibrahim mansour al mansory ceo proposed subsidiary",
+      "headline": "Robo.ai Inc appoints Dr Jasem Ibrahim Mansour Al-Mansory as CEO of proposed subsidiary",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/business/125712/robo.ai-inc-appoints-dr-jasem-ibrahim-mansour-al-mansory-as-ceo-of-proposed-subsidiary",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T12:25:00.000Z",
+      "matched": [
+        "subsidy"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/business/125712/robo.ai-inc-appoints-dr-jasem-ibrahim-mansour-al-mansory-as-ceo-of-proposed-subsidiary",
+          "title": "Robo.ai Inc appoints Dr Jasem Ibrahim Mansour Al-Mansory as CEO of proposed subsidiary"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "ca940f6a8176470a",
+      "cluster": "negeri sembilan polls close nation awaits results",
+      "headline": "Negeri Sembilan polls close as nation awaits results",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125707/negeri-sembilan-polls-close-as-nation-awaits-results",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T10:24:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125707/negeri-sembilan-polls-close-as-nation-awaits-results",
+          "title": "Negeri Sembilan polls close as nation awaits results"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "cf47a340dece20b1",
+      "cluster": "prnns postal vote count begins across negeri sembilan election results loom",
+      "headline": "PRNNS: Postal vote count begins across Negeri Sembilan as election results loom",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125706/prnns-postal-vote-count-begins-across-negeri-sembilan-as-election-results-loom",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T10:16:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125706/prnns-postal-vote-count-begins-across-negeri-sembilan-as-election-results-loom",
+          "title": "PRNNS: Postal vote count begins across Negeri Sembilan as election results loom"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "fc14f4318715255c",
+      "cluster": "prnns media practitioner claims denied entry paroi polling centre despite being registered voter",
+      "headline": "PRNNS: Media practitioner claims denied entry to Paroi polling centre despite being registered voter",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125704/prnns-media-practitioner-claims-denied-entry-to-paroi-polling-centre-despite-being-registered-voter",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T08:59:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125704/prnns-media-practitioner-claims-denied-entry-to-paroi-polling-centre-despite-being-registered-voter",
+          "title": "PRNNS: Media practitioner claims denied entry to Paroi polling centre despite being registered voter"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "de4b93a097f07fc4",
+      "cluster": "prnns polls draw 59 turnout 3pm",
+      "headline": "PRNNS: Polls draw 59% turnout by 3pm",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125698/prnns-polls-draw-59-turnout",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T07:52:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125698/prnns-polls-draw-59-turnout",
+          "title": "PRNNS: Polls draw 59% turnout by 3pm"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "fefe8377836d93a5",
+      "cluster": "prnns voter demographics drive choice ocr va pilot site",
+      "headline": "PRNNS: Voter demographics drive choice of OCR-VA pilot site",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125696/prnns-voter-demographics-drive-choice-of-ocr-va-pilot-site",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T07:10:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125696/prnns-voter-demographics-drive-choice-of-ocr-va-pilot-site",
+          "title": "PRNNS: Voter demographics drive choice of OCR-VA pilot site"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "7a9952c5cd6622b5",
+      "cluster": "stronger economy stable fuel supplies f1 return set benefit malaysians 2h 2026",
+      "headline": "Stronger economy, stable fuel supplies and F1 return set to benefit Malaysians in 2H 2026",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125690/stronger-economy-stable-fuel-supplies-and-f1-return-set-to-benefit-malaysians-in-2h-2026",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T05:32:00.000Z",
+      "matched": [
+        "fuel"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125690/stronger-economy-stable-fuel-supplies-and-f1-return-set-to-benefit-malaysians-in-2h-2026",
+          "title": "Stronger economy, stable fuel supplies and F1 return set to benefit Malaysians in 2H 2026"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "22fa3c3d29f02c46",
+      "cluster": "prnns voter turnout outpaces 2023 polls noon",
+      "headline": "PRNNS: Voter turnout outpaces 2023 polls as of noon",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125685/prnns-voter-turnout-outpaces-2023-polls-as-ph-says-people-will-deliver-final-verdict",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T04:59:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125685/prnns-voter-turnout-outpaces-2023-polls-as-ph-says-people-will-deliver-final-verdict",
+          "title": "PRNNS: Voter turnout outpaces 2023 polls as of noon"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "36678e2215752e38",
+      "cluster": "prnns senior citizens dominate early voting ec",
+      "headline": "PRNNS: Senior citizens dominate early voting - EC",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125684/prnns-senior-citizens-dominate-early-voting-ec",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T04:52:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125684/prnns-senior-citizens-dominate-early-voting-ec",
+          "title": "PRNNS: Senior citizens dominate early voting - EC"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "0de39665b75769e4",
+      "cluster": "govt launches hybrid work system civil servants",
+      "headline": "Govt launches hybrid work system for civil servants",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125683/govt-launches-hybrid-work-system-for-civil-servants-as-public-service-reform-takes-digital-turn",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T04:12:00.000Z",
+      "matched": [
+        "civil_service"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125683/govt-launches-hybrid-work-system-for-civil-servants-as-public-service-reform-takes-digital-turn",
+          "title": "Govt launches hybrid work system for civil servants"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "258fcb56cdea938c",
+      "cluster": "najib urges negeri sembilan voters make their voices heard polling day",
+      "headline": "Najib urges Negeri Sembilan voters to make their voices heard on polling day",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125680/najib-urges-negeri-sembilan-voters-to-make-their-voices-heard-on-polling-day",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T03:29:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125680/najib-urges-negeri-sembilan-voters-to-make-their-voices-heard-on-polling-day",
+          "title": "Najib urges Negeri Sembilan voters to make their voices heard on polling day"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "9c7223f9f05e8691",
+      "cluster": "prnns voting underway early turnout trails 2023 poll figures",
+      "headline": "PRNNS: Voting underway as early turnout trails 2023 poll figures",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125678/prnns-voting-underway-as-early-turnout-trails-2023-poll-figures",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T02:18:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125678/prnns-voting-underway-as-early-turnout-trails-2023-poll-figures",
+          "title": "PRNNS: Voting underway as early turnout trails 2023 poll figures"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "62543cab4202b23a",
+      "cluster": "prn ns what political party leaders say",
+      "headline": "PRN NS: What political party leaders say",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125671/prn-ns-what-political-party-leaders-say",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-08-01T00:05:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125671/prn-ns-what-political-party-leaders-say",
+          "title": "PRN NS: What political party leaders say"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "fcf382de69ae44dc",
+      "cluster": "landslide expected negeri battle goes down wire",
+      "headline": "No landslide expected as Negeri battle goes down to the wire",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125670/no-landslide-expected-as-negeri-battle-goes-down-to-the-wire",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T10:49:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125670/no-landslide-expected-as-negeri-battle-goes-down-to-the-wire",
+          "title": "No landslide expected as Negeri battle goes down to the wire"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "b56f2f04bfa5d6fe",
+      "cluster": "agc royal pardon under article 42 cannot challenged through judicial review najib case",
+      "headline": "AGC: Royal pardon under Article 42 cannot be challenged through judicial review in Najib case",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125663/agc-royal-pardon-power-under-article-42-cannot-be-challenged-through-judicial-review-in-najib-case",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T09:07:00.000Z",
+      "matched": [
+        "constitution"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125663/agc-royal-pardon-power-under-article-42-cannot-be-challenged-through-judicial-review-in-najib-case",
+          "title": "AGC: Royal pardon under Article 42 cannot be challenged through judicial review in Najib case"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "8a83c36593a7a3ab",
+      "cluster": "prnns total 859 750 voters eligible exercise their rights tomorrow",
+      "headline": "PRNNS: A total 859,750 voters eligible to exercise their rights tomorrow",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125659/prnns-a-total-859750-voters-eligible-to-exercise-their-rights-tomorrow",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T08:14:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125659/prnns-a-total-859750-voters-eligible-to-exercise-their-rights-tomorrow",
+          "title": "PRNNS: A total 859,750 voters eligible to exercise their rights tomorrow"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "321a162e10cb83cb",
+      "cluster": "former interpol president al raisi named chairman robo ai subsidiary",
+      "headline": "Former INTERPOL president Al-Raisi named chairman of Robo.ai subsidiary",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/lifestyles/125654/former-interpol-president-al-raisi-named-chairman-of-robo.ai-subsidiary",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T07:06:00.000Z",
+      "matched": [
+        "subsidy"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/lifestyles/125654/former-interpol-president-al-raisi-named-chairman-of-robo.ai-subsidiary",
+          "title": "Former INTERPOL president Al-Raisi named chairman of Robo.ai subsidiary"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "a8427b3dd113c3ef",
+      "cluster": "forgive reunite anwar calls stability negeri election campaign trail ends",
+      "headline": "‘Forgive and reunite’: Anwar calls for stability as Negeri election campaign trail ends",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125652/forgive-and-reunite-anwar-calls-for-stability-as-negeri-sembilan-election-campaign-trail-ends",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T06:36:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125652/forgive-and-reunite-anwar-calls-for-stability-as-negeri-sembilan-election-campaign-trail-ends",
+          "title": "‘Forgive and reunite’: Anwar calls for stability as Negeri election campaign trail ends"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "a14354a87876db3e",
+      "cluster": "eight anti graft investigators begin probe tabung haji following rci findings",
+      "headline": "Eight anti-graft investigators begin probe on Tabung Haji following RCI findings",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125645/eight-anti-graft-investigators-move-into-tabung-haji-hq-as-rci-probe-gets-underway",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T04:32:00.000Z",
+      "matched": [
+        "corruption"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125645/eight-anti-graft-investigators-move-into-tabung-haji-hq-as-rci-probe-gets-underway",
+          "title": "Eight anti-graft investigators begin probe on Tabung Haji following RCI findings"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "7c53e32ac891026a",
+      "cluster": "ec sets midnight target negeri sembilan state election results",
+      "headline": "EC sets midnight target for Negeri Sembilan state election results",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125644/ec-sets-midnight-target-for-negeri-sembilan-state-election-results",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T04:20:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125644/ec-sets-midnight-target-for-negeri-sembilan-state-election-results",
+          "title": "EC sets midnight target for Negeri Sembilan state election results"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "a69f8dc98d5c496a",
+      "cluster": "macc investigates 4 reports alleging cash distribution during state election campaign",
+      "headline": "MACC investigates 4 reports alleging cash distribution during state election campaign",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125643/macc-investigates-4-reports-alleging-cash-distribution-during-state-election-campaign",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T04:14:00.000Z",
+      "matched": [
+        "election",
+        "corruption"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125643/macc-investigates-4-reports-alleging-cash-distribution-during-state-election-campaign",
+          "title": "MACC investigates 4 reports alleging cash distribution during state election campaign"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "f01bf3385b2329c2",
+      "cluster": "prnns ph targets win 21 22 seats tomorrow",
+      "headline": "PRNNS: PH targets to win 21 to 22 seats tomorrow",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125640/prnns-ph-targets-to-win-21-to-22-seats-tomorrow",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T03:07:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125640/prnns-ph-targets-to-win-21-to-22-seats-tomorrow",
+          "title": "PRNNS: PH targets to win 21 to 22 seats tomorrow"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "385c547c08e6374a",
+      "cluster": "selangor reviewing need election following unconfirmed reports adun s bankruptcy",
+      "headline": "Selangor reviewing need for by-election following unconfirmed reports of ADUN’s bankruptcy",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125632/selangor-reviewing-need-for-by-election-following-unconfirmed-reports-of-aduns-bankruptcy",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T01:27:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125632/selangor-reviewing-need-for-by-election-following-unconfirmed-reports-of-aduns-bankruptcy",
+          "title": "Selangor reviewing need for by-election following unconfirmed reports of ADUN’s bankruptcy"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "0613f962b1055122",
+      "cluster": "ec pilot digital voter attendance system negeri poll streamline election process",
+      "headline": "EC to pilot digital voter attendance system in Negeri poll to streamline election process",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125628/ec-to-pilot-digital-voter-attendance-system-in-negeri-poll-to-streamline-election-process",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-31T00:31:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125628/ec-to-pilot-digital-voter-attendance-system-in-negeri-poll-to-streamline-election-process",
+          "title": "EC to pilot digital voter attendance system in Negeri poll to streamline election process"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "ddd8d139af6db075",
+      "cluster": "prnns voter turnout last minute decisions fence sitters",
+      "headline": "PRNNS: Of voter turnout and last-minute decisions by fence-sitters",
+      "headline_is_not_a_claim": true,
+      "url": "https://www.thevibes.com/articles/news/125620/prnns-of-voter-turnout-and-last-minute-decisions-by-fence-sitters",
+      "outlet": "thevibes",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-30T23:46:00.000Z",
+      "matched": [
+        "election"
+      ],
+      "sightings": [
+        {
+          "outlet": "thevibes",
+          "tier": 2,
+          "url": "https://www.thevibes.com/articles/news/125620/prnns-of-voter-turnout-and-last-minute-decisions-by-fence-sitters",
+          "title": "PRNNS: Of voter turnout and last-minute decisions by fence-sitters"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    },
+    {
+      "id": "363d2f88878dae3f",
+      "cluster": "should government hospitals ambulance services used private events dr sarah shaikh abdul karim",
+      "headline": "Should Government Hospitals And Ambulance Services Be Used For Private Events? — Dr Sarah Shaikh Abdul Karim",
+      "headline_is_not_a_claim": true,
+      "url": "https://codeblue.galencentre.org/2026/07/should-government-hospitals-and-ambulance-services-be-used-for-private-events-dr-sarah-shaikh-abdul-karim/",
+      "outlet": "codeblue",
+      "tier": 2,
+      "lang": "en",
+      "published": "2026-07-30T07:31:34.000Z",
+      "matched": [
+        "healthcare"
+      ],
+      "sightings": [
+        {
+          "outlet": "codeblue",
+          "tier": 2,
+          "url": "https://codeblue.galencentre.org/2026/07/should-government-hospitals-and-ambulance-services-be-used-for-private-events-dr-sarah-shaikh-abdul-karim/",
+          "title": "Should Government Hospitals And Ambulance Services Be Used For Private Events? — Dr Sarah Shaikh Abdul Karim"
+        }
+      ],
+      "independent_outlets": 1,
+      "status": "unreviewed"
+    }
+  ]
+}

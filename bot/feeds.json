@@ -1,0 +1,281 @@
+{
+  "_comment": "Outlet registry for the faham daily news collector. Every entry with a non-null `feed` was actually fetched and confirmed to return RSS/Atom XML with recent items on 2026-08-02 (see bot/README.md for how to re-verify). Entries with `feed: null` have no working RSS/Atom endpoint as of that date; `listing` points a future scraper at the best available page instead. Tiers encode editorial priority, not source volume: tier 1 = primary/official documents, tier 2 = wire services and established newsroom reporting, tier 3 = everything else, including Chinese-language dailies whose headlines are marked `headline_only` and must never be treated as facts (see docs/governance.md and bot/README.md).",
+  "verified_at": "2026-08-02",
+  "outlets": [
+    {
+      "key": "parlimen_hansard",
+      "name": "Parliament of Malaysia — Hansard (Dewan Rakyat)",
+      "lang": "ms",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.parlimen.gov.my/",
+      "listing": "https://www.parlimen.gov.my/hansard-dewan-rakyat.html?uweb=dr",
+      "note": "Official Hansard archive. No RSS/Atom found; listing page returns HTTP 200 and lists sitting dates/documents. A scraper would need to diff this listing for newly posted sittings."
+    },
+    {
+      "key": "gazette_agc",
+      "name": "Federal Gazette (Attorney General's Chambers / Lawnet)",
+      "lang": "ms",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://lom.agc.gov.my/",
+      "listing": "https://lom.agc.gov.my/",
+      "note": "Home page itself lists the most recent P.U.(A)/P.U.(B) gazette entries with dates. No RSS/Atom found. A scraper would need to parse act-view.php links off this page."
+    },
+    {
+      "key": "spr",
+      "name": "Election Commission of Malaysia (SPR)",
+      "lang": "ms",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.spr.gov.my/",
+      "listing": "https://www.spr.gov.my/",
+      "note": "No RSS/Atom found. Election results, by-election notices and redelineation (persempadanan) updates are posted as static pages/PDFs; a scraper would need to be pointed at the specific results/announcement sections."
+    },
+    {
+      "key": "bnm",
+      "name": "Bank Negara Malaysia — Press Releases",
+      "lang": "en",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.bnm.gov.my/",
+      "listing": "https://www.bnm.gov.my/press-releases",
+      "note": "No RSS/Atom found. The press-releases page responded HTTP 202 (likely a JS-rendered/edge-cached page) rather than static HTML, so a future scraper may need to render JS or find BNM's underlying JSON API."
+    },
+    {
+      "key": "dosm",
+      "name": "Department of Statistics Malaysia (DOSM)",
+      "lang": "en",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.dosm.gov.my/",
+      "listing": "https://www.dosm.gov.my/portal-main/release-content",
+      "note": "No RSS/Atom found. Statistical releases (CPI, GDP, labour force, etc.) are listed on this page; each release is dated and would be diffable."
+    },
+    {
+      "key": "mof",
+      "name": "Ministry of Finance Malaysia (MOF) — Press & Citations",
+      "lang": "en",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.mof.gov.my/",
+      "listing": "https://www.mof.gov.my/portal/en/news/press-citations",
+      "note": "No RSS/Atom found. Covers budget announcements, subsidy/tax policy statements."
+    },
+    {
+      "key": "lhdn",
+      "name": "Inland Revenue Board of Malaysia (LHDN)",
+      "lang": "en",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.hasil.gov.my/en/",
+      "listing": "https://www.hasil.gov.my/en/",
+      "note": "No RSS/Atom found. The /media-centre/media-releases path guessed during verification 404'd and a /media/ path returned 403; only the general homepage was confirmed reachable (HTTP 200). A scraper needs to locate the current media-releases URL by hand."
+    },
+    {
+      "key": "kehakiman",
+      "name": "Judiciary of Malaysia (Kehakiman) — Courts",
+      "lang": "ms",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.kehakiman.gov.my/",
+      "listing": "https://www.kehakiman.gov.my/",
+      "note": "No RSS/Atom found. Court records and judgments would need a dedicated scraper (e.g. the e-Kehakiman/e-Review portals), not attempted here."
+    },
+    {
+      "key": "macc_sprm",
+      "name": "Malaysian Anti-Corruption Commission (SPRM/MACC)",
+      "lang": "ms",
+      "tier": 1,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.sprm.gov.my/",
+      "listing": "https://www.sprm.gov.my/",
+      "note": "No RSS/Atom found. A guessed media-statement path 404'd; only the homepage was confirmed reachable (HTTP 200)."
+    },
+    {
+      "key": "malaysiakini",
+      "name": "Malaysiakini",
+      "lang": "en",
+      "tier": 2,
+      "feed": "https://www.malaysiakini.com/rss/en/news.rss",
+      "status": "ok",
+      "site": "https://www.malaysiakini.com",
+      "note": "Verified 2026-08-02: HTTP 200, valid RSS 2.0, 30 items, most recent pubDate same-day. The BM/Chinese/Tamil edition endpoints (/rss/melayu, /rss/chinese, /rss/tamil) return HTTP 200 with an empty 'Not Found' body — not usable, so only the English feed is registered."
+    },
+    {
+      "key": "freemalaysiatoday",
+      "name": "Free Malaysia Today (FMT)",
+      "lang": "en",
+      "tier": 2,
+      "feed": "https://www.freemalaysiatoday.com/feed/",
+      "status": "ok",
+      "site": "https://www.freemalaysiatoday.com",
+      "note": "Verified 2026-08-02: HTTP 200, valid RSS 2.0 (WordPress), 50 items, same-day pubDates. A guessed Bahasa-section feed (/category/bahasa/feed/) 404'd, so only the main feed is registered."
+    },
+    {
+      "key": "malaymail",
+      "name": "Malay Mail",
+      "lang": "en",
+      "tier": 2,
+      "feed": "https://www.malaymail.com/feed/rss/malaysia",
+      "status": "ok",
+      "site": "https://www.malaymail.com",
+      "note": "Verified 2026-08-02: HTTP 200, valid RSS 2.0, 50 items, same-day pubDates. Malaysia-section feed chosen over the site-wide feed for relevance."
+    },
+    {
+      "key": "thevibes",
+      "name": "The Vibes",
+      "lang": "en",
+      "tier": 2,
+      "feed": "https://www.thevibes.com/rss",
+      "status": "ok",
+      "site": "https://www.thevibes.com",
+      "note": "Verified 2026-08-02: HTTP 200, valid RSS 2.0, 100 items, same-day pubDates."
+    },
+    {
+      "key": "codeblue",
+      "name": "CodeBlue (Galen Centre — health policy)",
+      "lang": "en",
+      "tier": 2,
+      "feed": "https://codeblue.galencentre.org/feed/",
+      "status": "ok",
+      "site": "https://codeblue.galencentre.org",
+      "note": "Verified 2026-08-02: HTTP 200, valid RSS 2.0 (WordPress), 10 items, dated within the prior 2 days. Health-policy specialist outlet — useful for the healthcare keyword theme."
+    },
+    {
+      "key": "macaranga",
+      "name": "Macaranga (environment/science policy)",
+      "lang": "en",
+      "tier": 2,
+      "feed": "https://www.macaranga.org/feed/",
+      "status": "ok_but_blocks_bot_ua",
+      "site": "https://www.macaranga.org",
+      "note": "Verified 2026-08-02 with a browser User-Agent: HTTP 200, valid RSS 2.0, 10 items. IMPORTANT: with the collector's own declared User-Agent (faham-collector/1.0) the same URL returns HTTP 403 — Macaranga appears to block non-browser UAs. The feed is real and kept in the registry, but expect it to show up under feeds_failed in most collect.mjs runs until this is resolved (e.g. by asking the site to allowlist the UA, or rotating a browser-like UA — not done here to keep the collector honestly identified)."
+    },
+    {
+      "key": "bernama",
+      "name": "Bernama (national news agency)",
+      "lang": "en",
+      "tier": 2,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.bernama.com/en/",
+      "listing": "https://www.bernama.com/en/general/",
+      "note": "No working RSS found. https://rss.bernama.com/ and https://www.bernama.com/bm/rssfeed.php both resolve but do not return feed XML (landing page / HTTP 500). The /en/general/ section listing is confirmed reachable (HTTP 200) for a future scraper."
+    },
+    {
+      "key": "theedge",
+      "name": "The Edge Malaysia",
+      "lang": "en",
+      "tier": 2,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://theedgemalaysia.com",
+      "listing": "https://theedgemalaysia.com/categories/malaysia",
+      "note": "No working RSS found; several historical feed URLs (rss.html, feeds.theedgemarkets.com/.../mytopstories.rss) all 404 after the theedgemarkets.com -> theedgemalaysia.com consolidation. No <link rel=alternate> RSS autodiscovery on the homepage either."
+    },
+    {
+      "key": "thestar",
+      "name": "The Star",
+      "lang": "en",
+      "tier": 2,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.thestar.com.my",
+      "listing": "https://www.thestar.com.my/news/nation",
+      "note": "The Star still publishes an /RSS index page listing dozens of category feed URLs (e.g. /rss/News/Nation), but every one of those URLs 404s in practice — the RSS system appears to be decommissioned while the index page was left up. Using the Nation section listing page instead."
+    },
+    {
+      "key": "nst",
+      "name": "New Straits Times (NST)",
+      "lang": "en",
+      "tier": 2,
+      "feed": null,
+      "status": "no_feed",
+      "site": "https://www.nst.com.my",
+      "listing": "https://www.nst.com.my/news/nation",
+      "note": "No working RSS found (rss.xml and several Drupal-style taxonomy-feed guesses all 404). No RSS autodiscovery link on the homepage."
+    },
+    {
+      "key": "sinchew",
+      "name": "Sin Chew Daily 星洲日报",
+      "lang": "zh",
+      "tier": 3,
+      "feed": null,
+      "status": "no_feed",
+      "headline_only": true,
+      "site": "https://www.sinchew.com.my",
+      "listing": "https://www.sinchew.com.my/",
+      "note": "标题党：星洲日报的标题倾向煽情/夸张，不作为事实来源，仅记录标题供交叉核实。No RSS found (rss.xml, /feed, ?feed=rss2, taxonomy-term guesses all fail). Kept in the registry deliberately per project owner's guidance — headline_only so downstream code never treats its titles as claims."
+    },
+    {
+      "key": "chinapress",
+      "name": "China Press 中国报",
+      "lang": "zh",
+      "tier": 3,
+      "feed": null,
+      "status": "no_feed",
+      "headline_only": true,
+      "site": "https://www.chinapress.com.my",
+      "listing": "https://www.chinapress.com.my/",
+      "note": "标题仅供参考，不视为事实。No working RSS found (/feed/ returns a broken redirect loop; ?feed=rss2 returns HTML, not XML)."
+    },
+    {
+      "key": "orientaldaily",
+      "name": "Oriental Daily 东方日报",
+      "lang": "zh",
+      "tier": 3,
+      "feed": null,
+      "status": "no_feed",
+      "headline_only": true,
+      "site": "https://www.orientaldaily.com.my",
+      "listing": "https://www.orientaldaily.com.my/news",
+      "note": "标题仅供参考，不视为事实。/rss redirects to /feeds and ?feed=rss2 both return HTML, not XML — no working feed found."
+    },
+    {
+      "key": "nanyang",
+      "name": "Nanyang Siang Pau 南洋商报",
+      "lang": "zh",
+      "tier": 3,
+      "feed": null,
+      "status": "no_feed",
+      "headline_only": true,
+      "site": "https://www.enanyang.my",
+      "listing": "https://www.enanyang.my/",
+      "note": "标题仅供参考，不视为事实。No working RSS found (/feed/ 404s, ?feed=rss2 returns HTML)."
+    },
+    {
+      "key": "guangming",
+      "name": "Guang Ming Daily 光明日报",
+      "lang": "zh",
+      "tier": 3,
+      "feed": null,
+      "status": "no_feed",
+      "headline_only": true,
+      "site": "https://www.guangming.com.my",
+      "listing": "https://www.guangming.com.my/",
+      "note": "标题仅供参考，不视为事实。No RSS found; even the homepage returned HTTP 403 to automated requests during verification, so a future scraper may need extra care (rate limiting / browser rendering)."
+    },
+    {
+      "key": "kwongwah",
+      "name": "Kwong Wah Yit Poh 光华日报",
+      "lang": "zh",
+      "tier": 3,
+      "feed": null,
+      "status": "no_feed",
+      "headline_only": true,
+      "site": "https://www.kwongwah.com.my",
+      "listing": "https://www.kwongwah.com.my/",
+      "note": "标题仅供参考，不视为事实。No working RSS found (/feed/ 404s)."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+name: Daily news collector
+
+# faham is "rules before data, nothing publishes without human review". This
+# workflow only ever runs bot/collect.mjs, which writes candidate leads under
+# data/candidates/ — it never touches data/events.json. See bot/README.md.
+
+on:
+  schedule:
+    # 22:00 UTC = 06:00 MYT (UTC+8) the next day — early morning Malaysia time,
+    # after overnight wire stories have posted but before the local news day
+    # gets going.
+    - cron: '0 22 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: faham-collect-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    # Never run this against main — candidates are a dev-branch review queue.
+    if: github.ref == 'refs/heads/dev'
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run collector
+        run: node bot/collect.mjs
+
+      - name: Commit new candidates (no-op if nothing changed)
+        run: |
+          git config user.name "faham-bot"
+          git config user.email "faham-bot@users.noreply.github.com"
+          git add data/candidates/
+          if git diff --cached --quiet; then
+            echo "No new or changed candidate files — nothing to commit."
+            exit 0
+          fi
+          TODAY="$(date -u +%Y-%m-%d)"
+          git commit -m "bot: candidates for ${TODAY}"
+          git push origin HEAD:dev
