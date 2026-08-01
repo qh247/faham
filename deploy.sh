@@ -15,6 +15,16 @@ PROJECT="${PAGES_PROJECT:-faham}"
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 OUT="$ROOT/public"
 
+# 本脚本打包的是「工作区当前的文件」，不是目标分支的文件。
+# 在 main 上跑 ./deploy.sh dev，上线的会是 main 的空数据——曾经就这么把 dev 清空过。
+CUR="$(git -C "$ROOT" rev-parse --abbrev-ref HEAD 2>/dev/null || echo '?')"
+if [ "$CUR" != "$BRANCH" ]; then
+  echo "✗ 当前在 $CUR 分支，却要部署 $BRANCH。"
+  echo "  先切过去：git checkout $BRANCH"
+  echo "  （如确定要用当前工作区的内容部署到 $BRANCH，加 --force-branch）"
+  [ "${2:-}" = "--force-branch" ] || exit 1
+fi
+
 echo "▸ 重建 public/（白名单）"
 rm -rf "$OUT"
 mkdir -p "$OUT/data" "$OUT/db" "$OUT/docs" "$OUT/assets"
