@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="same-origin">
+<title>faham · 复核台</title>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     faham · 复核台（operator only）
+
+     这个页面【不写入】data/events.json。它只做三件事：
+       1. 把机器人抓到的候选（data/candidates/*.json）摊开给人看；
+       2. 把投稿队列（/api/submissions?queue=1）摊开给人看，并允许判定；
+       3. 把上面两者「一键转成」一份合乎 data/events.json 结构的 JSON，
+          复制走，由人自己粘进文件、自己 commit。
+
+     它是起草台，不是 CMS。发布这一步仍然要经过人的手和 git 的记录——
+     这正是 docs/governance.zh.md 第四节要求的东西，不该被一个网页绕过。
+
+     无构建步骤、无 npm、无任何第三方请求（与 index.html 同一条规矩）。
+     ════════════════════════════════════════════════════════════════════════ -->
+
+<style>
+  /* ══════ 主题变量：与 index.html 完全一致，改一处要两边一起改 ══════ */
+  :root, :root[data-theme="light"] {
+    --bg:        #f7f5f0;      /* 暖白纸 */
+    --bg-2:      #efece4;
+    --surface:   #fffdf9;
+    --ink:       #1e1c18;
+    --ink-2:     #55514a;
+    --ink-3:     #8b857a;
+    --line:      rgba(30,28,24,.13);
+    --hair:      rgba(30,28,24,.07);
+    --axis:      rgba(30,28,24,.20);
+    --t-subsidy: #b8770a;
+    --t-tax:     #0f8073;
+    --t-cost:    #bb3d58;
+    --t-vote:    #5b4bc4;
+    --t-graft:   #2b6fb0;
+    --t-rights:  #5b7f3f;
+    --card-sh:   0 18px 50px -12px rgba(30,28,24,.26), 0 2px 10px rgba(30,28,24,.08);
+    --glass:     rgba(255,253,249,.82);
+    --amb-1:     rgba(184,119,10,.05);
+    --amb-2:     rgba(43,111,176,.05);
+  }
+  :root[data-theme="dark"] {
+    --bg:        #07080a;      /* 深空 */
+    --bg-2:      #0d0f12;
+    --surface:   rgba(18,20,25,.9);
+    --ink:       #f2f4f6;
+    --ink-2:     #a8b0ba;
+    --ink-3:     #6b7480;
+    --line:      rgba(255,255,255,.10);
+    --hair:      rgba(255,255,255,.06);
+    --axis:      rgba(255,255,255,.17);
+    --t-subsidy: #f0a830;
+    --t-tax:     #35d0c0;
+    --t-cost:    #f2637f;
+    --t-vote:    #9b8cf5;
+    --t-graft:   #6cb6ff;
+    --t-rights:  #8fbc6a;
+    --card-sh:   0 24px 60px -14px rgba(0,0,0,.7);
+    --glass:     rgba(16,18,22,.86);
+    --amb-1:     rgba(60,90,140,.15);
+    --amb-2:     rgba(120,70,130,.11);
+  }
+  :root { --serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",Georgia,serif;
+          --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin:0; min-height:100%; background:var(--bg); color:var(--ink);
+    font-family: -apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; transition:background .5s ease, color .5s ease;
+    --c: var(--t-tax); }          /* .btn 依赖 --c，给一个全局默认色 */
+  body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background: radial-gradient(1000px 620px at 26% 40%, var(--amb-1), transparent 64%),
+                radial-gradient(820px 520px at 82% 64%, var(--amb-2), transparent 64%); }
+  [hidden] { display:none !important; }
+
+  a { color:var(--ink-3); text-decoration:none; border-bottom:1px solid var(--line);
+      transition:color .25s, border-color .25s; word-break:break-all; }
+  a:hover { color:var(--c); border-color:var(--c); }
+
+  /* ══════ 通用件：与 index.html 同名同形 ══════ */
+  .btn { font:inherit; font-size:12px; padding:6px 15px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--c); background:var(--c); color:#fff; transition:opacity .2s; }
+  .btn:disabled { opacity:.3; cursor:not-allowed; }
+  .btn.ghost { background:none; color:var(--ink-2); border-color:var(--line); }
+  .btn.ghost:hover { border-color:var(--ink-3); color:var(--ink); }
+  .btn.sm { font-size:11px; padding:4px 11px; }
+  .chip2 { font-size:11px; color:var(--ink-2); background:var(--bg-2); border:1px solid var(--line);
+    border-radius:999px; padding:3px 10px; cursor:pointer; font-family:inherit; }
+  .chip2:hover { border-color:var(--c); color:var(--c); }
+  .chip2.static { cursor:default; }
+  .chip2.static:hover { border-color:var(--line); color:var(--ink-2); }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .sec { margin:0; padding:15px 0 0; border-top:1px solid var(--hair); margin-top:15px; }
+  .sec:first-of-type { border-top:none; margin-top:0; padding-top:0; }
+  .sec h4 { font-size:9.5px; font-weight:700; letter-spacing:.18em; color:var(--ink-3); margin:0 0 9px; }
+  .sec p { margin:0; font-size:13px; line-height:1.75; color:var(--ink-2); }
+
+  /* 证据强度指示 —— 与 index.html 共用 ○ / ◐ / 🔗 三级词汇 */
+  .srcbadge { display:inline-flex; align-items:center; gap:4px; font-size:10.5px;
+    border-radius:999px; padding:1px 8px; border:1px solid; white-space:nowrap; }
+  .srcbadge.ok      { color:#0f8073; border-color:color-mix(in srgb,#0f8073 40%,transparent);
+                      background:color-mix(in srgb,#0f8073 8%,transparent); }
+  .srcbadge.partial { color:#b8770a; border-color:color-mix(in srgb,#b8770a 40%,transparent);
+                      background:color-mix(in srgb,#b8770a 8%,transparent); }
+  .srcbadge.none    { color:var(--ink-3); border-color:var(--line); background:var(--bg-2); }
+  :root[data-theme="dark"] .srcbadge.ok      { color:#35d0c0; }
+  :root[data-theme="dark"] .srcbadge.partial { color:#f0a830; }
+  .srcnote { font-size:11.5px; line-height:1.6; border-radius:7px; padding:8px 10px; margin:10px 0 2px;
+    color:var(--ink-2); background:var(--bg-2); border-left:3px solid var(--ink-3); }
+  .srcnote b { color:var(--ink); }
+  .note { font-size:11px; line-height:1.66; color:var(--t-subsidy);
+    background:color-mix(in srgb,var(--t-subsidy) 9%,transparent);
+    border-radius:7px; padding:8px 10px; }
+
+  /* ══════ 页头 ══════ */
+  #top { position:relative; z-index:2; padding:18px 20px 6px; max-width:1240px; margin:0 auto; }
+  .headrow { display:flex; align-items:flex-start; gap:12px; }
+  .mark { font-family:var(--serif); font-size:19px; font-weight:700; line-height:1.1; }
+  .mark i { font-style:normal; color:var(--t-tax); }
+  .mark small { display:block; font-size:9.5px; font-weight:400; color:var(--ink-3);
+    letter-spacing:.16em; margin-top:2px; font-family:-apple-system,system-ui,sans-serif; }
+  .spacer { flex:1; }
+  .pill { display:flex; gap:2px; padding:3px; border:1px solid var(--line); border-radius:999px;
+    background:var(--glass); backdrop-filter:blur(12px); }
+  .pill button { font:inherit; font-size:12px; color:var(--ink-2); background:none; border:none;
+    border-radius:999px; padding:5px 12px; cursor:pointer; transition:background .25s,color .25s; }
+  .pill button:hover { color:var(--ink); background:var(--hair); }
+  .lead { font-size:11.5px; color:var(--ink-3); line-height:1.7; margin:12px 0 0; max-width:64ch; }
+  .lead b { color:var(--ink-2); font-weight:600; }
+  .lead code { font-family:var(--mono); font-size:10.5px; background:var(--bg-2);
+    padding:1px 5px; border-radius:4px; }
+
+  /* ══════ 凭证闸门 ══════ */
+  #gate { position:relative; z-index:2; max-width:520px; margin:8vh auto 0; padding:0 20px 60px; }
+  #gate h2 { font-family:var(--serif); font-size:22px; margin:0 0 6px; }
+  #gate p { font-size:12px; color:var(--ink-3); line-height:1.7; margin:0 0 16px; }
+  #gateRow { display:flex; gap:8px; flex-wrap:wrap; }
+  #gateMsg { font-size:11.5px; line-height:1.6; margin-top:10px; min-height:1em; }
+  #gateMsg.err { color:var(--t-cost); }
+
+  /* ══════ 双栏工作区 ══════ */
+  /* minmax(0,1fr)：否则 JSON 那种长行会把 min-content 撑开，挤扁另一栏 */
+  #work { position:relative; z-index:2; max-width:1240px; margin:0 auto;
+    padding:14px 20px 80px; display:grid; gap:18px;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; }
+  .pane { background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    box-shadow:var(--card-sh); overflow:hidden; min-width:0; }
+  .pane > header { display:flex; align-items:center; gap:9px; flex-wrap:wrap;
+    padding:14px 16px 12px; border-bottom:1px solid var(--hair); }
+  .pane > header h3 { font-family:var(--serif); font-size:16px; margin:0; font-weight:700; }
+  .pane > header .n { font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.1em; }
+  .paneBody { padding:12px 16px 16px; max-height:min(72vh,860px); overflow-y:auto; overscroll-behavior:contain; }
+  .paneBody::-webkit-scrollbar { width:6px; }
+  .paneBody::-webkit-scrollbar-thumb { background:var(--line); border-radius:3px; }
+  .msg { font-size:11.5px; line-height:1.7; color:var(--ink-3); padding:14px 2px; }
+  .msg.err { color:var(--t-cost); }
+  .msg b { color:var(--ink-2); }
+
+  /* ══════ 条目卡（候选 / 投稿共用） ══════ */
+  .item { border:1px solid var(--line); border-left:3px solid var(--c); border-radius:10px;
+    background:var(--bg-2); padding:11px 13px; margin-bottom:10px; }
+  .item:last-child { margin-bottom:0; }
+  .item .ttl { font-family:var(--serif); font-size:14.5px; font-weight:600; line-height:1.45;
+    color:var(--ink); margin:0 0 6px; }
+  .item .meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center;
+    font-size:10.5px; color:var(--ink-3); margin-bottom:7px; }
+  .item .meta .dot { opacity:.5; }
+  .item .body { font-size:12px; line-height:1.7; color:var(--ink-2); margin:0 0 8px;
+    white-space:pre-wrap; word-break:break-word; }
+  .item .foot { display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin-top:9px; }
+  .item .foot a { font-size:11.5px; white-space:nowrap; }
+  .tierb { font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; border-radius:999px;
+    padding:2px 7px; border:1px solid var(--c); color:var(--c); white-space:nowrap; }
+  .kindb { font-size:10px; border-radius:999px; padding:2px 8px;
+    border:1px solid var(--c); color:var(--c); white-space:nowrap; }
+  .srclist { list-style:none; margin:0 0 4px; padding:0; }
+  .srclist li { font-size:11px; padding:2px 0; line-height:1.55; }
+  .rowmsg { font-size:11px; line-height:1.55; margin-top:6px; min-height:1em; }
+  .rowmsg.err { color:var(--t-cost); } .rowmsg.ok { color:var(--t-graft); }
+
+  /* ══════ 表单件 ══════ */
+  input[type=text], input[type=url], input[type=date], input[type=password], select, textarea {
+    width:100%; font:inherit; font-size:12.5px; color:var(--ink); background:var(--bg-2);
+    border:1px solid var(--line); border-radius:7px; padding:8px 10px; outline:none; }
+  input:focus, select:focus, textarea:focus { border-color:var(--ink-3); }
+  textarea { min-height:70px; resize:vertical; line-height:1.65; }
+  label.f { display:block; font-size:10.5px; letter-spacing:.08em; color:var(--ink-3);
+    margin:13px 0 5px; }
+  label.f em { font-style:normal; color:var(--ink-3); opacity:.75; }
+  select { -webkit-appearance:none; appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--ink-3) 50%),
+                     linear-gradient(135deg,var(--ink-3) 50%,transparent 50%);
+    background-position:calc(100% - 15px) 51%, calc(100% - 10px) 51%;
+    background-size:5px 5px, 5px 5px; background-repeat:no-repeat; padding-right:28px; }
+
+  /* ══════ 条目编辑器 ══════ */
+  #edWrap { position:fixed; inset:0; z-index:80; display:none; }
+  #edWrap.on { display:block; }
+  #edWrap .veil { position:absolute; inset:0; background:rgba(0,0,0,.42); backdrop-filter:blur(3px); }
+  #edCard { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:min(96vw,1020px); max-height:92vh; overflow-y:auto; background:var(--surface);
+    border:1px solid var(--line); border-radius:14px; padding:20px 22px 18px;
+    box-shadow:0 24px 70px rgba(0,0,0,.34); }
+  #edCard::-webkit-scrollbar { width:6px; }
+  #edCard::-webkit-scrollbar-thumb { background:var(--line); border-radius:3px; }
+  #edCard h3 { font-family:var(--serif); font-size:20px; margin:0 0 4px; }
+  #edGrid { display:grid; gap:20px; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    align-items:start; margin-top:6px; }
+  #edGrid > div { min-width:0; }
+  #edRight { position:sticky; top:0; }   /* 填表时校验条与输出跟着走 */
+  .cCloseX { position:absolute; right:12px; top:12px; width:26px; height:26px; border-radius:50%;
+    border:1px solid var(--line); background:var(--bg-2); color:var(--ink-3); cursor:pointer;
+    font-size:12px; line-height:1; }
+  .cCloseX:hover { color:var(--ink); }
+  .grid2 { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px; }
+  .grid2 > div { min-width:0; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+  .rows { display:flex; flex-direction:column; gap:7px; }
+  .row { display:flex; gap:6px; align-items:flex-start; }
+  .row .cells { flex:1; min-width:0; display:flex; flex-direction:column; gap:5px; }
+  .row .cells .top2 { display:flex; gap:5px; }
+  .row .cells .top2 > * { min-width:0; }
+  .row .rmv { flex:none; width:26px; height:32px; border-radius:7px; border:1px solid var(--line);
+    background:var(--bg-2); color:var(--ink-3); cursor:pointer; font-size:13px; line-height:1; }
+  .row .rmv:hover { color:var(--t-cost); border-color:var(--t-cost); }
+  .row select { min-width:88px; }
+  .hint { font-size:10.5px; color:var(--ink-3); line-height:1.6; margin:6px 0 0; }
+
+  /* 校验条 */
+  #vstrip { display:flex; flex-direction:column; gap:5px; margin:2px 0 0; }
+  .vrow { display:flex; align-items:flex-start; gap:8px; font-size:11.5px; line-height:1.6;
+    color:var(--ink-2); }
+  .vrow .i { flex:none; width:1.4em; text-align:center; }
+  .vrow .d { color:var(--ink-3); font-size:10.5px; }
+  .vrow.ok .t { color:var(--ink-2); }
+  .vrow.none .t { color:var(--t-cost); }
+  .vrow.partial .t { color:var(--t-subsidy); }
+
+  #out { font-family:var(--mono); font-size:11px; line-height:1.6; color:var(--ink-2);
+    background:var(--bg-2); border:1px solid var(--line); border-radius:9px;
+    padding:11px 12px; margin:0; max-height:340px; overflow:auto; white-space:pre;
+    -webkit-user-select:text; user-select:text; }
+  #edFoot { display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:14px;
+    padding-top:14px; border-top:1px solid var(--hair); }
+  #edMsg { font-size:11.5px; line-height:1.55; }
+  #edMsg.ok { color:var(--t-graft); } #edMsg.err { color:var(--t-cost); }
+  #edFrom { font-size:11px; color:var(--ink-3); line-height:1.65; margin:8px 0 0; }
+
+  /* ══════ 窄屏：375px 也要能用 ══════ */
+  @media (max-width:900px) {
+    #work { grid-template-columns:1fr; padding:12px 12px 70px; gap:14px; }
+    #edGrid { grid-template-columns:1fr; gap:14px; }
+    #top { padding:14px 12px 4px; }
+    .paneBody { max-height:none; }
+    #edCard { width:100vw; height:100%; max-height:100%; border-radius:0; border:none;
+      top:0; left:0; transform:none; padding:16px 14px 24px; }
+    .grid3 { grid-template-columns:1fr; }
+  }
+  @media (max-width:420px) {
+    .grid2 { grid-template-columns:1fr; }
+    .row .cells .top2 { flex-direction:column; }
+    .headrow { flex-wrap:wrap; }
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="headrow">
+    <div>
+      <div class="mark">faham<i>.</i><small>复核台 · REVIEW DESK</small></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="pill" id="edPill" hidden><button id="edOpen">条目编辑器</button></div>
+    <div class="pill"><button id="theme" aria-label="切换主题">◐</button></div>
+    <div class="pill" id="outPill" hidden><button id="logout">退出</button></div>
+  </div>
+  <p class="lead">
+    这个页面把两条待审来源摊开：<b>机器人候选</b>（<code>data/candidates/</code> 里的新闻线索）与
+    <b>投稿队列</b>（读者提交、存在数据库里的待审记录）。它们都还不是档案。
+    <br>
+    页面<b>不会写入 <code>data/events.json</code></b>——它只帮你把字段拼成一份合乎结构的 JSON，
+    复制走之后，仍然由你自己粘进文件、自己 commit。这是起草台，不是后台管理系统：
+    发布这一步留在人手上和 git 记录里，是 <code>docs/governance.zh.md</code> 要求的，不该被一个网页绕过。
+  </p>
+</header>
+
+<!-- ══════ 凭证闸门 ══════ -->
+<section id="gate">
+  <h2>复核凭证</h2>
+  <p>输入 <code>REVIEW_TOKEN</code>。凭证只存在 <b>sessionStorage</b>——关掉这个标签页就没了，
+     不会留在这台设备上。所有接口调用都带 <code>Authorization: Bearer …</code>。</p>
+  <div id="gateRow">
+    <input type="password" id="tokIn" autocomplete="off" spellcheck="false"
+           placeholder="REVIEW_TOKEN" style="flex:1;min-width:180px">
+    <button class="btn" id="tokGo">进入</button>
+  </div>
+  <div id="gateMsg"></div>
+</section>
+
+<!-- ══════ 工作区 ══════ -->
+<main id="work" hidden>
+
+  <!-- ── Pane A：机器人候选 ── -->
+  <section class="pane" id="paneA" style="--c:var(--t-graft)">
+    <header>
+      <h3>机器人候选</h3>
+      <span class="n" id="aCount"></span>
+      <div class="spacer"></div>
+      <select id="aDate" style="width:auto;font-size:11px;padding:5px 26px 5px 9px"></select>
+      <button class="btn ghost sm" id="aReload">重载</button>
+    </header>
+    <div class="paneBody">
+      <div class="srcnote">
+        机器人抓到的只是<b>标题</b>。标题不是事实，也不是「主张」——
+        每条候选都带 <code style="font-family:var(--mono)">headline_is_not_a_claim</code>。
+        转成条目时，标题只能进 <b>来源</b>，不能被抄成正文。
+      </div>
+      <div id="aList"></div>
+    </div>
+  </section>
+
+  <!-- ── Pane B：投稿队列 ── -->
+  <section class="pane" id="paneB" style="--c:var(--t-vote)">
+    <header>
+      <h3>投稿队列</h3>
+      <span class="n" id="bCount"></span>
+      <div class="spacer"></div>
+      <button class="btn ghost sm" id="bReload">重载</button>
+    </header>
+    <div class="paneBody">
+      <div class="srcnote">
+        拒绝与退回<b>必须写理由</b>：这个档案公开自己的拒稿记录。
+        没有理由的拒绝，等于没有规则。
+      </div>
+      <div id="bList"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════ Pane C：条目编辑器 ══════ -->
+<div id="edWrap" role="dialog" aria-modal="true" aria-labelledby="edTitle">
+  <div class="veil" data-close-ed></div>
+  <div id="edCard" role="document">
+    <button class="cCloseX" data-close-ed aria-label="关闭">✕</button>
+    <h3 id="edTitle">条目编辑器</h3>
+    <p class="hint" style="margin-bottom:2px">
+      产出一份 <code style="font-family:var(--mono)">data/events.json</code> 结构的对象。
+      按 <b>Esc</b> 关闭。
+    </p>
+    <p id="edFrom"></p>
+
+    <div id="edGrid">
+      <!-- 左列：主体字段 -->
+      <div>
+        <div class="grid2">
+          <div>
+            <label class="f" for="f-date">日期</label>
+            <input type="date" id="f-date">
+          </div>
+          <div>
+            <label class="f" for="f-prec">精度 <em>（决定 label 写法）</em></label>
+            <select id="f-prec">
+              <option value="day">日 · 2025年7月1日</option>
+              <option value="month">月 · 2025年7月</option>
+              <option value="year">年 · 2025年</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="f" for="f-label">label <em>（自动生成，可手改；区间写法如 2018年6–9月 需手填）</em></label>
+        <div style="display:flex;gap:6px">
+          <input type="text" id="f-label" placeholder="2025年7月1日">
+          <button class="btn ghost sm" id="f-label-auto" type="button" title="重新按日期生成">↻</button>
+        </div>
+
+        <label class="f" for="f-title">标题 <em>title</em></label>
+        <input type="text" id="f-title" placeholder="一句话说清发生了什么">
+
+        <div class="grid2">
+          <div>
+            <label class="f" for="f-topic">议题 <em>topic</em></label>
+            <select id="f-topic">
+              <option value="">（未选）</option>
+              <option value="subsidy">subsidy · 补贴改革</option>
+              <option value="tax">tax · 税务</option>
+              <option value="cost">cost · 生活成本</option>
+              <option value="vote">vote · 选举</option>
+              <option value="graft">graft · 反贪问责</option>
+              <option value="rights">rights · 公民与制度</option>
+            </select>
+          </div>
+          <div>
+            <label class="f" for="f-w">权重 <em>w · 光点大小</em></label>
+            <select id="f-w">
+              <option value="1">1 · 小</option>
+              <option value="2" selected>2 · 中</option>
+              <option value="3">3 · 大</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="f" for="f-who">谁负责 <em>who</em></label>
+        <input type="text" id="f-who" placeholder="例：财政部（团结政府）">
+
+        <label class="f" for="f-why">起因 <em>why · 你自己的话，不能抄标题</em></label>
+        <textarea id="f-why" placeholder="发生了什么、改变了什么、影响到谁。只写事实与后果，不写动机推测。"></textarea>
+
+        <label class="f">状态历程 <em>hist · d ＝ 2025-06 这类粗粒度时间</em></label>
+        <div class="rows" id="rows-hist"></div>
+        <button class="btn ghost sm" type="button" data-add="hist" style="margin-top:7px">+ 加一步</button>
+
+        <label class="f">各方主张 <em>claims · 正反并列，每条附来源</em></label>
+        <div class="rows" id="rows-claims"></div>
+        <button class="btn ghost sm" type="button" data-add="claims" style="margin-top:7px">+ 加一条主张</button>
+
+        <label class="f">影响 <em>impact · 没有来源的数字宁可留空</em></label>
+        <div class="rows" id="rows-impact"></div>
+        <button class="btn ghost sm" type="button" data-add="impact" style="margin-top:7px">+ 加一项</button>
+
+        <label class="f" for="f-note">编者按 <em>note · 可留空</em></label>
+        <textarea id="f-note" style="min-height:56px" placeholder="一句背景或提醒；留空则输出空字符串"></textarea>
+
+        <label class="f">来源 <em>srcs · l ＝ 标题，u ＝ 链接</em></label>
+        <div class="rows" id="rows-srcs"></div>
+        <button class="btn ghost sm" type="button" data-add="srcs" style="margin-top:7px">+ 加一个来源</button>
+      </div>
+
+      <!-- 右列：校验 + 输出 -->
+      <div id="edRight">
+        <div class="sec">
+          <h4>收录准则自检</h4>
+          <div id="vstrip"></div>
+          <p class="hint">这是起草时的提醒，不是关卡——不达标也能复制。
+             真正的门槛在复核流程与 <code style="font-family:var(--mono)">check_publishable()</code>，
+             不在这个页面。</p>
+        </div>
+        <div class="sec">
+          <h4>输出 · data/events.json 的一个元素</h4>
+          <pre id="out"></pre>
+          <p class="hint">粘进 <code style="font-family:var(--mono)">data/events.json</code> 的数组里，
+             自己核一遍再 commit。</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="edFoot">
+      <button class="btn" id="edCopy">复制</button>
+      <button class="btn ghost" id="edReset" type="button">清空</button>
+      <button class="btn ghost" data-close-ed type="button">关闭</button>
+      <span id="edMsg"></span>
+    </div>
+  </div>
+</div>
+
+<textarea id="clipHelper" aria-hidden="true" tabindex="-1"
+  style="position:fixed;top:-1000px;left:-1000px;opacity:0;width:1px;height:1px"></textarea>
+
+<script>
+(function(){
+'use strict';
+
+/* ═══════════ 小工具 ═══════════ */
+const $  = id => document.getElementById(id);
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const trim = v => String(v==null?'':v).trim();
+
+function ago(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  if(isNaN(d)) return String(iso).slice(0,10);
+  const m = (Date.now() - d.getTime()) / 60000;
+  if (m < 1)     return '刚刚';
+  if (m < 60)    return Math.floor(m) + ' 分钟前';
+  if (m < 1440)  return Math.floor(m/60) + ' 小时前';
+  if (m < 10080) return Math.floor(m/1440) + ' 天前';
+  return d.toISOString().slice(0,10);
+}
+function hostOf(u){
+  const s = trim(u);
+  if(!/^https?:\/\//i.test(s)) return '';
+  try { return new URL(s).hostname.replace(/^www\./i,'').toLowerCase(); } catch(_) { return ''; }
+}
+
+/* ═══════════ 主题：与 index.html 共用 localStorage 键 ═══════════ */
+const root = document.documentElement;
+const getT = () => { try { return localStorage.getItem('faham-theme'); } catch(_) { return null; } };
+const setT = v  => { try { localStorage.setItem('faham-theme', v); } catch(_) {} };
+root.setAttribute('data-theme', getT() || 'light');
+$('theme').onclick = () => {
+  const n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', n); setT(n);
+};
+
+/* ═══════════ 凭证 ═══════════
+   sessionStorage，不是 localStorage：这是运营者凭证，不该在设备上过夜。 */
+const TK = 'faham-review-token';
+const getTok = () => { try { return sessionStorage.getItem(TK) || ''; } catch(_) { return ''; } };
+const setTok = v  => { try { v ? sessionStorage.setItem(TK, v) : sessionStorage.removeItem(TK); } catch(_) {} };
+
+function showGate(msg){
+  closeEd();                     // 别让浮层压在闸门上；草稿内容仍留在表单里
+  $('work').hidden = true;
+  $('gate').hidden = false;
+  $('outPill').hidden = true;
+  $('edPill').hidden = true;
+  $('gateMsg').className = msg ? 'err' : '';
+  $('gateMsg').textContent = msg || '';
+  $('tokIn').value = '';
+  try { $('tokIn').focus(); } catch(_) {}
+}
+function enter(){
+  $('gate').hidden = true;
+  $('work').hidden = false;
+  $('outPill').hidden = false;
+  $('edPill').hidden = false;
+  loadCandidateIndex();
+  loadQueue();
+}
+/* 从零起草，或者把误关（含 401 打断）的编辑器原样打开——不清空已填内容。 */
+$('edOpen').onclick = () => openEd();
+$('tokGo').onclick = () => {
+  const v = trim($('tokIn').value);
+  if(!v){ $('gateMsg').className='err'; $('gateMsg').textContent='凭证不能为空。'; return; }
+  setTok(v); enter();
+};
+$('tokIn').addEventListener('keydown', e => { if(e.key === 'Enter') $('tokGo').click(); });
+$('logout').onclick = () => { setTok(''); showGate('已退出，凭证已从本次会话中清除。'); };
+
+/* ═══════════ API ═══════════
+   401 → 清凭证、回到闸门。其他失败一律降级成一句人话，不让面板空着。 */
+async function api(path, opts){
+  opts = opts || {};
+  const headers = Object.assign({ accept:'application/json' }, opts.headers || {},
+                                { authorization: 'Bearer ' + getTok() });
+  let r;
+  try {
+    r = await fetch(path, Object.assign({}, opts, { headers, cache:'no-store' }));
+  } catch(err) {
+    throw new Error('连不上接口（' + (err && err.message ? err.message : '网络错误') + '）。');
+  }
+  if (r.status === 401) {
+    setTok('');
+    showGate('凭证被拒绝（401）。已清除，请重新输入 REVIEW_TOKEN。');
+    const e = new Error('UNAUTH'); e.unauth = true; throw e;
+  }
+  const ct = r.headers.get('content-type') || '';
+  if (ct.indexOf('json') < 0) {
+    throw new Error('接口没有返回 JSON（HTTP ' + r.status + '）。本地静态服务器上没有 Pages Functions，属正常。');
+  }
+  let d;
+  try { d = await r.json(); } catch(_) { throw new Error('返回的不是合法 JSON。'); }
+  if (!r.ok || d.ok === false) throw new Error(d.error || ('HTTP ' + r.status));
+  return d;
+}
+
+/* ═══════════ Pane A · 机器人候选 ═══════════ */
+const CAND = Object.create(null);   // id → 候选对象
+
+async function loadCandidateIndex(){
+  const sel = $('aDate');
+  let idx = [];
+  try {
+    const r = await fetch('./data/candidates/index.json', { headers:{accept:'application/json'}, cache:'no-store' });
+    if (r.ok) {
+      const d = await r.json().catch(() => null);
+      if (Array.isArray(d)) idx = d.filter(x => typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x));
+    }
+  } catch(_) { /* 没有索引不是错误，是「还没跑过」 */ }
+
+  idx.sort().reverse();
+  sel.innerHTML = idx.map(d => '<option value="' + esc(d) + '">' + esc(d) + '</option>').join('');
+  if (!idx.length) {
+    sel.hidden = true;
+    $('aCount').textContent = '';
+    $('aList').innerHTML =
+      '<div class="msg"><b>机器人还没有跑过。</b><br>' +
+      '找不到 <code>data/candidates/index.json</code>，或者里面是空的。' +
+      '跑一次 <code>node bot/collect.mjs</code>，再由部署脚本生成索引。</div>';
+    return;
+  }
+  sel.hidden = false;
+  loadCandidates(idx[0]);
+}
+
+async function loadCandidates(date){
+  const list = $('aList');
+  list.innerHTML = '<div class="msg">读取中…</div>';
+  let doc;
+  try {
+    const r = await fetch('./data/candidates/' + encodeURIComponent(date) + '.json',
+                          { headers:{accept:'application/json'}, cache:'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    doc = await r.json();
+  } catch(err) {
+    $('aCount').textContent = '';
+    list.innerHTML = '<div class="msg err">读不到 <code>' + esc(date) + '.json</code>：' +
+                     esc(err.message) + '</div>';
+    return;
+  }
+
+  const cs = Array.isArray(doc && doc.candidates) ? doc.candidates.slice() : [];
+  // tier 1 在前（官方文件），其次独立媒体数多的（互相印证的）在前
+  cs.sort((a,b) =>
+    (Number(a.tier)||9) - (Number(b.tier)||9) ||
+    (Number(b.independent_outlets)||0) - (Number(a.independent_outlets)||0) ||
+    String(b.published||'').localeCompare(String(a.published||''))
+  );
+
+  $('aCount').textContent = cs.length + ' 条 · ' +
+    (doc.collected_at ? ago(doc.collected_at) : '');
+
+  if (!cs.length) {
+    list.innerHTML = '<div class="msg">这一天没有候选。机器人跑了，但没有匹配到关键词。</div>';
+    return;
+  }
+
+  list.innerHTML = cs.map((c, i) => {
+    const id = c.id || ('i' + i);
+    CAND[id] = c;
+    const tier = Number(c.tier) || 9;
+    const headlineOnly = c.headline_only === true || tier === 3 ||
+      (Array.isArray(c.sightings) && c.sightings.every(s => s.headline_only === true));
+    const col = tier === 1 ? 'var(--t-tax)' : tier === 2 ? 'var(--t-graft)' : 'var(--t-cost)';
+    const pub = c.published ? String(c.published).slice(0,10) : '日期不明';
+    const n   = Number(c.independent_outlets) || 0;
+    const kw  = Array.isArray(c.matched) ? c.matched : [];
+    const extra = (Array.isArray(c.sightings) ? c.sightings.length : 0);
+
+    return '<article class="item" style="--c:' + col + '">' +
+      '<h4 class="ttl">' + esc(c.headline || '(无标题)') + '</h4>' +
+      '<div class="meta">' +
+        '<span class="tierb">T' + esc(tier) + '</span>' +
+        '<span>' + esc(c.outlet || '未知来源') + '</span>' +
+        '<span class="dot">·</span><span>' + esc(pub) + '</span>' +
+        '<span class="dot">·</span>' +
+        '<span class="srcbadge ' + (n >= 2 ? 'ok' : 'partial') + '" ' +
+          'title="独立媒体数：多家不同机构同时报道，才够得上收录准则里的「≥2 个独立来源」">' +
+          (n >= 2 ? '🔗' : '◐') + ' ' + esc(n) + ' 家独立媒体</span>' +
+        (extra > 1 ? '<span class="dot">·</span><span>' + esc(extra) + ' 条报道</span>' : '') +
+      '</div>' +
+      (kw.length ? '<div class="chips" style="margin-bottom:8px">' +
+        kw.map(k => '<span class="chip2 static">' + esc(k) + '</span>').join('') + '</div>' : '') +
+      (headlineOnly
+        ? '<div class="note">这是 <b>tier 3 · 只看标题</b> 的来源。它的标题只能用来印证' +
+          '「是否还有别家在报同一件事」，<b>不能被转写成事实</b>。' +
+          '要立项，另找官方文件或议会／法院记录。</div>'
+        : '') +
+      '<div class="foot">' +
+        '<a href="' + esc(c.url || '#') + '" target="_blank" rel="noopener noreferrer">读原文 ↗</a>' +
+        '<span class="spacer"></span>' +
+        '<button class="btn sm" data-cand="' + esc(id) + '" style="--c:' + col + '">转成条目</button>' +
+      '</div>' +
+    '</article>';
+  }).join('');
+}
+
+$('aDate').onchange = e => loadCandidates(e.target.value);
+$('aReload').onclick = () => loadCandidateIndex();
+$('aList').addEventListener('click', e => {
+  const b = e.target.closest('[data-cand]');
+  if (b) fromCandidate(CAND[b.getAttribute('data-cand')]);
+});
+
+/* ═══════════ Pane B · 投稿队列 ═══════════ */
+const SUBS = Object.create(null);
+const KIND = { new_event:'新事件', correction:'纠错', source:'补来源' };
+
+/* Postgres 的 text[] 经 HTTP 端点回来常常是一段字符串：{https://a,https://b}
+   带引号的元素还会转义。这里防御性地都吃下来，顺便兼容真的 JSON 数组。 */
+function parsePgArray(v){
+  if (Array.isArray(v)) return v.map(trim).filter(Boolean);
+  const s = trim(v);
+  if (!s) return [];
+  if (s.charAt(0) === '[') {
+    try { const a = JSON.parse(s); if (Array.isArray(a)) return a.map(trim).filter(Boolean); } catch(_) {}
+  }
+  const body = (s.charAt(0) === '{' && s.charAt(s.length-1) === '}') ? s.slice(1,-1) : s;
+  const out = []; let cur = '', q = false;
+  for (let i = 0; i < body.length; i++){
+    const ch = body.charAt(i);
+    if (q) {
+      if (ch === '\\') { cur += body.charAt(++i) || ''; }
+      else if (ch === '"') { q = false; }
+      else cur += ch;
+    } else if (ch === '"') { q = true; }
+    else if (ch === ',') { out.push(cur); cur = ''; }
+    else cur += ch;
+  }
+  out.push(cur);
+  return out.map(trim).filter(x => x && x !== 'NULL');
+}
+
+async function loadQueue(){
+  const list = $('bList');
+  list.innerHTML = '<div class="msg">读取中…</div>';
+  $('bCount').textContent = '';
+  let d;
+  try {
+    d = await api('/api/submissions?queue=1');
+  } catch(err) {
+    if (err && err.unauth) return;             // 已经回到闸门了
+    list.innerHTML = '<div class="msg err"><b>队列读不到。</b><br>' + esc(err.message) +
+      '<br>候选面板不受影响，仍可继续起草。</div>';
+    return;
+  }
+  const rows = Array.isArray(d.pending) ? d.pending : [];
+  $('bCount').textContent = rows.length + ' 条待审';
+  if (!rows.length) { list.innerHTML = '<div class="msg">队列是空的。没有待审投稿。</div>'; return; }
+
+  list.innerHTML = rows.map(s => {
+    const id = String(s.id);
+    s.__sources = parsePgArray(s.sources);
+    SUBS[id] = s;
+    const col = s.kind === 'new_event' ? 'var(--t-vote)'
+              : s.kind === 'correction' ? 'var(--t-subsidy)' : 'var(--t-graft)';
+    return '<article class="item" data-sid="' + esc(id) + '" style="--c:' + col + '">' +
+      '<div class="meta">' +
+        '<span class="kindb">' + esc(KIND[s.kind] || s.kind || '未知类型') + '</span>' +
+        '<span>' + esc(s.occurred_on ? String(s.occurred_on).slice(0,10) : '未填日期') + '</span>' +
+        '<span class="dot">·</span><span title="' + esc(s.created_at || '') + '">投于 ' + esc(ago(s.created_at)) + '</span>' +
+        (s.target_slug ? '<span class="dot">·</span><span>指向 ' + esc(s.target_slug) + '</span>' : '') +
+      '</div>' +
+      '<h4 class="ttl">' + esc(s.title || '(无标题)') + '</h4>' +
+      '<p class="body">' + esc(s.body || '') + '</p>' +
+      (s.__sources.length
+        ? '<ul class="srclist">' + s.__sources.map(u =>
+            '<li><a href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">' + esc(u) + '</a></li>'
+          ).join('') + '</ul>'
+        : '<div class="msg" style="padding:2px 0">没有来源链接。</div>') +
+      '<div class="meta" style="margin-top:6px">' +
+        '<span>联系：' + esc(s.contact || '未留') + '</span>' +
+      '</div>' +
+      '<textarea data-note style="min-height:48px;margin-top:8px" ' +
+        'placeholder="理由（拒绝与退回必填；这个档案公开自己的拒稿理由）"></textarea>' +
+      '<div class="foot">' +
+        '<button class="btn sm" data-act="approved"   style="--c:var(--t-tax)">通过</button>' +
+        '<button class="btn ghost sm" data-act="needs_more">退回补充</button>' +
+        '<button class="btn ghost sm" data-act="rejected">拒绝</button>' +
+        '<span class="spacer"></span>' +
+        '<button class="btn sm" data-sub2ev style="--c:' + col + '">转成条目</button>' +
+      '</div>' +
+      '<div class="rowmsg" data-msg></div>' +
+    '</article>';
+  }).join('');
+}
+
+$('bReload').onclick = () => loadQueue();
+$('bList').addEventListener('click', async e => {
+  const card = e.target.closest('[data-sid]');
+  if (!card) return;
+  const s = SUBS[card.getAttribute('data-sid')];
+  if (!s) return;
+
+  if (e.target.closest('[data-sub2ev]')) { fromSubmission(s); return; }
+
+  const btn = e.target.closest('[data-act]');
+  if (!btn) return;
+  const state = btn.getAttribute('data-act');
+  const note  = trim(card.querySelector('[data-note]').value);
+  const msg   = card.querySelector('[data-msg]');
+
+  if ((state === 'rejected' || state === 'needs_more') && !note) {
+    msg.className = 'rowmsg err';
+    msg.textContent = (state === 'rejected' ? '拒绝' : '退回') + '必须写理由——拒稿理由是公开的，空白等于没有规则。';
+    card.querySelector('[data-note]').focus();
+    return;
+  }
+
+  // 只锁判定按钮：判过之后仍然要能把这条投稿转成条目草稿
+  const btns = card.querySelectorAll('[data-act]');
+  btns.forEach(b => b.disabled = true);
+  msg.className = 'rowmsg'; msg.textContent = '提交中…';
+  try {
+    await api('/api/submissions', {
+      method: 'PATCH',
+      headers: { 'content-type':'application/json' },
+      body: JSON.stringify({ id: s.id, state: state, note: note })
+    });
+    msg.className = 'rowmsg ok';
+    msg.textContent = '已记录：' + state + '。';
+    card.style.opacity = '.45';
+  } catch(err) {
+    if (err && err.unauth) return;
+    btns.forEach(b => b.disabled = false);
+    msg.className = 'rowmsg err';
+    msg.textContent = '没写进去：' + err.message;
+  }
+});
+
+/* ═══════════ Pane C · 条目编辑器 ═══════════ */
+
+/* 行模板。data-k 对应输出对象里的键名。 */
+const ROWHTML = {
+  hist:
+    '<div class="cells"><div class="top2">' +
+      '<input type="text" data-k="d" placeholder="2025-06" style="max-width:120px">' +
+      '<input type="text" data-k="t" placeholder="发生了什么（一句）">' +
+    '</div></div><button class="rmv" type="button" aria-label="删除">−</button>',
+  claims:
+    '<div class="cells"><div class="top2">' +
+      '<select data-k="side">' +
+        '<option value="for">for · 成效</option>' +
+        '<option value="against">against · 代价</option>' +
+        '<option value="neutral">neutral · 中立</option>' +
+      '</select>' +
+      '<input type="text" data-k="who" placeholder="谁说的／这条叫什么（成效、代价…）">' +
+    '</div>' +
+    '<textarea data-k="tx" style="min-height:54px" placeholder="主张内容"></textarea>' +
+    '<div class="top2">' +
+      '<input type="text" data-k="sr" placeholder="来源名（留空写作 —）" style="max-width:180px">' +
+      '<input type="url" data-k="url" placeholder="https://…">' +
+    '</div></div><button class="rmv" type="button" aria-label="删除">−</button>',
+  impact:
+    '<div class="cells"><div class="top2">' +
+      '<input type="text" data-k="k" placeholder="维度" style="max-width:120px">' +
+      '<input type="text" data-k="v" placeholder="数值">' +
+      '<input type="text" data-k="s" placeholder="来源" style="max-width:140px">' +
+    '</div></div><button class="rmv" type="button" aria-label="删除">−</button>',
+  srcs:
+    '<div class="cells"><div class="top2">' +
+      '<input type="text" data-k="l" placeholder="来源标题">' +
+      '<input type="url" data-k="u" placeholder="https://…">' +
+    '</div></div><button class="rmv" type="button" aria-label="删除">−</button>'
+};
+const ROWKEYS = { hist:['d','t'], claims:['side','who','tx','sr','url'], impact:['k','v','s'], srcs:['l','u'] };
+/* 一行要「算数」才会进输出：只选了 side 的空脚手架行不该出现在 JSON 里。 */
+const ROWREQ  = { hist:['d','t'], claims:['who','tx','url'],             impact:['k','v','s'], srcs:['l','u'] };
+
+function addRow(g, data){
+  data = data || {};
+  const wrap = $('rows-' + g);
+  const el = document.createElement('div');
+  el.className = 'row';
+  el.innerHTML = ROWHTML[g];
+  wrap.appendChild(el);
+  ROWKEYS[g].forEach(k => {
+    const i = el.querySelector('[data-k="' + k + '"]');
+    if (i && data[k] != null) i.value = data[k];
+  });
+  el.querySelector('.rmv').onclick = () => { el.remove(); sync(); };
+  el.querySelectorAll('input,select,textarea').forEach(i => {
+    i.addEventListener('input', sync); i.addEventListener('change', sync);
+  });
+  sync();
+  return el;
+}
+function readRows(g){
+  const keys = ROWKEYS[g], req = ROWREQ[g];
+  return Array.prototype.map.call($('rows-' + g).querySelectorAll('.row'), el => {
+    const o = {};
+    keys.forEach(k => { const i = el.querySelector('[data-k="' + k + '"]'); o[k] = i ? trim(i.value) : ''; });
+    return o;
+  }).filter(o => req.some(k => o[k]));
+}
+function clearRows(g){ $('rows-' + g).innerHTML = ''; }
+
+/* label：项目自己的写法。区间（1963–65年）无法从单一日期推出，留给手改。 */
+let labelDirty = false;
+function autoLabel(){
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(trim($('f-date').value));
+  if (!m) return '';
+  const prec = $('f-prec').value;
+  if (prec === 'year')  return m[1] + '年';
+  if (prec === 'month') return m[1] + '年' + (+m[2]) + '月';
+  return m[1] + '年' + (+m[2]) + '月' + (+m[3]) + '日';
+}
+function refreshLabel(force){
+  if (labelDirty && !force) return;
+  const v = autoLabel();
+  if (v || force) $('f-label').value = v;
+}
+
+/* 输出对象。键序与 data/events.json 里现有条目一致。 */
+function buildEvent(){
+  return {
+    date:   trim($('f-date').value),
+    label:  trim($('f-label').value),
+    title:  trim($('f-title').value),
+    topic:  $('f-topic').value,
+    w:      Number($('f-w').value) || 2,
+    who:    trim($('f-who').value),
+    why:    trim($('f-why').value),
+    hist:   readRows('hist').map(h => ({ d:h.d, t:h.t })),
+    claims: readRows('claims').map(c => ({
+              side: c.side || 'neutral', who: c.who, tx: c.tx,
+              sr: c.sr || '—', url: c.url })),
+    impact: readRows('impact').map(i => ({ k:i.k, v:i.v, s:i.s })),
+    note:   trim($('f-note').value),
+    srcs:   readRows('srcs').map(s => ({ l:s.l, u:s.u }))
+  };
+}
+
+/* 收录准则自检（docs/governance.zh.md 第一、二节）。
+   三级词汇与 index.html 的证据强度一致：🔗 过 · ◐ 半 · ○ 未过。 */
+function checks(ev){
+  const out = [];
+
+  const hosts = new Set();
+  ev.srcs.forEach(s => { const h = hostOf(s.u); if (h) hosts.add(h); });
+  ev.claims.forEach(c => { const h = hostOf(c.url); if (h) hosts.add(h); });
+  const n = hosts.size;
+  out.push({
+    k: n >= 2 ? 'ok' : (n === 1 ? 'partial' : 'none'),
+    t: '≥2 个独立来源',
+    d: n === 0 ? '一个可点击链接都没有'
+      : n === 1 ? '只有 ' + Array.from(hosts)[0] + ' 一家（同集团转载算 1 个）'
+      : n + ' 个不同域名：' + Array.from(hosts).join('、')
+  });
+
+  const withTx = ev.claims.filter(c => c.tx);
+  const naked  = withTx.filter(c => !hostOf(c.url));
+  out.push({
+    k: !withTx.length ? 'partial' : (naked.length ? 'none' : 'ok'),
+    t: '每条主张附来源',
+    d: !withTx.length ? '还没有写主张'
+      : naked.length ? naked.length + ' 条主张没有链接：任一条缺来源，整条事件不得发布'
+      : '每条主张都附了来源（共 ' + withTx.length + ' 条）'
+  });
+
+  const f = ev.claims.some(c => c.side === 'for'     && c.tx);
+  const a = ev.claims.some(c => c.side === 'against' && c.tx);
+  out.push({
+    k: (f && a) ? 'ok' : (!f && !a) ? 'partial' : 'none',
+    t: '正反并列',
+    d: (f && a) ? '成效与代价都在'
+      : (!f && !a) ? '还没有标记正反的主张'
+      : (f ? '只有 for，缺 against' : '只有 against，缺 for')
+  });
+
+  const miss = [];
+  if (!ev.date)  miss.push('date');
+  if (!ev.title) miss.push('title');
+  if (!ev.topic) miss.push('topic');
+  if (!ev.who)   miss.push('who');
+  out.push({
+    k: miss.length ? 'none' : 'ok',
+    t: '必填字段齐全',
+    d: miss.length ? '缺：' + miss.join('、') : 'date · title · topic · who 都填了'
+  });
+
+  return out;
+}
+const ICON = { ok:'🔗', partial:'◐', none:'○' };
+
+function sync(){
+  refreshLabel(false);
+  const ev = buildEvent();
+  $('out').textContent = JSON.stringify(ev, null, 2);
+  $('vstrip').innerHTML = checks(ev).map(c =>
+    '<div class="vrow ' + c.k + '"><span class="i">' + ICON[c.k] + '</span>' +
+    '<span><span class="t">' + esc(c.t) + '</span><br><span class="d">' + esc(c.d) + '</span></span></div>'
+  ).join('');
+  $('edMsg').textContent = '';
+}
+
+/* 编辑器开关 */
+function openEd(){ $('edWrap').classList.add('on'); document.body.style.overflow = 'hidden'; }
+function closeEd(){ $('edWrap').classList.remove('on'); document.body.style.overflow = ''; }
+document.addEventListener('click', e => { if (e.target.closest('[data-close-ed]')) closeEd(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && $('edWrap').classList.contains('on')) closeEd();
+});
+
+function resetEd(){
+  ['f-date','f-label','f-title','f-who','f-why','f-note'].forEach(id => $(id).value = '');
+  $('f-prec').value = 'day'; $('f-topic').value = ''; $('f-w').value = '2';
+  labelDirty = false;
+  ['hist','claims','impact','srcs'].forEach(clearRows);
+  // 正反两栏先摆好（空行不会进输出）：并列不是可选项，是发布条件
+  addRow('claims', { side:'for' });
+  addRow('claims', { side:'against' });
+  addRow('srcs', {});
+  $('edFrom').textContent = '';
+  sync();
+}
+
+$('f-label').addEventListener('input', () => { labelDirty = true; sync(); });
+$('f-label-auto').onclick = () => { labelDirty = false; refreshLabel(true); sync(); };
+['f-date','f-prec','f-title','f-topic','f-w','f-who','f-why','f-note'].forEach(id => {
+  $(id).addEventListener('input', sync); $(id).addEventListener('change', sync);
+});
+document.querySelectorAll('[data-add]').forEach(b => {
+  b.onclick = () => addRow(b.getAttribute('data-add'), {});
+});
+$('edReset').onclick = () => resetEd();
+
+/* 复制：优先 clipboard API；非安全上下文（http://局域网 IP）退回 execCommand。 */
+async function copyText(t){
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(t); return true;
+    }
+  } catch(_) {}
+  try {
+    const ta = $('clipHelper');
+    ta.value = t; ta.removeAttribute('aria-hidden');
+    ta.focus(); ta.select(); ta.setSelectionRange(0, t.length);
+    const ok = document.execCommand('copy');
+    ta.setAttribute('aria-hidden','true'); ta.blur();
+    return !!ok;
+  } catch(_) { return false; }
+}
+$('edCopy').onclick = async () => {
+  const ok = await copyText($('out').textContent);
+  $('edMsg').className = ok ? 'ok' : 'err';
+  $('edMsg').textContent = ok
+    ? '已复制。粘进 data/events.json 的数组里，自己核一遍再 commit。'
+    : '复制失败——手动全选下面那段 JSON 吧。';
+};
+
+/* ── 从候选预填 ──
+   标题只进 srcs，不进正文。why / who / claims / impact 留空，那是你的话。 */
+function fromCandidate(c){
+  if (!c) return;
+  resetEd(); openEd();
+  $('f-title').value = c.headline || '';
+  $('f-date').value  = c.published ? String(c.published).slice(0,10) : '';
+  labelDirty = false;
+
+  clearRows('srcs');
+  const seen = Object.create(null);
+  const push = (l, u) => {
+    u = trim(u); if (!u || seen[u]) return;
+    seen[u] = 1; addRow('srcs', { l: trim(l) || u, u: u });
+  };
+  push(c.headline, c.url);
+  (Array.isArray(c.sightings) ? c.sightings : []).forEach(s => push(s.title || s.outlet, s.url));
+  if (!$('rows-srcs').querySelector('.row')) addRow('srcs', {});
+
+  const tier = Number(c.tier) || 9;
+  $('edFrom').innerHTML =
+    '来自<b>机器人候选</b> · ' + esc(c.outlet || '未知') + ' · tier ' + esc(tier) +
+    ' · ' + esc(Number(c.independent_outlets) || 0) + ' 家独立媒体。<br>' +
+    '标题已经放进 <b>srcs</b>，没有放进正文——它只是「某家媒体这样起了标题」。' +
+    '<b>why / who / claims / impact 留空，那几栏必须是你自己的话</b>，' +
+    '写之前请点开原文核对。' +
+    (tier === 3 || c.headline_only === true
+      ? '<br><b style="color:var(--t-cost)">这是只看标题的来源，单靠它不足以立项。</b>' : '');
+  sync();
+}
+
+/* ── 从投稿预填 ── */
+function fromSubmission(s){
+  if (!s) return;
+  resetEd(); openEd();
+  $('f-title').value = s.title || '';
+  $('f-date').value  = s.occurred_on ? String(s.occurred_on).slice(0,10) : '';
+  $('f-why').value   = s.body || '';
+  labelDirty = false;
+
+  clearRows('srcs');
+  const srcs = s.__sources || parsePgArray(s.sources);
+  srcs.forEach(u => addRow('srcs', { l: hostOf(u) || '来源', u: u }));
+  if (!$('rows-srcs').querySelector('.row')) addRow('srcs', {});
+
+  $('edFrom').innerHTML =
+    '来自<b>投稿</b> #' + esc(s.id) + ' · ' + esc(KIND[s.kind] || s.kind || '') +
+    ' · 投于 ' + esc(ago(s.created_at)) + '。<br>' +
+    '投稿正文已放进 <b>why</b>，<b>请当作草稿改写</b>，不要直接照抄；' +
+    'who / claims / impact 仍需你自己核实后填写。';
+  sync();
+}
+
+/* ═══════════ 启动 ═══════════ */
+resetEd();
+if (getTok()) enter(); else showGate('');
+
+})();
+</script>
+</body>
+</html>
