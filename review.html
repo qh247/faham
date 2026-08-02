@@ -672,7 +672,7 @@ $('aList').addEventListener('click', e => {
 
 /* ═══════════ Pane B · 投稿队列 ═══════════ */
 const SUBS = Object.create(null);
-const KIND = { new_event:'新事件', correction:'纠错', source:'补来源' };
+const KIND = { lead:'线索', new_event:'新事件', correction:'纠错', source:'补来源' };
 
 /* Postgres 的 text[] 经 HTTP 端点回来常常是一段字符串：{https://a,https://b}
    带引号的元素还会转义。这里防御性地都吃下来，顺便兼容真的 JSON 数组。 */
@@ -721,7 +721,8 @@ async function loadQueue(){
     s.__sources = parsePgArray(s.sources);
     SUBS[id] = s;
     const col = s.kind === 'new_event' ? 'var(--t-vote)'
-              : s.kind === 'correction' ? 'var(--t-subsidy)' : 'var(--t-graft)';
+              : s.kind === 'correction' ? 'var(--t-subsidy)'
+              : s.kind === 'lead' ? 'var(--ink-3)' : 'var(--t-graft)';
     return '<article class="item" data-sid="' + esc(id) + '" style="--c:' + col + '">' +
       '<div class="meta">' +
         '<span class="kindb">' + esc(KIND[s.kind] || s.kind || '未知类型') + '</span>' +
