@@ -30,7 +30,20 @@ rm -rf "$OUT"
 mkdir -p "$OUT/data" "$OUT/db" "$OUT/docs" "$OUT/assets"
 
 cp "$ROOT/index.html"                "$OUT/"
+cp "$ROOT/review.html"               "$OUT/" 2>/dev/null || true   # 运营用的复核页，凭 token 才能读接口
 cp "$ROOT/data/events.json"          "$OUT/data/"
+
+# 机器人候选队列。Pages 没有目录列表，所以生成一个日期索引给复核页用。
+# 只带上最近 30 天：候选是待办清单，不是档案，旧的留在仓库里就够。
+if [ -d "$ROOT/data/candidates" ]; then
+  mkdir -p "$OUT/data/candidates"
+  ls "$ROOT/data/candidates" | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$' | sort -r | head -30 \
+    | while read -r f; do cp "$ROOT/data/candidates/$f" "$OUT/data/candidates/"; done
+  ls "$OUT/data/candidates" 2>/dev/null | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$' | sed 's/\.json$//' \
+    | sort -r | python3 -c 'import sys,json; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))' \
+    > "$OUT/data/candidates/index.json"
+  echo "  ✓ 候选队列 $(python3 -c "import json;print(len(json.load(open('$OUT/data/candidates/index.json'))))") 天"
+fi
 cp "$ROOT"/data/threads.json "$ROOT"/data/actors.json "$OUT/data/" 2>/dev/null || true
 cp "$ROOT/db/schema.sql" "$ROOT/db/live.sql" "$OUT/db/"
 cp "$ROOT"/docs/*.md                 "$OUT/docs/"

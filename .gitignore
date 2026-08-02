@@ -30,3 +30,6 @@ public/
 
 # 机器人抓取的候选队列体积会增长，本地跑时不要误提交半成品
 # （正式产物由 GitHub Actions 提交，见 .github/workflows/collect.yml）
+
+# 由 deploy.sh 生成的候选日期索引
+data/candidates/index.json

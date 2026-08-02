@@ -480,6 +480,13 @@
   #subKind input { position:absolute; opacity:0; pointer-events:none; }
   #subKind label:has(input:checked) { background:var(--t-tax); border-color:var(--t-tax); color:#fff; }
   #srcList { display:flex; flex-direction:column; gap:6px; }
+  #peek { margin-top:8px; }
+  .pk { font-size:11px; line-height:1.6; border-left:2px solid var(--line); padding:5px 0 5px 10px;
+    color:var(--ink-3); }
+  .pk b { color:var(--ink-2); font-weight:600; }
+  .pk .t1 { color:var(--t-graft); } .pk .t2 { color:var(--t-tax); }
+  .pk .t3 { color:var(--t-cost); } .pk .warn { color:var(--t-cost); }
+  #titleAuto { color:var(--t-graft); }
   .srcHint { font-size:10.5px; color:var(--ink-3); line-height:1.6; margin-top:6px; }
   #subFoot { display:flex; align-items:center; gap:10px; margin-top:18px; }
   #subMsg { font-size:11.5px; line-height:1.55; }
@@ -542,27 +549,33 @@
     <p class="lead">这里不比谁说得响，比谁给得出来源。投稿会进入复核队列，不会直接上线；
       被拒也会记录理由。你不需要注册，也不会被要求填真名。</p>
 
-    <label class="f">类型</label>
+    <label class="f">你想做的是</label>
     <div id="subKind">
-      <label><input type="radio" name="kind" value="new_event" checked>新事件</label>
+      <label><input type="radio" name="kind" value="lead" checked>丢个线索</label>
       <label><input type="radio" name="kind" value="correction">纠错</label>
       <label><input type="radio" name="kind" value="source">补来源</label>
+      <label><input type="radio" name="kind" value="new_event">完整新增</label>
     </div>
+    <p class="srcHint" id="kindHint" style="margin-top:8px"></p>
 
-    <label class="f" for="subT">标题（一句话说清发生了什么）</label>
-    <input type="text" id="subT" maxlength="120" placeholder="例：内阁通过 RON95 补贴改为定向发放">
-
-    <label class="f" for="subD">发生日期（不确定可留空）</label>
-    <input type="date" id="subD">
-
-    <label class="f" for="subB">说明</label>
-    <textarea id="subB" maxlength="1200" placeholder="发生了什么、改变了什么、影响到谁。只写事实与后果，不写动机推测。"></textarea>
-
-    <label class="f">来源链接<span id="srcNeed"> · 新事件需 ≥2 个独立来源</span></label>
+    <!-- 链接放在第一位：这是唯一一个每种投稿都必须有、而且最容易给的东西 -->
+    <label class="f">来源链接<span id="srcNeed"></span></label>
     <div id="srcList"></div>
     <button class="btn ghost" id="addSrc" type="button" style="margin-top:7px;font-size:11px;padding:4px 11px">+ 再加一个</button>
-    <p class="srcHint">「独立」指不同机构。同一集团旗下多家媒体转载同一通稿，算 1 个。
-      官方文件、法院记录、议会记录、统计数据优先。</p>
+    <div id="peek"></div>
+
+    <label class="f" for="subT">标题<span id="titleAuto"></span></label>
+    <input type="text" id="subT" maxlength="200" placeholder="贴上链接后会自动带出，可以改">
+
+    <div data-adv hidden>
+      <label class="f" for="subD">发生日期（不确定可留空）</label>
+      <input type="date" id="subD">
+
+      <label class="f" for="subB">说明</label>
+      <textarea id="subB" maxlength="1200" placeholder="发生了什么、改变了什么、影响到谁。用你自己的话写事实与后果，不要整段照抄原文，也不要写动机推测。"></textarea>
+      <p class="srcHint">「独立」指不同机构。同一集团旗下多家媒体转载同一通稿，算 1 个。
+        官方文件、法院记录、议会记录、统计数据优先。</p>
+    </div>
 
     <label class="f" for="subC">联系方式（选填，仅在需要向你确认时使用）</label>
     <input type="text" id="subC" maxlength="120" placeholder="邮箱或任何你愿意留的方式；留空也能投稿">
@@ -909,26 +922,79 @@ function openActor(key){
   infoWrap().classList.add('on');
 }
 
-/* ═══════════ 投稿浮层 ═══════════ */
+/* ═══════════ 投稿浮层 ═══════════
+   分档的理由：贡献的成本要与贡献的分量相称。
+   「我看到一条新闻」和「我要新增一条档案条目」如果填一样多的字，两种人都不会填。
+   所以默认是最低的那一档——一个链接就够，标题和日期由机器去抄。 */
+const KIND_HINT = {
+  lead:       '一个链接就够。标题和日期会自动带出来，说明可以不写。',
+  correction: '指出档案里哪里错了，附上能证明的链接。',
+  source:     '给已有条目补上可点击的来源。',
+  new_event:  '完整新增一条档案条目：需要 ≥2 个独立来源，以及你自己写的说明。'
+};
+
 function wireSubmit(){
   const wrap = document.getElementById('subWrap');
   const srcList = document.getElementById('srcList');
   const msg = document.getElementById('subMsg');
   const need = document.getElementById('srcNeed');
+  const hint = document.getElementById('kindHint');
+  const peek = document.getElementById('peek');
+  const titleEl = document.getElementById('subT');
+  const titleAuto = document.getElementById('titleAuto');
+
+  const kindOf = () => document.querySelector('#subKind input:checked').value;
+
+  /* 贴上链接 → 后端只取标题／日期／出处，永不取正文。
+     该人写的是「发生了什么、改变了什么」，那部分机器抄不来；
+     标题和日期机器抄得比人准，也比人快。 */
+  let peekSeq = 0;
+  async function doPeek(input){
+    const url = input.value.trim();
+    if (!/^https?:\/\/[^\s]{6,}$/.test(url)) return;
+    const my = ++peekSeq;
+    peek.innerHTML = `<div class="pk">读取来源信息…</div>`;
+    const r = await API.get('/api/peek?url=' + encodeURIComponent(url)).catch(()=>null);
+    if (my !== peekSeq) return;                       // 抢答保护：只认最后一次
+    if (!r || !r.ok) {
+      peek.innerHTML = `<div class="pk warn">读不到这个链接的信息（${esc(r?.error||'失败')}），手动填也行。</div>`;
+      return;
+    }
+    const TIER = { 1:['t1','原始文件'], 2:['t2','新闻报道'], 3:['t3','中文报'], 0:['','未登记来源'] };
+    const [cls, label] = TIER[r.tier] || TIER[0];
+    peek.innerHTML = `<div class="pk">
+      <b>${esc(r.site)}</b> · <span class="${cls}">${label}${r.tier_note?' · '+esc(r.tier_note):''}</span>
+      ${r.published?` · ${esc(r.published)}`:''}
+      ${r.headline_only?`<br><span class="warn">标题只是标题，不等于事实。请用自己的话写说明，别整段照抄。</span>`:''}
+    </div>`;
+    if (r.title && !titleEl.value.trim()) {
+      titleEl.value = r.title;
+      titleAuto.textContent = ' · 已自动带出';
+    }
+    const d = document.getElementById('subD');
+    if (r.published && d && !d.value) d.value = r.published;
+  }
 
   const addSrcInput = () => {
     const i = document.createElement('input');
     i.type = 'url'; i.placeholder = 'https://…';
+    i.addEventListener('change', () => doPeek(i));
+    i.addEventListener('paste', () => setTimeout(()=>doPeek(i), 30));
     srcList.appendChild(i);
+    return i;
   };
-  addSrcInput(); addSrcInput();
+  addSrcInput();
   document.getElementById('addSrc').addEventListener('click', addSrcInput);
 
-  const kindOf = () => document.querySelector('#subKind input:checked').value;
-  document.getElementById('subKind').addEventListener('change', () => {
-    need.textContent = kindOf() === 'new_event'
-      ? ' · 新事件需 ≥2 个独立来源' : ' · 至少 1 个来源';
-  });
+  function syncKind(){
+    const k = kindOf();
+    hint.textContent = KIND_HINT[k];
+    need.textContent = k === 'new_event' ? ' · 需 ≥2 个独立来源' : ' · 1 个就够';
+    document.querySelectorAll('[data-adv]').forEach(el => { el.hidden = (k === 'lead'); });
+    if (k === 'new_event' && srcList.children.length < 2) addSrcInput();
+  }
+  document.getElementById('subKind').addEventListener('change', syncKind);
+  syncKind();
 
   // #submit 可直接打开投稿表单，方便把「欢迎投稿」做成一个能发出去的链接
   const open = () => { msg.textContent=''; wrap.classList.add('on'); };
@@ -957,6 +1023,7 @@ function wireSubmit(){
       msg.textContent = '已进入复核队列。通过与否都会记录理由。';
       ['subT','subD','subB','subC'].forEach(id => document.getElementById(id).value = '');
       srcList.querySelectorAll('input').forEach(i => i.value = '');
+      peek.innerHTML = ''; titleAuto.textContent = '';
     } else {
       msg.className = 'err';
       msg.textContent = r.error || '提交失败：后端可能尚未接通。';

@@ -1,6 +1,7 @@
 import { sql, json, bad, identity, humanOk, readJson, glyphs, isSlug, friendly, APP_ENV } from '../_lib.js';
 
-const KINDS = ['new_event', 'correction', 'source'];
+const KINDS = ['lead', 'new_event', 'correction', 'source'];
+const STATES = ['approved', 'rejected', 'needs_more'];
 
 // POST /api/submissions
 // { kind, title, occurred_on?, body, sources:[url,...], target_slug?, contact?, token? }
@@ -10,8 +11,11 @@ export async function onRequestPost({ request, env }) {
   catch (e) { return bad(e.message === 'TOO_LARGE' ? '内容过长' : '格式错误'); }
 
   if (!KINDS.includes(d.kind)) return bad('投稿类型无效');
-  if (glyphs(d.title) < 4 || glyphs(d.title) > 120) return bad('标题需要 4–120 字。');
-  if (glyphs(d.body) < 20 || glyphs(d.body) > 1200) return bad('说明需要 20–1200 字。');
+  if (glyphs(d.title) < 4 || glyphs(d.title) > 200) return bad('标题需要 4–200 字。');
+  // 线索只需要一个链接：说明可以完全不写
+  if (d.kind !== 'lead' && (glyphs(d.body) < 20 || glyphs(d.body) > 1200))
+    return bad('说明需要 20–1200 字。');
+  if (d.kind === 'lead' && glyphs(d.body) > 1200) return bad('说明过长。');
 
   const sources = (Array.isArray(d.sources) ? d.sources : [])
     .map(s => String(s || '').trim()).filter(Boolean).slice(0, 10);
@@ -78,4 +82,33 @@ export async function onRequestGet({ request, env }) {
   } catch {
     return json({ ok: false, stats: [], offline: true }, 200);
   }
+}
+
+// PATCH /api/submissions  { id, state, note }
+// 复核裁决。驳回与要求补充必须写理由——这个平台承诺公开拒绝的原因，
+// 所以「没有理由的驳回」在接口层就不成立，不是靠复核者自觉。
+export async function onRequestPatch({ request, env }) {
+  const auth = request.headers.get('authorization') || '';
+  const tok = auth.startsWith('Bearer ') ? auth.slice(7) : '';
+  if (!env.REVIEW_TOKEN || tok !== env.REVIEW_TOKEN) return bad('未授权', 401);
+
+  let d;
+  try { d = await readJson(request); } catch { return bad('格式错误'); }
+
+  if (!/^[0-9a-f-]{36}$/i.test(String(d.id || ''))) return bad('id 无效');
+  if (!STATES.includes(d.state)) return bad('裁决无效');
+
+  const note = String(d.note || '').trim().slice(0, 800);
+  if (d.state !== 'approved' && glyphs(note) < 4)
+    return bad('驳回或要求补充必须写明理由。');
+
+  const rows = await sql(env,
+    `update app_submissions
+        set state = $2, reviewer_note = $3, resolved_at = now()
+      where id = $1::uuid and env = $4
+      returning id, state, resolved_at`,
+    [d.id, d.state, note || null, APP_ENV]);
+
+  if (!rows.length) return bad('找不到该投稿', 404);
+  return json({ ok: true, submission: rows[0] });
 }

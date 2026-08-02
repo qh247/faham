@@ -24,6 +24,24 @@ Sesuatu peristiwa mesti memenuhi **kesemua** syarat berikut:
    *dakwaan* yang dilampirkan pada peristiwa sedia ada.
 4. **Masa yang jelas** — boleh ditentukan pada hari, bulan, atau julat tarikh yang jelas.
 
+### Peringkat penyerahan (kos setimpal dengan berat sumbangan)
+
+| Peringkat | Keperluan | Nota |
+|---|---|---|
+| **Petunjuk** | 1 pautan | "Saya nampak berita ini, sila lihat." Tidak masuk arkib, hanya baris gilir |
+| **Tambah sumber** | 1 pautan | Melengkapkan entri sedia ada dengan pautan boleh diklik |
+| **Pembetulan** | 1 pautan + keterangan | Nyatakan apa yang salah dan buktinya |
+| **Entri penuh** | ≥2 sumber bebas + keterangan | Hanya ini berpotensi menjadi entri arkib |
+
+Sebabnya: jika "hantar petunjuk" menuntut sebanyak "tambah entri penuh", kedua-dua
+golongan tidak akan menghantar apa-apa. **Kesemua empat peringkat masuk ke baris gilir
+semakan sahaja; tiada satu pun terus disiarkan.**
+
+Tajuk dan tarikh dibaca secara automatik daripada pautan. Yang ditulis oleh penyumbang
+ialah "apa yang berlaku dan apa yang berubah" — bahagian yang mesin tidak boleh salin.
+**Jangan salin perenggan asal**: fakta tidak dilindungi hak cipta, ungkapan dilindungi.
+Arkib merekod fakta dan melampirkan pautan, bukan memindahkan teks.
+
 ### Yang jelas tidak dikumpulkan
 
 - Khabar angin yang tidak disahkan, bocoran tanpa nama, "menurut sumber"

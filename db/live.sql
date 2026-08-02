@@ -135,14 +135,22 @@ create table if not exists app_submissions (
   created_at  timestamptz not null default now(),
   resolved_at timestamptz,
 
-  constraint sub_kind  check (kind in ('new_event','correction','source')),
+  -- lead（线索）是最低门槛的一档：一个链接就够，说明可以完全不写。
+  -- 分档的理由：贡献的成本必须与贡献的分量相称。
+  -- 让「我看到一条新闻，你们看看」和「我要新增一条档案条目」填一样多的字，
+  -- 结果是两种人都不填。
+  constraint sub_kind  check (kind in ('lead','new_event','correction','source')),
   constraint sub_state check (state in ('pending','approved','rejected','needs_more')),
-  constraint sub_title check (char_length(btrim(title)) between 4 and 120),
-  constraint sub_body  check (char_length(btrim(body)) between 20 and 1200),
+  constraint sub_title check (char_length(btrim(title)) between 4 and 200),
   constraint sub_urls  check (faham_all_urls(sources)),
 
+  constraint sub_body check (
+    case kind when 'lead' then char_length(btrim(body)) <= 1200
+              else char_length(btrim(body)) between 20 and 1200 end
+  ),
+
   -- 收录准则第一节第 2 条写成约束：新事件必须 ≥2 个独立来源；
-  -- 纠错与补链接至少 1 个。没有来源的投稿，数据库直接拒绝，不进人工队列。
+  -- 其余至少 1 个。没有任何来源的投稿，数据库直接拒绝，不进人工队列。
   constraint sub_sources check (
     case kind when 'new_event' then coalesce(array_length(sources, 1), 0) >= 2
               else coalesce(array_length(sources, 1), 0) >= 1 end

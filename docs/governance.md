@@ -24,6 +24,24 @@ An event must satisfy **all** of the following:
    attached to an existing event.
 4. **Clear timing** — locatable to a day, month, or a defined date range.
 
+### Submission tiers (cost proportional to weight)
+
+| Tier | Requires | Note |
+|---|---|---|
+| **Lead** | 1 link | "I saw this, take a look." Never enters the archive — only the queue |
+| **Add source** | 1 link | Attaches a clickable source to an existing entry |
+| **Correction** | 1 link + explanation | States what is wrong and on what basis |
+| **Full entry** | ≥2 independent sources + explanation | The only tier that can become an archive entry |
+
+The reasoning: if dropping a link costs as much effort as authoring a full entry,
+neither kind of person contributes. **All four tiers go to the review queue; none
+of them publishes anything directly.**
+
+Titles and dates are read automatically from the link. What a contributor writes is
+*what happened and what changed* — the part a machine cannot copy. **Do not paste
+source paragraphs**: facts are not copyrightable, expression is. The archive records
+facts and links to the source; it does not relocate text.
+
 ### Explicitly not collected
 
 - Unverified rumour, anonymous tip-offs, "according to sources"
