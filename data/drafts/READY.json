@@ -1,0 +1,1485 @@
+[
+ {
+  "date": "2026-01-09",
+  "label": "2026年1月9日",
+  "title": "联邦法院驳回土团党上诉准令申请，国会下议院议长不宣布沙巴四席出缺的决定维持",
+  "topic": "vote",
+  "w": 2,
+  "who": "联邦法院／国会下议院议长",
+  "why": "土团党就下议院议长佐哈里拒绝宣布四个沙巴国会议席出缺一事，向联邦法院申请上诉准令。涉及的四名议员为巴巴（Armizan Mohd Ali）、峇都沙比（Khairul Firdaus Akbar Khan）、兰瑙（Jonathan Yasin）与实必丹（Matbali Musah）。争点是联邦宪法第49A条（反跳槽条文）下，议员离党后议席是否自动出缺，以及议长的相关裁量是否可受司法审查。联邦法院三司以2比1驳回申请：多数意见认为议长的宪法权力属国会议事程序，依第63与72条不可受司法审查；异议的沙巴与砂拉越大法官则认为该条文涉及具普遍重要性的新颖法律问题，且相关认定应基于事实而非交由议长裁量。裁决结果是四席维持有效，土团党循此路径的司法救济告一段落。",
+  "hist": [
+   {
+    "d": "2026-01",
+    "t": "联邦法院2比1驳回上诉准令申请"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "联邦法院多数意见（纳丽妮法官）",
+    "tx": "本案涉及的是联邦宪法下国会下议院议长的宪法权力；依据第63条与第72条，这些权力在国会议事程序范围内不受司法审查。法院必须顾及权力分立原则与国会特权。",
+    "sr": "FMT",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/01/09/end-of-legal-route-for-bersatu-over-sabah-mps-case"
+   },
+   {
+    "side": "against",
+    "who": "联邦法院异议意见（沙巴与砂拉越大法官阿兹莎）",
+    "tx": "第49条A引发具普遍重要性与重大公共利益的新颖法律问题，已达到批准上诉准令的门槛；该项认定应基于事实，而不应交由议长自由裁量。",
+    "sr": "The Star / FMT",
+    "url": "https://www.thestar.com.my/news/nation/2026/01/09/apex-court-dismisses-bersatu039s-bid-to-appeal-speaker039s-decision-on-sabah-mp-seats"
+   }
+  ],
+  "impact": [
+   {
+    "k": "涉及国会议席",
+    "v": "4席（巴巴、峇都沙比、兰瑙、实必丹）",
+    "s": "The Star"
+   },
+   {
+    "k": "合议庭表决",
+    "v": "2比1驳回",
+    "s": "FMT"
+   }
+  ],
+  "note": "两家独立媒体（The Star、FMT）各自报道，细节一致。判词全文未取得，本条依据两家报道整理。",
+  "srcs": [
+   {
+    "l": "Apex Court dismisses Bersatu's bid to appeal Speaker's decision on Sabah MP seats",
+    "u": "https://www.thestar.com.my/news/nation/2026/01/09/apex-court-dismisses-bersatu039s-bid-to-appeal-speaker039s-decision-on-sabah-mp-seats"
+   },
+   {
+    "l": "End of legal route for Bersatu over Sabah MPs case",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/01/09/end-of-legal-route-for-bersatu-over-sabah-mps-case"
+   }
+  ]
+ },
+ {
+  "date": "2026-02-10",
+  "label": "2026年2月10日",
+  "title": "内政部长在下议院表示，海外出生子女自动公民权修宪预计2026年6月1日生效",
+  "topic": "rights",
+  "w": 2,
+  "who": "内政部",
+  "why": "2024年通过的联邦宪法修正案，让马来西亚籍母亲在海外所生子女可依法自动取得公民权，但修正案通过后一直未订定生效日期。2026年2月10日，内政部长赛夫丁纳苏迪安在下议院表示，政府预计在2026年6月1日实施，并称此举符合该法令第1(2)条；他说明政府正在完成公民权规则的修订与呈请元首御准等最后程序。到了6月8日，赛夫丁在峇株巴辖对媒体表示，部门层面的准备已全部完成，包括海外representatives与所需表格，政府仍在等待生效前的最后程序，但未公布确定日期。也就是说，2月在国会给出的6月1日时点，至6月上旬时仍未落实。倡议团体Family Frontiers于1月16日发表声明，欢迎修正案将实施，但指出修正案不具追溯力，已满21岁者不适用，要求设立多方利益相关者公民权工作组，并为成年申请者提供明确的归化途径。",
+  "hist": [
+   {
+    "d": "2026-01",
+    "t": "Family Frontiers表示欢迎，同时要求处理「超龄」成年子女问题"
+   },
+   {
+    "d": "2026-02",
+    "t": "内政部长在下议院说明预计6月1日生效"
+   },
+   {
+    "d": "2026-06",
+    "t": "内政部长表示准备完成、仍待最后程序，未公布确定日期"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "内政部长赛夫丁纳苏迪安",
+    "tx": "政府预计在2026年6月1日可以实施，符合该法令第1(2)条的规定；部门层面的准备工作已全部完成，包括海外单位的准备与所需表格。",
+    "sr": "Malay Mail / The Star",
+    "url": "https://www.malaymail.com/news/malaysia/2026/02/10/citizenship-law-amendment-set-to-take-effect-june-1/208659"
+   },
+   {
+    "side": "against",
+    "who": "倡议团体Family Frontiers",
+    "tx": "修正案不具追溯力，已届21岁者被排除在外；这些人现有的证件一旦到期，将面临被迫离开自己唯一视为家的国家的处境。团体要求设立多方利益相关者公民权工作组，并为成年申请者提供明确、确定的归化途径。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/01/16/family-frontiers-hails-citizenship-amendment-but-urges-solution-for-aged-out-adult-children/205601"
+   }
+  ],
+  "impact": [
+   {
+    "k": "国会宣布的预定生效日",
+    "v": "2026年6月1日",
+    "s": "Malay Mail"
+   }
+  ],
+  "note": "2月10日下议院的这项说法，我只找到并核实了Malay Mail一家报道（parlimen.gov.my数码议事录当日页面的口头提问清单中未见相关提问，可能属部长发言或书面回复，未能进一步核对）。6月8日的后续说法出自The Star，属部长在峇株巴辖对媒体的谈话，非国会问答，已在hist中标明。",
+  "srcs": [
+   {
+    "l": "Citizenship law amendment set to take effect June 1",
+    "u": "https://www.malaymail.com/news/malaysia/2026/02/10/citizenship-law-amendment-set-to-take-effect-june-1/208659"
+   },
+   {
+    "l": "Saifuddin: Govt close to fixing start date for automatic citizenship to children born overseas to M'sian mums",
+    "u": "https://www.thestar.com.my/news/nation/2026/06/09/saifuddin-govt-close-to-fixing-start-date-for-automatic-citizenship-to-children-born-overseas-to-m039sian-mums"
+   },
+   {
+    "l": "Family Frontiers hails citizenship amendment but urges solution for 'aged-out' adult children",
+    "u": "https://www.malaymail.com/news/malaysia/2026/01/16/family-frontiers-hails-citizenship-amendment-but-urges-solution-for-aged-out-adult-children/205601"
+   }
+  ]
+ },
+ {
+  "date": "2026-02-11",
+  "label": "2026年2月11日",
+  "title": "国会下议院部长问答时间：安华就BUDI95补贴节省额答复武吉免登议员，在野议员追问生活成本为何未降",
+  "topic": "subsidy",
+  "w": 2,
+  "who": "安华政府（团结政府）／首相兼财政部长安华",
+  "why": "行动党武吉免登区国会议员方贵伦提问，要求政府说明BUDI MADANI（BUDI95）在2025年全年达致的补贴节省总额、2026年的节省预测，以及这些节省如何用于降低民众生活成本、加强对B40与M40群体的针对性援助。安华在部长问答时间答复，说明RON95定向补贴的预计节省额，并强调推行定向补贴时的首要考量是不干扰民众加油的日常体验。答复后遭在野党追问：哲兰区议员阿都干尼阿末质疑政府是否应重新检讨BUDI95、只聚焦真正贫穷群体，并质问既然补贴省下钱，为何生活成本依然高企；波各先那区议员阿末沙益则质疑定向补贴是否透过涨价把负担转嫁给民众，并追问政府如何处理卡特尔与粮食供应垄断。安华回应指，若按收入门槛（RM15,000至RM25,000水平）进一步收窄补贴，受影响者仅约2%，节省有限却会增加行政负担，因此政府选择不采纳。",
+  "hist": [
+   {
+    "d": "2025-09",
+    "t": "BUDI95定向补贴机制推出，RON95补贴价定为每公升RM1.99"
+   },
+   {
+    "d": "2026-02",
+    "t": "下议院部长问答时间就BUDI95节省额与生活成本关系交锋"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相兼财政部长安华",
+    "tx": "BUDI95定向补贴预计在2026年带来节省；推行定向补贴的首要考量是确保民众加油体验不受干扰。若再按收入门槛收窄补贴，受影响者仅约2%，节省有限而行政负担大，因此政府选择不采纳。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/02/11/govt-expects-rm25b-savings-from-budi95-fuel-subsidies-this-year-says-anwar/208831"
+   },
+   {
+    "side": "against",
+    "who": "哲兰区国会议员阿都干尼阿末",
+    "tx": "质问政府是否打算重新检讨BUDI95的执行方式、只聚焦真正符合资格的群体，并追问在补贴已节省开支的情况下，生活成本为何仍然高企。",
+    "sr": "国会议事录（Hansard Digital）",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-11"
+   }
+  ],
+  "impact": [
+   {
+    "k": "BUDI95日均交易量",
+    "v": "约310万宗／日（约9,600万宗／月）",
+    "s": "Malay Mail"
+   }
+  ],
+  "note": "补贴节省数额在两个来源间不一致：Malay Mail标题与内文均写作「RM2.5 billion」（至少25亿令吉），而国会Hansard Digital页面上该句呈现为「dijangka menjimatkan RM25 bilion」（250亿令吉）。两者相差十倍，我无法在本次核查中确认何者为誊录误差，因此不将此数字放入impact，仅在claims中按Malay Mail口径转述并在此标注冲突。",
+  "srcs": [
+   {
+    "l": "Dewan Rakyat Hansard, 11 Februari 2026",
+    "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-11"
+   },
+   {
+    "l": "Govt expects RM2.5b savings from BUDI95 fuel subsidies this year, says Anwar",
+    "u": "https://www.malaymail.com/news/malaysia/2026/02/11/govt-expects-rm25b-savings-from-budi95-fuel-subsidies-this-year-says-anwar/208831"
+   }
+  ]
+ },
+ {
+  "date": "2026-02-12",
+  "label": "2026年2月12日",
+  "title": "下议院质询BUDI95机制可否复制到食油与糖，第二财长答KPDN正研究以MyKad执行食油补贴",
+  "topic": "subsidy",
+  "w": 1,
+  "who": "财政部／第二财政部长阿米尔韩沙",
+  "why": "希盟迪拜（Tebrau）区国会议员Jimmy Puah Wee Tse在下议院口头提问的补充环节，询问政府是否有计划把BUDI95补贴调整机制的做法复制到食油、糖等其他物品上。第二财政部长阿米尔韩沙答复指，政府正透过国内贸易及生活费部（KPDN）研究把MyKad用于食油价格稳定机制（COSS）。同日国会亦被告知，截至2026年2月11日已有超过1,460万名马来西亚人受惠于BUDI95补贴价RON95，系统日均处理约310万宗交易而未出现中断。这条问答把「以MyKad做身份核实的定向补贴」从燃油延伸到民生必需品的政策方向摆上台面。",
+  "hist": [
+   {
+    "d": "2026-02",
+    "t": "国会问答提出把BUDI95机制延伸至食油、糖"
+   },
+   {
+    "d": "2026-07",
+    "t": "公账会报告正式建议加速以eCOSS推行食油定向补贴"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "第二财政部长阿米尔韩沙",
+    "tx": "政府正透过国内贸易及生活费部研究把MyKad用于食油价格稳定机制（COSS）；BUDI95以MyKad为基础的系统已证明有效且易于使用。",
+    "sr": "国会议事录（Hansard Digital）",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-12"
+   }
+  ],
+  "impact": [
+   {
+    "k": "BUDI95受惠人数（截至2026年2月11日）",
+    "v": "超过1,460万人",
+    "s": "The Star"
+   },
+   {
+    "k": "系统日均交易量",
+    "v": "约310万宗",
+    "s": "The Star"
+   }
+  ],
+  "note": "本条只有政府方说法，未见在野方对同一问题的反对论述，故claims仅录for一侧。",
+  "srcs": [
+   {
+    "l": "Dewan Rakyat Hansard, 12 Februari 2026",
+    "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-12"
+   },
+   {
+    "l": "More than 14.6 million Malaysians benefitted from Budi95 targeted fuel subsidy as at Feb 11, Dewan Rakyat told",
+    "u": "https://www.thestar.com.my/news/nation/2026/02/12/more-than-146-million-malaysians-benefitted-from-budi95-targeted-fuel-subsidy-as-at-feb-11-dewan-rakyat-told"
+   }
+  ]
+ },
+ {
+  "date": "2026-02-23",
+  "label": "2026年2月23日",
+  "title": "下议院议长拒绝武吉牛汝莪议员要求辩论反贪会首席专员持股课题的动议，理由是政府已成立特别委员会调查",
+  "topic": "graft",
+  "w": 1,
+  "who": "下议院议长／首相署（特别委员会）",
+  "why": "希盟武吉牛汝莪国会议员端卡巴星于2026年2月12日向下议院议长办公室提呈动议，要求国会辩论反贪会首席专员在两家上市公司的持股课题。议长佐哈里于2月23日宣布拒绝该动议，理由是政府已就此事成立由总检察长领导的特别调查委员会，宜让委员会不受干扰地完成调查；他并表示调查有结果后或会允许辩论。端卡巴星回应说，即使特委会正在调查，该动议仍应被接纳并辩论，因为事涉反贪会首席专员，属须紧急处理的重大课题。本条仅记录动议的提呈与议长的裁决，不涉及任何持股课题的事实认定。",
+  "hist": [
+   {
+    "d": "2026-02",
+    "t": "2月12日动议提呈；2月23日议长裁决拒绝"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "下议院议长佐哈里",
+    "tx": "由于该委员会已成立且调查正在进行，因此我不得不拒绝这项动议；不过，待有结果后，我或会允许辩论。",
+    "sr": "Sinar Harian",
+    "url": "https://www.sinarharian.com.my/article/769116/berita/nasional/johari-tolak-permohonan-usul-ramkarpal-bahas-isu-saham-azam-baki"
+   },
+   {
+    "side": "against",
+    "who": "希盟武吉牛汝莪国会议员端卡巴星",
+    "tx": "这是备受关注、须紧急讨论的课题，因为事涉反贪会首席专员；即使特别委员会正在调查，动议仍应被接纳并辩论。",
+    "sr": "Malaysiakini",
+    "url": "https://www.malaysiakini.com/news/768695"
+   }
+  ],
+  "impact": [],
+  "note": "两份来源均未载明动议所援引的议事常规条文编号。本条不涉及持股课题本身的任何事实认定；相关调查当时由总检察长领导的特别委员会进行。",
+  "srcs": [
+   {
+    "l": "Speaker denies DAP MP's motion to discuss Azam's shares scandal",
+    "u": "https://www.malaysiakini.com/news/768695"
+   },
+   {
+    "l": "Johari tolak permohonan usul Ramkarpal bahas isu saham Azam Baki",
+    "u": "https://www.sinarharian.com.my/article/769116/berita/nasional/johari-tolak-permohonan-usul-ramkarpal-bahas-isu-saham-azam-baki"
+   }
+  ]
+ },
+ {
+  "date": "2026-03-02",
+  "label": "2026年3月2日",
+  "title": "斯当邦国会议员张健仁在下议院口头质询2025与2026年税收，财政部副部长刘镇东报出各项税目预估数字",
+  "topic": "tax",
+  "w": 1,
+  "who": "财政部",
+  "why": "希盟斯当邦国会议员张健仁在下议院提出口头质询，要求政府交代2025年个人所得税、公司所得税以及销售与服务税的实际征收额，及2026年的预估。财政部副部长刘镇东答复：2025年修订预估为个人所得税404.86亿令吉、公司所得税970.3亿令吉、销售税256亿令吉、服务税303亿令吉；2026年个人所得税预计增长9.4%至490.7亿令吉，公司所得税增长6.5%至1033.5亿令吉，销售税266亿令吉、服务税330亿令吉。刘镇东把个人所得税的增幅归因于薪资增长较稳定、失业率下降，以及公共服务薪酬制度（SSPA）下的公务员薪酬调整。这场答问把扩大后的SST在完整年度的预期规模首次以分项数字摆上国会记录。",
+  "hist": [
+   {
+    "d": "2026-03",
+    "t": "下议院口头质询与财政部副部长答复"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "财政部副部长刘镇东",
+    "tx": "2026年个人所得税收入预计增长9.4%，部分由较稳定的薪资增长带动；失业率下降与SSPA下的公务员薪酬调整也支撑了增幅。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/03/02/finance-ministry-sees-individual-tax-revenue-climbing-94pc-in-2026-on-wage-growth-civil-service-salaries-adjustments/210987"
+   },
+   {
+    "side": "against",
+    "who": "希盟斯当邦国会议员张健仁",
+    "tx": "质询要求政府具体交代2025年与2026年个人所得税、公司所得税及销售与服务税的征收与预估数额。",
+    "sr": "DagangNews",
+    "url": "https://www.dagangnews.com/article/terkini/kutipan-cukai-pendapatan-2026-diunjur-cecah-rm1524-bilion-berbanding-rm1418-bilion-pada-2025-dewan-rakyat-diberitahu-65659"
+   }
+  ],
+  "impact": [
+   {
+    "k": "2026年个人所得税预估",
+    "v": "490.7亿令吉（+9.4%）",
+    "s": "Malay Mail"
+   },
+   {
+    "k": "2026年公司所得税预估",
+    "v": "1033.5亿令吉（+6.5%）",
+    "s": "Malay Mail"
+   },
+   {
+    "k": "2026年销售税预估",
+    "v": "266亿令吉",
+    "s": "DagangNews"
+   },
+   {
+    "k": "2026年服务税预估",
+    "v": "330亿令吉",
+    "s": "DagangNews"
+   }
+  ],
+  "note": "质询方与答复方为同一场答问，双方立场并非对立，仅为提问与答复关系。",
+  "srcs": [
+   {
+    "l": "Finance Ministry sees individual tax revenue climbing 9.4pc in 2026",
+    "u": "https://www.malaymail.com/news/malaysia/2026/03/02/finance-ministry-sees-individual-tax-revenue-climbing-94pc-in-2026-on-wage-growth-civil-service-salaries-adjustments/210987"
+   },
+   {
+    "l": "Kutipan cukai pendapatan 2026 diunjur cecah RM152.4 bilion, Dewan Rakyat diberitahu",
+    "u": "https://www.dagangnews.com/article/terkini/kutipan-cukai-pendapatan-2026-diunjur-cecah-rm1524-bilion-berbanding-rm1418-bilion-pada-2025-dewan-rakyat-diberitahu-65659"
+   }
+  ]
+ },
+ {
+  "date": "2026-03-02",
+  "label": "2026年3月2日",
+  "title": "国阵砂政党联盟成邦江议员书面质询电子发票成效与豁免门槛，财政部答称尚未做实施后评估",
+  "topic": "tax",
+  "w": 2,
+  "who": "财政部／内陆税收局",
+  "why": "砂拉越政党联盟（GPS）成邦江国会议员Richard Rapu @ Aman anak Begri提出书面质询，要求政府说明电子发票对税收效率与财政治理的最新影响预测，以及2026年起把豁免门槛提高至100万令吉的财政理据。财政部书面答复列出：自2024年8月1日起已有204,928家商号开出超过10亿张电子发票；在首两个阶段的数据中，有17,188名此前未合规的纳税人主动申报，涉及往年未呈报收入14亿令吉，为政府带来2.9亿令吉额外税收。但财政部同时表明，电子发票的实施后评估研究尚未进行，因为该措施仍处于早期与过渡阶段，成效须待所有相关商家全面落实后才能判定。这等于官方承认：提高豁免门槛的决定，当时并没有实施后评估作为依据。",
+  "hist": [
+   {
+    "d": "2026-01",
+    "t": "电子发票豁免门槛由50万令吉调高至100万令吉生效"
+   },
+   {
+    "d": "2026-03",
+    "t": "财政部书面答复：尚未进行实施后评估"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "财政部",
+    "tx": "电子发票的实施后评估尚未进行，因该措施仍处早期与过渡阶段，成效须待所有相关商家全面落实后方能判定。",
+    "sr": "Free Malaysia Today",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/03/03/over-1-billion-e-invoices-issued-so-far"
+   },
+   {
+    "side": "against",
+    "who": "GPS成邦江国会议员Richard Rapu",
+    "tx": "质询要求政府交代电子发票对税收效率与财政治理的最新影响预测，以及把豁免门槛提高至100万令吉的财政理据。",
+    "sr": "Bernama",
+    "url": "https://bernama.com/en/news.php?id=2529695"
+   }
+  ],
+  "impact": [
+   {
+    "k": "已开具电子发票的商号",
+    "v": "204,928家",
+    "s": "Free Malaysia Today"
+   },
+   {
+    "k": "累计电子发票张数",
+    "v": "超过10亿张（自2024年8月1日起）",
+    "s": "Free Malaysia Today"
+   },
+   {
+    "k": "主动补报的纳税人",
+    "v": "17,188名",
+    "s": "Free Malaysia Today"
+   },
+   {
+    "k": "补报的往年未申报收入",
+    "v": "14亿令吉",
+    "s": "Bernama"
+   },
+   {
+    "k": "由此产生的额外税收",
+    "v": "2.9亿令吉",
+    "s": "Bernama"
+   }
+  ],
+  "note": "伯纳马于3月2日发稿、FMT于3月3日发稿报道同一份书面答复；此处采用较早的报道日期。质询与答复为同一场问答，非对立双方。",
+  "srcs": [
+   {
+    "l": "More Than One Billion E-invoices Issued To Date - MoF",
+    "u": "https://bernama.com/en/news.php?id=2529695"
+   },
+   {
+    "l": "Over 1 billion e-invoices issued so far",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/03/03/over-1-billion-e-invoices-issued-so-far"
+   }
+  ]
+ },
+ {
+  "date": "2026-03-02",
+  "label": "2026年3月2日",
+  "title": "上议员质询高层公务员贪腐情况，内政部答复：2021年至2026年1月反贪会录得36宗高级管理组公务员逮捕",
+  "topic": "graft",
+  "w": 1,
+  "who": "内政部（KDN）／反贪会（SPRM）",
+  "why": "上议员Nelson W Angang在上议院提出口头质询，要求政府交代涉及高层公务员的贪腐情况、被扣押资产数额，以及确保相关机构治理的措施。内政部副部长三苏安努亚答复：2021年至2026年1月31日期间，反贪会录得36宗涉及高级管理组（Kumpulan Pengurusan Tertinggi）公务员的逮捕，其中20宗被提控，涉及贿款22,004,505令吉，8宗已定罪。内政部并列出正在推行的措施，包括对贪腐与失当行为采取零容忍政策、严格纪律监督，以及扩大使用随身摄录机等技术以防止执法人员滥权，另有廉正与治理管理系统（SPINE）的落实。本条仅记录官方在国会给出的统计与措施陈述，不涉及任何个案的事实认定。",
+  "hist": [
+   {
+    "d": "2026-03",
+    "t": "上议院口头质询与内政部答复"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "内政部",
+    "tx": "内政部已经并正在推行多项重要措施，包括对贪腐与失当行为落实零容忍政策；只要证据与依据充分，将不论官阶或职位对相关官员采取严厉行动。",
+    "sr": "RTM",
+    "url": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/sprm-36-tangkapan-direkod-babit-penjawat-awam-kumpulan-pengurusan-tertinggi/"
+   },
+   {
+    "side": "against",
+    "who": "上议员Nelson W Angang",
+    "tx": "质询要求政府交代涉及高层公务员的现行贪腐统计、被扣押资产数额，以及确保相关机构治理的规划。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/03/02/home-ministry-unveils-tough-guardrails-as-macc-nets-36-civil-servants-rm22m-in-bribes-exposed/211012"
+   }
+  ],
+  "impact": [
+   {
+    "k": "高级管理组公务员逮捕",
+    "v": "36宗（2021年至2026年1月31日）",
+    "s": "Malay Mail"
+   },
+   {
+    "k": "提控",
+    "v": "20宗",
+    "s": "RTM"
+   },
+   {
+    "k": "涉及贿款",
+    "v": "22,004,505令吉",
+    "s": "RTM"
+   },
+   {
+    "k": "定罪",
+    "v": "8宗",
+    "s": "RTM"
+   }
+  ],
+  "note": "《马来邮报》记为上议院口头问答；RTM报道同一场答问并载明答复者为内政部副部长三苏安努亚。",
+  "srcs": [
+   {
+    "l": "Home Ministry unveils tough guardrails as MACC nets 36 civil servants",
+    "u": "https://www.malaymail.com/news/malaysia/2026/03/02/home-ministry-unveils-tough-guardrails-as-macc-nets-36-civil-servants-rm22m-in-bribes-exposed/211012"
+   },
+   {
+    "l": "SPRM: 36 tangkapan direkod babit penjawat awam kumpulan pengurusan tertinggi",
+    "u": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/sprm-36-tangkapan-direkod-babit-penjawat-awam-kumpulan-pengurusan-tertinggi/"
+   }
+  ]
+ },
+ {
+  "date": "2026-03-02",
+  "label": "2026年3月2日",
+  "title": "国会公账会宣布就总稽查司报告1/2026三项课题启动听证：国大治理、研发商业化计划与Pelaburan Hartanah",
+  "topic": "graft",
+  "w": 2,
+  "who": "国会公账会（PAC）",
+  "why": "国会公账会主席马斯艾米雅蒂宣布，公账会将就总稽查司报告（LKAN）1/2026所提出的三项课题启动听证程序：一、马来西亚国民大学（UKM）的管理与治理，报告指其涉及违反大学章程、无授权的收费活动、公务员利益冲突，以及建筑提升与设施维护项目的管理失误；二、研究、发展、商业化与创新（R&D&C&I）计划；三、Pelaburan Hartanah Berhad（PHB）的公司管理与实体项目治理。主席表示公账会一贯认真看待制衡的职责，以确保纳税人的每一分钱都以最高的廉正、透明与效率标准管理。听证日期与传召证人名单当时尚未公布。",
+  "hist": [
+   {
+    "d": "2026-03",
+    "t": "公账会宣布就LKAN 1/2026三项课题启动听证"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "国会公账会主席马斯艾米雅蒂",
+    "tx": "公账会一贯认真看待制衡的职责，以确保纳税人的每一分钱都以最高的廉正、透明与效率标准管理。",
+    "sr": "The Star",
+    "url": "https://www.thestar.com.my/news/nation/2026/03/02/pac-to-probe-financial-irregularities-governance-at-hukm-says-chairman"
+   }
+  ],
+  "impact": [],
+  "note": "本条只有一方陈述（公账会），被点名机构当时未见公开回应，故无against方主张。听证日期与证人名单在两份来源发稿时均未公布；本条不含任何未经来源证实的金额数字。",
+  "srcs": [
+   {
+    "l": "PAC to probe financial irregularities, governance at UKM, says chairman",
+    "u": "https://www.thestar.com.my/news/nation/2026/03/02/pac-to-probe-financial-irregularities-governance-at-hukm-says-chairman"
+   },
+   {
+    "l": "LKAN 1/2026: PAC Akan Mulakan Prosiding Ke Atas UKM, Dua Lagi Isu",
+    "u": "https://www.bernama.com/misc/rss/news.php?id=2529467"
+   }
+  ]
+ },
+ {
+  "date": "2026-03-03",
+  "label": "2026年3月3日",
+  "title": "下议院首相问答时间：巴生议员质询反贪会追回资产数额，追加提问转向皇委会诉求，首相称设皇委会「言之过早」",
+  "topic": "graft",
+  "w": 2,
+  "who": "首相署／总检察署／反贪会",
+  "why": "巴生国会议员加纳巴迪劳在下议院首相问答时间提问，要求政府交代反贪会在贪污案件中追回的款项与资产数额及历年比较。首相安华在答复中列出资产数字，并提到2023年至2025年期间已达155亿令吉。随后的追加提问转向一家国际媒体所报道的「企业黑手党」指控与执法机构滥权问题，提问者要求说明皇家调查委员会（RCI）的范围、法律权限与时间表。首相答称，设立皇委会的建议「言之过早」，因为由总检察长领导的调查将在数日内完成，须先取得报告；若现有调查被发现不足或未完整涵盖所提出的质疑范围，内阁的决定是将其延续。马章国会议员在追加提问中质疑政府在此事上的立场与透明度，并要求相关官员休假。首相强调不应预设立场、须遵循正当程序。相关机构与其首长否认有不当行为；该首长此前公开表示准备提供调查所需的任何文件或口供。本条只记录质询、答复与程序阶段，不对任何指控作事实认定。",
+  "hist": [
+   {
+    "d": "2026-02",
+    "t": "内阁指示成立由总检察长领导的特别调查委员会"
+   },
+   {
+    "d": "2026-03",
+    "t": "下议院首相问答时间：首相称皇委会「言之过早」"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相安华",
+    "tx": "皇家调查委员会的建议言之过早；由总检察长领导的调查本周内即会完成，须先取得报告再决定是否需要进一步审视。",
+    "sr": "The Star",
+    "url": "https://www.thestar.com.my/news/nation/2026/03/04/corporate-mafia-rci-possible"
+   },
+   {
+    "side": "for",
+    "who": "反贪会首席专员（受质疑一方）",
+    "tx": "他们可以履行其职责，我准备提供他们所需要的任何文件或口供。（《马来邮报》另报道，该首长与反贪会均否认有不当行为。）",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/02/15/macc-chief-refuses-leave-of-absence-during-investigation-cites-others-charged-but-still-on-duty/209291"
+   },
+   {
+    "side": "against",
+    "who": "马章国会议员旺阿末法伊沙",
+    "tx": "质疑政府在此事上的立场与调查透明度，并要求相关官员在调查期间休假。",
+    "sr": "The Star",
+    "url": "https://www.thestar.com.my/news/nation/2026/03/03/issues-involving-azam-baki-never-closed-probe-still-ongoing-anwar-tells-parliament"
+   }
+  ],
+  "impact": [
+   {
+    "k": "反贪会追回资产（2023至2025年）",
+    "v": "155亿令吉",
+    "s": "首相署逐字记录"
+   }
+  ],
+  "note": "首相署（pmo.gov.my）刊出的国会逐字记录为一级来源，载有质询者姓名（巴生国会议员加纳巴迪劳）与追加提问内容。为遵守报道谨慎原则，本条不复述任何具体指控的内容，只记录质询、官方答复与程序阶段；相关调查在本时间窗内仍在进行。",
+  "srcs": [
+   {
+    "l": "Teks verbatim YAB Perdana Menteri, Waktu Pertanyaan-Pertanyaan Perdana Menteri, 3 Mac 2026",
+    "u": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-perdana-menteri-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-parlimen-kelima-belas-sesi-3-mac-2026-soalan-satu-dan-soalan-tambahan/"
+   },
+   {
+    "l": "'Corporate mafia' RCI possible",
+    "u": "https://www.thestar.com.my/news/nation/2026/03/04/corporate-mafia-rci-possible"
+   },
+   {
+    "l": "Issues involving Azam Baki never closed, probe still ongoing, Anwar tells Parliament",
+    "u": "https://www.thestar.com.my/news/nation/2026/03/03/issues-involving-azam-baki-never-closed-probe-still-ongoing-anwar-tells-parliament"
+   }
+  ]
+ },
+ {
+  "date": "2026-03-06",
+  "label": "2026年3月6日",
+  "title": "上议员黄兆麟书面质询未注册却征收SST的商家，财政部指2024年至2026年1月共1,325家、缴回7,670万令吉",
+  "topic": "tax",
+  "w": 1,
+  "who": "财政部／关税局（JKDM）",
+  "why": "上议员Roderick Wong Siew Lead（黄兆麟）在上议院提出书面质询，要求政府交代有多少商家未注册SST却向消费者征收该税、以及被追缴的情况。财政部书面答复：根据关税局记录，2024年至2026年1月期间共有1,325家商号未注册SST却征收该税，全部已向关税局缴回合计7,670万令吉。财政部说明，凡未注册却征收销售税或服务税的商家，必须依法定条文把款项缴回关税局；经审计或调查发现的个案，须依审计结束后所发出的缴款通知书缴回，关税局也在提交相关财务文件的前提下提供分期缴付安排。这条答复给出了扩大SST后合规执法规模的第一个公开量化基准。",
+  "hist": [
+   {
+    "d": "2026-03",
+    "t": "上议院书面答复公布1,325家与7,670万令吉数字"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "财政部",
+    "tx": "凡未注册却已征收销售税或服务税的商家，必须依法定条文把有关款项缴回关税局；相关个案共缴回7,670万令吉。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/03/06/mof-1325-traders-collected-sst-from-2024-to-jan-2026-without-registering-rm767m-repaid/211513"
+   },
+   {
+    "side": "against",
+    "who": "上议员Roderick Wong Siew Lead",
+    "tx": "质询要求交代未注册SST却征收该税的商家数目，以及被要求缴回的情况。",
+    "sr": "BernamaBiz",
+    "url": "https://bernamabiz.com/news-bm.php?id=2530889"
+   }
+  ],
+  "impact": [
+   {
+    "k": "未注册却征收SST的商家",
+    "v": "1,325家（2024年至2026年1月）",
+    "s": "Malay Mail"
+   },
+   {
+    "k": "缴回关税局金额",
+    "v": "7,670万令吉",
+    "s": "Malay Mail"
+   }
+  ],
+  "note": "伯纳马商业版发稿标示3月5日、《马来邮报》标示3月6日（星期五）；此处采用日期标示较完整的《马来邮报》。BernamaBiz为马来文页面，本条引用的支持句为抓取工具所作的英译，核对时请以马来文原句对照语义。",
+  "srcs": [
+   {
+    "l": "MoF: 1,325 traders collected SST from 2024 to Jan 2026 without registering, RM76.7m repaid",
+    "u": "https://www.malaymail.com/news/malaysia/2026/03/06/mof-1325-traders-collected-sst-from-2024-to-jan-2026-without-registering-rm767m-repaid/211513"
+   },
+   {
+    "l": "1,325 Peniaga Tidak Berdaftar SST Sepanjang 2024 Hingga Januari 2026 - MOF",
+    "u": "https://bernamabiz.com/news-bm.php?id=2530889"
+   }
+  ]
+ },
+ {
+  "date": "2026-06-25",
+  "label": "2026年6月25日",
+  "title": "财政部书面答复国盟比鲁兰议员：截至5月底BUDI95补贴支出112亿令吉，为去年同期三倍",
+  "topic": "subsidy",
+  "w": 1,
+  "who": "财政部",
+  "why": "国盟比鲁兰（Beluran）区国会议员罗纳德吉安迪就BUDI95的受惠人数、补贴发放额、批准率，以及政府如何确保没有符合资格的群体被遗漏提出质询。财政部以书面答复下议院：截至2026年5月31日，BUDI95已惠及1,400万名马来西亚人，涉及111亿公升燃油、销售总值221亿令吉，其中112亿令吉由政府承担为补贴；受西亚危机影响，该项支出较2025年同期增加约两倍（即达三倍水平）。财政部同时说明BUDI95无须申请，资格条件为持有大马卡且拥有相关等级有效驾照的公民，并已设立资格与交易查核入口网站及客服中心。",
+  "hist": [
+   {
+    "d": "2026-04",
+    "t": "BUDI95月度配额由300公升调低至200公升"
+   },
+   {
+    "d": "2026-06",
+    "t": "财政部书面答复披露截至5月底补贴支出112亿令吉"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "财政部",
+    "tx": "截至2026年5月31日BUDI95惠及1,400万人、涉及111亿公升燃油，政府承担补贴112亿令吉；政府将持续监督BUDI95的执行，并不时作出适当改善，以确保援助公平、有效地发放给真正有需要者。",
+    "sr": "FMT",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/06/25/budi95-subsidy-cost-rm11-2bil-as-of-end-may-says-ministry"
+   },
+   {
+    "side": "against",
+    "who": "国盟比鲁兰区国会议员罗纳德吉安迪",
+    "tx": "质询BUDI95的受惠人数、补贴发放额与批准率，并要求政府说明将采取什么措施确保没有符合资格的群体被排除在外。",
+    "sr": "The Star",
+    "url": "https://www.thestar.com.my/news/nation/2026/06/25/budi-madani-subsidy-cost-rm112bil-involving-111-billion-litres-of-fuel-as-of-may-31-says-finance-ministry"
+   }
+  ],
+  "impact": [
+   {
+    "k": "BUDI95政府补贴支出（截至2026年5月31日）",
+    "v": "112亿令吉",
+    "s": "FMT／The Star"
+   },
+   {
+    "k": "燃油量",
+    "v": "111亿公升",
+    "s": "The Star"
+   },
+   {
+    "k": "销售总值",
+    "v": "221亿令吉",
+    "s": "The Star"
+   },
+   {
+    "k": "受惠人数",
+    "v": "1,400万人",
+    "s": "FMT"
+   }
+  ],
+  "note": "",
+  "srcs": [
+   {
+    "l": "BUDI95 subsidy cost RM11.2bil as of end-May, says ministry",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/06/25/budi95-subsidy-cost-rm11-2bil-as-of-end-may-says-ministry"
+   },
+   {
+    "l": "Budi Madani subsidy cost RM11.2bil involving 11.1 billion litres of fuel as of May 31, says Finance Ministry",
+    "u": "https://www.thestar.com.my/news/nation/2026/06/25/budi-madani-subsidy-cost-rm112bil-involving-111-billion-litres-of-fuel-as-of-may-31-says-finance-ministry"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-01",
+  "label": "2026年7月1日",
+  "title": "首相书面答复国盟淡马鲁议员：2026年石油产品补贴将逼近400亿令吉，为财政预算案拨款的逾两倍",
+  "topic": "subsidy",
+  "w": 2,
+  "who": "安华政府（团结政府）／首相兼财政部长安华",
+  "why": "国盟淡马鲁（Temerloh）区国会议员莎拉米雅莫哈末诺就燃油补贴开支提出书面质询。首相安华以书面答复下议院指出，若当前市场价格持续，政府2026年在石油产品补贴上的开支预计将接近400亿令吉，而2026年财政预算案原本只拨出150亿令吉，超支逾一倍。答复亦披露月度补贴支出的走势：1月至2月约每月8亿令吉，3月至4月急升至每月约50亿令吉，4月一度达75亿令吉高峰，其后随原油价格回落预计降至每月约35亿令吉。同一份答复中，政府重申RON95补贴价维持每公升RM1.99、渔民柴油维持每公升RM1.65，并将Budi Agri-Komoditi现金援助由每月200令吉调高至400令吉，惠及超过21万名农民与小园主。",
+  "hist": [
+   {
+    "d": "2025-10",
+    "t": "2026年财政预算案为燃油补贴拨款150亿令吉"
+   },
+   {
+    "d": "2026-04",
+    "t": "月度补贴开支一度冲上75亿令吉高峰"
+   },
+   {
+    "d": "2026-07",
+    "t": "书面答复披露全年补贴或逼近400亿令吉"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相兼财政部长安华（书面答复）",
+    "tx": "若当前市场价格持续，政府预计2026年将花费接近400亿令吉补贴石油产品；补贴价格维持不变，RON95每公升RM1.99。",
+    "sr": "The Star",
+    "url": "https://www.thestar.com.my/news/nation/2026/07/01/pm-fuel-subsidy-spending-to-hit-rm40bil-more-than-double-budget-2026-allocation"
+   },
+   {
+    "side": "against",
+    "who": "国盟淡马鲁区国会议员莎拉米雅莫哈末诺",
+    "tx": "以书面质询要求政府交代燃油补贴的实际开支规模。",
+    "sr": "paultan.org",
+    "url": "https://paultan.org/2026/07/01/budi95-petrol-budi-diesel-subsidy-spending-by-government-to-reach-rm40-billion-this-year-pm-anwar/"
+   }
+  ],
+  "impact": [
+   {
+    "k": "2026年石油产品补贴预计开支",
+    "v": "接近400亿令吉",
+    "s": "The Star"
+   },
+   {
+    "k": "2026年财政预算案原拨款",
+    "v": "150亿令吉",
+    "s": "The Star"
+   },
+   {
+    "k": "月度补贴开支（1–2月）",
+    "v": "约每月8亿令吉",
+    "s": "The Star"
+   },
+   {
+    "k": "月度补贴开支（3–4月）",
+    "v": "约每月50亿令吉",
+    "s": "The Star"
+   },
+   {
+    "k": "月度补贴开支高峰（4月）",
+    "v": "75亿令吉",
+    "s": "paultan.org"
+   }
+  ],
+  "note": "「against」一侧仅为提问方的质询行为，报道未记录该议员对答复内容的反驳论述。",
+  "srcs": [
+   {
+    "l": "PM: Fuel subsidy spending to hit RM40bil, more than double Budget 2026 allocation",
+    "u": "https://www.thestar.com.my/news/nation/2026/07/01/pm-fuel-subsidy-spending-to-hit-rm40bil-more-than-double-budget-2026-allocation"
+   },
+   {
+    "l": "Budi95 petrol, Budi Diesel subsidy spending by Malaysia to reach RM40 billion this year: PM Anwar",
+    "u": "https://paultan.org/2026/07/01/budi95-petrol-budi-diesel-subsidy-spending-by-government-to-reach-rm40-billion-this-year-pm-anwar/"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-07",
+  "label": "2026年7月7日",
+  "title": "首相在下议院首相问答时间宣布电子发票特别自愿申报计划，至2027年底更正申报不受罚",
+  "topic": "tax",
+  "w": 3,
+  "who": "财政部／内陆税收局（HASiL）",
+  "why": "希盟怡保东区国会议员李存孝在下议院首相问答时间提问，要求政府说明在全球经济压力下如何扶助企业。兼任财政部长的首相安华在答复中宣布推出「电子发票特别自愿申报计划」（PKPS e-Invois），有效期至2027年12月31日：在此期间纳税人自愿提交的更新、复核与更正，不会被内陆税收局施加罚则。他形容这在所得税事务上是不寻常的决定。同日，内陆税收局发出编号HASiL/2026/07/07–36的媒体文告，确认该计划配合首相当日在下议院的宣布，适用于三类纳税人：已依时限落实电子发票但未就特定交易完整呈交者、已呈交但内容有误或不符规格者、以及自强制实施日起任何期间未呈交者。政府同时同意加速税务优惠，允许为电子发票所购置的资讯科技设备与软件开发／改装成本在一年内全额申报资本减免。此前，电子发票豁免门槛已在2026年1月1日由年营业额50万令吉调高至100万令吉。",
+  "hist": [
+   {
+    "d": "2026-01",
+    "t": "电子发票豁免门槛调高至100万令吉生效"
+   },
+   {
+    "d": "2026-07",
+    "t": "首相在下议院宣布PKPS，内陆税收局同日发文告"
+   },
+   {
+    "d": "2027-12",
+    "t": "PKPS计划期限届满"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相兼财政部长安华",
+    "tx": "在计划期间，任何自愿提交的更新、复核与更正，都不会被内陆税收局施加罚则。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/07/07/no-penalties-for-voluntary-e-invoice-corrections-until-end-2027-says-pm-anwar/226661"
+   },
+   {
+    "side": "for",
+    "who": "内陆税收局（HASiL）",
+    "tx": "配合首相兼财政部长当日在下议院会议上的宣布，PKPS电子发票计划生效至2027年12月31日，向三类纳税人开放。",
+    "sr": "LHDN媒体文告 HASiL/2026/07/07–36",
+    "url": "https://www.hasil.gov.my/wp-content/uploads/20260707_kenyataan-media-hasil-7-julai-2026-program-khas-pengakuan-sukarela-e-invois.pdf"
+   },
+   {
+    "side": "against",
+    "who": "希盟怡保东区国会议员李存孝",
+    "tx": "提问要求政府说明在全球挑战下对企业的扶助措施。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/07/07/no-penalties-for-voluntary-e-invoice-corrections-until-end-2027-says-pm-anwar/226661"
+   }
+  ],
+  "impact": [
+   {
+    "k": "PKPS计划期限",
+    "v": "至2027年12月31日",
+    "s": "LHDN媒体文告"
+   },
+   {
+    "k": "资本减免申报期",
+    "v": "缩短至1年（ICT设备与软件成本）",
+    "s": "LHDN媒体文告"
+   }
+  ],
+  "note": "内陆税收局文告为一级来源，明文写明「Selaras dengan pengumuman oleh YAB Perdana Menteri merangkap Menteri Kewangan dalam Persidangan Dewan Rakyat pada hari ini」，可直接印证「在下议院宣布」这一点。质询方（李存孝）的提问内容仅见于《马来邮报》转述，未取得逐字原文。",
+  "srcs": [
+   {
+    "l": "No penalties for voluntary e-Invoice corrections until end-2027, says PM Anwar",
+    "u": "https://www.malaymail.com/news/malaysia/2026/07/07/no-penalties-for-voluntary-e-invoice-corrections-until-end-2027-says-pm-anwar/226661"
+   },
+   {
+    "l": "Kenyataan Media HASiL: Program Khas Pengakuan Sukarela (PKPS) e-Invois",
+    "u": "https://www.hasil.gov.my/wp-content/uploads/20260707_kenyataan-media-hasil-7-julai-2026-program-khas-pengakuan-sukarela-e-invois.pdf"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-07",
+  "label": "2026年7月7日",
+  "title": "首相在下议院答复新闻自由指数下跌质询，指排名下滑源于执法行动",
+  "topic": "rights",
+  "w": 2,
+  "who": "首相署／通讯部／大马媒体理事会",
+  "why": "在下议院部长问答时间，巴西马国会议员阿末法德里沙里（PN－巴西马）向首相提问，指马来西亚在2026年世界新闻自由指数的排名由第88位跌至第95位，询问政府维护媒体自由的措施；淡边国会议员依山依沙（BN－淡边）则询问允许起诉记者的法律框架。首相安华答复称，排名下跌源于对媒体机构采取的执法行动，而非审查；他举星洲日报因国旗图示错误一事为例，指该案在发出「原因函」后已和解处理，但过程中涉及警方调查、纪律处分与通讯及多媒体委员会开出的10万令吉罚款。他并指出，社交平台自行下架内容与政府干预是两回事。关于记者保护，安华表示相关投诉须先转交大马媒体理事会处理，不会因有人投诉就自动展开调查或起诉。国会数码议事录当日记录显示，该项提问列在部长问答时间第2题，由巴西马议员向首相提出；记录中亦出现通讯及多媒体法令第233条相关的讨论。",
+  "hist": [
+   {
+    "d": "2026-07",
+    "t": "下议院部长问答时间：两名议员就媒体自由与记者起诉法律框架提问，首相答复"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相安华依布拉欣",
+    "tx": "对具规模媒体机构采取行动，会立即反映在新闻自由指数上；星洲日报一案在发出原因函后已和解处理。今后相关投诉须先转交大马媒体理事会，不会自动导致调查或起诉。",
+    "sr": "FMT / Malay Mail",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/07/complaints-against-journos-must-go-to-media-council-first-pm-says"
+   },
+   {
+    "side": "against",
+    "who": "巴西马国会议员阿末法德里沙里（PN）与淡边国会议员依山依沙（BN）",
+    "tx": "质询马来西亚在2026年世界新闻自由指数由第88位跌至第95位的原因与政府的应对措施，并质询现行允许起诉记者的法律框架。",
+    "sr": "FMT / 国会数码议事录",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-07"
+   }
+  ],
+  "impact": [
+   {
+    "k": "2026年世界新闻自由指数排名",
+    "v": "第95位（前一年第88位）",
+    "s": "FMT"
+   },
+   {
+    "k": "通讯及多媒体委员会对星洲日报开出的罚款",
+    "v": "10万令吉",
+    "s": "Malay Mail"
+   }
+  ],
+  "note": "三个独立来源，其中一个为国会官方数码议事录（tier 1）。质询方与政府方说法并列，未作评断。",
+  "srcs": [
+   {
+    "l": "Complaints against journos must go to media council first, PM says",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/07/complaints-against-journos-must-go-to-media-council-first-pm-says"
+   },
+   {
+    "l": "Anwar: Malaysia's press freedom ranking fell due to enforcement, not censorship",
+    "u": "https://www.malaymail.com/news/malaysia/2026/07/07/anwar-malaysias-press-freedom-ranking-fell-due-to-enforcement-not-censorship/226670"
+   },
+   {
+    "l": "Penyata Rasmi Dewan Rakyat (Hansard Digital), 7 Julai 2026",
+    "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-07"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-08",
+  "label": "2026年7月8日",
+  "title": "法律事务部长书面答复：选委会已进入砂拉越选区重划建议的最后准备阶段",
+  "topic": "vote",
+  "w": 2,
+  "who": "选举委员会／首相署（法律及体制改革）",
+  "why": "成邦江国会议员李察拉布（GPS－成邦江）在下议院提问，要求政府保证选举委员会能在砂拉越州议会解散前完成选区重划。首相署部长（法律及体制改革）阿莎丽娜以书面答复表示，选委会目前正处于砂拉越选区重划建议的最后准备阶段，已把砂州议会通过、并于2025年8月8日生效的法律纳入考量，该法把州议席由82席增至99席。她说明选委会将在近期展示重划建议，这标志着依联邦宪法第113条第9款的重划工作正式开始；依宪法规定，选委会自正式公告刊登之日起有两年时间完成有关工作。砂拉越上一轮八年周期已于2023年8月21日届满。答复中未确认整个程序能否在砂州议会任期届满（2027年2月）前完成。此前的2月7日，GPS总秘书兼加帛国会议员南达林基对17个新州议席何时提呈表示「目前还没有任何资讯」，并称不确定新议席能否赶上下届砂州选举。",
+  "hist": [
+   {
+    "d": "2026-02",
+    "t": "GPS总秘书南达林基表示17个新州议席提呈无时间表"
+   },
+   {
+    "d": "2026-07",
+    "t": "部长书面答复指选委会进入建议最后准备阶段"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相署部长（法律及体制改革）阿莎丽娜",
+    "tx": "选委会目前正处于砂拉越选区重划建议的最后准备阶段，已纳入增加17个州议席的因素；建议展示将在近期进行，标志重划依联邦宪法第113条第9款正式开始，选委会自公告日起有两年时间完成。",
+    "sr": "FMT / Kosmo",
+    "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/08/spr-dalam-proses-akhir-sedia-syor-persempadanan-semula-sarawak-kata-azalina"
+   },
+   {
+    "side": "against",
+    "who": "GPS总秘书兼加帛国会议员南达林基",
+    "tx": "对于17个新州议席何时提呈，目前还没有任何资讯，相关程序仍在有关方面讨论中；不确定新增议席能否赶上必须在2027年2月前举行的下届砂州选举。",
+    "sr": "FMT",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/02/07/no-timeline-on-tabling-of-sarawaks-17-new-state-seats-says-nanta"
+   }
+  ],
+  "impact": [
+   {
+    "k": "砂拉越州议席",
+    "v": "由82席增至99席（增加17席）",
+    "s": "FMT / Kosmo"
+   },
+   {
+    "k": "选委会完成重划的宪定期限",
+    "v": "自正式公告刊登起2年",
+    "s": "Kosmo"
+   },
+   {
+    "k": "上一轮八年周期届满日",
+    "v": "2023年8月21日",
+    "s": "FMT / Kosmo"
+   }
+  ],
+  "note": "两家独立媒体（FMT、Kosmo）各自报道同一份书面答复，细节一致。反方说法为同一议题上另一时点（2月7日）的公开表态，非对该书面答复的直接回应，已在hist标明时序。",
+  "srcs": [
+   {
+    "l": "SPR dalam proses akhir sedia syor persempadanan semula Sarawak, kata Azalina",
+    "u": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/08/spr-dalam-proses-akhir-sedia-syor-persempadanan-semula-sarawak-kata-azalina"
+   },
+   {
+    "l": "Persempadanan semula bahagian pilihan raya Sarawak di peringkat akhir",
+    "u": "https://www.kosmo.com.my/2026/07/08/persempadanan-semula-bahagian-pilihan-raya-sarawak-di-peringkat-akhir/"
+   },
+   {
+    "l": "No timeline on tabling of Sarawak's 17 new state seats, says Nanta",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/02/07/no-timeline-on-tabling-of-sarawaks-17-new-state-seats-says-nanta"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-09",
+  "label": "2026年7月9日",
+  "title": "斯当邦议员张健仁质询1MDB负担，财政部副部长答复：政府承担的1MDB负债共514亿令吉，已追回313亿令吉",
+  "topic": "graft",
+  "w": 2,
+  "who": "财政部",
+  "why": "希盟斯当邦国会议员张健仁在下议院质询政府承担的1MDB债务总额与资金追回情况。财政部副部长刘镇东答复：政府须承担与已承担的1MDB负债合计514亿令吉；截至2026年6月30日，政府已支付425亿令吉，涵盖本金、利息、法律与营运成本及其他承担；政府仍须承担由政府担保、2039年到期的伊斯兰中期票据（IMTN）89亿令吉，其中本金50亿令吉、利息39亿令吉。至今政府已追回与1MDB相关的资金313亿令吉；若日后再无追回，政府仍须承担余下约201亿令吉。答复并指出，未来追回的资金或资产不太可能足以覆盖余下负债，因为大部分追回已经实现。",
+  "hist": [
+   {
+    "d": "2026-07",
+    "t": "下议院答复公布截至2026年6月30日的1MDB数字"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "财政部副部长刘镇东",
+    "tx": "政府已承担与仍须承担的1MDB负债总额为514亿令吉；若日后再无追回，政府仍须承担余下的整体承担。",
+    "sr": "Free Malaysia Today",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/09/govt-paid-rm42-5bil-towards-1mdb-debt-rm8-9bil-still-outstanding"
+   },
+   {
+    "side": "against",
+    "who": "希盟斯当邦国会议员张健仁",
+    "tx": "质询要求交代政府承担的1MDB债务总额与已追回的资金数额。",
+    "sr": "Utusan Melayu Plus",
+    "url": "https://utusanmelayuplus.com/jumlah-hutang-1mdb-yang-ditanggung-kerajaan-persekutuan-adalah-rm51-4-bilion/"
+   }
+  ],
+  "impact": [
+   {
+    "k": "1MDB负债总额",
+    "v": "514亿令吉",
+    "s": "Free Malaysia Today"
+   },
+   {
+    "k": "截至2026年6月30日已支付",
+    "v": "425亿令吉",
+    "s": "Utusan Melayu Plus"
+   },
+   {
+    "k": "已追回资金",
+    "v": "313亿令吉",
+    "s": "Free Malaysia Today"
+   },
+   {
+    "k": "政府担保IMTN（2039年到期）",
+    "v": "89亿令吉（本金50亿、利息39亿）",
+    "s": "Utusan Melayu Plus"
+   },
+   {
+    "k": "余下须承担",
+    "v": "约201亿令吉",
+    "s": "Utusan Melayu Plus"
+   }
+  ],
+  "note": "《今日自由大马》记为书面答复，Utusan Melayu Plus记为口头答复；两者对答复形式的记载不一致，本条不断言形式。质询与答复为同一场问答，非对立双方。",
+  "srcs": [
+   {
+    "l": "Govt paid down 1MDB's RM51bil debt, RM8.9bil still outstanding",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/09/govt-paid-rm42-5bil-towards-1mdb-debt-rm8-9bil-still-outstanding"
+   },
+   {
+    "l": "Jumlah hutang 1MDB yang ditanggung Kerajaan Persekutuan adalah RM51.4 bilion",
+    "u": "https://utusanmelayuplus.com/jumlah-hutang-1mdb-yang-ditanggung-kerajaan-persekutuan-adalah-rm51-4-bilion/"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-15",
+  "label": "2026年7月15日",
+  "title": "国盟马樟议员质询西亚冲突对燃油补贴与财政赤字目标的冲击，副财长刘镇东答补贴或近400亿令吉但油价上涨亦增石油收入",
+  "topic": "cost",
+  "w": 2,
+  "who": "财政部／副财政部长刘镇东",
+  "why": "国盟马樟（Bachok）区国会议员莫哈末沙希尔在下议院口头质询，要求政府交代对西亚冲突冲击国家燃油补贴开支的最新评估，以及补贴总成本上升会如何影响2026年的财政赤字目标。副财政部长刘镇东答复指，西亚冲突对全球能源市场造成显著压力、导致国际原油价格不确定，政府预计2026年须承担接近400亿令吉的石油产品补贴，实际数额视西亚危机发展而定。他同时指出油价上涨会同步推高联邦政府的石油相关收入——每桶油价每上升1美元，约可为联邦带来3亿令吉石油收入，这部分增收可抵销一部分燃油补贴的额外压力；并表示现行燃油补贴安排不会因原油价格上升而改变。这场问答把补贴超支与财政赤字承诺之间的取舍摆到台面。",
+  "hist": [
+   {
+    "d": "2026-07",
+    "t": "布伦特原油因美伊冲突与霍尔木兹海峡航运受袭升至约每桶86美元"
+   },
+   {
+    "d": "2026-07",
+    "t": "副财长在下议院说明补贴超支与石油收入的对冲关系"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "副财政部长刘镇东",
+    "tx": "西亚冲突对全球能源市场造成显著压力，政府预计2026年承担接近400亿令吉石油产品补贴；但油价每桶上涨1美元约带来3亿令吉联邦石油收入，可抵销部分补贴压力，现行燃油补贴安排不变。",
+    "sr": "国会议事录（Hansard Digital）",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-15"
+   },
+   {
+    "side": "against",
+    "who": "国盟马樟区国会议员莫哈末沙希尔",
+    "tx": "质询政府对西亚冲突冲击国家燃油补贴开支的最新评估，以及补贴总成本上升会否危及2026年财政赤字目标。",
+    "sr": "The Rakyat Post",
+    "url": "https://www.therakyatpost.com/news/2026/07/15/july-check-in-malaysia-oil-subsidies-supply/"
+   }
+  ],
+  "impact": [
+   {
+    "k": "油价每桶上涨1美元对应的联邦石油收入",
+    "v": "约3亿令吉",
+    "s": "The Rakyat Post"
+   },
+   {
+    "k": "2026年石油产品补贴预计",
+    "v": "接近400亿令吉",
+    "s": "国会议事录"
+   }
+  ],
+  "note": "",
+  "srcs": [
+   {
+    "l": "Dewan Rakyat Hansard, 15 Julai 2026",
+    "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-15"
+   },
+   {
+    "l": "July Check-In: Malaysia Oil Subsidies & Supply",
+    "u": "https://www.therakyatpost.com/news/2026/07/15/july-check-in-malaysia-oil-subsidies-supply/"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-16",
+  "label": "2026年7月16日",
+  "title": "国阵日叻务议员质询BUDI95配额为何砍至200公升，安华书面答复以用量数据辩护并称不足1%用户超标",
+  "topic": "subsidy",
+  "w": 2,
+  "who": "安华政府（团结政府）／首相兼财政部长安华",
+  "why": "BUDI95的每月补贴配额自2026年4月1日起由300公升下调至200公升（补贴价仍为每公升RM1.99）后引发争议。日叻务（Jelebu）区国会议员惹拉鲁丁阿里亚斯质询下调配额的理据，以及该上限在近期内是否可能获得检讨。首相安华以书面答复下议院指出，根据2025年10月至2026年5月的实际用量数据，只有不到1%的BUDI95用户持续每月使用超过200公升RON95，平均用量约为每月100公升，因此200公升的上限「仍足以应付大多数马来西亚人的日常出行需求」。他说明配额调整是在分析实际消费模式后作出，兼顾燃油供应安全与定向援助；至于未来是否调整，将「审慎地依据实际用量数据、能源市场情况与国家财政状况」再作决定。财政部先前在6月亦曾指约90%司机每月用量低于200公升。",
+  "hist": [
+   {
+    "d": "2026-03-26",
+    "t": "安华宣布BUDI95配额由300公升暂时下调至200公升"
+   },
+   {
+    "d": "2026-04-01",
+    "t": "新配额生效"
+   },
+   {
+    "d": "2026-04-27",
+    "t": "政府表示200公升配额暂时维持不变"
+   },
+   {
+    "d": "2026-07-16",
+    "t": "书面答复国会，以用量数据为配额下调辩护"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相兼财政部长安华（书面答复）",
+    "tx": "2025年10月至2026年5月数据显示，不足1%的BUDI95用户持续每月使用超过200公升RON95，平均用量约每月100公升；200公升上限仍足以应付大多数国人的日常出行需求。未来的调整将审慎地依据实际用量数据、能源市场情况与国家财政状况作出。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/07/16/anwar-says-200-litre-budi95-quota-fits-most-drivers-as-average-ron95-use-is-100-litres/227787"
+   },
+   {
+    "side": "against",
+    "who": "日叻务区国会议员惹拉鲁丁阿里亚斯",
+    "tx": "质询政府下调BUDI95配额的理据何在，以及这项上限在近期内能否重新检讨、恢复。",
+    "sr": "paultan.org",
+    "url": "https://paultan.org/2026/07/17/budi95-200-litres-enough-most-use-100-a-mth-anwar/"
+   }
+  ],
+  "impact": [
+   {
+    "k": "每月用量超过200公升的BUDI95用户比例",
+    "v": "不足1%（2025年10月–2026年5月）",
+    "s": "Malay Mail"
+   },
+   {
+    "k": "RON95平均月用量",
+    "v": "约100公升",
+    "s": "Malay Mail"
+   },
+   {
+    "k": "配额调整",
+    "v": "由每月300公升降至200公升",
+    "s": "Malay Mail"
+   }
+  ],
+  "note": "书面答复的具体日期在两个来源间略有出入：Malay Mail稿件日期为7月16日、文中提及答复于7月15日作出，paultan.org则于7月17日转述。本条以Malay Mail刊出日期2026-07-16为准。",
+  "srcs": [
+   {
+    "l": "Anwar says 200-litre BUDI95 quota fits most drivers as average RON95 use is 100 litres",
+    "u": "https://www.malaymail.com/news/malaysia/2026/07/16/anwar-says-200-litre-budi95-quota-fits-most-drivers-as-average-ron95-use-is-100-litres/227787"
+   },
+   {
+    "l": "Budi95: 200 litres enough, most use 100 a mth - Anwar",
+    "u": "https://paultan.org/2026/07/17/budi95-200-litres-enough-most-use-100-a-mth-anwar/"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-16",
+  "label": "2026年7月16日",
+  "title": "公账会报告揭食油补贴108.79亿令吉未准确到位，促改行eCOSS定向补贴；国内贸易部表明将认真研究建议",
+  "topic": "subsidy",
+  "w": 2,
+  "who": "国会公共账目委员会（PAC）／国内贸易及生活费部（KPDN）",
+  "why": "国会公共账目委员会（PAC，主席为玛斯艾米娅蒂）依据总稽查司报告（LKAN 2/2025），就食油价格管制与补贴管理的审查结果作出报告。PAC发现：2019年至2025年2月期间，政府在1公斤装补贴食油上共支出108.79亿令吉，但相当部分未能真正惠及目标群体，存在非公民与商业经营者滥用、违反购买上限与价格管制等问题；食油价格稳定计划（COSS）的每月配额定为6万公吨，而估计的国内实际需求仅介于1.9万至3万公吨之间；炼油配额有67%由外资公司掌控，本地官联公司（FGV与SD Guthrie）仅占10.6%；九家包装商中仍有两家没有清真认证，且缺乏处理损坏食油存货的标准作业程序。PAC建议政府检讨给予包装商每公吨600令吉的补贴、加速透过eCOSS系统全面转向数码化的定向补贴、重新检讨炼油配额分配以扶持具竞争力的本地公司，并研究参考鸡蛋与鸡肉的价格浮动机制。国内贸易及生活费部长阿米占莫哈末阿里回应表示，该部将认真研究PAC的建议，并加速全面推行eCOSS作为管控补贴外泄的风险管理策略，同时透过新版身份证的QR码扫描强化身份核实、禁止把1公斤装补贴食油售予非公民，并把eCOSS与SARA援助系统整合。",
+  "hist": [
+   {
+    "d": "2023",
+    "t": "KPDN开发eCOSS系统，监管补贴食油从炼油厂到零售端的供应链"
+   },
+   {
+    "d": "2026-03-01",
+    "t": "购买补贴食油须出示大马卡，非公民被禁止购买"
+   },
+   {
+    "d": "2026-07-16",
+    "t": "PAC食油补贴报告公布，KPDN表明将研究建议"
+   }
+  ],
+  "claims": [
+   {
+    "side": "against",
+    "who": "国会公共账目委员会主席玛斯艾米娅蒂",
+    "tx": "促请政府重新检讨给予包装商每公吨600令吉的补贴，使其更合理且具竞争力；并加速转向以eCOSS推行的数码化定向补贴，检讨整条食油供应链与炼油配额分配。",
+    "sr": "FMT",
+    "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/16/pac-gesa-kerajaan-kurang-dominasi-firma-asing-dalam-minyak-masak-bersubsidi"
+   },
+   {
+    "side": "for",
+    "who": "国内贸易及生活费部长阿米占莫哈末阿里",
+    "tx": "该部将认真研究PAC的建议；全面推行eCOSS系统是管控补贴外泄风险的重要改善措施，并会强化身份核实、把eCOSS与SARA援助系统整合。",
+    "sr": "RTM 新闻门户",
+    "url": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/kpdn-teliti-syor-pac-pengurusan-kawalan-harga-subsidi-minyak-masak/"
+   }
+  ],
+  "impact": [
+   {
+    "k": "1公斤装食油补贴支出（2019年–2025年2月）",
+    "v": "108.79亿令吉",
+    "s": "Malaysiakini／The Edge"
+   },
+   {
+    "k": "COSS月配额 vs 估计国内需求",
+    "v": "6万公吨 vs 1.9万–3万公吨",
+    "s": "The Edge"
+   },
+   {
+    "k": "潜在可节省金额",
+    "v": "至少50亿令吉",
+    "s": "The Edge"
+   },
+   {
+    "k": "炼油配额结构",
+    "v": "外资公司占67%，本地官联公司（FGV、SD Guthrie）占10.6%",
+    "s": "FMT／Malaysiakini"
+   },
+   {
+    "k": "包装商补贴率",
+    "v": "每公吨600令吉",
+    "s": "FMT"
+   }
+  ],
+  "note": "「至少50亿令吉可节省」为The Edge依据配额与需求落差所作的推算，非PAC直接给出的数字，引用时须留意。The Star的相关报道未载明PAC主席姓名与具体数字，仅提供建议清单与消费人组织评论。",
+  "srcs": [
+   {
+    "l": "PAC gesa kerajaan kurang dominasi firma asing dalam minyak masak bersubsidi",
+    "u": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/16/pac-gesa-kerajaan-kurang-dominasi-firma-asing-dalam-minyak-masak-bersubsidi"
+   },
+   {
+    "l": "Minyak masak: PAC gesa tukar subsidi pukal kepada subsidi bersasar",
+    "u": "https://www.malaysiakini.com/news/779857"
+   },
+   {
+    "l": "Frankly Speaking: Ready solution to stop billion-ringgit cooking oil subsidy leakage",
+    "u": "https://theedgemalaysia.com/node/811272"
+   },
+   {
+    "l": "KPDN teliti syor PAC pengurusan kawalan harga, subsidi minyak masak",
+    "u": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/kpdn-teliti-syor-pac-pengurusan-kawalan-harga-subsidi-minyak-masak/"
+   },
+   {
+    "l": "Subsidised oil under scrutiny",
+    "u": "https://www.thestar.com.my/news/nation/2026/07/17/subsidised-oil-under-scrutiny"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-16",
+  "label": "2026年7月16日",
+  "title": "国盟龙运议员质询PAKW新社经分类会否漏掉中等收入群体，副经济部长答将以州属数据设计生活成本干预措施",
+  "topic": "cost",
+  "w": 1,
+  "who": "经济部／副经济部长莫哈末沙哈阿都拉",
+  "why": "国盟龙运（Dungun）区国会议员旺哈山莫哈末兰里在下议院质询，要求政府说明以「合理基本生活开销」（PAKW，Perbelanjaan Asas Kehidupan Wajar）为基础的新社经分类建议，在多大程度上能确保受生活成本上涨冲击的中等收入群体不会被排除在政府援助与补贴之外。副经济部长莫哈末沙哈阿都拉答复指，政府在《第十三大马计划（2026–2030）》下将继续以「双管齐下」策略应对生活成本，即一方面提高人民收入，另一方面遏制食品、医疗、房屋、教育、公用事业与公共交通等基本商品与服务的价格上涨；并说明政府会依据统计局（DOSM）所建立的PAKW数据，按州属差异设计针对性的干预措施，因为城乡的开销模式确有不同。答复中引述的PAKW数值显示各州差距明显：吉隆坡为5,639令吉、沙巴4,511令吉、吉兰丹4,254令吉。",
+  "hist": [
+   {
+    "d": "2026-07",
+    "t": "副经济部长在下议院说明以PAKW按州设计生活成本干预"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "副经济部长莫哈末沙哈阿都拉",
+    "tx": "政府在第十三大马计划下将以双管齐下策略应对生活成本：提高人民收入，同时遏制食品、医疗、房屋、教育、公用事业与公共交通等基本商品服务的价格上涨；并承认城市的开销模式必然与乡区不同，因此依据PAKW数据按州设计干预。",
+    "sr": "国会议事录（Hansard Digital）",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-16"
+   },
+   {
+    "side": "against",
+    "who": "国盟龙运区国会议员旺哈山莫哈末兰里",
+    "tx": "质疑以PAKW为基础的新社经分类，能在多大程度上确保受生活成本上涨冲击的中等收入群体不会被排除在政府援助与补贴之外。",
+    "sr": "国会议事录（Hansard Digital）",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-16"
+   }
+  ],
+  "impact": [
+   {
+    "k": "PAKW（吉隆坡）",
+    "v": "5,639令吉",
+    "s": "Bernama"
+   },
+   {
+    "k": "PAKW（沙巴）",
+    "v": "4,511令吉",
+    "s": "Bernama"
+   },
+   {
+    "k": "PAKW（吉兰丹）",
+    "v": "4,254令吉",
+    "s": "Bernama"
+   }
+  ],
+  "note": "质询与答复原文取自国会Hansard；PAKW各州数值取自Bernama报道。",
+  "srcs": [
+   {
+    "l": "Dewan Rakyat Hansard, 16 Julai 2026",
+    "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-16"
+   },
+   {
+    "l": "Kerajaan Guna Data PAKW Rangka Intervensi Kos Sara Hidup Ikut Negeri",
+    "u": "https://www.bernama.com/bm/am/news.php?id=2581581"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-16",
+  "label": "2026年7月16日",
+  "title": "梳邦议员黄基全书面质询KWAP投资eFishery亏损的问责，财政部答称属有组织的欺诈；公账会称将讨论是否立案",
+  "topic": "graft",
+  "w": 2,
+  "who": "财政部／公务员退休基金局（KWAP）／国会公账会",
+  "why": "希盟梳邦国会议员黄基全提出书面质询，问公务员退休基金局（KWAP）的管理层、董事局或投资小组是否会为eFishery投资亏损承担责任。兼任财政部长的首相安华的书面答复指出，该项投资是一起蓄意的欺诈，因为这家印尼初创公司的管理层操纵了其财务报表；包括KWAP在内的投资方财团已向有关当局报案、展开适当的法律行动，并持续尽力追回投资资金，KWAP也已对其投资评估、批准与监督流程进行全面检讨，检讨结果已提呈董事局详细审视。同日，国会公账会主席马斯艾米雅蒂表示，该事项目前不在公账会的议程内，但委员会可以讨论是否应就此立案；她说委员会手头已有若干待处理事项。据DealStreetAsia，KWAP在2023年eFishery的D轮融资中投入约4,770万美元（约2亿令吉）。本条只记录国会质询、官方答复与公账会的程序表态。",
+  "hist": [
+   {
+    "d": "2026-07",
+    "t": "财政部书面答复确认属欺诈；公账会称将讨论是否立案"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相兼财政部长安华（书面答复）",
+    "tx": "该项投资是蓄意的欺诈，因为该初创公司的管理层操纵了财务报表；包括KWAP在内的投资方财团正持续尽一切努力追回投资资金。",
+    "sr": "Free Malaysia Today",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/kwap-was-duped-into-rm200mil-efishery-venture-says-anwar"
+   },
+   {
+    "side": "against",
+    "who": "希盟梳邦国会议员黄基全",
+    "tx": "质询KWAP的管理层、董事局或投资小组是否会为eFishery的亏损承担责任。",
+    "sr": "The Star",
+    "url": "https://www.thestar.com.my/business/business-news/2026/07/16/mof-kwap-deceived-on-efishery-investment-fund-recovery-underway"
+   },
+   {
+    "side": "against",
+    "who": "国会公账会主席马斯艾米雅蒂",
+    "tx": "此事目前不在公账会的程序内；我们可以讨论（KWAP的投资），以决定公账会是否应审视此事。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/07/16/pac-chairman-committee-to-discuss-possible-probe-into-kwaps-efishery-investment/227816"
+   }
+  ],
+  "impact": [
+   {
+    "k": "KWAP投资额",
+    "v": "4,770万美元（约2亿令吉），2023年D轮融资",
+    "s": "Malay Mail"
+   }
+  ],
+  "note": "投资金额由《马来邮报》引述DealStreetAsia，非政府来源；财政部答复本身未见公开的确切金额。相关法律行动与追回工作在本时间窗内仍在进行，本条不对任何个人作事实认定。",
+  "srcs": [
+   {
+    "l": "MOF: KWAP deceived on eFishery investment, fund recovery underway",
+    "u": "https://www.thestar.com.my/business/business-news/2026/07/16/mof-kwap-deceived-on-efishery-investment-fund-recovery-underway"
+   },
+   {
+    "l": "KWAP was duped into RM200mil eFishery venture, says Anwar",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/kwap-was-duped-into-rm200mil-efishery-venture-says-anwar"
+   },
+   {
+    "l": "PAC chairman: Committee to discuss possible probe into KWAP's eFishery investment",
+    "u": "https://www.malaymail.com/news/malaysia/2026/07/16/pac-chairman-committee-to-discuss-possible-probe-into-kwaps-efishery-investment/227816"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-16",
+  "label": "2026年7月16日",
+  "title": "教育部书面答复公布华裔中学生就读统考体系比例为19.4%",
+  "topic": "rights",
+  "w": 1,
+  "who": "教育部",
+  "why": "波各先那国会议员阿末沙阿（PN－波各先那）以书面提问，询问选择统考体系而非国家学校体系的华裔学生比例。教育部（部长法丽娜西迪）书面答复列出数据：全国华裔中学生共387,406人，其中就读独中统考体系者75,144人，占19.4%；就读教育部属下学校者260,699人，占67.3%；就读私立机构者51,563人，占13.3%。该答复为官方首次在本时段的国会记录中公布此一分布数据。",
+  "hist": [
+   {
+    "d": "2026-07",
+    "t": "教育部书面答复公布分布数据"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "教育部（书面答复）",
+    "tx": "截至今年，共75,144名华裔学生就读独中，占全国387,406名华裔中学生的19.4%；另有260,699人（67.3%）就读教育部属下学校，51,563人（13.3%）就读私立机构。",
+    "sr": "The Star / FMT",
+    "url": "https://www.thestar.com.my/news/nation/2026/07/16/nearly-20-of-chinese-students-opt-for-uec-dewan-rakyat-told"
+   }
+  ],
+  "impact": [
+   {
+    "k": "就读统考体系华裔中学生",
+    "v": "75,144人（19.4%）",
+    "s": "The Star / FMT"
+   },
+   {
+    "k": "就读教育部属下学校",
+    "v": "260,699人（67.3%）",
+    "s": "The Star"
+   },
+   {
+    "k": "就读私立机构",
+    "v": "51,563人（13.3%）",
+    "s": "The Star"
+   },
+   {
+    "k": "华裔中学生总数",
+    "v": "387,406人",
+    "s": "The Star / FMT"
+   }
+  ],
+  "note": "两家独立媒体（The Star、FMT）各自报道同一份书面答复，数据一致。本条为数据公布，未查到可核实的反方质疑，因此没有against说法。",
+  "srcs": [
+   {
+    "l": "Nearly 20% of Chinese students opt for UEC, Dewan Rakyat told",
+    "u": "https://www.thestar.com.my/news/nation/2026/07/16/nearly-20-of-chinese-students-opt-for-uec-dewan-rakyat-told"
+   },
+   {
+    "l": "Nearly 1 in 5 Chinese secondary students enrolled in UEC system, Dewan told",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/nearly-1-in-5-chinese-secondary-students-enrolled-in-uec-system-dewan-told"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-17",
+  "label": "2026年7月17日",
+  "title": "日落洞议员书面质询皇家调查委员会诉求，法律部长答称须待调查结果；净选盟称已有34名议员联署支持设立皇委会",
+  "topic": "graft",
+  "w": 2,
+  "who": "首相署（法律及体制改革）",
+  "why": "日落洞国会议员冉阿里在下议院提出书面质询，要求政府交代是否会就「企业黑手党」指控设立皇家调查委员会（RCI）。首相署部长（法律及体制改革）阿莎丽娜书面答复：政府将等待相关当局正在进行的调查结果，才决定是否设立皇委会；政府始终对设立皇委会或任何其他适当机制持开放态度，只要认为符合公共利益即可考虑；任何决定都会依据调查结果，包括相关当局所掌握的事实、发现与最新进展。此前一周，同一部长在国会答复中已表明相同立场，并说警方与反贪会已就若干公司展开初步调查。在质询方一侧，净选盟主席费沙于7月16日称，来自九个政党的34名国会议员已联署支持设立皇委会调查涉及反贪会人员的「企业黑手党」指控，呼吁各阵营议员共同支持。本条只记录质询、官方立场与联署诉求，不对任何指控作事实认定。",
+  "hist": [
+   {
+    "d": "2026-03",
+    "t": "首相在下议院称设皇委会「言之过早」，须待总检察长报告"
+   },
+   {
+    "d": "2026-07",
+    "t": "7月8日与7月17日两次国会答复：政府对皇委会持开放态度但须待调查结果；7月16日净选盟称34名议员联署"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相署部长（法律及体制改革）阿莎丽娜",
+    "tx": "政府始终对设立皇委会或任何其他被认为符合公共利益的适当机制持开放态度；任何决定将依据调查结果，包括相关当局所掌握的事实、发现与最新进展。",
+    "sr": "The Vibes",
+    "url": "https://www.thevibes.com/articles/news/125151/corporate-mafia-claims-govt-holds-off-rci-decision-pending-probe-findings"
+   },
+   {
+    "side": "for",
+    "who": "首相署部长（法律及体制改革）阿莎丽娜（7月8日答复）",
+    "tx": "警方与反贪会已就若干公司展开初步调查；政府对在必要时设立皇委会持开放态度。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/07/08/putrajaya-open-to-rci-on-corporate-mafia-claims-after-investigations-says-azalina/226800"
+   },
+   {
+    "side": "against",
+    "who": "净选盟主席费沙",
+    "tx": "我们促请所有阵营的每一位国会议员团结起来，支持设立这个皇家调查委员会；来自九个政党的34名议员已联署支持。",
+    "sr": "Free Malaysia Today",
+    "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/bersih-claims-34-mps-back-rci-to-probe-corporate-mafia"
+   }
+  ],
+  "impact": [
+   {
+    "k": "联署支持设立皇委会的国会议员",
+    "v": "34名（来自9个政党，净选盟说法）",
+    "s": "Free Malaysia Today"
+   }
+  ],
+  "note": "7月8日与7月17日两则报道内容高度相近，可能为同一立场在两次答复中的重述；本条以载明质询者（日落洞议员冉阿里）与日期的The Vibes报道为主，并把7月8日答复列为同一立场的较早记录。34名议员的数字为净选盟的说法，未见官方核实。",
+  "srcs": [
+   {
+    "l": "Corporate Mafia claims: Govt holds off RCI decision pending probe findings",
+    "u": "https://www.thevibes.com/articles/news/125151/corporate-mafia-claims-govt-holds-off-rci-decision-pending-probe-findings"
+   },
+   {
+    "l": "Putrajaya open to RCI on 'corporate mafia' claims after investigations, says Azalina",
+    "u": "https://www.malaymail.com/news/malaysia/2026/07/08/putrajaya-open-to-rci-on-corporate-mafia-claims-after-investigations-says-azalina/226800"
+   },
+   {
+    "l": "Bersih claims 34 MPs back RCI to probe 'corporate mafia'",
+    "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/bersih-claims-34-mps-back-rci-to-probe-corporate-mafia"
+   }
+  ]
+ }
+]

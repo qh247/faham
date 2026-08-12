@@ -1,0 +1,554 @@
+{
+  "topic_group": "subsidy+cost",
+  "window": "2026-01-01..2026-07-31",
+  "researched_at": "2026-08-12T13:59:09Z",
+  "items": [
+    {
+      "date": "2026-02-11",
+      "label": "2026年2月11日",
+      "title": "国会下议院部长问答时间：安华就BUDI95补贴节省额答复武吉免登议员，在野议员追问生活成本为何未降",
+      "topic": "subsidy",
+      "w": 2,
+      "who": "安华政府（团结政府）／首相兼财政部长安华",
+      "why": "行动党武吉免登区国会议员方贵伦提问，要求政府说明BUDI MADANI（BUDI95）在2025年全年达致的补贴节省总额、2026年的节省预测，以及这些节省如何用于降低民众生活成本、加强对B40与M40群体的针对性援助。安华在部长问答时间答复，说明RON95定向补贴的预计节省额，并强调推行定向补贴时的首要考量是不干扰民众加油的日常体验。答复后遭在野党追问：哲兰区议员阿都干尼阿末质疑政府是否应重新检讨BUDI95、只聚焦真正贫穷群体，并质问既然补贴省下钱，为何生活成本依然高企；波各先那区议员阿末沙益则质疑定向补贴是否透过涨价把负担转嫁给民众，并追问政府如何处理卡特尔与粮食供应垄断。安华回应指，若按收入门槛（RM15,000至RM25,000水平）进一步收窄补贴，受影响者仅约2%，节省有限却会增加行政负担，因此政府选择不采纳。",
+      "hist": [
+        {"d": "2025-09", "t": "BUDI95定向补贴机制推出，RON95补贴价定为每公升RM1.99"},
+        {"d": "2026-02", "t": "下议院部长问答时间就BUDI95节省额与生活成本关系交锋"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "首相兼财政部长安华",
+          "tx": "BUDI95定向补贴预计在2026年带来节省；推行定向补贴的首要考量是确保民众加油体验不受干扰。若再按收入门槛收窄补贴，受影响者仅约2%，节省有限而行政负担大，因此政府选择不采纳。",
+          "sr": "Malay Mail",
+          "url": "https://www.malaymail.com/news/malaysia/2026/02/11/govt-expects-rm25b-savings-from-budi95-fuel-subsidies-this-year-says-anwar/208831"
+        },
+        {
+          "side": "against",
+          "who": "哲兰区国会议员阿都干尼阿末",
+          "tx": "质问政府是否打算重新检讨BUDI95的执行方式、只聚焦真正符合资格的群体，并追问在补贴已节省开支的情况下，生活成本为何仍然高企。",
+          "sr": "国会议事录（Hansard Digital）",
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-11"
+        }
+      ],
+      "impact": [
+        {"k": "BUDI95日均交易量", "v": "约310万宗／日（约9,600万宗／月）", "s": "Malay Mail"}
+      ],
+      "note": "补贴节省数额在两个来源间不一致：Malay Mail标题与内文均写作「RM2.5 billion」（至少25亿令吉），而国会Hansard Digital页面上该句呈现为「dijangka menjimatkan RM25 bilion」（250亿令吉）。两者相差十倍，我无法在本次核查中确认何者为誊录误差，因此不将此数字放入impact，仅在claims中按Malay Mail口径转述并在此标注冲突。",
+      "srcs": [
+        {"l": "Dewan Rakyat Hansard, 11 Februari 2026", "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-11"},
+        {"l": "Govt expects RM2.5b savings from BUDI95 fuel subsidies this year, says Anwar", "u": "https://www.malaymail.com/news/malaysia/2026/02/11/govt-expects-rm25b-savings-from-budi95-fuel-subsidies-this-year-says-anwar/208831"}
+      ],
+      "_verified": [
+        {
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-11",
+          "http": 200,
+          "outlet": "parlimen.gov.my (Hansard Digital)",
+          "supports": "Fong Kui Lun 的提问原文：「jumlah penjimatan dicapai melalui pelaksanaan BUDI MADANI (BUDI95) sepanjang tahun 2025 dan unjuran penjimatan bagi tahun 2026」；Abd Ghani Ahmad [Jerlun] 追问原文：「adakah kerajaan bercadang untuk mengkaji semula pelaksanaan BUDI95 ini, hanya dengan menumpukan kepada golongan yang benar-benar layak」"
+        },
+        {
+          "url": "https://www.malaymail.com/news/malaysia/2026/02/11/govt-expects-rm25b-savings-from-budi95-fuel-subsidies-this-year-says-anwar/208831",
+          "http": 200,
+          "outlet": "malaymail",
+          "supports": "\"Targeted RON95 subsidies under the BUDI Madani (BUDI95) initiative are expected to generate savings of at least RM2.5 billion in 2026\"；另有 \"In targeting subsidies through BUDI95, our priority is to ensure that the rakyat's experience in purchasing petrol is not disrupted.\""
+        }
+      ]
+    },
+    {
+      "date": "2026-02-12",
+      "label": "2026年2月12日",
+      "title": "下议院质询BUDI95机制可否复制到食油与糖，第二财长答KPDN正研究以MyKad执行食油补贴",
+      "topic": "subsidy",
+      "w": 1,
+      "who": "财政部／第二财政部长阿米尔韩沙",
+      "why": "希盟迪拜（Tebrau）区国会议员Jimmy Puah Wee Tse在下议院口头提问的补充环节，询问政府是否有计划把BUDI95补贴调整机制的做法复制到食油、糖等其他物品上。第二财政部长阿米尔韩沙答复指，政府正透过国内贸易及生活费部（KPDN）研究把MyKad用于食油价格稳定机制（COSS）。同日国会亦被告知，截至2026年2月11日已有超过1,460万名马来西亚人受惠于BUDI95补贴价RON95，系统日均处理约310万宗交易而未出现中断。这条问答把「以MyKad做身份核实的定向补贴」从燃油延伸到民生必需品的政策方向摆上台面。",
+      "hist": [
+        {"d": "2026-02", "t": "国会问答提出把BUDI95机制延伸至食油、糖"},
+        {"d": "2026-07", "t": "公账会报告正式建议加速以eCOSS推行食油定向补贴"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "第二财政部长阿米尔韩沙",
+          "tx": "政府正透过国内贸易及生活费部研究把MyKad用于食油价格稳定机制（COSS）；BUDI95以MyKad为基础的系统已证明有效且易于使用。",
+          "sr": "国会议事录（Hansard Digital）",
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-12"
+        }
+      ],
+      "impact": [
+        {"k": "BUDI95受惠人数（截至2026年2月11日）", "v": "超过1,460万人", "s": "The Star"},
+        {"k": "系统日均交易量", "v": "约310万宗", "s": "The Star"}
+      ],
+      "note": "本条只有政府方说法，未见在野方对同一问题的反对论述，故claims仅录for一侧。",
+      "srcs": [
+        {"l": "Dewan Rakyat Hansard, 12 Februari 2026", "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-12"},
+        {"l": "More than 14.6 million Malaysians benefitted from Budi95 targeted fuel subsidy as at Feb 11, Dewan Rakyat told", "u": "https://www.thestar.com.my/news/nation/2026/02/12/more-than-146-million-malaysians-benefitted-from-budi95-targeted-fuel-subsidy-as-at-feb-11-dewan-rakyat-told"}
+      ],
+      "_verified": [
+        {
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-02-12",
+          "http": 200,
+          "outlet": "parlimen.gov.my (Hansard Digital)",
+          "supports": "Jimmy Puah [Tebrau] 追问原文：「Adakah kita ada rancangan untuk kita mereplikasikan lagi kejayaan mekanisme penyelarasan subsidi BUDI95 ke atas barang lain seperti minyak masak dan gula」；阿米尔韩沙答复原文：「Melangkah ke hadapan, kerajaan melalui Kementerian Perdagangan Dalam Negeri dan Kos Sara Hidup (KPDN) sedang mengkaji penggunaan MyKad untuk Sistem Penstabilan Harga Minyak Masak (COSS).」"
+        },
+        {
+          "url": "https://www.thestar.com.my/news/nation/2026/02/12/more-than-146-million-malaysians-benefitted-from-budi95-targeted-fuel-subsidy-as-at-feb-11-dewan-rakyat-told",
+          "http": 200,
+          "outlet": "thestar",
+          "supports": "\"More than 14.6 million Malaysians have benefited from subsidised RON95 under the Budi95 initiative.\"；提问者记为 Jimmy Puah Wee Tse (PH-Tebrau)，答复者为 Finance Minister II Datuk Seri Amir Hamzah Azizan，并载明日均处理约310万宗交易。"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "label": "2026年6月25日",
+      "title": "财政部书面答复国盟比鲁兰议员：截至5月底BUDI95补贴支出112亿令吉，为去年同期三倍",
+      "topic": "subsidy",
+      "w": 1,
+      "who": "财政部",
+      "why": "国盟比鲁兰（Beluran）区国会议员罗纳德吉安迪就BUDI95的受惠人数、补贴发放额、批准率，以及政府如何确保没有符合资格的群体被遗漏提出质询。财政部以书面答复下议院：截至2026年5月31日，BUDI95已惠及1,400万名马来西亚人，涉及111亿公升燃油、销售总值221亿令吉，其中112亿令吉由政府承担为补贴；受西亚危机影响，该项支出较2025年同期增加约两倍（即达三倍水平）。财政部同时说明BUDI95无须申请，资格条件为持有大马卡且拥有相关等级有效驾照的公民，并已设立资格与交易查核入口网站及客服中心。",
+      "hist": [
+        {"d": "2026-04", "t": "BUDI95月度配额由300公升调低至200公升"},
+        {"d": "2026-06", "t": "财政部书面答复披露截至5月底补贴支出112亿令吉"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "财政部",
+          "tx": "截至2026年5月31日BUDI95惠及1,400万人、涉及111亿公升燃油，政府承担补贴112亿令吉；政府将持续监督BUDI95的执行，并不时作出适当改善，以确保援助公平、有效地发放给真正有需要者。",
+          "sr": "FMT",
+          "url": "https://www.freemalaysiatoday.com/category/nation/2026/06/25/budi95-subsidy-cost-rm11-2bil-as-of-end-may-says-ministry"
+        },
+        {
+          "side": "against",
+          "who": "国盟比鲁兰区国会议员罗纳德吉安迪",
+          "tx": "质询BUDI95的受惠人数、补贴发放额与批准率，并要求政府说明将采取什么措施确保没有符合资格的群体被排除在外。",
+          "sr": "The Star",
+          "url": "https://www.thestar.com.my/news/nation/2026/06/25/budi-madani-subsidy-cost-rm112bil-involving-111-billion-litres-of-fuel-as-of-may-31-says-finance-ministry"
+        }
+      ],
+      "impact": [
+        {"k": "BUDI95政府补贴支出（截至2026年5月31日）", "v": "112亿令吉", "s": "FMT／The Star"},
+        {"k": "燃油量", "v": "111亿公升", "s": "The Star"},
+        {"k": "销售总值", "v": "221亿令吉", "s": "The Star"},
+        {"k": "受惠人数", "v": "1,400万人", "s": "FMT"}
+      ],
+      "note": "",
+      "srcs": [
+        {"l": "BUDI95 subsidy cost RM11.2bil as of end-May, says ministry", "u": "https://www.freemalaysiatoday.com/category/nation/2026/06/25/budi95-subsidy-cost-rm11-2bil-as-of-end-may-says-ministry"},
+        {"l": "Budi Madani subsidy cost RM11.2bil involving 11.1 billion litres of fuel as of May 31, says Finance Ministry", "u": "https://www.thestar.com.my/news/nation/2026/06/25/budi-madani-subsidy-cost-rm112bil-involving-111-billion-litres-of-fuel-as-of-may-31-says-finance-ministry"}
+      ],
+      "_verified": [
+        {
+          "url": "https://www.freemalaysiatoday.com/category/nation/2026/06/25/budi95-subsidy-cost-rm11-2bil-as-of-end-may-says-ministry",
+          "http": 200,
+          "outlet": "freemalaysiatoday",
+          "supports": "Ronald Kiandee (PN-Beluran) 提问，财政部书面答复；\"The government will continue to monitor the implementation of the BUDI95 programme and will make appropriate improvements from time to time to ensure that assistance is distributed fairly, effectively and targeted to those who truly need it.\" 数据：14 million beneficiaries、11.1 billion litres、RM22.1 billion sales value、RM11.2 billion subsidy（as of 31 May 2026）。"
+        },
+        {
+          "url": "https://www.thestar.com.my/news/nation/2026/06/25/budi-madani-subsidy-cost-rm112bil-involving-111-billion-litres-of-fuel-as-of-may-31-says-finance-ministry",
+          "http": 200,
+          "outlet": "thestar",
+          "supports": "\"Datuk Seri Dr Ronald Kiandee (PN-Beluran) asked about beneficiaries, subsidy disbursement, approval rates, and measures ensuring eligible groups receive assistance.\"；财政部书面答复：\"no application is required to receive Budi Madani because the eligibility criteria are clear and simple, namely Malaysian citizens holding a MyKad who also possess a valid driving licence of a qualifying class.\""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "label": "2026年7月1日",
+      "title": "首相书面答复国盟淡马鲁议员：2026年石油产品补贴将逼近400亿令吉，为财政预算案拨款的逾两倍",
+      "topic": "subsidy",
+      "w": 2,
+      "who": "安华政府（团结政府）／首相兼财政部长安华",
+      "why": "国盟淡马鲁（Temerloh）区国会议员莎拉米雅莫哈末诺就燃油补贴开支提出书面质询。首相安华以书面答复下议院指出，若当前市场价格持续，政府2026年在石油产品补贴上的开支预计将接近400亿令吉，而2026年财政预算案原本只拨出150亿令吉，超支逾一倍。答复亦披露月度补贴支出的走势：1月至2月约每月8亿令吉，3月至4月急升至每月约50亿令吉，4月一度达75亿令吉高峰，其后随原油价格回落预计降至每月约35亿令吉。同一份答复中，政府重申RON95补贴价维持每公升RM1.99、渔民柴油维持每公升RM1.65，并将Budi Agri-Komoditi现金援助由每月200令吉调高至400令吉，惠及超过21万名农民与小园主。",
+      "hist": [
+        {"d": "2025-10", "t": "2026年财政预算案为燃油补贴拨款150亿令吉"},
+        {"d": "2026-04", "t": "月度补贴开支一度冲上75亿令吉高峰"},
+        {"d": "2026-07", "t": "书面答复披露全年补贴或逼近400亿令吉"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "首相兼财政部长安华（书面答复）",
+          "tx": "若当前市场价格持续，政府预计2026年将花费接近400亿令吉补贴石油产品；补贴价格维持不变，RON95每公升RM1.99。",
+          "sr": "The Star",
+          "url": "https://www.thestar.com.my/news/nation/2026/07/01/pm-fuel-subsidy-spending-to-hit-rm40bil-more-than-double-budget-2026-allocation"
+        },
+        {
+          "side": "against",
+          "who": "国盟淡马鲁区国会议员莎拉米雅莫哈末诺",
+          "tx": "以书面质询要求政府交代燃油补贴的实际开支规模。",
+          "sr": "paultan.org",
+          "url": "https://paultan.org/2026/07/01/budi95-petrol-budi-diesel-subsidy-spending-by-government-to-reach-rm40-billion-this-year-pm-anwar/"
+        }
+      ],
+      "impact": [
+        {"k": "2026年石油产品补贴预计开支", "v": "接近400亿令吉", "s": "The Star"},
+        {"k": "2026年财政预算案原拨款", "v": "150亿令吉", "s": "The Star"},
+        {"k": "月度补贴开支（1–2月）", "v": "约每月8亿令吉", "s": "The Star"},
+        {"k": "月度补贴开支（3–4月）", "v": "约每月50亿令吉", "s": "The Star"},
+        {"k": "月度补贴开支高峰（4月）", "v": "75亿令吉", "s": "paultan.org"}
+      ],
+      "note": "「against」一侧仅为提问方的质询行为，报道未记录该议员对答复内容的反驳论述。",
+      "srcs": [
+        {"l": "PM: Fuel subsidy spending to hit RM40bil, more than double Budget 2026 allocation", "u": "https://www.thestar.com.my/news/nation/2026/07/01/pm-fuel-subsidy-spending-to-hit-rm40bil-more-than-double-budget-2026-allocation"},
+        {"l": "Budi95 petrol, Budi Diesel subsidy spending by Malaysia to reach RM40 billion this year: PM Anwar", "u": "https://paultan.org/2026/07/01/budi95-petrol-budi-diesel-subsidy-spending-by-government-to-reach-rm40-billion-this-year-pm-anwar/"}
+      ],
+      "_verified": [
+        {
+          "url": "https://www.thestar.com.my/news/nation/2026/07/01/pm-fuel-subsidy-spending-to-hit-rm40bil-more-than-double-budget-2026-allocation",
+          "http": 200,
+          "outlet": "thestar",
+          "supports": "\"If current market prices persist, the government is expected to spend close to RM40bil to subsidise petroleum products for 2026.\" 提问者：Salamiah Mohd Nor (PN-Temerloh)，形式为 written reply (jawapan bertulis) in Dewan Rakyat，日期 Wednesday, 01 Jul 2026；Budget 2026 allocation RM15 billion；Jan-Feb almost RM800 million/month；Mar-Apr about RM5 billion/month。"
+        },
+        {
+          "url": "https://paultan.org/2026/07/01/budi95-petrol-budi-diesel-subsidy-spending-by-government-to-reach-rm40-billion-this-year-pm-anwar/",
+          "http": 200,
+          "outlet": "paultan.org",
+          "supports": "\"If current market prices persist, the government is expected to spend close to RM40 billion to subsidise petroleum products for 2026,\" stated PM Anwar in his parliamentary response. Format: Dewan Rakyat written parliamentary reply；Questioner: Salamiah Mohd Nor (PN-Temerloh)；Peak of RM7.5 billion in April。"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-14",
+      "label": "2026年7月14日",
+      "title": "首相问答时间：国盟乌鲁登嘉楼议员质询霍尔木兹海峡危机冲击，安华交代400亿令吉石油补贴与150亿令吉现金援助",
+      "topic": "subsidy",
+      "w": 2,
+      "who": "安华政府（团结政府）／首相署",
+      "why": "在下议院第十五届国会第五会期第一次会议的「首相问答时间」，国盟乌鲁登嘉楼（Hulu Terengganu）区国会议员罗索瓦希（Rosol Wahid）提问，要求政府评估霍尔木兹海峡危机持续对国家政治与经济稳定的冲击，以及减低冲击的措施。安华在答复中说明：7月14日布伦特原油报约每桶81美元、期货约84美元，虽显著上升但仍低于4月每桶144美元的高位；2026年石油产品补贴预计达400亿令吉；RON95与柴油补贴由1至2月的每月约8亿令吉，在冲突爆发后于3、4月飙升至每月约50亿令吉，5月油价略跌后回落至约40亿令吉。他同时宣布把STR与SARA现金援助拨款提高至150亿令吉，惠及900万名国人；并说明政府已透过分散进口来源、优化国内燃油生产与签订长期供应协议来保障燃油供应。首相署已在官网公布该场问答的完整逐字稿。",
+      "hist": [
+        {"d": "2026-04", "t": "布伦特原油一度冲上每桶144美元"},
+        {"d": "2026-07", "t": "首相问答时间交代危机应对与补贴规模"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "首相安华",
+          "tx": "政府持续加强措施保护人民、维持经济稳定；2026年石油产品补贴预计达400亿令吉，STR与SARA拨款提高至150亿令吉。",
+          "sr": "首相署（PMO）逐字稿",
+          "url": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-pm-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-soalan-2-penuh-14-julai-2026/"
+        },
+        {
+          "side": "against",
+          "who": "国盟乌鲁登嘉楼区国会议员罗索瓦希",
+          "tx": "要求政府评估霍尔木兹海峡危机长期化对国家政治与经济稳定的影响，以及减低冲击的具体步骤。",
+          "sr": "首相署（PMO）逐字稿",
+          "url": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-pm-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-soalan-2-penuh-14-julai-2026/"
+        }
+      ],
+      "impact": [
+        {"k": "2026年石油产品补贴预计", "v": "400亿令吉", "s": "首相署逐字稿／Sabah Media"},
+        {"k": "STR与SARA拨款", "v": "150亿令吉，惠及900万人", "s": "首相署逐字稿"},
+        {"k": "布伦特原油价（2026年7月14日）", "v": "约每桶81美元（期货约84美元）", "s": "首相署逐字稿"},
+        {"k": "月度燃油补贴走势", "v": "1–2月约8亿令吉／月；3–4月约50亿令吉／月；5月约40亿令吉／月", "s": "首相署逐字稿"}
+      ],
+      "note": "「against」一侧记录的是提问内容本身，属质询而非对立主张；Sabah Media一稿未点名提问议员，提问者姓名以首相署逐字稿为准。",
+      "srcs": [
+        {"l": "Teks Verbatim YAB PM: Waktu Pertanyaan-Pertanyaan Perdana Menteri Dewan Rakyat, 14 Julai 2026", "u": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-pm-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-soalan-2-penuh-14-julai-2026/"},
+        {"l": "PM: Kerajaan Perkukuh Langkah Lindungi Rakyat Hadapi Ketidaktentuan Selat Hormuz, Subsidi Petroleum 2026 Diunjur Cecah RM40 Bilion", "u": "https://sabahmedia.com/2026/07/14/pm-kerajaan-perkukuh-langkah-lindungi-rakyat-hadapi-ketidaktentuan-selat-hormuz-subsidi-petroleum-2026-diunjur-cecah-rm40-bilion/"}
+      ],
+      "_verified": [
+        {
+          "url": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-pm-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-soalan-2-penuh-14-julai-2026/",
+          "http": 200,
+          "outlet": "pmo.gov.my",
+          "supports": "Asked by: Dato' Rosol bin Wahid (Hulu Terengganu)；主题为霍尔木兹海峡危机持续对马来西亚政治与经济稳定的影响及缓解步骤；PM 指 7月14日 Brent US$81/barrel（futures US$84），低于4月高位 US$144/barrel；STR and SARA increased to RM15 billion benefiting 9 million Malaysians；Petroleum subsidies projected at RM40 billion for 2026；月度补贴 RM800 million (January-February)、RM5 billion during conflict、RM4 billion by May。"
+        },
+        {
+          "url": "https://sabahmedia.com/2026/07/14/pm-kerajaan-perkukuh-langkah-lindungi-rakyat-hadapi-ketidaktentuan-selat-hormuz-subsidi-petroleum-2026-diunjur-cecah-rm40-bilion/",
+          "http": 200,
+          "outlet": "sabahmedia",
+          "supports": "\"Kerajaan terus memperkukuh langkah bagi melindungi rakyat dan mengekalkan kestabilan ekonomi\"；Petroleum subsidies for 2026: RM40 billion (projected)；STR and SARA allocations combined: RM15 billion；RON95 subsidy escalation: From RM800 million monthly to approximately RM5 billion (March-April), declining to RM4 billion by May。"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-15",
+      "label": "2026年7月15日",
+      "title": "国盟马樟议员质询西亚冲突对燃油补贴与财政赤字目标的冲击，副财长刘镇东答补贴或近400亿令吉但油价上涨亦增石油收入",
+      "topic": "cost",
+      "w": 2,
+      "who": "财政部／副财政部长刘镇东",
+      "why": "国盟马樟（Bachok）区国会议员莫哈末沙希尔在下议院口头质询，要求政府交代对西亚冲突冲击国家燃油补贴开支的最新评估，以及补贴总成本上升会如何影响2026年的财政赤字目标。副财政部长刘镇东答复指，西亚冲突对全球能源市场造成显著压力、导致国际原油价格不确定，政府预计2026年须承担接近400亿令吉的石油产品补贴，实际数额视西亚危机发展而定。他同时指出油价上涨会同步推高联邦政府的石油相关收入——每桶油价每上升1美元，约可为联邦带来3亿令吉石油收入，这部分增收可抵销一部分燃油补贴的额外压力；并表示现行燃油补贴安排不会因原油价格上升而改变。这场问答把补贴超支与财政赤字承诺之间的取舍摆到台面。",
+      "hist": [
+        {"d": "2026-07", "t": "布伦特原油因美伊冲突与霍尔木兹海峡航运受袭升至约每桶86美元"},
+        {"d": "2026-07", "t": "副财长在下议院说明补贴超支与石油收入的对冲关系"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "副财政部长刘镇东",
+          "tx": "西亚冲突对全球能源市场造成显著压力，政府预计2026年承担接近400亿令吉石油产品补贴；但油价每桶上涨1美元约带来3亿令吉联邦石油收入，可抵销部分补贴压力，现行燃油补贴安排不变。",
+          "sr": "国会议事录（Hansard Digital）",
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-15"
+        },
+        {
+          "side": "against",
+          "who": "国盟马樟区国会议员莫哈末沙希尔",
+          "tx": "质询政府对西亚冲突冲击国家燃油补贴开支的最新评估，以及补贴总成本上升会否危及2026年财政赤字目标。",
+          "sr": "The Rakyat Post",
+          "url": "https://www.therakyatpost.com/news/2026/07/15/july-check-in-malaysia-oil-subsidies-supply/"
+        }
+      ],
+      "impact": [
+        {"k": "油价每桶上涨1美元对应的联邦石油收入", "v": "约3亿令吉", "s": "The Rakyat Post"},
+        {"k": "2026年石油产品补贴预计", "v": "接近400亿令吉", "s": "国会议事录"}
+      ],
+      "note": "",
+      "srcs": [
+        {"l": "Dewan Rakyat Hansard, 15 Julai 2026", "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-15"},
+        {"l": "July Check-In: Malaysia Oil Subsidies & Supply", "u": "https://www.therakyatpost.com/news/2026/07/15/july-check-in-malaysia-oil-subsidies-supply/"}
+      ],
+      "_verified": [
+        {
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-15",
+          "http": 200,
+          "outlet": "parlimen.gov.my (Hansard Digital)",
+          "supports": "提问原文：「penilaian terkini kerajaan terhadap kesan konflik di Asia Barat terhadap perbelanjaan subsidi bahan api negara, serta bagaimana peningkatan keseluruhan kos subsidi boleh menjejaskan sasaran defisit fiskal bagi tahun 2026.」；答复原文：「Konflik yang berlaku di Asia Barat telah memberi tekanan yang ketara kepada pasaran tenaga global dan menyebabkan ketidaktentuan haga minyak mentah dunia...kerajaan dijangka akan menanggung jumlah subsidi produk petroleum hampir RM40 bilion bagi tahun 2026 tertakluk kepada perkembangan krisis di Asia Barat.」"
+        },
+        {
+          "url": "https://www.therakyatpost.com/news/2026/07/15/july-check-in-malaysia-oil-subsidies-supply/",
+          "http": 200,
+          "outlet": "therakyatpost",
+          "supports": "\"Question Asked By: Bachok MP Mohd Syahir Che Sulaiman / Answered By: Deputy Finance Minister Liew Chin Tong\"；\"This increase in revenue can help offset part of the additional pressure on fuel subsidy expenditure.\"；\"Every dollar increase per barrel in global oil prices generates an estimated RM300 million in federal petroleum revenue, according to Liew's parliamentary response.\""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "label": "2026年7月16日",
+      "title": "国阵日叻务议员质询BUDI95配额为何砍至200公升，安华书面答复以用量数据辩护并称不足1%用户超标",
+      "topic": "subsidy",
+      "w": 2,
+      "who": "安华政府（团结政府）／首相兼财政部长安华",
+      "why": "BUDI95的每月补贴配额自2026年4月1日起由300公升下调至200公升（补贴价仍为每公升RM1.99）后引发争议。日叻务（Jelebu）区国会议员惹拉鲁丁阿里亚斯质询下调配额的理据，以及该上限在近期内是否可能获得检讨。首相安华以书面答复下议院指出，根据2025年10月至2026年5月的实际用量数据，只有不到1%的BUDI95用户持续每月使用超过200公升RON95，平均用量约为每月100公升，因此200公升的上限「仍足以应付大多数马来西亚人的日常出行需求」。他说明配额调整是在分析实际消费模式后作出，兼顾燃油供应安全与定向援助；至于未来是否调整，将「审慎地依据实际用量数据、能源市场情况与国家财政状况」再作决定。财政部先前在6月亦曾指约90%司机每月用量低于200公升。",
+      "hist": [
+        {"d": "2026-03-26", "t": "安华宣布BUDI95配额由300公升暂时下调至200公升"},
+        {"d": "2026-04-01", "t": "新配额生效"},
+        {"d": "2026-04-27", "t": "政府表示200公升配额暂时维持不变"},
+        {"d": "2026-07-16", "t": "书面答复国会，以用量数据为配额下调辩护"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "首相兼财政部长安华（书面答复）",
+          "tx": "2025年10月至2026年5月数据显示，不足1%的BUDI95用户持续每月使用超过200公升RON95，平均用量约每月100公升；200公升上限仍足以应付大多数国人的日常出行需求。未来的调整将审慎地依据实际用量数据、能源市场情况与国家财政状况作出。",
+          "sr": "Malay Mail",
+          "url": "https://www.malaymail.com/news/malaysia/2026/07/16/anwar-says-200-litre-budi95-quota-fits-most-drivers-as-average-ron95-use-is-100-litres/227787"
+        },
+        {
+          "side": "against",
+          "who": "日叻务区国会议员惹拉鲁丁阿里亚斯",
+          "tx": "质询政府下调BUDI95配额的理据何在，以及这项上限在近期内能否重新检讨、恢复。",
+          "sr": "paultan.org",
+          "url": "https://paultan.org/2026/07/17/budi95-200-litres-enough-most-use-100-a-mth-anwar/"
+        }
+      ],
+      "impact": [
+        {"k": "每月用量超过200公升的BUDI95用户比例", "v": "不足1%（2025年10月–2026年5月）", "s": "Malay Mail"},
+        {"k": "RON95平均月用量", "v": "约100公升", "s": "Malay Mail"},
+        {"k": "配额调整", "v": "由每月300公升降至200公升", "s": "Malay Mail"}
+      ],
+      "note": "书面答复的具体日期在两个来源间略有出入：Malay Mail稿件日期为7月16日、文中提及答复于7月15日作出，paultan.org则于7月17日转述。本条以Malay Mail刊出日期2026-07-16为准。",
+      "srcs": [
+        {"l": "Anwar says 200-litre BUDI95 quota fits most drivers as average RON95 use is 100 litres", "u": "https://www.malaymail.com/news/malaysia/2026/07/16/anwar-says-200-litre-budi95-quota-fits-most-drivers-as-average-ron95-use-is-100-litres/227787"},
+        {"l": "Budi95: 200 litres enough, most use 100 a mth - Anwar", "u": "https://paultan.org/2026/07/17/budi95-200-litres-enough-most-use-100-a-mth-anwar/"}
+      ],
+      "_verified": [
+        {
+          "url": "https://www.malaymail.com/news/malaysia/2026/07/16/anwar-says-200-litre-budi95-quota-fits-most-drivers-as-average-ron95-use-is-100-litres/227787",
+          "http": 200,
+          "outlet": "malaymail",
+          "supports": "\"MP & Constituency: Jelebu MP Datuk Seri Jalaluddin Alias — The MP inquired about the rationale behind reducing the BUDI95 fuel quota and whether the limit could be revised in the near future.\" Format: Dewan Rakyat written reply。Anwar 指新上限 \"remained sufficient to meet the daily mobility needs of the majority of Malaysians\"；\"On average, RON95 consumption stood at around 100 litres per month\"；Fewer than 1% of BUDI95 users consumed over 200 litres monthly (Oct 2025–May 2026)。"
+        },
+        {
+          "url": "https://paultan.org/2026/07/17/budi95-200-litres-enough-most-use-100-a-mth-anwar/",
+          "http": 200,
+          "outlet": "paultan.org",
+          "supports": "\"Questioner: Jelebu MP Datuk Seri Jalaluddin Alias — The MP asked about the rationale behind the quota reduction from 300 to 200 litres and whether the limit could be revised in the near future.\"；Anwar: \"Any future improvements will be made prudently based on actual consumption data, energy market conditions and the country's fiscal position.\"；\"The Finance Ministry reported in June that approximately 90% of drivers used under 200 litres monthly.\""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "label": "2026年7月16日",
+      "title": "公账会报告揭食油补贴108.79亿令吉未准确到位，促改行eCOSS定向补贴；国内贸易部表明将认真研究建议",
+      "topic": "subsidy",
+      "w": 2,
+      "who": "国会公共账目委员会（PAC）／国内贸易及生活费部（KPDN）",
+      "why": "国会公共账目委员会（PAC，主席为玛斯艾米娅蒂）依据总稽查司报告（LKAN 2/2025），就食油价格管制与补贴管理的审查结果作出报告。PAC发现：2019年至2025年2月期间，政府在1公斤装补贴食油上共支出108.79亿令吉，但相当部分未能真正惠及目标群体，存在非公民与商业经营者滥用、违反购买上限与价格管制等问题；食油价格稳定计划（COSS）的每月配额定为6万公吨，而估计的国内实际需求仅介于1.9万至3万公吨之间；炼油配额有67%由外资公司掌控，本地官联公司（FGV与SD Guthrie）仅占10.6%；九家包装商中仍有两家没有清真认证，且缺乏处理损坏食油存货的标准作业程序。PAC建议政府检讨给予包装商每公吨600令吉的补贴、加速透过eCOSS系统全面转向数码化的定向补贴、重新检讨炼油配额分配以扶持具竞争力的本地公司，并研究参考鸡蛋与鸡肉的价格浮动机制。国内贸易及生活费部长阿米占莫哈末阿里回应表示，该部将认真研究PAC的建议，并加速全面推行eCOSS作为管控补贴外泄的风险管理策略，同时透过新版身份证的QR码扫描强化身份核实、禁止把1公斤装补贴食油售予非公民，并把eCOSS与SARA援助系统整合。",
+      "hist": [
+        {"d": "2023", "t": "KPDN开发eCOSS系统，监管补贴食油从炼油厂到零售端的供应链"},
+        {"d": "2026-03-01", "t": "购买补贴食油须出示大马卡，非公民被禁止购买"},
+        {"d": "2026-07-16", "t": "PAC食油补贴报告公布，KPDN表明将研究建议"}
+      ],
+      "claims": [
+        {
+          "side": "against",
+          "who": "国会公共账目委员会主席玛斯艾米娅蒂",
+          "tx": "促请政府重新检讨给予包装商每公吨600令吉的补贴，使其更合理且具竞争力；并加速转向以eCOSS推行的数码化定向补贴，检讨整条食油供应链与炼油配额分配。",
+          "sr": "FMT",
+          "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/16/pac-gesa-kerajaan-kurang-dominasi-firma-asing-dalam-minyak-masak-bersubsidi"
+        },
+        {
+          "side": "for",
+          "who": "国内贸易及生活费部长阿米占莫哈末阿里",
+          "tx": "该部将认真研究PAC的建议；全面推行eCOSS系统是管控补贴外泄风险的重要改善措施，并会强化身份核实、把eCOSS与SARA援助系统整合。",
+          "sr": "RTM 新闻门户",
+          "url": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/kpdn-teliti-syor-pac-pengurusan-kawalan-harga-subsidi-minyak-masak/"
+        }
+      ],
+      "impact": [
+        {"k": "1公斤装食油补贴支出（2019年–2025年2月）", "v": "108.79亿令吉", "s": "Malaysiakini／The Edge"},
+        {"k": "COSS月配额 vs 估计国内需求", "v": "6万公吨 vs 1.9万–3万公吨", "s": "The Edge"},
+        {"k": "潜在可节省金额", "v": "至少50亿令吉", "s": "The Edge"},
+        {"k": "炼油配额结构", "v": "外资公司占67%，本地官联公司（FGV、SD Guthrie）占10.6%", "s": "FMT／Malaysiakini"},
+        {"k": "包装商补贴率", "v": "每公吨600令吉", "s": "FMT"}
+      ],
+      "note": "「至少50亿令吉可节省」为The Edge依据配额与需求落差所作的推算，非PAC直接给出的数字，引用时须留意。The Star的相关报道未载明PAC主席姓名与具体数字，仅提供建议清单与消费人组织评论。",
+      "srcs": [
+        {"l": "PAC gesa kerajaan kurang dominasi firma asing dalam minyak masak bersubsidi", "u": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/16/pac-gesa-kerajaan-kurang-dominasi-firma-asing-dalam-minyak-masak-bersubsidi"},
+        {"l": "Minyak masak: PAC gesa tukar subsidi pukal kepada subsidi bersasar", "u": "https://www.malaysiakini.com/news/779857"},
+        {"l": "Frankly Speaking: Ready solution to stop billion-ringgit cooking oil subsidy leakage", "u": "https://theedgemalaysia.com/node/811272"},
+        {"l": "KPDN teliti syor PAC pengurusan kawalan harga, subsidi minyak masak", "u": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/kpdn-teliti-syor-pac-pengurusan-kawalan-harga-subsidi-minyak-masak/"},
+        {"l": "Subsidised oil under scrutiny", "u": "https://www.thestar.com.my/news/nation/2026/07/17/subsidised-oil-under-scrutiny"}
+      ],
+      "_verified": [
+        {
+          "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/16/pac-gesa-kerajaan-kurang-dominasi-firma-asing-dalam-minyak-masak-bersubsidi",
+          "http": 200,
+          "outlet": "freemalaysiatoday",
+          "supports": "日期 16 July 2026；PAC Chairman: Mas Ermieyati Samsudin；引述原文：「kerajaan menyemak semula subsidi RM600 per metrik tan kepada syarikat pembungkus supaya lebih munasabah dan kompetitif」；Foreign companies control 67% of refining quotas；Local GLCs (FGV and SD Guthrie) account for only 10.6%；Government subsidy expenditure totalled RM10.87 billion from 2019 to February 2025。"
+        },
+        {
+          "url": "https://www.malaysiakini.com/news/779857",
+          "http": 200,
+          "outlet": "malaysiakini",
+          "supports": "Date Published: July 16, 2026；Report Reference: Laporan Ketua Audit Negara (LKAN) 2/2025；Chairman: Mas Ermieyati Samsudin；\"RM10.879 billion was spent on cooking oil subsidies from 2019 to February 2025, yet the subsidy failed to reach intended beneficiaries\"；建议包括 \"Reduce COSS scheme quota from 60,000 to align with actual domestic need (19,000-30,000 metric tons monthly)\"。"
+        },
+        {
+          "url": "https://theedgemalaysia.com/node/811272",
+          "http": 200,
+          "outlet": "theedgemalaysia",
+          "supports": "\"Between 2019 and February 2025, the government allocated RM10.879 billion to subsidize 1kg packages\" 且 \"a sizeable portion\" of these funds \"may not have benefited the intended target group\"；\"the monthly Cooking Oil Price Stabilisation Scheme (COSS) is set at 60,000 tonnes while actual domestic demand is estimated at only between 19,000 and 30,000 tonnes\"；\"at least RM5 billion could have been saved\"。"
+        },
+        {
+          "url": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/kpdn-teliti-syor-pac-pengurusan-kawalan-harga-subsidi-minyak-masak/",
+          "http": 200,
+          "outlet": "rtm (berita.rtm.gov.my)",
+          "supports": "Speaker: Datuk Armizan Mohd Ali, Minister of Domestic Trade and Cost of Living (KPDN)；引述原文：「Pelaksanaan Sistem eCOSS secara menyeluruh adalah penambahbaikan penting yang merupakan strategi pengurusan risiko ketirisan」；KPDN 表示将认真研究 PAC 建议、加速推行 eCOSS 以防止外泄。"
+        },
+        {
+          "url": "https://www.thestar.com.my/news/nation/2026/07/17/subsidised-oil-under-scrutiny",
+          "http": 200,
+          "outlet": "thestar",
+          "supports": "Date: Friday, 17 July 2026；\"The PAC discovered weaknesses in quota planning, enforcement and distribution that may have caused billions of ringgit in public funds to be wasted\"；建议包括 review the monthly subsidy limit、accelerate rollout of eCOSS、explore MyKad for subsidy distribution、implement floating price mechanism。"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "label": "2026年7月16日",
+      "title": "国盟龙运议员质询PAKW新社经分类会否漏掉中等收入群体，副经济部长答将以州属数据设计生活成本干预措施",
+      "topic": "cost",
+      "w": 1,
+      "who": "经济部／副经济部长莫哈末沙哈阿都拉",
+      "why": "国盟龙运（Dungun）区国会议员旺哈山莫哈末兰里在下议院质询，要求政府说明以「合理基本生活开销」（PAKW，Perbelanjaan Asas Kehidupan Wajar）为基础的新社经分类建议，在多大程度上能确保受生活成本上涨冲击的中等收入群体不会被排除在政府援助与补贴之外。副经济部长莫哈末沙哈阿都拉答复指，政府在《第十三大马计划（2026–2030）》下将继续以「双管齐下」策略应对生活成本，即一方面提高人民收入，另一方面遏制食品、医疗、房屋、教育、公用事业与公共交通等基本商品与服务的价格上涨；并说明政府会依据统计局（DOSM）所建立的PAKW数据，按州属差异设计针对性的干预措施，因为城乡的开销模式确有不同。答复中引述的PAKW数值显示各州差距明显：吉隆坡为5,639令吉、沙巴4,511令吉、吉兰丹4,254令吉。",
+      "hist": [
+        {"d": "2026-07", "t": "副经济部长在下议院说明以PAKW按州设计生活成本干预"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "副经济部长莫哈末沙哈阿都拉",
+          "tx": "政府在第十三大马计划下将以双管齐下策略应对生活成本：提高人民收入，同时遏制食品、医疗、房屋、教育、公用事业与公共交通等基本商品服务的价格上涨；并承认城市的开销模式必然与乡区不同，因此依据PAKW数据按州设计干预。",
+          "sr": "国会议事录（Hansard Digital）",
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-16"
+        },
+        {
+          "side": "against",
+          "who": "国盟龙运区国会议员旺哈山莫哈末兰里",
+          "tx": "质疑以PAKW为基础的新社经分类，能在多大程度上确保受生活成本上涨冲击的中等收入群体不会被排除在政府援助与补贴之外。",
+          "sr": "国会议事录（Hansard Digital）",
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-16"
+        }
+      ],
+      "impact": [
+        {"k": "PAKW（吉隆坡）", "v": "5,639令吉", "s": "Bernama"},
+        {"k": "PAKW（沙巴）", "v": "4,511令吉", "s": "Bernama"},
+        {"k": "PAKW（吉兰丹）", "v": "4,254令吉", "s": "Bernama"}
+      ],
+      "note": "质询与答复原文取自国会Hansard；PAKW各州数值取自Bernama报道。",
+      "srcs": [
+        {"l": "Dewan Rakyat Hansard, 16 Julai 2026", "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-16"},
+        {"l": "Kerajaan Guna Data PAKW Rangka Intervensi Kos Sara Hidup Ikut Negeri", "u": "https://www.bernama.com/bm/am/news.php?id=2581581"}
+      ],
+      "_verified": [
+        {
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-16",
+          "http": 200,
+          "outlet": "parlimen.gov.my (Hansard Digital)",
+          "supports": "提问者 Tuan Haji Wan Hassan bin Mohd Ramli [Dungun]，提问原文：「sejauh mana cadangan klasifikasi sosioekonomi baharu berasaskan Perbelanjaan Asas Kehidupan Wajar (PAKW) dapat memastikan golongan berpendapatan sederhana yang terkesan dengan peningkatan kos sara hidup tidak tercicir daripada bantuan dan subsidi Kerajaan.」；答复原文：「kerajaan dalam Rancangan Malaysia Ketiga Belas 2026-2030 akan terus memberi tumpuan untuk menangani kos sara hidup melalui strategi-strategi serampang dua mata, iaitu dengan meningkatkan pendapatan rakyat serta membendung kenaikan kos barangan dan perkhidmatan asas termasuk makanan, kesihatan, perumahan, pendidikan, utiliti dan pengangkutan awam.」"
+        },
+        {
+          "url": "https://www.bernama.com/bm/am/news.php?id=2581581",
+          "http": 200,
+          "outlet": "bernama",
+          "supports": "Publication Date: 16 July 2026；\"Wan Hassan Mohd Ramli (PN-Dungun) asked about the status of fieldwork by economists ... particularly addressing cost of living differences between urban and rural areas\"；答复者 Deputy Minister of Economy Datuk Mohd Shahar Abdullah；PAKW 数值 Kuala Lumpur: RM5,639、Kelantan: RM4,254、Sabah: RM4,511；引述「Kita akui corak perbelanjaan di bandar sudah pasti berbeza」。"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "label": "2026年7月29日",
+      "title": "上议院质询官方通胀率与民众实感落差，副经济部长承认整体通胀受控不等于所有家庭的生活成本感受",
+      "topic": "cost",
+      "w": 1,
+      "who": "经济部／副经济部长莫哈末沙哈阿都拉",
+      "why": "上议员阿扎哈哈山在上议院（Dewan Negara）质询，要求政府说明官方通胀数据与消费者实际感受之间的落差，并询问能否建立按收入群体与地区细分的生活成本指数。副经济部长莫哈末沙哈阿都拉答复时承认，整体通胀率受控并不必然反映所有家庭所感受到的生活成本经验。他并说明政府正透过发放STR（一个大马民生援助金）、SARA（基本生活援助金）、BUDI95燃油补贴以及推动渐进式薪金政策等措施，确保实质收入的增长跑赢成本上涨。这场问答把「统计数字」与「民众体感」之间的差距，第一次在上议院层面获得政府方的正式承认。",
+      "hist": [
+        {"d": "2026-07-01", "t": "下议院亦有议员就官方通胀率与生活成本落差质询经济部长"},
+        {"d": "2026-07-29", "t": "上议院质询，政府承认整体通胀率不等同家庭实感"}
+      ],
+      "claims": [
+        {
+          "side": "for",
+          "who": "副经济部长莫哈末沙哈阿都拉",
+          "tx": "受控的整体通胀率不一定能反映所有家庭所感受到的生活成本经验；政府正透过STR、SARA、BUDI95燃油补贴与渐进式薪金政策，确保实质收入增长超越成本上涨。",
+          "sr": "国会议事录（Hansard Digital）",
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-negara/2026-07-29"
+        },
+        {
+          "side": "against",
+          "who": "上议员阿扎哈哈山",
+          "tx": "质询官方通胀数据与消费者实际感受之间的落差，并询问政府能否建立按收入群体与地区细分的生活成本指数。",
+          "sr": "国会议事录（Hansard Digital）",
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-negara/2026-07-29"
+        }
+      ],
+      "impact": [],
+      "note": "本条仅有一个来源（国会Hansard Digital上议院议事录，属一级来源）。TVS（tvsarawak.my）曾就同一场问答发稿，但该网页在核查时返回HTTP 403，无法取证，故未列入。",
+      "srcs": [
+        {"l": "Dewan Negara Hansard, 29 Julai 2026", "u": "https://hansard.parlimen.gov.my/hansard/dewan-negara/2026-07-29"}
+      ],
+      "_verified": [
+        {
+          "url": "https://hansard.parlimen.gov.my/hansard/dewan-negara/2026-07-29",
+          "http": 200,
+          "outlet": "parlimen.gov.my (Hansard Digital)",
+          "supports": "「Question 2 - Asked by: Senator Tuan Azahar bin Hassan / Replied by: Timbalan Menteri Ekonomi - Dato' Indera Mohd Shahar bin Abdullah」；部长答复原句：「Kadar inflasi keseluruhan yang terkawal tidak semestinya menggambarkan pengalaman kos sara hidup yang dirasai oleh semua isi rumah.」"
+        }
+      ]
+    }
+  ],
+  "searched_but_found_nothing": [
+    "Malaysia Dewan Rakyat 2026 electricity tariff subsidy question minister reply Tenaga（只找到电力盗窃与非收益水的质询，没有找到窗口期内关于电费补贴/电价的国会质询与部长答复）",
+    "opposition MP challenge government BUDI95 quota cut 2026 Dewan Rakyat criticise subsidy rationalisation Pas Bersatu（未找到在野党在国会内针对配额下调的成篇质询报道，除日叻务议员的书面质询外）",
+    "Dewan Rakyat March 2026 sitting BUDI95 subsidy question MP minister answer parliament（2026年3月至5月似无下议院会期，搜索只返回3月26日安华的特别文告而非国会问答）",
+    "国会 质询 补贴 BUDI95 2026 部长 答复 下议院（中文搜索返回的多为标题党与非马来西亚内容，仅光明日报、东方日报有相关标题，依项目规则未作为事实来源转录）",
+    "Malaysia PAC Public Accounts Committee 2026 subsidy BUDI95 siasatan（未找到PAC针对BUDI95本身的听证；PAC在窗口期内的补贴相关工作集中于食油COSS）",
+    "Malaysia parliament 2026 kos sara hidup soalan Dewan Rakyat menteri jawab harga barang（2026年1月至6月的生活成本类国会问答报道极少，检索结果多为2025年财政预算案内容）"
+  ],
+  "notes": "1) 时间分布严重不均：可核实的质询几乎全部集中在2026年2月与2026年6月下旬至7月，这与下议院会期安排一致（第五会期第一次会议约在2月与6–8月）。2026年1月、3月、4月、5月我没有找到任何可核实的国会质询记录，很可能是这几个月国会休会。\n2) hansard.parlimen.gov.my（Hansard Digital）可以直接抓取，URL格式为 /hansard/dewan-rakyat/YYYY-MM-DD 与 /hansard/dewan-negara/YYYY-MM-DD，是本次最可靠的一级来源；但该站没有可用的日期索引页，我只能针对新闻报道已指出的日期去核对，无法穷举整个窗口期。\n3) www.parlimen.gov.my 主站在抓取时出现 SSL 证书错误（unable to verify the first certificate），因此「书面答复」与「口头答复」的官方PDF（含PAC报告全文 DR.26.2026）均未能取证，PAC报告的正式编号与提呈日期我无法从官方文件确认，只能依新闻报道记为2026年7月16日公布。\n4) thesun.my 与 tvsarawak.my 返回 HTTP 403，无法作为来源。\n5) 补贴节省额（RM2.5亿/25亿令吉）在Malay Mail与Hansard页面之间存在十倍差异，详见2026-02-11条的note，请务必人工复核。\n6) 部分条目的 against 一侧只是「提问行为」本身，而非针对答复的反驳论述——因为多数为书面质询，报道并未记录提问方的后续反应。这类情况已在各条 note 中说明。\n7) 2026年7月1日下议院曾有马樟区议员莫哈末沙希尔向经济部长质询「官方通胀率与生活成本上涨之间的落差」（The Star有报道），但我未能取得部长的答复内容，因此未收录为独立条目。"
+}

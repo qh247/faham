@@ -1,0 +1,351 @@
+{
+  "topic_group": "tax+graft",
+  "window": "2026-01-01..2026-07-31",
+  "researched_at": "2026-08-12T13:50:21Z",
+  "items": [
+    {
+      "date": "2026-03-02",
+      "label": "2026年3月2日",
+      "title": "斯当邦国会议员张健仁在下议院口头质询2025与2026年税收，财政部副部长刘镇东报出各项税目预估数字",
+      "topic": "tax",
+      "w": 1,
+      "who": "财政部",
+      "why": "希盟斯当邦国会议员张健仁在下议院提出口头质询，要求政府交代2025年个人所得税、公司所得税以及销售与服务税的实际征收额，及2026年的预估。财政部副部长刘镇东答复：2025年修订预估为个人所得税404.86亿令吉、公司所得税970.3亿令吉、销售税256亿令吉、服务税303亿令吉；2026年个人所得税预计增长9.4%至490.7亿令吉，公司所得税增长6.5%至1033.5亿令吉，销售税266亿令吉、服务税330亿令吉。刘镇东把个人所得税的增幅归因于薪资增长较稳定、失业率下降，以及公共服务薪酬制度（SSPA）下的公务员薪酬调整。这场答问把扩大后的SST在完整年度的预期规模首次以分项数字摆上国会记录。",
+      "hist": [
+        {"d": "2026-03", "t": "下议院口头质询与财政部副部长答复"}
+      ],
+      "claims": [
+        {"side": "for", "who": "财政部副部长刘镇东", "tx": "2026年个人所得税收入预计增长9.4%，部分由较稳定的薪资增长带动；失业率下降与SSPA下的公务员薪酬调整也支撑了增幅。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/03/02/finance-ministry-sees-individual-tax-revenue-climbing-94pc-in-2026-on-wage-growth-civil-service-salaries-adjustments/210987"},
+        {"side": "against", "who": "希盟斯当邦国会议员张健仁", "tx": "质询要求政府具体交代2025年与2026年个人所得税、公司所得税及销售与服务税的征收与预估数额。", "sr": "DagangNews", "url": "https://www.dagangnews.com/article/terkini/kutipan-cukai-pendapatan-2026-diunjur-cecah-rm1524-bilion-berbanding-rm1418-bilion-pada-2025-dewan-rakyat-diberitahu-65659"}
+      ],
+      "impact": [
+        {"k": "2026年个人所得税预估", "v": "490.7亿令吉（+9.4%）", "s": "Malay Mail"},
+        {"k": "2026年公司所得税预估", "v": "1033.5亿令吉（+6.5%）", "s": "Malay Mail"},
+        {"k": "2026年销售税预估", "v": "266亿令吉", "s": "DagangNews"},
+        {"k": "2026年服务税预估", "v": "330亿令吉", "s": "DagangNews"}
+      ],
+      "note": "质询方与答复方为同一场答问，双方立场并非对立，仅为提问与答复关系。",
+      "srcs": [
+        {"l": "Finance Ministry sees individual tax revenue climbing 9.4pc in 2026", "u": "https://www.malaymail.com/news/malaysia/2026/03/02/finance-ministry-sees-individual-tax-revenue-climbing-94pc-in-2026-on-wage-growth-civil-service-salaries-adjustments/210987"},
+        {"l": "Kutipan cukai pendapatan 2026 diunjur cecah RM152.4 bilion, Dewan Rakyat diberitahu", "u": "https://www.dagangnews.com/article/terkini/kutipan-cukai-pendapatan-2026-diunjur-cecah-rm1524-bilion-berbanding-rm1418-bilion-pada-2025-dewan-rakyat-diberitahu-65659"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaymail.com/news/malaysia/2026/03/02/finance-ministry-sees-individual-tax-revenue-climbing-94pc-in-2026-on-wage-growth-civil-service-salaries-adjustments/210987", "http": 200, "outlet": "malaymail", "supports": "Revenue from individual taxpayers is projected to increase by 9.4 per cent in 2026, driven partly by more stable wage growth."},
+        {"url": "https://www.dagangnews.com/article/terkini/kutipan-cukai-pendapatan-2026-diunjur-cecah-rm1524-bilion-berbanding-rm1418-bilion-pada-2025-dewan-rakyat-diberitahu-65659", "http": 200, "outlet": "dagangnews", "supports": "Bagi tahun 2026 pula, kutipan cukai pendapatan individu dijangka meningkat 9.4% kepada RM49.07 bilion, manakala cukai pendapatan syarikat meningkat 6.5% kepada RM103.35 bilion."}
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "label": "2026年3月2日",
+      "title": "国阵砂政党联盟成邦江议员书面质询电子发票成效与豁免门槛，财政部答称尚未做实施后评估",
+      "topic": "tax",
+      "w": 2,
+      "who": "财政部／内陆税收局",
+      "why": "砂拉越政党联盟（GPS）成邦江国会议员Richard Rapu @ Aman anak Begri提出书面质询，要求政府说明电子发票对税收效率与财政治理的最新影响预测，以及2026年起把豁免门槛提高至100万令吉的财政理据。财政部书面答复列出：自2024年8月1日起已有204,928家商号开出超过10亿张电子发票；在首两个阶段的数据中，有17,188名此前未合规的纳税人主动申报，涉及往年未呈报收入14亿令吉，为政府带来2.9亿令吉额外税收。但财政部同时表明，电子发票的实施后评估研究尚未进行，因为该措施仍处于早期与过渡阶段，成效须待所有相关商家全面落实后才能判定。这等于官方承认：提高豁免门槛的决定，当时并没有实施后评估作为依据。",
+      "hist": [
+        {"d": "2026-01", "t": "电子发票豁免门槛由50万令吉调高至100万令吉生效"},
+        {"d": "2026-03", "t": "财政部书面答复：尚未进行实施后评估"}
+      ],
+      "claims": [
+        {"side": "for", "who": "财政部", "tx": "电子发票的实施后评估尚未进行，因该措施仍处早期与过渡阶段，成效须待所有相关商家全面落实后方能判定。", "sr": "Free Malaysia Today", "url": "https://www.freemalaysiatoday.com/category/nation/2026/03/03/over-1-billion-e-invoices-issued-so-far"},
+        {"side": "against", "who": "GPS成邦江国会议员Richard Rapu", "tx": "质询要求政府交代电子发票对税收效率与财政治理的最新影响预测，以及把豁免门槛提高至100万令吉的财政理据。", "sr": "Bernama", "url": "https://bernama.com/en/news.php?id=2529695"}
+      ],
+      "impact": [
+        {"k": "已开具电子发票的商号", "v": "204,928家", "s": "Free Malaysia Today"},
+        {"k": "累计电子发票张数", "v": "超过10亿张（自2024年8月1日起）", "s": "Free Malaysia Today"},
+        {"k": "主动补报的纳税人", "v": "17,188名", "s": "Free Malaysia Today"},
+        {"k": "补报的往年未申报收入", "v": "14亿令吉", "s": "Bernama"},
+        {"k": "由此产生的额外税收", "v": "2.9亿令吉", "s": "Bernama"}
+      ],
+      "note": "伯纳马于3月2日发稿、FMT于3月3日发稿报道同一份书面答复；此处采用较早的报道日期。质询与答复为同一场问答，非对立双方。",
+      "srcs": [
+        {"l": "More Than One Billion E-invoices Issued To Date - MoF", "u": "https://bernama.com/en/news.php?id=2529695"},
+        {"l": "Over 1 billion e-invoices issued so far", "u": "https://www.freemalaysiatoday.com/category/nation/2026/03/03/over-1-billion-e-invoices-issued-so-far"}
+      ],
+      "_verified": [
+        {"url": "https://bernama.com/en/news.php?id=2529695", "http": 200, "outlet": "bernama", "supports": "a post-implementation study on e-invoicing has not yet been conducted, as the initiative is still at an early stage and in a transition period"},
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/03/03/over-1-billion-e-invoices-issued-so-far", "http": 200, "outlet": "freemalaysiatoday", "supports": "A total of 204,928 traders have issued more than one billion e-invoices since"}
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "label": "2026年3月6日",
+      "title": "上议员黄兆麟书面质询未注册却征收SST的商家，财政部指2024年至2026年1月共1,325家、缴回7,670万令吉",
+      "topic": "tax",
+      "w": 1,
+      "who": "财政部／关税局（JKDM）",
+      "why": "上议员Roderick Wong Siew Lead（黄兆麟）在上议院提出书面质询，要求政府交代有多少商家未注册SST却向消费者征收该税、以及被追缴的情况。财政部书面答复：根据关税局记录，2024年至2026年1月期间共有1,325家商号未注册SST却征收该税，全部已向关税局缴回合计7,670万令吉。财政部说明，凡未注册却征收销售税或服务税的商家，必须依法定条文把款项缴回关税局；经审计或调查发现的个案，须依审计结束后所发出的缴款通知书缴回，关税局也在提交相关财务文件的前提下提供分期缴付安排。这条答复给出了扩大SST后合规执法规模的第一个公开量化基准。",
+      "hist": [
+        {"d": "2026-03", "t": "上议院书面答复公布1,325家与7,670万令吉数字"}
+      ],
+      "claims": [
+        {"side": "for", "who": "财政部", "tx": "凡未注册却已征收销售税或服务税的商家，必须依法定条文把有关款项缴回关税局；相关个案共缴回7,670万令吉。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/03/06/mof-1325-traders-collected-sst-from-2024-to-jan-2026-without-registering-rm767m-repaid/211513"},
+        {"side": "against", "who": "上议员Roderick Wong Siew Lead", "tx": "质询要求交代未注册SST却征收该税的商家数目，以及被要求缴回的情况。", "sr": "BernamaBiz", "url": "https://bernamabiz.com/news-bm.php?id=2530889"}
+      ],
+      "impact": [
+        {"k": "未注册却征收SST的商家", "v": "1,325家（2024年至2026年1月）", "s": "Malay Mail"},
+        {"k": "缴回关税局金额", "v": "7,670万令吉", "s": "Malay Mail"}
+      ],
+      "note": "伯纳马商业版发稿标示3月5日、《马来邮报》标示3月6日（星期五）；此处采用日期标示较完整的《马来邮报》。BernamaBiz为马来文页面，本条引用的支持句为抓取工具所作的英译，核对时请以马来文原句对照语义。",
+      "srcs": [
+        {"l": "MoF: 1,325 traders collected SST from 2024 to Jan 2026 without registering, RM76.7m repaid", "u": "https://www.malaymail.com/news/malaysia/2026/03/06/mof-1325-traders-collected-sst-from-2024-to-jan-2026-without-registering-rm767m-repaid/211513"},
+        {"l": "1,325 Peniaga Tidak Berdaftar SST Sepanjang 2024 Hingga Januari 2026 - MOF", "u": "https://bernamabiz.com/news-bm.php?id=2530889"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaymail.com/news/malaysia/2026/03/06/mof-1325-traders-collected-sst-from-2024-to-jan-2026-without-registering-rm767m-repaid/211513", "http": 200, "outlet": "malaymail", "supports": "Records from the Royal Malaysian Customs Department (JKDM) revealed that, from 2024 to January 2026, 1,325 traders did not register for the Sales and Service Tax (SST) despite collecting the tax, according to the Ministry of Finance (MOF)."},
+        {"url": "https://bernamabiz.com/news-bm.php?id=2530889", "http": 200, "outlet": "bernama", "supports": "Any merchant not registered but has charged Sales and Service Tax must refund the amount to JKDM in accordance with legal provisions."}
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "label": "2026年7月7日",
+      "title": "首相在下议院首相问答时间宣布电子发票特别自愿申报计划，至2027年底更正申报不受罚",
+      "topic": "tax",
+      "w": 3,
+      "who": "财政部／内陆税收局（HASiL）",
+      "why": "希盟怡保东区国会议员李存孝在下议院首相问答时间提问，要求政府说明在全球经济压力下如何扶助企业。兼任财政部长的首相安华在答复中宣布推出「电子发票特别自愿申报计划」（PKPS e-Invois），有效期至2027年12月31日：在此期间纳税人自愿提交的更新、复核与更正，不会被内陆税收局施加罚则。他形容这在所得税事务上是不寻常的决定。同日，内陆税收局发出编号HASiL/2026/07/07–36的媒体文告，确认该计划配合首相当日在下议院的宣布，适用于三类纳税人：已依时限落实电子发票但未就特定交易完整呈交者、已呈交但内容有误或不符规格者、以及自强制实施日起任何期间未呈交者。政府同时同意加速税务优惠，允许为电子发票所购置的资讯科技设备与软件开发／改装成本在一年内全额申报资本减免。此前，电子发票豁免门槛已在2026年1月1日由年营业额50万令吉调高至100万令吉。",
+      "hist": [
+        {"d": "2026-01", "t": "电子发票豁免门槛调高至100万令吉生效"},
+        {"d": "2026-07", "t": "首相在下议院宣布PKPS，内陆税收局同日发文告"},
+        {"d": "2027-12", "t": "PKPS计划期限届满"}
+      ],
+      "claims": [
+        {"side": "for", "who": "首相兼财政部长安华", "tx": "在计划期间，任何自愿提交的更新、复核与更正，都不会被内陆税收局施加罚则。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/07/07/no-penalties-for-voluntary-e-invoice-corrections-until-end-2027-says-pm-anwar/226661"},
+        {"side": "for", "who": "内陆税收局（HASiL）", "tx": "配合首相兼财政部长当日在下议院会议上的宣布，PKPS电子发票计划生效至2027年12月31日，向三类纳税人开放。", "sr": "LHDN媒体文告 HASiL/2026/07/07–36", "url": "https://www.hasil.gov.my/wp-content/uploads/20260707_kenyataan-media-hasil-7-julai-2026-program-khas-pengakuan-sukarela-e-invois.pdf"},
+        {"side": "against", "who": "希盟怡保东区国会议员李存孝", "tx": "提问要求政府说明在全球挑战下对企业的扶助措施。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/07/07/no-penalties-for-voluntary-e-invoice-corrections-until-end-2027-says-pm-anwar/226661"}
+      ],
+      "impact": [
+        {"k": "PKPS计划期限", "v": "至2027年12月31日", "s": "LHDN媒体文告"},
+        {"k": "资本减免申报期", "v": "缩短至1年（ICT设备与软件成本）", "s": "LHDN媒体文告"}
+      ],
+      "note": "内陆税收局文告为一级来源，明文写明「Selaras dengan pengumuman oleh YAB Perdana Menteri merangkap Menteri Kewangan dalam Persidangan Dewan Rakyat pada hari ini」，可直接印证「在下议院宣布」这一点。质询方（李存孝）的提问内容仅见于《马来邮报》转述，未取得逐字原文。",
+      "srcs": [
+        {"l": "No penalties for voluntary e-Invoice corrections until end-2027, says PM Anwar", "u": "https://www.malaymail.com/news/malaysia/2026/07/07/no-penalties-for-voluntary-e-invoice-corrections-until-end-2027-says-pm-anwar/226661"},
+        {"l": "Kenyataan Media HASiL: Program Khas Pengakuan Sukarela (PKPS) e-Invois", "u": "https://www.hasil.gov.my/wp-content/uploads/20260707_kenyataan-media-hasil-7-julai-2026-program-khas-pengakuan-sukarela-e-invois.pdf"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaymail.com/news/malaysia/2026/07/07/no-penalties-for-voluntary-e-invoice-corrections-until-end-2027-says-pm-anwar/226661", "http": 200, "outlet": "malaymail", "supports": "During this period, any updates, reviews and corrections submitted voluntarily will not be subject to penalties by LHDNM."},
+        {"url": "https://www.hasil.gov.my/wp-content/uploads/20260707_kenyataan-media-hasil-7-julai-2026-program-khas-pengakuan-sukarela-e-invois.pdf", "http": 200, "outlet": "hasil.gov.my", "supports": "CYBERJAYA, 7 JULAI 2026 – Selaras dengan pengumuman oleh YAB Perdana Menteri merangkap Menteri Kewangan dalam Persidangan Dewan Rakyat pada hari ini ... Lembaga Hasil Dalam Negeri Malaysia (HASiL) ingin memaklumkan bahawa pelaksanaan Program Khas Pengakuan Sukarela (PKPS) e-Invois mula berkuat kuasa sehingga 31 Disember 2027"}
+      ]
+    },
+    {
+      "date": "2026-02-23",
+      "label": "2026年2月23日",
+      "title": "下议院议长拒绝武吉牛汝莪议员要求辩论反贪会首席专员持股课题的动议，理由是政府已成立特别委员会调查",
+      "topic": "graft",
+      "w": 1,
+      "who": "下议院议长／首相署（特别委员会）",
+      "why": "希盟武吉牛汝莪国会议员端卡巴星于2026年2月12日向下议院议长办公室提呈动议，要求国会辩论反贪会首席专员在两家上市公司的持股课题。议长佐哈里于2月23日宣布拒绝该动议，理由是政府已就此事成立由总检察长领导的特别调查委员会，宜让委员会不受干扰地完成调查；他并表示调查有结果后或会允许辩论。端卡巴星回应说，即使特委会正在调查，该动议仍应被接纳并辩论，因为事涉反贪会首席专员，属须紧急处理的重大课题。本条仅记录动议的提呈与议长的裁决，不涉及任何持股课题的事实认定。",
+      "hist": [
+        {"d": "2026-02", "t": "2月12日动议提呈；2月23日议长裁决拒绝"}
+      ],
+      "claims": [
+        {"side": "for", "who": "下议院议长佐哈里", "tx": "由于该委员会已成立且调查正在进行，因此我不得不拒绝这项动议；不过，待有结果后，我或会允许辩论。", "sr": "Sinar Harian", "url": "https://www.sinarharian.com.my/article/769116/berita/nasional/johari-tolak-permohonan-usul-ramkarpal-bahas-isu-saham-azam-baki"},
+        {"side": "against", "who": "希盟武吉牛汝莪国会议员端卡巴星", "tx": "这是备受关注、须紧急讨论的课题，因为事涉反贪会首席专员；即使特别委员会正在调查，动议仍应被接纳并辩论。", "sr": "Malaysiakini", "url": "https://www.malaysiakini.com/news/768695"}
+      ],
+      "impact": [],
+      "note": "两份来源均未载明动议所援引的议事常规条文编号。本条不涉及持股课题本身的任何事实认定；相关调查当时由总检察长领导的特别委员会进行。",
+      "srcs": [
+        {"l": "Speaker denies DAP MP's motion to discuss Azam's shares scandal", "u": "https://www.malaysiakini.com/news/768695"},
+        {"l": "Johari tolak permohonan usul Ramkarpal bahas isu saham Azam Baki", "u": "https://www.sinarharian.com.my/article/769116/berita/nasional/johari-tolak-permohonan-usul-ramkarpal-bahas-isu-saham-azam-baki"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaysiakini.com/news/768695", "http": 200, "outlet": "malaysiakini", "supports": "Johari said he had decided to decline the motion submitted by Ramkarpal Singh (Harapan-Bukit Gelugor) as the government has since established a special committee to probe the matter."},
+        {"url": "https://www.sinarharian.com.my/article/769116/berita/nasional/johari-tolak-permohonan-usul-ramkarpal-bahas-isu-saham-azam-baki", "http": 200, "outlet": "sinarharian", "supports": "Oleh kerana jawatankuasa itu telah ditubuhkan dan siasatan sedang dilaksanakan, maka usul YB terpaksa saya tolak."}
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "label": "2026年3月2日",
+      "title": "上议员质询高层公务员贪腐情况，内政部答复：2021年至2026年1月反贪会录得36宗高级管理组公务员逮捕",
+      "topic": "graft",
+      "w": 1,
+      "who": "内政部（KDN）／反贪会（SPRM）",
+      "why": "上议员Nelson W Angang在上议院提出口头质询，要求政府交代涉及高层公务员的贪腐情况、被扣押资产数额，以及确保相关机构治理的措施。内政部副部长三苏安努亚答复：2021年至2026年1月31日期间，反贪会录得36宗涉及高级管理组（Kumpulan Pengurusan Tertinggi）公务员的逮捕，其中20宗被提控，涉及贿款22,004,505令吉，8宗已定罪。内政部并列出正在推行的措施，包括对贪腐与失当行为采取零容忍政策、严格纪律监督，以及扩大使用随身摄录机等技术以防止执法人员滥权，另有廉正与治理管理系统（SPINE）的落实。本条仅记录官方在国会给出的统计与措施陈述，不涉及任何个案的事实认定。",
+      "hist": [
+        {"d": "2026-03", "t": "上议院口头质询与内政部答复"}
+      ],
+      "claims": [
+        {"side": "for", "who": "内政部", "tx": "内政部已经并正在推行多项重要措施，包括对贪腐与失当行为落实零容忍政策；只要证据与依据充分，将不论官阶或职位对相关官员采取严厉行动。", "sr": "RTM", "url": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/sprm-36-tangkapan-direkod-babit-penjawat-awam-kumpulan-pengurusan-tertinggi/"},
+        {"side": "against", "who": "上议员Nelson W Angang", "tx": "质询要求政府交代涉及高层公务员的现行贪腐统计、被扣押资产数额，以及确保相关机构治理的规划。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/03/02/home-ministry-unveils-tough-guardrails-as-macc-nets-36-civil-servants-rm22m-in-bribes-exposed/211012"}
+      ],
+      "impact": [
+        {"k": "高级管理组公务员逮捕", "v": "36宗（2021年至2026年1月31日）", "s": "Malay Mail"},
+        {"k": "提控", "v": "20宗", "s": "RTM"},
+        {"k": "涉及贿款", "v": "22,004,505令吉", "s": "RTM"},
+        {"k": "定罪", "v": "8宗", "s": "RTM"}
+      ],
+      "note": "《马来邮报》记为上议院口头问答；RTM报道同一场答问并载明答复者为内政部副部长三苏安努亚。",
+      "srcs": [
+        {"l": "Home Ministry unveils tough guardrails as MACC nets 36 civil servants", "u": "https://www.malaymail.com/news/malaysia/2026/03/02/home-ministry-unveils-tough-guardrails-as-macc-nets-36-civil-servants-rm22m-in-bribes-exposed/211012"},
+        {"l": "SPRM: 36 tangkapan direkod babit penjawat awam kumpulan pengurusan tertinggi", "u": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/sprm-36-tangkapan-direkod-babit-penjawat-awam-kumpulan-pengurusan-tertinggi/"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaymail.com/news/malaysia/2026/03/02/home-ministry-unveils-tough-guardrails-as-macc-nets-36-civil-servants-rm22m-in-bribes-exposed/211012", "http": 200, "outlet": "malaymail", "supports": "The Malaysian Anti-Corruption Commission (MACC) has recorded 36 arrests involving civil servants from the Top Management Group between 2021 and January 31 this year."},
+        {"url": "https://berita.rtm.gov.my/nasional/senarai-berita-nasional/senarai-artikel/sprm-36-tangkapan-direkod-babit-penjawat-awam-kumpulan-pengurusan-tertinggi/", "http": 200, "outlet": "rtm", "supports": "Suruhanjaya Pencegahan Rasuah Malaysia (SPRM) merekodkan 36 tangkapan membabitkan penjawat awam daripada Kumpulan Pengurusan Tertinggi antara 2021 hingga 31 Januari tahun ini."}
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "label": "2026年3月2日",
+      "title": "国会公账会宣布就总稽查司报告1/2026三项课题启动听证：国大治理、研发商业化计划与Pelaburan Hartanah",
+      "topic": "graft",
+      "w": 2,
+      "who": "国会公账会（PAC）",
+      "why": "国会公账会主席马斯艾米雅蒂宣布，公账会将就总稽查司报告（LKAN）1/2026所提出的三项课题启动听证程序：一、马来西亚国民大学（UKM）的管理与治理，报告指其涉及违反大学章程、无授权的收费活动、公务员利益冲突，以及建筑提升与设施维护项目的管理失误；二、研究、发展、商业化与创新（R&D&C&I）计划；三、Pelaburan Hartanah Berhad（PHB）的公司管理与实体项目治理。主席表示公账会一贯认真看待制衡的职责，以确保纳税人的每一分钱都以最高的廉正、透明与效率标准管理。听证日期与传召证人名单当时尚未公布。",
+      "hist": [
+        {"d": "2026-03", "t": "公账会宣布就LKAN 1/2026三项课题启动听证"}
+      ],
+      "claims": [
+        {"side": "for", "who": "国会公账会主席马斯艾米雅蒂", "tx": "公账会一贯认真看待制衡的职责，以确保纳税人的每一分钱都以最高的廉正、透明与效率标准管理。", "sr": "The Star", "url": "https://www.thestar.com.my/news/nation/2026/03/02/pac-to-probe-financial-irregularities-governance-at-hukm-says-chairman"}
+      ],
+      "impact": [],
+      "note": "本条只有一方陈述（公账会），被点名机构当时未见公开回应，故无against方主张。听证日期与证人名单在两份来源发稿时均未公布；本条不含任何未经来源证实的金额数字。",
+      "srcs": [
+        {"l": "PAC to probe financial irregularities, governance at UKM, says chairman", "u": "https://www.thestar.com.my/news/nation/2026/03/02/pac-to-probe-financial-irregularities-governance-at-hukm-says-chairman"},
+        {"l": "LKAN 1/2026: PAC Akan Mulakan Prosiding Ke Atas UKM, Dua Lagi Isu", "u": "https://www.bernama.com/misc/rss/news.php?id=2529467"}
+      ],
+      "_verified": [
+        {"url": "https://www.thestar.com.my/news/nation/2026/03/02/pac-to-probe-financial-irregularities-governance-at-hukm-says-chairman", "http": 200, "outlet": "thestar", "supports": "The PAC always takes the obligation of check and balance seriously to ensure that every cent of taxpayers' money is managed with the highest level of integrity, transparency and efficiency."},
+        {"url": "https://www.bernama.com/misc/rss/news.php?id=2529467", "http": 200, "outlet": "bernama", "supports": "Tarikh prosiding serta senarai saksi yang akan dipanggil bagi memberi keterangan berhubung ketiga-tiga isu berkenaan akan dimaklumkan kemudian"}
+      ]
+    },
+    {
+      "date": "2026-03-03",
+      "label": "2026年3月3日",
+      "title": "下议院首相问答时间：巴生议员质询反贪会追回资产数额，追加提问转向皇委会诉求，首相称设皇委会「言之过早」",
+      "topic": "graft",
+      "w": 2,
+      "who": "首相署／总检察署／反贪会",
+      "why": "巴生国会议员加纳巴迪劳在下议院首相问答时间提问，要求政府交代反贪会在贪污案件中追回的款项与资产数额及历年比较。首相安华在答复中列出资产数字，并提到2023年至2025年期间已达155亿令吉。随后的追加提问转向一家国际媒体所报道的「企业黑手党」指控与执法机构滥权问题，提问者要求说明皇家调查委员会（RCI）的范围、法律权限与时间表。首相答称，设立皇委会的建议「言之过早」，因为由总检察长领导的调查将在数日内完成，须先取得报告；若现有调查被发现不足或未完整涵盖所提出的质疑范围，内阁的决定是将其延续。马章国会议员在追加提问中质疑政府在此事上的立场与透明度，并要求相关官员休假。首相强调不应预设立场、须遵循正当程序。相关机构与其首长否认有不当行为；该首长此前公开表示准备提供调查所需的任何文件或口供。本条只记录质询、答复与程序阶段，不对任何指控作事实认定。",
+      "hist": [
+        {"d": "2026-02", "t": "内阁指示成立由总检察长领导的特别调查委员会"},
+        {"d": "2026-03", "t": "下议院首相问答时间：首相称皇委会「言之过早」"}
+      ],
+      "claims": [
+        {"side": "for", "who": "首相安华", "tx": "皇家调查委员会的建议言之过早；由总检察长领导的调查本周内即会完成，须先取得报告再决定是否需要进一步审视。", "sr": "The Star", "url": "https://www.thestar.com.my/news/nation/2026/03/04/corporate-mafia-rci-possible"},
+        {"side": "for", "who": "反贪会首席专员（受质疑一方）", "tx": "他们可以履行其职责，我准备提供他们所需要的任何文件或口供。（《马来邮报》另报道，该首长与反贪会均否认有不当行为。）", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/02/15/macc-chief-refuses-leave-of-absence-during-investigation-cites-others-charged-but-still-on-duty/209291"},
+        {"side": "against", "who": "马章国会议员旺阿末法伊沙", "tx": "质疑政府在此事上的立场与调查透明度，并要求相关官员在调查期间休假。", "sr": "The Star", "url": "https://www.thestar.com.my/news/nation/2026/03/03/issues-involving-azam-baki-never-closed-probe-still-ongoing-anwar-tells-parliament"}
+      ],
+      "impact": [
+        {"k": "反贪会追回资产（2023至2025年）", "v": "155亿令吉", "s": "首相署逐字记录"}
+      ],
+      "note": "首相署（pmo.gov.my）刊出的国会逐字记录为一级来源，载有质询者姓名（巴生国会议员加纳巴迪劳）与追加提问内容。为遵守报道谨慎原则，本条不复述任何具体指控的内容，只记录质询、官方答复与程序阶段；相关调查在本时间窗内仍在进行。",
+      "srcs": [
+        {"l": "Teks verbatim YAB Perdana Menteri, Waktu Pertanyaan-Pertanyaan Perdana Menteri, 3 Mac 2026", "u": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-perdana-menteri-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-parlimen-kelima-belas-sesi-3-mac-2026-soalan-satu-dan-soalan-tambahan/"},
+        {"l": "'Corporate mafia' RCI possible", "u": "https://www.thestar.com.my/news/nation/2026/03/04/corporate-mafia-rci-possible"},
+        {"l": "Issues involving Azam Baki never closed, probe still ongoing, Anwar tells Parliament", "u": "https://www.thestar.com.my/news/nation/2026/03/03/issues-involving-azam-baki-never-closed-probe-still-ongoing-anwar-tells-parliament"}
+      ],
+      "_verified": [
+        {"url": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-perdana-menteri-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-parlimen-kelima-belas-sesi-3-mac-2026-soalan-satu-dan-soalan-tambahan/", "http": 200, "outlet": "pmo.gov.my", "supports": "2018 – RM37 juta permulaan aset keseluruhannya, dan 2019 – RM1.2 bilion. Pada 2023 hingga 2025...ia sudah mencecah RM15.5 bilion ringgit."},
+        {"url": "https://www.thestar.com.my/news/nation/2026/03/04/corporate-mafia-rci-possible", "http": 200, "outlet": "thestar", "supports": "For us, a Royal Commission is premature, too early. First, the investigation led by the Attorney General will be completed this week, in a few days."},
+        {"url": "https://www.thestar.com.my/news/nation/2026/03/03/issues-involving-azam-baki-never-closed-probe-still-ongoing-anwar-tells-parliament", "http": 200, "outlet": "thestar", "supports": "Both of these are not closed – that is the difference."},
+        {"url": "https://www.malaymail.com/news/malaysia/2026/02/15/macc-chief-refuses-leave-of-absence-during-investigation-cites-others-charged-but-still-on-duty/209291", "http": 200, "outlet": "malaymail", "supports": "They can perform their responsibilities and I am ready to give any documents or statements that they need."}
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "label": "2026年7月9日",
+      "title": "斯当邦议员张健仁质询1MDB负担，财政部副部长答复：政府承担的1MDB负债共514亿令吉，已追回313亿令吉",
+      "topic": "graft",
+      "w": 2,
+      "who": "财政部",
+      "why": "希盟斯当邦国会议员张健仁在下议院质询政府承担的1MDB债务总额与资金追回情况。财政部副部长刘镇东答复：政府须承担与已承担的1MDB负债合计514亿令吉；截至2026年6月30日，政府已支付425亿令吉，涵盖本金、利息、法律与营运成本及其他承担；政府仍须承担由政府担保、2039年到期的伊斯兰中期票据（IMTN）89亿令吉，其中本金50亿令吉、利息39亿令吉。至今政府已追回与1MDB相关的资金313亿令吉；若日后再无追回，政府仍须承担余下约201亿令吉。答复并指出，未来追回的资金或资产不太可能足以覆盖余下负债，因为大部分追回已经实现。",
+      "hist": [
+        {"d": "2026-07", "t": "下议院答复公布截至2026年6月30日的1MDB数字"}
+      ],
+      "claims": [
+        {"side": "for", "who": "财政部副部长刘镇东", "tx": "政府已承担与仍须承担的1MDB负债总额为514亿令吉；若日后再无追回，政府仍须承担余下的整体承担。", "sr": "Free Malaysia Today", "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/09/govt-paid-rm42-5bil-towards-1mdb-debt-rm8-9bil-still-outstanding"},
+        {"side": "against", "who": "希盟斯当邦国会议员张健仁", "tx": "质询要求交代政府承担的1MDB债务总额与已追回的资金数额。", "sr": "Utusan Melayu Plus", "url": "https://utusanmelayuplus.com/jumlah-hutang-1mdb-yang-ditanggung-kerajaan-persekutuan-adalah-rm51-4-bilion/"}
+      ],
+      "impact": [
+        {"k": "1MDB负债总额", "v": "514亿令吉", "s": "Free Malaysia Today"},
+        {"k": "截至2026年6月30日已支付", "v": "425亿令吉", "s": "Utusan Melayu Plus"},
+        {"k": "已追回资金", "v": "313亿令吉", "s": "Free Malaysia Today"},
+        {"k": "政府担保IMTN（2039年到期）", "v": "89亿令吉（本金50亿、利息39亿）", "s": "Utusan Melayu Plus"},
+        {"k": "余下须承担", "v": "约201亿令吉", "s": "Utusan Melayu Plus"}
+      ],
+      "note": "《今日自由大马》记为书面答复，Utusan Melayu Plus记为口头答复；两者对答复形式的记载不一致，本条不断言形式。质询与答复为同一场问答，非对立双方。",
+      "srcs": [
+        {"l": "Govt paid down 1MDB's RM51bil debt, RM8.9bil still outstanding", "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/09/govt-paid-rm42-5bil-towards-1mdb-debt-rm8-9bil-still-outstanding"},
+        {"l": "Jumlah hutang 1MDB yang ditanggung Kerajaan Persekutuan adalah RM51.4 bilion", "u": "https://utusanmelayuplus.com/jumlah-hutang-1mdb-yang-ditanggung-kerajaan-persekutuan-adalah-rm51-4-bilion/"}
+      ],
+      "_verified": [
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/07/09/govt-paid-rm42-5bil-towards-1mdb-debt-rm8-9bil-still-outstanding", "http": 200, "outlet": "freemalaysiatoday", "supports": "This means the total 1MDB liabilities that have been and still need to be borne by the government amount to RM51.4 billion."},
+        {"url": "https://utusanmelayuplus.com/jumlah-hutang-1mdb-yang-ditanggung-kerajaan-persekutuan-adalah-rm51-4-bilion/", "http": 200, "outlet": "utusanmelayuplus", "supports": "Setakat 30 Jun 2026, kerajaan telah membayar RM42.5 bilion hutang dan komitmen 1MDB termasuk bayaran prinsipal, faedah, kos guaman dan operasi, serta komitmen lain."}
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "label": "2026年7月16日",
+      "title": "梳邦议员黄基全书面质询KWAP投资eFishery亏损的问责，财政部答称属有组织的欺诈；公账会称将讨论是否立案",
+      "topic": "graft",
+      "w": 2,
+      "who": "财政部／公务员退休基金局（KWAP）／国会公账会",
+      "why": "希盟梳邦国会议员黄基全提出书面质询，问公务员退休基金局（KWAP）的管理层、董事局或投资小组是否会为eFishery投资亏损承担责任。兼任财政部长的首相安华的书面答复指出，该项投资是一起蓄意的欺诈，因为这家印尼初创公司的管理层操纵了其财务报表；包括KWAP在内的投资方财团已向有关当局报案、展开适当的法律行动，并持续尽力追回投资资金，KWAP也已对其投资评估、批准与监督流程进行全面检讨，检讨结果已提呈董事局详细审视。同日，国会公账会主席马斯艾米雅蒂表示，该事项目前不在公账会的议程内，但委员会可以讨论是否应就此立案；她说委员会手头已有若干待处理事项。据DealStreetAsia，KWAP在2023年eFishery的D轮融资中投入约4,770万美元（约2亿令吉）。本条只记录国会质询、官方答复与公账会的程序表态。",
+      "hist": [
+        {"d": "2026-07", "t": "财政部书面答复确认属欺诈；公账会称将讨论是否立案"}
+      ],
+      "claims": [
+        {"side": "for", "who": "首相兼财政部长安华（书面答复）", "tx": "该项投资是蓄意的欺诈，因为该初创公司的管理层操纵了财务报表；包括KWAP在内的投资方财团正持续尽一切努力追回投资资金。", "sr": "Free Malaysia Today", "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/kwap-was-duped-into-rm200mil-efishery-venture-says-anwar"},
+        {"side": "against", "who": "希盟梳邦国会议员黄基全", "tx": "质询KWAP的管理层、董事局或投资小组是否会为eFishery的亏损承担责任。", "sr": "The Star", "url": "https://www.thestar.com.my/business/business-news/2026/07/16/mof-kwap-deceived-on-efishery-investment-fund-recovery-underway"},
+        {"side": "against", "who": "国会公账会主席马斯艾米雅蒂", "tx": "此事目前不在公账会的程序内；我们可以讨论（KWAP的投资），以决定公账会是否应审视此事。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/07/16/pac-chairman-committee-to-discuss-possible-probe-into-kwaps-efishery-investment/227816"}
+      ],
+      "impact": [
+        {"k": "KWAP投资额", "v": "4,770万美元（约2亿令吉），2023年D轮融资", "s": "Malay Mail"}
+      ],
+      "note": "投资金额由《马来邮报》引述DealStreetAsia，非政府来源；财政部答复本身未见公开的确切金额。相关法律行动与追回工作在本时间窗内仍在进行，本条不对任何个人作事实认定。",
+      "srcs": [
+        {"l": "MOF: KWAP deceived on eFishery investment, fund recovery underway", "u": "https://www.thestar.com.my/business/business-news/2026/07/16/mof-kwap-deceived-on-efishery-investment-fund-recovery-underway"},
+        {"l": "KWAP was duped into RM200mil eFishery venture, says Anwar", "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/kwap-was-duped-into-rm200mil-efishery-venture-says-anwar"},
+        {"l": "PAC chairman: Committee to discuss possible probe into KWAP's eFishery investment", "u": "https://www.malaymail.com/news/malaysia/2026/07/16/pac-chairman-committee-to-discuss-possible-probe-into-kwaps-efishery-investment/227816"}
+      ],
+      "_verified": [
+        {"url": "https://www.thestar.com.my/business/business-news/2026/07/16/mof-kwap-deceived-on-efishery-investment-fund-recovery-underway", "http": 200, "outlet": "thestar", "supports": "The consortium, including KWAP, has lodged a report with relevant authorities, initiated the appropriate legal action and is continuing to make every effort to recover the investment funds."},
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/kwap-was-duped-into-rm200mil-efishery-venture-says-anwar", "http": 200, "outlet": "freemalaysiatoday", "supports": "The eFishery investment was a deliberate fraud as eFishery's management had manipulated the start-up's financial statements."},
+        {"url": "https://www.malaymail.com/news/malaysia/2026/07/16/pac-chairman-committee-to-discuss-possible-probe-into-kwaps-efishery-investment/227816", "http": 200, "outlet": "malaymail", "supports": "Presently, we already have several matters pending before us. We can discuss (KWAP's investment) to determine whether the PAC should look into the matter."}
+      ]
+    },
+    {
+      "date": "2026-07-17",
+      "label": "2026年7月17日",
+      "title": "日落洞议员书面质询皇家调查委员会诉求，法律部长答称须待调查结果；净选盟称已有34名议员联署支持设立皇委会",
+      "topic": "graft",
+      "w": 2,
+      "who": "首相署（法律及体制改革）",
+      "why": "日落洞国会议员冉阿里在下议院提出书面质询，要求政府交代是否会就「企业黑手党」指控设立皇家调查委员会（RCI）。首相署部长（法律及体制改革）阿莎丽娜书面答复：政府将等待相关当局正在进行的调查结果，才决定是否设立皇委会；政府始终对设立皇委会或任何其他适当机制持开放态度，只要认为符合公共利益即可考虑；任何决定都会依据调查结果，包括相关当局所掌握的事实、发现与最新进展。此前一周，同一部长在国会答复中已表明相同立场，并说警方与反贪会已就若干公司展开初步调查。在质询方一侧，净选盟主席费沙于7月16日称，来自九个政党的34名国会议员已联署支持设立皇委会调查涉及反贪会人员的「企业黑手党」指控，呼吁各阵营议员共同支持。本条只记录质询、官方立场与联署诉求，不对任何指控作事实认定。",
+      "hist": [
+        {"d": "2026-03", "t": "首相在下议院称设皇委会「言之过早」，须待总检察长报告"},
+        {"d": "2026-07", "t": "7月8日与7月17日两次国会答复：政府对皇委会持开放态度但须待调查结果；7月16日净选盟称34名议员联署"}
+      ],
+      "claims": [
+        {"side": "for", "who": "首相署部长（法律及体制改革）阿莎丽娜", "tx": "政府始终对设立皇委会或任何其他被认为符合公共利益的适当机制持开放态度；任何决定将依据调查结果，包括相关当局所掌握的事实、发现与最新进展。", "sr": "The Vibes", "url": "https://www.thevibes.com/articles/news/125151/corporate-mafia-claims-govt-holds-off-rci-decision-pending-probe-findings"},
+        {"side": "for", "who": "首相署部长（法律及体制改革）阿莎丽娜（7月8日答复）", "tx": "警方与反贪会已就若干公司展开初步调查；政府对在必要时设立皇委会持开放态度。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/07/08/putrajaya-open-to-rci-on-corporate-mafia-claims-after-investigations-says-azalina/226800"},
+        {"side": "against", "who": "净选盟主席费沙", "tx": "我们促请所有阵营的每一位国会议员团结起来，支持设立这个皇家调查委员会；来自九个政党的34名议员已联署支持。", "sr": "Free Malaysia Today", "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/bersih-claims-34-mps-back-rci-to-probe-corporate-mafia"}
+      ],
+      "impact": [
+        {"k": "联署支持设立皇委会的国会议员", "v": "34名（来自9个政党，净选盟说法）", "s": "Free Malaysia Today"}
+      ],
+      "note": "7月8日与7月17日两则报道内容高度相近，可能为同一立场在两次答复中的重述；本条以载明质询者（日落洞议员冉阿里）与日期的The Vibes报道为主，并把7月8日答复列为同一立场的较早记录。34名议员的数字为净选盟的说法，未见官方核实。",
+      "srcs": [
+        {"l": "Corporate Mafia claims: Govt holds off RCI decision pending probe findings", "u": "https://www.thevibes.com/articles/news/125151/corporate-mafia-claims-govt-holds-off-rci-decision-pending-probe-findings"},
+        {"l": "Putrajaya open to RCI on 'corporate mafia' claims after investigations, says Azalina", "u": "https://www.malaymail.com/news/malaysia/2026/07/08/putrajaya-open-to-rci-on-corporate-mafia-claims-after-investigations-says-azalina/226800"},
+        {"l": "Bersih claims 34 MPs back RCI to probe 'corporate mafia'", "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/bersih-claims-34-mps-back-rci-to-probe-corporate-mafia"}
+      ],
+      "_verified": [
+        {"url": "https://www.thevibes.com/articles/news/125151/corporate-mafia-claims-govt-holds-off-rci-decision-pending-probe-findings", "http": 200, "outlet": "thevibes", "supports": "THE Government will wait for the findings of ongoing investigations before deciding whether to establish a Royal Commission of Inquiry (RCI) into allegations of corporate mafia activities, the Dewan Rakyat was told."},
+        {"url": "https://www.malaymail.com/news/malaysia/2026/07/08/putrajaya-open-to-rci-on-corporate-mafia-claims-after-investigations-says-azalina/226800", "http": 200, "outlet": "malaymail", "supports": "The government is always open to considering the establishment of an RCI or any other appropriate mechanism if deemed necessary in the public interest."},
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/bersih-claims-34-mps-back-rci-to-probe-corporate-mafia", "http": 200, "outlet": "freemalaysiatoday", "supports": "We urge every MP from all political blocs to come together and support the establishment of this RCI."}
+      ]
+    }
+  ],
+  "searched_but_found_nothing": [
+    "国会 质询 SST 电子发票 2026 财政部 答复（中文检索几乎只返回中国大陆财税文件，无法定位马来西亚国会质询）",
+    "反贪会 国会 质询 2026（中文检索未返回可用的马来西亚国会问答报道）",
+    "Malaysia Dewan Rakyat 2026 MACC Act amendment bill deferred prosecution agreement debate opposition MPs（未找到窗口期内有官方答复的国会辩论报道）",
+    "Chong Chieng Jen SST income tax collection 2025 2026 written reply finance minister parliament（首次检索被新加坡国会答复淹没，改用马来文检索才命中）",
+    "soalan parlimen 2026 e-invois pengecualian ambang RM1 juta jawapan bertulis Dewan Rakyat（未直接命中原始书面答复文件，只命中新闻转述）",
+    "PAC Public Accounts Committee Malaysia 2026 findings report tabled Dewan Rakyat procurement（未找到窗口期内已提呈的采购类公账会报告全文）"
+  ],
+  "notes": "1) 一级来源可及性：parlimen.gov.my 的公账会报告PDF（DR.26.2026）抓取时出现TLS凭证错误，无法读取；hansard.parlimen.gov.my 的单日会议记录页可读（已成功抓取2026-07-14），但没有可用的关键词检索入口，无法系统性遍历；prestasiyb.com/soalan 返回403。因此本批次多数条目依赖新闻转述，而非原始Hansard。2) NST（nst.com.my）全站返回403，Bernama部分网域可读、部分不可读；Utusan、Berita Harian返回403。3) 语言问题：马来文与中文页面经抓取工具处理后，部分返回的是英译而非原句；本文件中标注为马来文原句的（Sinar Harian、RTM、DagangNews、Utusan Melayu Plus、PMO、LHDN文告）确为原文，其余以英文记录。LHDN的PDF文告是我直接读取原件的，可信度最高。4) graft类条目一律只记录：何方提出、经何机构、处于何阶段、被质疑方如何回应。涉及个人的指控内容一概不复述、不评价；相关调查在本时间窗（截至2026年7月31日）内均未结案。5) 关于「企业黑手党」指控本身的内容，来源指向一家国际媒体的报道，我未能抓取该原始报道（付费墙），因此本文件不含该报道的任何具体内容。6) 2026年1月与4至6月的可及报道明显偏少，见 gaps 文件。"
+}

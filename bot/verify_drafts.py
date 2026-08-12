@@ -69,32 +69,79 @@ strip_punct = lambda s: PUNCT.sub('', s)
 cjk_ratio = lambda s: (sum(1 for c in s if '一' <= c <= '鿿') / max(1, len(s)))
 
 
-def contains(page, claim):
-    """页面是否支持这句话。三级放宽：原句 → 去标点 → 片段重叠。"""
-    if not page or not claim:
-        return False, 'no-text'
+def sentence_hit(page, claim):
+    """页面是否含这句话。只作加分信号，不作判定关卡——见 facts_of() 的说明。
+
+    短句一律不算：`supports` 若只有几个字符（曾出现过写成 "x" 的），
+    子串比对在任何页面上都会命中，等于凭空放行。"""
+    if not page or not claim or len(strip_punct(claim)) < 12:
+        return False
     if norm(claim) in page:
-        return True, 'exact'
+        return True
     pc, cc = strip_punct(page), strip_punct(claim)
     if cc and cc in pc:
-        return True, 'depunct'
-    # 片段重叠：长句被排版切断时，仍应算命中
+        return True
     if cjk_ratio(cc) > 0.3:
         grams = {cc[i:i + 8] for i in range(0, max(1, len(cc) - 7))}
-        if grams:
-            hit = sum(1 for g in grams if g in pc) / len(grams)
-            if hit >= 0.7:
-                return True, f'overlap {hit:.0%}'
-            return False, f'overlap {hit:.0%}'
-    else:
-        toks = [t for t in re.split(r'\W+', cc.lower()) if len(t) > 3]
-        if toks:
-            pl = pc.lower()
-            hit = sum(1 for t in toks if t in pl) / len(toks)
-            if hit >= 0.7:
-                return True, f'overlap {hit:.0%}'
-            return False, f'overlap {hit:.0%}'
-    return False, 'miss'
+        return bool(grams) and sum(1 for g in grams if g in pc) / len(grams) >= 0.7
+    toks = [t for t in re.split(r'\W+', cc.lower()) if len(t) > 3]
+    pl = pc.lower()
+    return bool(toks) and sum(1 for t in toks if t in pl) / len(toks) >= 0.7
+
+
+# 条目正文是中文，来源多半是英文／马来文，所以逐句比对必然误杀。
+# 真正跨语言可比的，是「事实指纹」：数字、金额、百分比、日期，
+# 以及拉丁字母的专名与缩写（BUDI95、SPR、UEC、Adam Adli）——
+# 这些在中文报道里也照写不误。查这些，才是查主张本身，而不是查引文格式。
+NUM = re.compile(r'\d[\d,]{2,}(?:\.\d+)?|\d+\.\d+')
+LAT = re.compile(r'\b[A-Z][A-Za-z]{2,}\d*\b|\b[A-Z]{2,}\d*\b')
+
+
+def facts_of(item):
+    """从条目里抽出跨语言可核对的事实指纹，分成数字类与专名类。"""
+    blob = ' '.join(filter(None, [
+        str(item.get('title', '')), str(item.get('why', '')), str(item.get('who', '')),
+        ' '.join(str(c.get('tx', '')) + ' ' + str(c.get('sr', '')) for c in item.get('claims') or []),
+        ' '.join(str(i.get('k', '')) + ' ' + str(i.get('v', '')) for i in item.get('impact') or []),
+        ' '.join(str(h.get('t', '')) for h in item.get('hist') or []),
+    ]))
+    nums = {n for n in NUM.findall(blob) if len(n.replace(',', '').replace('.', '')) >= 3}
+    STOP = {'The', 'This', 'That', 'RM', 'PDF', 'HTTP', 'Dewan', 'Rakyat', 'Negara'}
+    lats = {w for w in LAT.findall(blob) if w not in STOP and len(w) >= 3}
+    return nums, lats
+
+
+# 光年份对上不算佐证：2026 出现在 2026 年的任何一篇报道里。
+# 真正有辨识力的是 75,144、108.79、4,254 这种——凑巧撞上的概率极低。
+IS_YEAR = lambda n: re.fullmatch(r'(19|20)\d\d', n) is not None
+
+
+def corroborates(page, nums, lats, supports):
+    """这一页是否支持本条。回传 (强度, 说明)：'strong' / 'weak' / ''。"""
+    if not page:
+        return '', '正文为空'
+    pl = page.lower()
+    # 数字比对时把千分位去掉，因为各家排版不一（75,144 / 75144）
+    flat = page.replace(',', '')
+    nhit = {n for n in nums if n in page or n.replace(',', '') in flat}
+    lhit = {w for w in lats if w.lower() in pl}
+    sharp = {n for n in nhit if not IS_YEAR(n)}     # 有辨识力的数字
+    years = nhit - sharp
+
+    if sentence_hit(page, supports):
+        return 'strong', '原句命中'
+    if sharp:
+        return 'strong', f'关键数字 {len(sharp)}/{len([n for n in nums if not IS_YEAR(n)])}：' \
+                         + '、'.join(sorted(sharp)[:3])
+    if len(lhit) >= 3:
+        return 'strong', f'专名 {len(lhit)}/{len(lats)}：' + '、'.join(sorted(lhit)[:3])
+    if years or lhit:
+        bits = []
+        if years: bits.append('仅年份 ' + '、'.join(sorted(years)))
+        if lhit:  bits.append(f'专名 {len(lhit)} 个')
+        return 'weak', '弱证据（' + '；'.join(bits) + '）'
+    total = len(nums) + len(lats)
+    return '', f'指纹未命中（条目共 {total} 个可核对指纹）'
 
 
 def urls_in(item):
@@ -131,20 +178,27 @@ def check_file(path):
         if not ver:
             problems.append('没有 _verified 审计清单')
 
-        # 1+2. 每条审计记录实地抓取并比对支持句
-        good_hosts = set()
+        # 1+2. 每条审计记录实地抓取，并用事实指纹比对
+        nums, lats = facts_of(it)
+        strong_hosts, weak_hosts = set(), set()
+        if not nums and not lats:
+            problems.append('条目里没有任何可跨语言核对的指纹（数字或专名）')
         for v in ver:
             u, want = v.get('url', ''), v.get('supports', '')
             status, page = fetch(u)
             if status != 200:
                 problems.append(f'HTTP {status or "连不上"} · {u[:70]}')
                 continue
-            hit, how = contains(page, want)
-            if hit:
-                good_hosts.add(hostname(u))
-                evidence.append(f'✓ {hostname(u)} ({how})')
+            level, how = corroborates(page, nums, lats, want)
+            if level == 'strong':
+                strong_hosts.add(hostname(u))
+                evidence.append(f'✓ {hostname(u)} — {how}')
+            elif level == 'weak':
+                weak_hosts.add(hostname(u))
+                evidence.append(f'~ {hostname(u)} — {how}')
             else:
-                problems.append(f'页面无此句 [{how}] · {hostname(u)} · 「{want[:38]}…」')
+                problems.append(f'{hostname(u)} 打得开，但内容对不上：{how}')
+        good_hosts = strong_hosts
 
         # 3. 条目里用到的链接必须都登记过
         registered = {v.get('url') for v in ver}

@@ -1,0 +1,227 @@
+[
+ {
+  "date": "2026-02-11",
+  "label": "2026年2月11日",
+  "title": "国民团结部长书面答复指承认统考「有可能引发不和谐」，砂拉越董总公开反驳",
+  "topic": "rights",
+  "w": 2,
+  "who": "国民团结部／教育部",
+  "why": "国民团结部长阿伦阿哥达刚在一份国会书面答复中表示，承认独中统一考试文凭（UEC）「有可能在国民之间引发不和谐」，并以此作为教育部维持不承认统考立场的理由之一。2026年2月11日，砂拉越华校董事联合会（砂拉越董总）公开回应，指该说法与砂拉越长期以来的开放包容作风相悖，反映联邦官僚体系中的过时成见；该会指出砂拉越自2015年起已承认统考而未出现问题，认为教育多元与国家认同可以并存，并主张对团结的真正威胁来自资源与机会上的持续不均，而非教育多元；该会呼吁部长参考砂拉越的做法来引导联邦政策。",
+  "hist": [
+   {
+    "d": "2026-02",
+    "t": "国民团结部长书面答复；砂拉越董总公开反驳"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "国民团结部长阿伦阿哥达刚（国会书面答复）",
+    "tx": "承认统考有可能在国民之间引发不和谐，这是教育部维持不承认统考立场的理由之一。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/02/11/recognising-uec-wont-spark-discord-sarawak-dong-zong-tells-national-unity-minister/208898"
+   },
+   {
+    "side": "against",
+    "who": "砂拉越华校董事联合会（砂拉越董总）",
+    "tx": "该说法与砂拉越长期的开放包容作风相悖，反映联邦官僚体系中的过时成见；砂拉越自2015年起承认统考并未出现问题，显示教育多元与国家认同可以并存；对团结的真正威胁来自资源与机会上的持续不均。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/02/11/recognising-uec-wont-spark-discord-sarawak-dong-zong-tells-national-unity-minister/208898"
+   }
+  ],
+  "impact": [],
+  "note": "本条只有一个已核实来源（Malay Mail，同一篇同时载有官方书面答复内容与反驳方说法）。中文媒体（光明日报）2026年2月10日有对应报道，但该站对本次抓取返回HTTP 403，未能核实，故未列为来源。书面答复原件（国会问答编号）未取得，答复的确切提交日期无法确认，本条日期采用已核实报道的刊出日期。",
+  "srcs": [
+   {
+    "l": "Recognising UEC won't spark discord, Sarawak Dong Zong tells national unity minister",
+    "u": "https://www.malaymail.com/news/malaysia/2026/02/11/recognising-uec-wont-spark-discord-sarawak-dong-zong-tells-national-unity-minister/208898"
+   }
+  ]
+ },
+ {
+  "date": "2026-06-25",
+  "label": "2026年6月25日",
+  "title": "高教部副部长在下议院答复：国立大学录取依既定标准与绩效，统考生无特别管道",
+  "topic": "rights",
+  "w": 1,
+  "who": "高等教育部",
+  "why": "在下议院口头问答环节，阿劳国会议员沙希淡卡欣（PN－阿劳）就统考持有者进入国立大学一事提出附加提问。高等教育部副部长阿当阿里答复称，国立大学录取依据既定标准与绩效，符合国家教育体系，不受政治考量或所谓「后门」影响；他表示统考生并没有特别管道或放宽的入学条件，并说部门从未表示统考生的录取完全以该单一体系为依据。此答复是2026年5月政府开放统考及tahfiz学生申请国立大学管道后，官方在国会对该安排性质的进一步说明。",
+  "hist": [
+   {
+    "d": "2026-06",
+    "t": "高教部副部长在下议院答复附加提问"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "高等教育部副部长阿当阿里",
+    "tx": "国立大学录取以既定标准与绩效为依据，没有为统考持有者设特别管道或放宽入学条件；部门从未表示统考生的录取完全依据该单一体系。",
+    "sr": "Malay Mail",
+    "url": "https://www.malaymail.com/news/malaysia/2026/06/25/adam-adli-public-university-admissions-based-on-merit-no-backdoors-for-uec-holders/225147"
+   }
+  ],
+  "impact": [],
+  "note": "只有一个已核实来源（Malay Mail）。BusinessToday有同日独立报道，但抓取返回HTTP 403，未能核实，故未列入。质询方（沙希淡卡欣）的提问原文未取得全文，因此本条没有可核实的against一方说法。",
+  "srcs": [
+   {
+    "l": "Adam Adli: Public university admissions based on merit, no 'backdoors' for UEC holders",
+    "u": "https://www.malaymail.com/news/malaysia/2026/06/25/adam-adli-public-university-admissions-based-on-merit-no-backdoors-for-uec-holders/225147"
+   }
+  ]
+ },
+ {
+  "date": "2026-06-25",
+  "label": "2026年6月25日",
+  "title": "首相署部长在下议院答复：沙巴砂拉越35%国会议席诉求仍在讨论，需修宪第46条",
+  "topic": "vote",
+  "w": 1,
+  "who": "首相署（沙巴砂拉越事务）／选举委员会",
+  "why": "哥打毛律国会议员伊斯娜莱莎慕妮拉（民兴党－哥打毛律）在下议院问答环节，询问1963年马来西亚协议（MA63）落实的最新进展，以及把沙巴与砂拉越国会议席比例提高至35%的诉求。首相署部长（沙巴与砂拉越事务）慕斯达法沙孟答复称，该诉求仍属未解决事项、尚在讨论阶段。他说明这属选举委员会依联邦宪法第十三附表与第113条的权限范围，同时需要修改联邦宪法第46条中有关下议院组成的规定，而修宪须获得下议院三分之二多数通过；他并指选区划分只能在八年周期届满后才能进行。",
+  "hist": [
+   {
+    "d": "2026-06",
+    "t": "首相署部长在下议院答复35%议席诉求进展"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相署部长（沙巴与砂拉越事务）慕斯达法沙孟",
+    "tx": "此事属选举委员会依联邦宪法第十三附表与第113条的权限，并需修改第46条中下议院组成的相关法律，而修宪须获下议院三分之二多数通过；35%议席诉求仍在讨论阶段。",
+    "sr": "DayakDaily",
+    "url": "https://dayakdaily.com/35-seat-quota-for-sarawak-sabah-needs-constitutional-amendment-two-thirds-approval/"
+   }
+  ],
+  "impact": [
+   {
+    "k": "诉求比例",
+    "v": "沙巴与砂拉越合计占国会议席35%",
+    "s": "DayakDaily"
+   },
+   {
+    "k": "修宪门槛",
+    "v": "下议院三分之二多数",
+    "s": "DayakDaily"
+   }
+  ],
+  "note": "只有一个已核实来源（DayakDaily）。Borneo Post与TVS（砂拉越电视）同日有独立报道，但两站抓取均返回HTTP 403，未能核实，故未列入。本条依题材可归入rights（联邦－州关系／MA63），但答复的实质内容为选区划分与下议院议席组成，故归入vote。质询方后续是否有公开反驳，未查到可核实报道。",
+  "srcs": [
+   {
+    "l": "35% seat quota for Sarawak, Sabah needs constitutional amendment, two-thirds approval",
+    "u": "https://dayakdaily.com/35-seat-quota-for-sarawak-sabah-needs-constitutional-amendment-two-thirds-approval/"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-14",
+  "label": "2026年7月14日",
+  "title": "首相问答时间：国盟乌鲁登嘉楼议员质询霍尔木兹海峡危机冲击，安华交代400亿令吉石油补贴与150亿令吉现金援助",
+  "topic": "subsidy",
+  "w": 2,
+  "who": "安华政府（团结政府）／首相署",
+  "why": "在下议院第十五届国会第五会期第一次会议的「首相问答时间」，国盟乌鲁登嘉楼（Hulu Terengganu）区国会议员罗索瓦希（Rosol Wahid）提问，要求政府评估霍尔木兹海峡危机持续对国家政治与经济稳定的冲击，以及减低冲击的措施。安华在答复中说明：7月14日布伦特原油报约每桶81美元、期货约84美元，虽显著上升但仍低于4月每桶144美元的高位；2026年石油产品补贴预计达400亿令吉；RON95与柴油补贴由1至2月的每月约8亿令吉，在冲突爆发后于3、4月飙升至每月约50亿令吉，5月油价略跌后回落至约40亿令吉。他同时宣布把STR与SARA现金援助拨款提高至150亿令吉，惠及900万名国人；并说明政府已透过分散进口来源、优化国内燃油生产与签订长期供应协议来保障燃油供应。首相署已在官网公布该场问答的完整逐字稿。",
+  "hist": [
+   {
+    "d": "2026-04",
+    "t": "布伦特原油一度冲上每桶144美元"
+   },
+   {
+    "d": "2026-07",
+    "t": "首相问答时间交代危机应对与补贴规模"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "首相安华",
+    "tx": "政府持续加强措施保护人民、维持经济稳定；2026年石油产品补贴预计达400亿令吉，STR与SARA拨款提高至150亿令吉。",
+    "sr": "首相署（PMO）逐字稿",
+    "url": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-pm-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-soalan-2-penuh-14-julai-2026/"
+   },
+   {
+    "side": "against",
+    "who": "国盟乌鲁登嘉楼区国会议员罗索瓦希",
+    "tx": "要求政府评估霍尔木兹海峡危机长期化对国家政治与经济稳定的影响，以及减低冲击的具体步骤。",
+    "sr": "首相署（PMO）逐字稿",
+    "url": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-pm-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-soalan-2-penuh-14-julai-2026/"
+   }
+  ],
+  "impact": [
+   {
+    "k": "2026年石油产品补贴预计",
+    "v": "400亿令吉",
+    "s": "首相署逐字稿／Sabah Media"
+   },
+   {
+    "k": "STR与SARA拨款",
+    "v": "150亿令吉，惠及900万人",
+    "s": "首相署逐字稿"
+   },
+   {
+    "k": "布伦特原油价（2026年7月14日）",
+    "v": "约每桶81美元（期货约84美元）",
+    "s": "首相署逐字稿"
+   },
+   {
+    "k": "月度燃油补贴走势",
+    "v": "1–2月约8亿令吉／月；3–4月约50亿令吉／月；5月约40亿令吉／月",
+    "s": "首相署逐字稿"
+   }
+  ],
+  "note": "「against」一侧记录的是提问内容本身，属质询而非对立主张；Sabah Media一稿未点名提问议员，提问者姓名以首相署逐字稿为准。",
+  "srcs": [
+   {
+    "l": "Teks Verbatim YAB PM: Waktu Pertanyaan-Pertanyaan Perdana Menteri Dewan Rakyat, 14 Julai 2026",
+    "u": "https://www.pmo.gov.my/ms/jawapan-parlimen/teks-verbatim-yab-pm-waktu-pertanyaan-pertanyaan-perdana-menteri-dewan-rakyat-mesyuarat-pertama-penggal-kelima-soalan-2-penuh-14-julai-2026/"
+   },
+   {
+    "l": "PM: Kerajaan Perkukuh Langkah Lindungi Rakyat Hadapi Ketidaktentuan Selat Hormuz, Subsidi Petroleum 2026 Diunjur Cecah RM40 Bilion",
+    "u": "https://sabahmedia.com/2026/07/14/pm-kerajaan-perkukuh-langkah-lindungi-rakyat-hadapi-ketidaktentuan-selat-hormuz-subsidi-petroleum-2026-diunjur-cecah-rm40-bilion/"
+   }
+  ]
+ },
+ {
+  "date": "2026-07-29",
+  "label": "2026年7月29日",
+  "title": "上议院质询官方通胀率与民众实感落差，副经济部长承认整体通胀受控不等于所有家庭的生活成本感受",
+  "topic": "cost",
+  "w": 1,
+  "who": "经济部／副经济部长莫哈末沙哈阿都拉",
+  "why": "上议员阿扎哈哈山在上议院（Dewan Negara）质询，要求政府说明官方通胀数据与消费者实际感受之间的落差，并询问能否建立按收入群体与地区细分的生活成本指数。副经济部长莫哈末沙哈阿都拉答复时承认，整体通胀率受控并不必然反映所有家庭所感受到的生活成本经验。他并说明政府正透过发放STR（一个大马民生援助金）、SARA（基本生活援助金）、BUDI95燃油补贴以及推动渐进式薪金政策等措施，确保实质收入的增长跑赢成本上涨。这场问答把「统计数字」与「民众体感」之间的差距，第一次在上议院层面获得政府方的正式承认。",
+  "hist": [
+   {
+    "d": "2026-07-01",
+    "t": "下议院亦有议员就官方通胀率与生活成本落差质询经济部长"
+   },
+   {
+    "d": "2026-07-29",
+    "t": "上议院质询，政府承认整体通胀率不等同家庭实感"
+   }
+  ],
+  "claims": [
+   {
+    "side": "for",
+    "who": "副经济部长莫哈末沙哈阿都拉",
+    "tx": "受控的整体通胀率不一定能反映所有家庭所感受到的生活成本经验；政府正透过STR、SARA、BUDI95燃油补贴与渐进式薪金政策，确保实质收入增长超越成本上涨。",
+    "sr": "国会议事录（Hansard Digital）",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-negara/2026-07-29"
+   },
+   {
+    "side": "against",
+    "who": "上议员阿扎哈哈山",
+    "tx": "质询官方通胀数据与消费者实际感受之间的落差，并询问政府能否建立按收入群体与地区细分的生活成本指数。",
+    "sr": "国会议事录（Hansard Digital）",
+    "url": "https://hansard.parlimen.gov.my/hansard/dewan-negara/2026-07-29"
+   }
+  ],
+  "impact": [],
+  "note": "本条仅有一个来源（国会Hansard Digital上议院议事录，属一级来源）。TVS（tvsarawak.my）曾就同一场问答发稿，但该网页在核查时返回HTTP 403，无法取证，故未列入。",
+  "srcs": [
+   {
+    "l": "Dewan Negara Hansard, 29 Julai 2026",
+    "u": "https://hansard.parlimen.gov.my/hansard/dewan-negara/2026-07-29"
+   }
+  ]
+ }
+]
