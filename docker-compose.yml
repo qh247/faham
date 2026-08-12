@@ -1,0 +1,63 @@
+# faham · 本地开发栈
+#
+#   db       普通 Postgres 18（与 Neon 上的 18.4 同一大版本）
+#   sqlgate  一个很小的网关，把 Neon 的 HTTP /sql 协议翻成普通 Postgres 查询
+#
+# 为什么需要 sqlgate：functions/_lib.js 不是用 pg 驱动连数据库的，
+# 它是对 Neon 的 HTTP 端点发 fetch。这是当初为了「零依赖、零构建」刻意选的，
+# 但代价就是——一个普通的 Postgres 听不懂这套协议。
+#
+# 可以改 _lib.js 走两套逻辑，但那样本地跑的就不是线上跑的那段代码了，
+# 本地测过没问题不代表线上没问题。所以宁可在外面补一层网关，
+# 让应用代码一个字都不用改。
+#
+# 用法：  docker compose up -d          起数据库与网关
+#         docker compose down           停
+#         docker compose down -v        停并清空数据（连表一起没）
+
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: faham-db
+    environment:
+      POSTGRES_USER: faham
+      POSTGRES_PASSWORD: faham
+      POSTGRES_DB: faham
+    ports:
+      - "127.0.0.1:55432:5432"      # 只绑本机，不对外
+    volumes:
+      # 首次启动时自动建表：先目标结构，再阶段一运行表
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/10-schema.sql:ro
+      - ./db/live.sql:/docker-entrypoint-initdb.d/20-live.sql:ro
+      # PG18 起数据目录挂在 /var/lib/postgresql（而非 .../data），
+      # 挂错一层会直接拒绝启动，报「unused mount/volume」
+      - faham-pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U faham -d faham"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  sqlgate:
+    image: node:22-alpine
+    container_name: faham-sqlgate
+    working_dir: /app
+    volumes:
+      - ./bot/sqlgate:/app
+    # pg 只装在容器里，不进仓库（./bot/sqlgate/node_modules 已被 gitignore）
+    command: sh -c "npm i --no-audit --no-fund --silent pg@8 >/dev/null 2>&1 || npm i --no-audit --no-fund pg@8; node server.mjs"
+    environment:
+      PGHOST: db
+      PGPORT: "5432"
+      PGUSER: faham
+      PGPASSWORD: faham
+      PGDATABASE: faham
+      PORT: "8080"
+    ports:
+      - "127.0.0.1:5433:8080"       # _lib.js 会打到 http://localhost:5433/sql
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  faham-pgdata:
