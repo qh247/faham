@@ -67,7 +67,10 @@ PY
 if [ "$DRY" = "--dry-run" ]; then
   echo "▸ --dry-run：跳过部署"
 else
-  PAGES_HOST="${PAGES_HOST:-faham-2t2}" ./deploy.sh main
+  # 不再写死 faham-2t2：那个 Pages 项目已删除。重新上线时用
+  #   PAGES_HOST=<新的子域前缀> ./promote.sh
+  # 未设置时由 deploy.sh 回退到项目名。
+  ./deploy.sh main
 fi
 
 trap - ERR INT TERM
