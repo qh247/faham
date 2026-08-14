@@ -111,13 +111,32 @@ if [ "$BRANCH" = "main" ]; then URL="https://${HOST}.pages.dev"
 else URL="https://${BRANCH}.${HOST}.pages.dev"; fi
 fail=0
 for p in .env .dev.vars .gitignore skills-lock.json .git/config data/events.local.json functions/_lib.js; do
-  code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 12 "$URL/$p" || echo 000)
-  body=$(curl -s --max-time 12 "$URL/$p" 2>/dev/null | head -c 200 || true)
-  # Pages 对未知路径回退到 index.html，故以「是否为 HTML 页面」判定，忽略大小写
-  if [ "$code" = "200" ] && ! printf '%s' "$body" | grep -qi '<!doctype html\|<html'; then
-    echo "  ✗ 泄露：$URL/$p"; fail=1
+  # Pages 对未知路径回退到 index.html，所以判据是「返回的是不是 HTML 页面」。
+  # 三种结果要分开，早期版本把后两种混为一谈：
+  #   非 200            → 安全
+  #   200 且是 HTML     → 安全（回退页）
+  #   200 但空响应      → 不确定。刚部署完边缘还没热，请求可能超时返回空，
+  #                       这不是泄露。重试几次，仍为空就警告而非中止——
+  #                       曾因此把一次正常的生产部署判成泄露并回滚。
+  #   200 且非 HTML     → 真泄露，中止
+  code=; body=
+  for try in 1 2 3; do
+    body=$(curl -s --max-time 15 "$URL/$p" 2>/dev/null | head -c 200 || true)
+    code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$URL/$p" 2>/dev/null || echo 000)
+    [ -n "$body" ] && break
+    sleep 3
+  done
+
+  if [ "$code" != "200" ]; then
+    echo "  ✓ $p 不可访问（HTTP $code）"
+  elif printf '%s' "$body" | grep -Eqi '<!doctype html|<html'; then
+    echo "  ✓ $p 不可访问（回退到首页）"
+  elif [ -z "$body" ]; then
+    echo "  ⚠ $p 三次都是空响应，无法判定——请手动 curl 一次确认"
   else
-    echo "  ✓ $p 不可访问"
+    echo "  ✗ 泄露：$URL/$p"
+    echo "     返回开头：$(printf '%s' "$body" | head -c 60)"
+    fail=1
   fi
 done
 [ "$fail" = "0" ] || { echo "▸ 发现泄露，请立即删除该部署"; exit 1; }
