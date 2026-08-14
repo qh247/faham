@@ -17,7 +17,11 @@ const enc = new TextEncoder();
 
 export async function sql(env, query, params = []) {
   const url = new URL(env.DATABASE_URL);
-  const res = await fetch(`https://${url.host}/sql`, {
+  // 本地开发时 DATABASE_URL 指向 docker-compose 里的 sqlgate（见 docker-compose.yml），
+  // 它只监听本机、没有证书，所以走 http；其余一律 https。
+  // 这是本地与线上唯一的差别，除此之外跑的是同一段代码。
+  const scheme = /^(localhost|127\.0\.0\.1|\[::1\])(:|$)/.test(url.host) ? 'http' : 'https';
+  const res = await fetch(`${scheme}://${url.host}/sql`, {
     method: 'POST',
     headers: {
       'Neon-Connection-String': env.DATABASE_URL,

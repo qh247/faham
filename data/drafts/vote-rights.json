@@ -1,0 +1,263 @@
+{
+  "topic_group": "vote+rights",
+  "window": "2026-01-01..2026-07-31",
+  "researched_at": "2026-08-12T14:00:46Z",
+  "items": [
+    {
+      "date": "2026-01-09",
+      "label": "2026年1月9日",
+      "title": "联邦法院驳回土团党上诉准令申请，国会下议院议长不宣布沙巴四席出缺的决定维持",
+      "topic": "vote",
+      "w": 2,
+      "who": "联邦法院／国会下议院议长",
+      "why": "土团党就下议院议长佐哈里拒绝宣布四个沙巴国会议席出缺一事，向联邦法院申请上诉准令。涉及的四名议员为巴巴（Armizan Mohd Ali）、峇都沙比（Khairul Firdaus Akbar Khan）、兰瑙（Jonathan Yasin）与实必丹（Matbali Musah）。争点是联邦宪法第49A条（反跳槽条文）下，议员离党后议席是否自动出缺，以及议长的相关裁量是否可受司法审查。联邦法院三司以2比1驳回申请：多数意见认为议长的宪法权力属国会议事程序，依第63与72条不可受司法审查；异议的沙巴与砂拉越大法官则认为该条文涉及具普遍重要性的新颖法律问题，且相关认定应基于事实而非交由议长裁量。裁决结果是四席维持有效，土团党循此路径的司法救济告一段落。",
+      "hist": [
+        {"d": "2026-01", "t": "联邦法院2比1驳回上诉准令申请"}
+      ],
+      "claims": [
+        {"side": "for", "who": "联邦法院多数意见（纳丽妮法官）", "tx": "本案涉及的是联邦宪法下国会下议院议长的宪法权力；依据第63条与第72条，这些权力在国会议事程序范围内不受司法审查。法院必须顾及权力分立原则与国会特权。", "sr": "FMT", "url": "https://www.freemalaysiatoday.com/category/nation/2026/01/09/end-of-legal-route-for-bersatu-over-sabah-mps-case"},
+        {"side": "against", "who": "联邦法院异议意见（沙巴与砂拉越大法官阿兹莎）", "tx": "第49条A引发具普遍重要性与重大公共利益的新颖法律问题，已达到批准上诉准令的门槛；该项认定应基于事实，而不应交由议长自由裁量。", "sr": "The Star / FMT", "url": "https://www.thestar.com.my/news/nation/2026/01/09/apex-court-dismisses-bersatu039s-bid-to-appeal-speaker039s-decision-on-sabah-mp-seats"}
+      ],
+      "impact": [
+        {"k": "涉及国会议席", "v": "4席（巴巴、峇都沙比、兰瑙、实必丹）", "s": "The Star"},
+        {"k": "合议庭表决", "v": "2比1驳回", "s": "FMT"}
+      ],
+      "note": "两家独立媒体（The Star、FMT）各自报道，细节一致。判词全文未取得，本条依据两家报道整理。",
+      "srcs": [
+        {"l": "Apex Court dismisses Bersatu's bid to appeal Speaker's decision on Sabah MP seats", "u": "https://www.thestar.com.my/news/nation/2026/01/09/apex-court-dismisses-bersatu039s-bid-to-appeal-speaker039s-decision-on-sabah-mp-seats"},
+        {"l": "End of legal route for Bersatu over Sabah MPs case", "u": "https://www.freemalaysiatoday.com/category/nation/2026/01/09/end-of-legal-route-for-bersatu-over-sabah-mps-case"}
+      ],
+      "_verified": [
+        {"url": "https://www.thestar.com.my/news/nation/2026/01/09/apex-court-dismisses-bersatu039s-bid-to-appeal-speaker039s-decision-on-sabah-mp-seats", "http": 200, "outlet": "thestar",
+         "supports": "\"The court is bound to give consideration to the doctrine of the separation of powers and Parliamentary privilege.\" (Justice Nallini Pathmanathan; page also names the four MPs Armizan Mohd Ali (Papar), Khairul Firdaus Akbar Khan (Batu Sapi), Jonathan Yasin (Ranau), Matbali Musah (Sipitang), and the 2-1 majority with Chief Judge Azizah Nawawi dissenting)"},
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/01/09/end-of-legal-route-for-bersatu-over-sabah-mps-case", "http": 200, "outlet": "freemalaysiatoday",
+         "supports": "\"We are dealing with the constitutional powers of the (Dewan Rakyat) speaker under the Federal Constitution. Those powers are non-justiciable in relation to proceedings in Parliament by reason of Articles 63 and 72.\" — and the dissent: \"That determination must be factual and not left to the discretion of the speaker.\""}
+      ]
+    },
+    {
+      "date": "2026-02-10",
+      "label": "2026年2月10日",
+      "title": "内政部长在下议院表示，海外出生子女自动公民权修宪预计2026年6月1日生效",
+      "topic": "rights",
+      "w": 2,
+      "who": "内政部",
+      "why": "2024年通过的联邦宪法修正案，让马来西亚籍母亲在海外所生子女可依法自动取得公民权，但修正案通过后一直未订定生效日期。2026年2月10日，内政部长赛夫丁纳苏迪安在下议院表示，政府预计在2026年6月1日实施，并称此举符合该法令第1(2)条；他说明政府正在完成公民权规则的修订与呈请元首御准等最后程序。到了6月8日，赛夫丁在峇株巴辖对媒体表示，部门层面的准备已全部完成，包括海外representatives与所需表格，政府仍在等待生效前的最后程序，但未公布确定日期。也就是说，2月在国会给出的6月1日时点，至6月上旬时仍未落实。倡议团体Family Frontiers于1月16日发表声明，欢迎修正案将实施，但指出修正案不具追溯力，已满21岁者不适用，要求设立多方利益相关者公民权工作组，并为成年申请者提供明确的归化途径。",
+      "hist": [
+        {"d": "2026-01", "t": "Family Frontiers表示欢迎，同时要求处理「超龄」成年子女问题"},
+        {"d": "2026-02", "t": "内政部长在下议院说明预计6月1日生效"},
+        {"d": "2026-06", "t": "内政部长表示准备完成、仍待最后程序，未公布确定日期"}
+      ],
+      "claims": [
+        {"side": "for", "who": "内政部长赛夫丁纳苏迪安", "tx": "政府预计在2026年6月1日可以实施，符合该法令第1(2)条的规定；部门层面的准备工作已全部完成，包括海外单位的准备与所需表格。", "sr": "Malay Mail / The Star", "url": "https://www.malaymail.com/news/malaysia/2026/02/10/citizenship-law-amendment-set-to-take-effect-june-1/208659"},
+        {"side": "against", "who": "倡议团体Family Frontiers", "tx": "修正案不具追溯力，已届21岁者被排除在外；这些人现有的证件一旦到期，将面临被迫离开自己唯一视为家的国家的处境。团体要求设立多方利益相关者公民权工作组，并为成年申请者提供明确、确定的归化途径。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/01/16/family-frontiers-hails-citizenship-amendment-but-urges-solution-for-aged-out-adult-children/205601"}
+      ],
+      "impact": [
+        {"k": "国会宣布的预定生效日", "v": "2026年6月1日", "s": "Malay Mail"}
+      ],
+      "note": "2月10日下议院的这项说法，我只找到并核实了Malay Mail一家报道（parlimen.gov.my数码议事录当日页面的口头提问清单中未见相关提问，可能属部长发言或书面回复，未能进一步核对）。6月8日的后续说法出自The Star，属部长在峇株巴辖对媒体的谈话，非国会问答，已在hist中标明。",
+      "srcs": [
+        {"l": "Citizenship law amendment set to take effect June 1", "u": "https://www.malaymail.com/news/malaysia/2026/02/10/citizenship-law-amendment-set-to-take-effect-june-1/208659"},
+        {"l": "Saifuddin: Govt close to fixing start date for automatic citizenship to children born overseas to M'sian mums", "u": "https://www.thestar.com.my/news/nation/2026/06/09/saifuddin-govt-close-to-fixing-start-date-for-automatic-citizenship-to-children-born-overseas-to-m039sian-mums"},
+        {"l": "Family Frontiers hails citizenship amendment but urges solution for 'aged-out' adult children", "u": "https://www.malaymail.com/news/malaysia/2026/01/16/family-frontiers-hails-citizenship-amendment-but-urges-solution-for-aged-out-adult-children/205601"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaymail.com/news/malaysia/2026/02/10/citizenship-law-amendment-set-to-take-effect-june-1/208659", "http": 200, "outlet": "malaymail",
+         "supports": "\"we expect that by June 1, 2026, we will be able to implement it, in-line with Section 1(2) of the Act.\" (Home Minister Datuk Seri Saifuddin Nasution Ismail, Dewan Rakyat, 10 February 2026)"},
+        {"url": "https://www.thestar.com.my/news/nation/2026/06/09/saifuddin-govt-close-to-fixing-start-date-for-automatic-citizenship-to-children-born-overseas-to-m039sian-mums", "http": 200, "outlet": "thestar",
+         "supports": "\"At my ministry's level, all preparations have been completed, including preparations involving our representatives overseas and the necessary forms.\" (statement made 8 June 2026 at Pusat Latihan Teknologi Tinggi Batu Pahat; no specific start date announced)"},
+        {"url": "https://www.malaymail.com/news/malaysia/2026/01/16/family-frontiers-hails-citizenship-amendment-but-urges-solution-for-aged-out-adult-children/205601", "http": 200, "outlet": "malaymail",
+         "supports": "\"Once these expire, they face the devastating prospect of being forced to leave the only country they call home.\" — Family Frontiers also called for a \"Multi-Stakeholder Citizenship Task Force\" and \"a clear and definitive pathway for adult citizenship applications through naturalisation.\""}
+      ]
+    },
+    {
+      "date": "2026-02-11",
+      "label": "2026年2月11日",
+      "title": "国民团结部长书面答复指承认统考「有可能引发不和谐」，砂拉越董总公开反驳",
+      "topic": "rights",
+      "w": 2,
+      "who": "国民团结部／教育部",
+      "why": "国民团结部长阿伦阿哥达刚在一份国会书面答复中表示，承认独中统一考试文凭（UEC）「有可能在国民之间引发不和谐」，并以此作为教育部维持不承认统考立场的理由之一。2026年2月11日，砂拉越华校董事联合会（砂拉越董总）公开回应，指该说法与砂拉越长期以来的开放包容作风相悖，反映联邦官僚体系中的过时成见；该会指出砂拉越自2015年起已承认统考而未出现问题，认为教育多元与国家认同可以并存，并主张对团结的真正威胁来自资源与机会上的持续不均，而非教育多元；该会呼吁部长参考砂拉越的做法来引导联邦政策。",
+      "hist": [
+        {"d": "2026-02", "t": "国民团结部长书面答复；砂拉越董总公开反驳"}
+      ],
+      "claims": [
+        {"side": "for", "who": "国民团结部长阿伦阿哥达刚（国会书面答复）", "tx": "承认统考有可能在国民之间引发不和谐，这是教育部维持不承认统考立场的理由之一。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/02/11/recognising-uec-wont-spark-discord-sarawak-dong-zong-tells-national-unity-minister/208898"},
+        {"side": "against", "who": "砂拉越华校董事联合会（砂拉越董总）", "tx": "该说法与砂拉越长期的开放包容作风相悖，反映联邦官僚体系中的过时成见；砂拉越自2015年起承认统考并未出现问题，显示教育多元与国家认同可以并存；对团结的真正威胁来自资源与机会上的持续不均。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/02/11/recognising-uec-wont-spark-discord-sarawak-dong-zong-tells-national-unity-minister/208898"}
+      ],
+      "impact": [],
+      "note": "本条只有一个已核实来源（Malay Mail，同一篇同时载有官方书面答复内容与反驳方说法）。中文媒体（光明日报）2026年2月10日有对应报道，但该站对本次抓取返回HTTP 403，未能核实，故未列为来源。书面答复原件（国会问答编号）未取得，答复的确切提交日期无法确认，本条日期采用已核实报道的刊出日期。",
+      "srcs": [
+        {"l": "Recognising UEC won't spark discord, Sarawak Dong Zong tells national unity minister", "u": "https://www.malaymail.com/news/malaysia/2026/02/11/recognising-uec-wont-spark-discord-sarawak-dong-zong-tells-national-unity-minister/208898"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaymail.com/news/malaysia/2026/02/11/recognising-uec-wont-spark-discord-sarawak-dong-zong-tells-national-unity-minister/208898", "http": 200, "outlet": "malaymail",
+         "supports": "Datuk Aaron Ago Dagang wrote in a written parliamentary reply that recognising the UEC \"has the potential to trigger disharmony among Malaysians\"; Sarawak Dong Zong said the remarks run \"counter to Sarawak's long-standing spirit of openness and inclusivity\" and reflect \"outdated biases within the federal bureaucracy\", noting Sarawak has recognised the UEC since 2015."}
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "label": "2026年6月25日",
+      "title": "高教部副部长在下议院答复：国立大学录取依既定标准与绩效，统考生无特别管道",
+      "topic": "rights",
+      "w": 1,
+      "who": "高等教育部",
+      "why": "在下议院口头问答环节，阿劳国会议员沙希淡卡欣（PN－阿劳）就统考持有者进入国立大学一事提出附加提问。高等教育部副部长阿当阿里答复称，国立大学录取依据既定标准与绩效，符合国家教育体系，不受政治考量或所谓「后门」影响；他表示统考生并没有特别管道或放宽的入学条件，并说部门从未表示统考生的录取完全以该单一体系为依据。此答复是2026年5月政府开放统考及tahfiz学生申请国立大学管道后，官方在国会对该安排性质的进一步说明。",
+      "hist": [
+        {"d": "2026-06", "t": "高教部副部长在下议院答复附加提问"}
+      ],
+      "claims": [
+        {"side": "for", "who": "高等教育部副部长阿当阿里", "tx": "国立大学录取以既定标准与绩效为依据，没有为统考持有者设特别管道或放宽入学条件；部门从未表示统考生的录取完全依据该单一体系。", "sr": "Malay Mail", "url": "https://www.malaymail.com/news/malaysia/2026/06/25/adam-adli-public-university-admissions-based-on-merit-no-backdoors-for-uec-holders/225147"}
+      ],
+      "impact": [],
+      "note": "只有一个已核实来源（Malay Mail）。BusinessToday有同日独立报道，但抓取返回HTTP 403，未能核实，故未列入。质询方（沙希淡卡欣）的提问原文未取得全文，因此本条没有可核实的against一方说法。",
+      "srcs": [
+        {"l": "Adam Adli: Public university admissions based on merit, no 'backdoors' for UEC holders", "u": "https://www.malaymail.com/news/malaysia/2026/06/25/adam-adli-public-university-admissions-based-on-merit-no-backdoors-for-uec-holders/225147"}
+      ],
+      "_verified": [
+        {"url": "https://www.malaymail.com/news/malaysia/2026/06/25/adam-adli-public-university-admissions-based-on-merit-no-backdoors-for-uec-holders/225147", "http": 200, "outlet": "malaymail",
+         "supports": "Dewan Rakyat oral question-and-answer session, Thursday 25 June 2026; supplementary question by Datuk Seri Dr Shahidan Kassim (PN-Arau); Deputy Higher Education Minister Adam Adli Abdul Halim: \"We have never said that the involvement or acceptance of UEC (holders) is based entirely on that single system.\", and that admissions are based on established criteria and merit with \"no special pathways or relaxed entry requirements\"."}
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "label": "2026年6月25日",
+      "title": "首相署部长在下议院答复：沙巴砂拉越35%国会议席诉求仍在讨论，需修宪第46条",
+      "topic": "vote",
+      "w": 1,
+      "who": "首相署（沙巴砂拉越事务）／选举委员会",
+      "why": "哥打毛律国会议员伊斯娜莱莎慕妮拉（民兴党－哥打毛律）在下议院问答环节，询问1963年马来西亚协议（MA63）落实的最新进展，以及把沙巴与砂拉越国会议席比例提高至35%的诉求。首相署部长（沙巴与砂拉越事务）慕斯达法沙孟答复称，该诉求仍属未解决事项、尚在讨论阶段。他说明这属选举委员会依联邦宪法第十三附表与第113条的权限范围，同时需要修改联邦宪法第46条中有关下议院组成的规定，而修宪须获得下议院三分之二多数通过；他并指选区划分只能在八年周期届满后才能进行。",
+      "hist": [
+        {"d": "2026-06", "t": "首相署部长在下议院答复35%议席诉求进展"}
+      ],
+      "claims": [
+        {"side": "for", "who": "首相署部长（沙巴与砂拉越事务）慕斯达法沙孟", "tx": "此事属选举委员会依联邦宪法第十三附表与第113条的权限，并需修改第46条中下议院组成的相关法律，而修宪须获下议院三分之二多数通过；35%议席诉求仍在讨论阶段。", "sr": "DayakDaily", "url": "https://dayakdaily.com/35-seat-quota-for-sarawak-sabah-needs-constitutional-amendment-two-thirds-approval/"}
+      ],
+      "impact": [
+        {"k": "诉求比例", "v": "沙巴与砂拉越合计占国会议席35%", "s": "DayakDaily"},
+        {"k": "修宪门槛", "v": "下议院三分之二多数", "s": "DayakDaily"}
+      ],
+      "note": "只有一个已核实来源（DayakDaily）。Borneo Post与TVS（砂拉越电视）同日有独立报道，但两站抓取均返回HTTP 403，未能核实，故未列入。本条依题材可归入rights（联邦－州关系／MA63），但答复的实质内容为选区划分与下议院议席组成，故归入vote。质询方后续是否有公开反驳，未查到可核实报道。",
+      "srcs": [
+        {"l": "35% seat quota for Sarawak, Sabah needs constitutional amendment, two-thirds approval", "u": "https://dayakdaily.com/35-seat-quota-for-sarawak-sabah-needs-constitutional-amendment-two-thirds-approval/"}
+      ],
+      "_verified": [
+        {"url": "https://dayakdaily.com/35-seat-quota-for-sarawak-sabah-needs-constitutional-amendment-two-thirds-approval/", "http": 200, "outlet": "dayakdaily",
+         "supports": "Published 25 June 2026; Dewan Rakyat question-and-answer session; question by Isnaraissah Munirah Majilis (Warisan-Kota Belud); answered by Datuk Mustapha Sakmud: \"The matter falls under the jurisdiction of the Election Commission in accordance with the Thirteenth Schedule and Article 113 of the Federal Constitution, and also requires an amendment to the law on the composition of the Dewan Rakyat under Article 46, which requires a two-thirds majority approval in the House.\""}
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "label": "2026年7月7日",
+      "title": "首相在下议院答复新闻自由指数下跌质询，指排名下滑源于执法行动",
+      "topic": "rights",
+      "w": 2,
+      "who": "首相署／通讯部／大马媒体理事会",
+      "why": "在下议院部长问答时间，巴西马国会议员阿末法德里沙里（PN－巴西马）向首相提问，指马来西亚在2026年世界新闻自由指数的排名由第88位跌至第95位，询问政府维护媒体自由的措施；淡边国会议员依山依沙（BN－淡边）则询问允许起诉记者的法律框架。首相安华答复称，排名下跌源于对媒体机构采取的执法行动，而非审查；他举星洲日报因国旗图示错误一事为例，指该案在发出「原因函」后已和解处理，但过程中涉及警方调查、纪律处分与通讯及多媒体委员会开出的10万令吉罚款。他并指出，社交平台自行下架内容与政府干预是两回事。关于记者保护，安华表示相关投诉须先转交大马媒体理事会处理，不会因有人投诉就自动展开调查或起诉。国会数码议事录当日记录显示，该项提问列在部长问答时间第2题，由巴西马议员向首相提出；记录中亦出现通讯及多媒体法令第233条相关的讨论。",
+      "hist": [
+        {"d": "2026-07", "t": "下议院部长问答时间：两名议员就媒体自由与记者起诉法律框架提问，首相答复"}
+      ],
+      "claims": [
+        {"side": "for", "who": "首相安华依布拉欣", "tx": "对具规模媒体机构采取行动，会立即反映在新闻自由指数上；星洲日报一案在发出原因函后已和解处理。今后相关投诉须先转交大马媒体理事会，不会自动导致调查或起诉。", "sr": "FMT / Malay Mail", "url": "https://www.freemalaysiatoday.com/category/nation/2026/07/07/complaints-against-journos-must-go-to-media-council-first-pm-says"},
+        {"side": "against", "who": "巴西马国会议员阿末法德里沙里（PN）与淡边国会议员依山依沙（BN）", "tx": "质询马来西亚在2026年世界新闻自由指数由第88位跌至第95位的原因与政府的应对措施，并质询现行允许起诉记者的法律框架。", "sr": "FMT / 国会数码议事录", "url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-07"}
+      ],
+      "impact": [
+        {"k": "2026年世界新闻自由指数排名", "v": "第95位（前一年第88位）", "s": "FMT"},
+        {"k": "通讯及多媒体委员会对星洲日报开出的罚款", "v": "10万令吉", "s": "Malay Mail"}
+      ],
+      "note": "三个独立来源，其中一个为国会官方数码议事录（tier 1）。质询方与政府方说法并列，未作评断。",
+      "srcs": [
+        {"l": "Complaints against journos must go to media council first, PM says", "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/07/complaints-against-journos-must-go-to-media-council-first-pm-says"},
+        {"l": "Anwar: Malaysia's press freedom ranking fell due to enforcement, not censorship", "u": "https://www.malaymail.com/news/malaysia/2026/07/07/anwar-malaysias-press-freedom-ranking-fell-due-to-enforcement-not-censorship/226670"},
+        {"l": "Penyata Rasmi Dewan Rakyat (Hansard Digital), 7 Julai 2026", "u": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-07"}
+      ],
+      "_verified": [
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/07/07/complaints-against-journos-must-go-to-media-council-first-pm-says", "http": 200, "outlet": "freemalaysiatoday",
+         "supports": "Dewan Rakyat, Ministers' Question Time, 7 July 2026. Questioners: Isam Isa (BN-Tampin) on the legal framework allowing journalist prosecution, and Ahmad Fadhli Shaari (PN-Pasir Mas) on the press freedom index decline. Anwar: \"When action is taken against established media organisations, it immediately affects the press freedom index\" and \"It will no longer automatically lead to an investigation or prosecution, as the process now requires referral to the MMM before any action is taken\". Malaysia dropped to 95th from 88th."},
+        {"url": "https://www.malaymail.com/news/malaysia/2026/07/07/anwar-malaysias-press-freedom-ranking-fell-due-to-enforcement-not-censorship/226670", "http": 200, "outlet": "malaymail",
+         "supports": "\"After we assessed the metric used... so when we took action against Sin Chew, for example, that was seen as a strong action that would affect the index.\" Page describes the Sin Chew matter (erroneous national flag illustration) as resolved amicably after a show-cause letter, but noting police investigations, disciplinary actions and a RM100,000 MCMC compound."},
+        {"url": "https://hansard.parlimen.gov.my/hansard/dewan-rakyat/2026-07-07", "http": 200, "outlet": "parlimen.gov.my (Hansard Digital)",
+         "supports": "Under \"Waktu Pertanyaan-pertanyaan Menteri\", item 2 is listed as \"Tuan Haji Ahmad Fadhli bin Shaari [Pasir Mas]\" directed to the Prime Minister, on Malaysia's World Press Freedom Index decline to rank 95 from 88."}
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "label": "2026年7月8日",
+      "title": "法律事务部长书面答复：选委会已进入砂拉越选区重划建议的最后准备阶段",
+      "topic": "vote",
+      "w": 2,
+      "who": "选举委员会／首相署（法律及体制改革）",
+      "why": "成邦江国会议员李察拉布（GPS－成邦江）在下议院提问，要求政府保证选举委员会能在砂拉越州议会解散前完成选区重划。首相署部长（法律及体制改革）阿莎丽娜以书面答复表示，选委会目前正处于砂拉越选区重划建议的最后准备阶段，已把砂州议会通过、并于2025年8月8日生效的法律纳入考量，该法把州议席由82席增至99席。她说明选委会将在近期展示重划建议，这标志着依联邦宪法第113条第9款的重划工作正式开始；依宪法规定，选委会自正式公告刊登之日起有两年时间完成有关工作。砂拉越上一轮八年周期已于2023年8月21日届满。答复中未确认整个程序能否在砂州议会任期届满（2027年2月）前完成。此前的2月7日，GPS总秘书兼加帛国会议员南达林基对17个新州议席何时提呈表示「目前还没有任何资讯」，并称不确定新议席能否赶上下届砂州选举。",
+      "hist": [
+        {"d": "2026-02", "t": "GPS总秘书南达林基表示17个新州议席提呈无时间表"},
+        {"d": "2026-07", "t": "部长书面答复指选委会进入建议最后准备阶段"}
+      ],
+      "claims": [
+        {"side": "for", "who": "首相署部长（法律及体制改革）阿莎丽娜", "tx": "选委会目前正处于砂拉越选区重划建议的最后准备阶段，已纳入增加17个州议席的因素；建议展示将在近期进行，标志重划依联邦宪法第113条第9款正式开始，选委会自公告日起有两年时间完成。", "sr": "FMT / Kosmo", "url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/08/spr-dalam-proses-akhir-sedia-syor-persempadanan-semula-sarawak-kata-azalina"},
+        {"side": "against", "who": "GPS总秘书兼加帛国会议员南达林基", "tx": "对于17个新州议席何时提呈，目前还没有任何资讯，相关程序仍在有关方面讨论中；不确定新增议席能否赶上必须在2027年2月前举行的下届砂州选举。", "sr": "FMT", "url": "https://www.freemalaysiatoday.com/category/nation/2026/02/07/no-timeline-on-tabling-of-sarawaks-17-new-state-seats-says-nanta"}
+      ],
+      "impact": [
+        {"k": "砂拉越州议席", "v": "由82席增至99席（增加17席）", "s": "FMT / Kosmo"},
+        {"k": "选委会完成重划的宪定期限", "v": "自正式公告刊登起2年", "s": "Kosmo"},
+        {"k": "上一轮八年周期届满日", "v": "2023年8月21日", "s": "FMT / Kosmo"}
+      ],
+      "note": "两家独立媒体（FMT、Kosmo）各自报道同一份书面答复，细节一致。反方说法为同一议题上另一时点（2月7日）的公开表态，非对该书面答复的直接回应，已在hist标明时序。",
+      "srcs": [
+        {"l": "SPR dalam proses akhir sedia syor persempadanan semula Sarawak, kata Azalina", "u": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/08/spr-dalam-proses-akhir-sedia-syor-persempadanan-semula-sarawak-kata-azalina"},
+        {"l": "Persempadanan semula bahagian pilihan raya Sarawak di peringkat akhir", "u": "https://www.kosmo.com.my/2026/07/08/persempadanan-semula-bahagian-pilihan-raya-sarawak-di-peringkat-akhir/"},
+        {"l": "No timeline on tabling of Sarawak's 17 new state seats, says Nanta", "u": "https://www.freemalaysiatoday.com/category/nation/2026/02/07/no-timeline-on-tabling-of-sarawaks-17-new-state-seats-says-nanta"}
+      ],
+      "_verified": [
+        {"url": "https://www.freemalaysiatoday.com/category/bahasa/tempatan/2026/07/08/spr-dalam-proses-akhir-sedia-syor-persempadanan-semula-sarawak-kata-azalina", "http": 200, "outlet": "freemalaysiatoday",
+         "supports": "\"Ketika ini, SPR dalam proses akhir penyediaan syor untuk persempadanan semula bahagian pilihan raya bagi Sarawak, dengan mengambil kira pertambahan 17 kerusi DUN\" — Dewan Rakyat written reply of 8 July 2026 by Azalina Othman Said to a question from Richard Rapu (GPS-Betong); eight-year cycle ended 21 August 2023; SPR has two years from publication of the official notice under Article 113(9)."},
+        {"url": "https://www.kosmo.com.my/2026/07/08/persempadanan-semula-bahagian-pilihan-raya-sarawak-di-peringkat-akhir/", "http": 200, "outlet": "kosmo",
+         "supports": "\"Pameran syor kajian ini akan dilaksanakan oleh pihak SPR dalam masa terdekat yang menandakan bermulanya kajian ini secara rasmi seperti yang diperuntukkan dalam Fasal 9, Perkara 113, Perlembagaan Persekutuan.\" — written answer by Datuk Seri Azalina Othman Said to Datuk Dr Richard Rapu (GPS-Betong); accounts for 17 additional DUN seats enforced 8 August 2025."},
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/02/07/no-timeline-on-tabling-of-sarawaks-17-new-state-seats-says-nanta", "http": 200, "outlet": "freemalaysiatoday",
+         "supports": "7 February 2026; Alexander Nanta Linggi, GPS secretary-general and Kapit MP: \"We do not have any information yet\"; he was \"not sure whether the additional seats could be implemented in time for elections for a new state assembly, which must be held by February 2027\"."}
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "label": "2026年7月16日",
+      "title": "教育部书面答复公布华裔中学生就读统考体系比例为19.4%",
+      "topic": "rights",
+      "w": 1,
+      "who": "教育部",
+      "why": "波各先那国会议员阿末沙阿（PN－波各先那）以书面提问，询问选择统考体系而非国家学校体系的华裔学生比例。教育部（部长法丽娜西迪）书面答复列出数据：全国华裔中学生共387,406人，其中就读独中统考体系者75,144人，占19.4%；就读教育部属下学校者260,699人，占67.3%；就读私立机构者51,563人，占13.3%。该答复为官方首次在本时段的国会记录中公布此一分布数据。",
+      "hist": [
+        {"d": "2026-07", "t": "教育部书面答复公布分布数据"}
+      ],
+      "claims": [
+        {"side": "for", "who": "教育部（书面答复）", "tx": "截至今年，共75,144名华裔学生就读独中，占全国387,406名华裔中学生的19.4%；另有260,699人（67.3%）就读教育部属下学校，51,563人（13.3%）就读私立机构。", "sr": "The Star / FMT", "url": "https://www.thestar.com.my/news/nation/2026/07/16/nearly-20-of-chinese-students-opt-for-uec-dewan-rakyat-told"}
+      ],
+      "impact": [
+        {"k": "就读统考体系华裔中学生", "v": "75,144人（19.4%）", "s": "The Star / FMT"},
+        {"k": "就读教育部属下学校", "v": "260,699人（67.3%）", "s": "The Star"},
+        {"k": "就读私立机构", "v": "51,563人（13.3%）", "s": "The Star"},
+        {"k": "华裔中学生总数", "v": "387,406人", "s": "The Star / FMT"}
+      ],
+      "note": "两家独立媒体（The Star、FMT）各自报道同一份书面答复，数据一致。本条为数据公布，未查到可核实的反方质疑，因此没有against说法。",
+      "srcs": [
+        {"l": "Nearly 20% of Chinese students opt for UEC, Dewan Rakyat told", "u": "https://www.thestar.com.my/news/nation/2026/07/16/nearly-20-of-chinese-students-opt-for-uec-dewan-rakyat-told"},
+        {"l": "Nearly 1 in 5 Chinese secondary students enrolled in UEC system, Dewan told", "u": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/nearly-1-in-5-chinese-secondary-students-enrolled-in-uec-system-dewan-told"}
+      ],
+      "_verified": [
+        {"url": "https://www.thestar.com.my/news/nation/2026/07/16/nearly-20-of-chinese-students-opt-for-uec-dewan-rakyat-told", "http": 200, "outlet": "thestar",
+         "supports": "\"Nearly 20% of Chinese students in Malaysia opted for enrolment in Chinese independent high schools this year\" — written parliamentary reply dated 16 July 2026 to Datuk Ahmad Saad @ Yahaya (PN-Pokok Sena); figures given: 75,144 (19.4%) in UEC stream, 260,699 (67.3%) in Education Ministry schools, 51,563 (13.3%) in private institutions, total 387,406."},
+        {"url": "https://www.freemalaysiatoday.com/category/nation/2026/07/16/nearly-1-in-5-chinese-secondary-students-enrolled-in-uec-system-dewan-told", "http": 200, "outlet": "freemalaysiatoday",
+         "supports": "\"75,144 Chinese students were enrolled in Chinese independent high schools as of this year, accounting for 19.4%\" of the 387,406 Chinese secondary school students; question by Ahmad Yahaya (PN-Pokok Sena), answered by Education Minister Fadhlina Sidek, 16 July 2026."}
+      ]
+    }
+  ],
+  "searched_but_found_nothing": [
+    "Dewan Rakyat soalan Suruhanjaya Pilihan Raya 2026 jawapan menteri（未找到SPR运作／独立性本身的具体国会问答报道）",
+    "Dewan Rakyat 2026 Suruhanjaya Pilihan Raya undi pos daftar pemilih soalan jawapan Azalina SPR bebas（只找到SPR官网通用说明，无国会问答）",
+    "anti-hopping law amendment 2026 Dewan Rakyat undang-undang lompat parti soalan（未找到2026年窗口内针对反跳槽法修法的国会问答，只找到法院案件）",
+    "Dewan Rakyat 2026 Akta Hasutan Seksyen 233 Akta Komunikasi siasatan soalan parlimen（未找到专门针对煽动法令执法数据的国会问答报道）",
+    "承认统考 国会 2026 教育部 答复（中文搜索结果多为中国教育部内容；大马中文媒体相关页面返回403，无法核实）",
+    "Family Frontiers citizenship amendment delay criticism 2026 June 1 missed deadline（未找到针对6月1日期限落空的具名议员或团体正式质疑报道）",
+    "Azalina written reply March 2026 additional parliamentary seats Sabah Sarawak（2026年3月3日阿莎丽娜书面答复的报道来源均无法抓取核实，已放弃该条）",
+    "PAC hearing 2026 Malaysia election commission / citizenship（未找到本时段内与本两个题材相关、可核实的公共账目委员会听证报道）",
+    "Perkara 153 kuota Dewan Rakyat 2026 soalan（未找到本时段内可核实的第153条／固打相关国会问答报道）"
+  ],
+  "notes": "1）时间窗内可抓取核实的「国会质询＋官方答复」报道，集中在UEC／公民权／选区划分／媒体自由四条线；选委会运作本身（选民册、补选、投票安排）的国会问答，我没有找到可核实的报道。2）多家马来西亚媒体对本次抓取返回HTTP 403，包括光明日报、Daily Express、Borneo Post、TVS砂拉越、Harian Metro、BusinessToday；这些站点上存在相关报道，但因无法核实，一律未列为来源。3）国会官方数码议事录（hansard.parlimen.gov.my）可抓取，但每日页面返回内容会被截断，只能核对到问答清单前段，因此只在2026-07-07一条上用作tier-1佐证。4）书面答复的正式编号（soalan bertulis编号）我一份都没有取得，所有书面答复条目均依据媒体报道整理。5）第3条（国民团结部长UEC书面答复）与第5条（35%议席）只有单一来源，已在各自note标明。6）第4条、第8条只有政府方说法，没有可核实的反方说法，已在note标明。7）全部条目只记录「谁在什么场合说了什么」，并列双方说法，不作评断。"
+}

@@ -33,3 +33,10 @@ public/
 
 # 由 deploy.sh 生成的候选日期索引
 data/candidates/index.json
+
+# sqlgate 的依赖只在本地容器里用，不进仓库
+bot/sqlgate/node_modules/
+bot/sqlgate/package*.json
+
+__pycache__/
+*.pyc

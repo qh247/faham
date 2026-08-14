@@ -67,6 +67,8 @@ PY
 if [ "$DRY" = "--dry-run" ]; then
   echo "▸ --dry-run：跳过部署"
 else
+  # 子域前缀与项目名不同（项目 faham，子域 faham-2t2），所以要显式给。
+  # 换域名时改这里，并同步 index.html 里的三处 og/twitter 绝对地址。
   PAGES_HOST="${PAGES_HOST:-faham-2t2}" ./deploy.sh main
 fi
 
