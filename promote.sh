@@ -67,10 +67,9 @@ PY
 if [ "$DRY" = "--dry-run" ]; then
   echo "▸ --dry-run：跳过部署"
 else
-  # 不再写死 faham-2t2：那个 Pages 项目已删除。重新上线时用
-  #   PAGES_HOST=<新的子域前缀> ./promote.sh
-  # 未设置时由 deploy.sh 回退到项目名。
-  ./deploy.sh main
+  # 子域前缀与项目名不同（项目 faham，子域 faham-2t2），所以要显式给。
+  # 换域名时改这里，并同步 index.html 里的三处 og/twitter 绝对地址。
+  PAGES_HOST="${PAGES_HOST:-faham-2t2}" ./deploy.sh main
 fi
 
 trap - ERR INT TERM
